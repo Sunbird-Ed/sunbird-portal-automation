@@ -1,11 +1,5 @@
 package com.sunbird.PageActions;
 
-import java.io.FileInputStream;
-import java.util.Properties;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 
 import com.sunbird.GenericLibrary.BaseTestConfig;
@@ -35,7 +29,7 @@ public class OnBoardingActions extends BaseTestConfig {
 		onboard.BoardDropdown();
 
 	// String frameworkName=frameworkconfig.getFramework("CBSE_FRAMEWORK");
-		String frameworkName=frameworkconfig.getFramework("TAMILNADU_Framework");
+		String frameworkName= sunbird_config.getSunbidConfigPropertyValue("TAMILNADU_Framework");
 		 
 		//String usRname=frameworkconfig.getFramework("CREATOR_USRNAME");
 		 

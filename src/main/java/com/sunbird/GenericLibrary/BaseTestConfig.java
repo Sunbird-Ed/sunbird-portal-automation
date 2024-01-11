@@ -22,7 +22,7 @@ public class BaseTestConfig implements Sunbird_ConstantData {
 	
 	public static WebDriver driver;
 	public static ExcelDataProvider excel;
-	public static FrameworkConfigProvider frameworkconfig;
+	public static FrameworkConfigProvider sunbird_config;
 	Properties pro;                                                              
 	public static ExtendReportGenerator reporter;
 
@@ -30,7 +30,7 @@ public class BaseTestConfig implements Sunbird_ConstantData {
 	@BeforeClass
 	public void loadFrameworkConfigs() throws Exception {
 
-		frameworkconfig=new FrameworkConfigProvider();
+		sunbird_config =new FrameworkConfigProvider();
 	}
 	
 	
@@ -48,7 +48,7 @@ public class BaseTestConfig implements Sunbird_ConstantData {
 	@BeforeMethod
 	public void LaunchBrowser() throws IOException {
 		
-		String path = System.getProperty("user.dir") + "\\Config\\Config.Properties";
+		String path = System.getProperty("user.dir") + "//Config//Config.Properties";
 		FileInputStream fis = new FileInputStream(path);
 		pro = new Properties();
 		pro.load(fis);

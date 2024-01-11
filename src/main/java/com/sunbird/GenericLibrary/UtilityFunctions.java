@@ -2,6 +2,7 @@ package com.sunbird.GenericLibrary;
 
 import java.time.Duration;
 
+import com.github.javafaker.Faker;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -57,10 +58,7 @@ public class UtilityFunctions extends BaseTestConfig {
 		fluenWait(element,waitTime);
 	    element.click();
 	}
-	
-	
-	
-	
+
 	
 	/* This method will click on the UI screen using given dimension value */
 	public static void MoveByOffSet(int a,int b)
@@ -73,8 +71,35 @@ public class UtilityFunctions extends BaseTestConfig {
 
 	public static void findElementAndClick(String xpathValue)
 	{
-	 driver.findElement(By.xpath(xpathValue)).click();
+		driver.findElement(By.xpath(xpathValue)).click();
 	}
-	
-	
+
+	/* Method will get the current url and do the substring and returning the with extracted do_Id */
+	  	public static String generate_Do_id() {
+	//	String currentUrl = driver.getCurrentUrl();
+		String currentUrl="https://diksha.gov.in/workspace/edit/Course/do_31396703106942566414248/draft/Draft?lockKey=2bd4f204-c4b9-4648-a3e5-2a48714cc167&expiresAt=2024-01-11T08:57:27.591Z&expiresIn=60";
+		String do_id = "do_";
+		int startIndex = currentUrl.indexOf(do_id);
+		String parsedString = currentUrl.substring(startIndex);
+		String end_id = "/";
+		int endIndex = parsedString.indexOf(end_id);
+		endIndex = startIndex + endIndex;
+		String DO_ID = currentUrl.substring(startIndex, endIndex);
+		return DO_ID;
+	}
+
+	/* will give the RandomName by accepting the preFixName as parameter Ex: CourseJohn*/
+	public static String generateRandomName(String preFixName) {
+		Faker faker = new Faker();
+
+	String name = faker.name().firstName();
+	String randamtestdata=preFixName+name;
+		return randamtestdata;
+	}
+
+	public static String getTextFromElement(WebElement elementName)
+	{
+          String fetchedText=elementName.getText();
+        return fetchedText;
+    }
 }

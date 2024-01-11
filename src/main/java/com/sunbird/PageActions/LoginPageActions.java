@@ -11,19 +11,22 @@ public class LoginPageActions extends BaseTestConfig {
 	
 
 	/* this method will handle to login flow based on the user role */
-	public static void Login() throws InterruptedException {
+	public static void Login(String usrName,String passWord) throws InterruptedException {
 		LoginPage loginpage = PageFactory.initElements(driver, LoginPage.class);
 		loginpage.userProfileIcon();
 		loginpage.LoginButtonInProfileIconDropdown();
-		String usrname=frameworkconfig.getFramework("CREATOR_USRNAME");
-		loginpage.LoginUserName(usrname);
-		String password=frameworkconfig.getFramework("CREATOR_PASSWORD");
-		loginpage.LoginPassword(password);
+		loginpage.LoginUserName(usrName);
+		loginpage.LoginPassword(passWord);
 		loginpage.TapLoginButton();
 		
-		
 
+	}
 
+	public static void fetchText()
+	{
+		LoginPage loginpage = PageFactory.initElements(driver, LoginPage.class);
+	 String chec=loginpage.getTeacherText();
+	 System.out.println("Able to fetch text" +chec);
 	}
 }
 	

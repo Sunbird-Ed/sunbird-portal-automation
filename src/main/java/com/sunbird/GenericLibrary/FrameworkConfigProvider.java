@@ -3,30 +3,23 @@ package com.sunbird.GenericLibrary;
 import java.io.FileInputStream;
 import java.util.Properties;
 
-import com.aventstack.extentreports.markuputils.ExtentColor;
-
 public class FrameworkConfigProvider extends BaseTestConfig {
 
-	Properties frameworkPro;
+	Properties sunbirdConfigPro;
 	public FrameworkConfigProvider() throws Exception {
 
-		String path = System.getProperty("user.dir") + "\\Config\\FrameworkConfig.Properties";
+		String path = System.getProperty("user.dir") + "//Config//FrameworkConfig.Properties";
 
 		FileInputStream fis = new FileInputStream(path);
-		frameworkPro = new Properties();
-		frameworkPro.load(fis);
+		sunbirdConfigPro = new Properties();
+		sunbirdConfigPro.load(fis);
 
 	}
 
-	public String getFrameworkValue()
+
+	public String getSunbidConfigPropertyValue(String keyName)
 	{
-		
-	return	frameworkPro.getProperty("Framework");
-	}
-	
-	public String getFramework(String frameworkName)
-	{
-		return frameworkPro.getProperty(frameworkName);
+		return sunbirdConfigPro.getProperty(keyName);
 	}
 
 

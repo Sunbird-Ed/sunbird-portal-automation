@@ -23,6 +23,8 @@ public class LoginPage {
 	@FindBy(how=How.XPATH,using="//button[@id='login']")
 	private WebElement login;
 
+	@FindBy(how=How.XPATH,using="//div[@class='title mt-4']")
+	private WebElement checkAssert;
 
 public void userProfileIcon() {
 		
@@ -54,6 +56,11 @@ public void TapLoginButton() {
 	UtilityFunctions.waitToBeClickableAndClick(login);
 	
 	}
+public String getTeacherText()
+{
+	String d=UtilityFunctions.getTextFromElement(checkAssert);
+	return d;
 
+}
 
 }

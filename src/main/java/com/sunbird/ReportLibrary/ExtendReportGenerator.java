@@ -9,7 +9,7 @@ public class ExtendReportGenerator {
 	public static ExtentReports extent;
 	public static ExtentReports getReport(){
 		
-		String path=System.getProperty("user.dir")+"\\Reports";
+		String path=System.getProperty("user.dir")+"//Reports//Execution";
 		
 		ExtentSparkReporter reporter=new ExtentSparkReporter(path);
 		reporter.config().setDocumentTitle("Sunbird Automation Test Report");
