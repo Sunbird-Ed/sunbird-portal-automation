@@ -18,11 +18,11 @@ import com.sunbird.ReportLibrary.ExtendReportGenerator;
 
 
 
-public class BaseTestConfig implements Sunbird_ConstantData {
+public class BaseTestConfig implements SunbirdConstant {
 	
 	public static WebDriver driver;
 	public static ExcelDataProvider excel;
-	public static FrameworkConfigProvider sunbird_config;
+	public static SunbirdConfigProvider sunbird_config;
 	Properties pro;                                                              
 	public static ExtendReportGenerator reporter;
 
@@ -30,7 +30,7 @@ public class BaseTestConfig implements Sunbird_ConstantData {
 	@BeforeClass
 	public void loadFrameworkConfigs() throws Exception {
 
-		sunbird_config =new FrameworkConfigProvider();
+		sunbird_config =new SunbirdConfigProvider();
 	}
 	
 	
@@ -47,14 +47,14 @@ public class BaseTestConfig implements Sunbird_ConstantData {
 	  navigate to application URL */
 	@BeforeMethod
 	public void LaunchBrowser() throws IOException {
-		
-		String path = System.getProperty("user.dir") + "//Config//Config.Properties";
+
+		String path = System.getProperty("user.dir") + "//Config//SunbirdConfig.Properties";
 		FileInputStream fis = new FileInputStream(path);
 		pro = new Properties();
 		pro.load(fis);
 		
 
-			System.setProperty(CHROME_KEY,CHROME_VAl);
+			//System.setProperty(CHROME_KEY,CHROME_VAl);
 	    driver=new ChromeDriver();
 	 driver.manage().window().maximize();
 String Env=pro.getProperty("EnvironmentSetup");
@@ -62,18 +62,18 @@ String Env=pro.getProperty("EnvironmentSetup");
 
 if(Env.equalsIgnoreCase("STAGING")) {
 		
-	
-	  driver.get(STAGING_URL);
+
+	  driver.get(pro.getProperty("StagingURL"));
 		
 	}
 else if(Env.equalsIgnoreCase("PREPROD")) {
-		
-	 driver.get(PREPROD_URL);
+
+	driver.get(pro.getProperty("PreProdURL"));
 	}
 	
 	else if(Env.equalsIgnoreCase("Prod")) {
-		
-		 driver.get(PROD_URL);
+
+	driver.get(pro.getProperty("ProdURL"));
 	}
 	
 	

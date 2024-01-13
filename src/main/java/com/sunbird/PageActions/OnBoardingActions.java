@@ -28,12 +28,8 @@ public class OnBoardingActions extends BaseTestConfig {
 
 		onboard.BoardDropdown();
 
-	// String frameworkName=frameworkconfig.getFramework("CBSE_FRAMEWORK");
 		String frameworkName= sunbird_config.getSunbidConfigPropertyValue("TAMILNADU_Framework");
-		 
-		//String usRname=frameworkconfig.getFramework("CREATOR_USRNAME");
-		 
-		//String frameworkName = frameworkconfig.getFramework("ANDHRA_Framework");
+
 
 		onboard.BoardValueSelect(frameworkName);
 

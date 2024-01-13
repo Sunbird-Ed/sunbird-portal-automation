@@ -1,5 +1,7 @@
 package sanity;
 
+import com.sunbird.PageActions.DashboardPageActions;
+import com.sunbird.PageActions.UploadPageActions;
 import org.testng.annotations.Test;
 
 import com.sunbird.GenericLibrary.BaseTestConfig;
@@ -15,11 +17,10 @@ public void LoginWithValidUser() throws InterruptedException
 	OnBoardingActions.RolePoup();
 		  OnBoardingActions.BMCPopup();
 	  	  OnBoardingActions.LocationPopup();
-	String usrname= sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME");
-	String password= sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD");
-	LoginPageActions.Login(usrname,password);
-	 
-		
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+	DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.clickOnWorkSpace();
+	UploadPageActions.uploadPDF();
 }
 	
 

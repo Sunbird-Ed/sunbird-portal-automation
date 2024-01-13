@@ -1,9 +1,9 @@
 package com.sunbird.GenericLibrary;
 
-public interface Sunbird_ConstantData {
+public interface SunbirdConstant {
 	
 	/* Kept all the Constant data which will never change   */
-	
+
 	String CHROME_KEY="Webdriver.chrome.driver";
 	String CHROME_VAl="drivers/chromedriver";
 	
@@ -18,7 +18,7 @@ public interface Sunbird_ConstantData {
 	
 	String XPATH_CONTAINS="//*[contains(text(),'";
 	String XPATH_CONAINSCLOSEBRACKET="')]";
-	
+	String USRNAME="RAJU";
    
 	
 }

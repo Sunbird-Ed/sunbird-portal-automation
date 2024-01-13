@@ -102,4 +102,9 @@ public class UtilityFunctions extends BaseTestConfig {
           String fetchedText=elementName.getText();
         return fetchedText;
     }
+
+	public static void switchFrameOnIndex(int indexValue)
+	{
+		driver.switchTo().frame(indexValue);
+	}
 }
