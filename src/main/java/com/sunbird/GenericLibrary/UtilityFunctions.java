@@ -103,8 +103,22 @@ public class UtilityFunctions extends BaseTestConfig {
         return fetchedText;
     }
 
-	public static void switchFrameOnIndex(int indexValue)
-	{
+	public static void switchFrameOnIndex(int indexValue) throws InterruptedException {
+		Thread.sleep(3000);
 		driver.switchTo().frame(indexValue);
 	}
+
+	public static void uploadSendKeys(WebElement element,String Value) {
+			element.sendKeys(Value);
+	}
+
+	public static String getExactFilePath(String fileName)
+	{
+		String filepath = System.getProperty("user.dir")+ sunbird_config.getSunbidConfigPropertyValue("fileName");
+
+		return filepath;
+	}
+
+
+
 }

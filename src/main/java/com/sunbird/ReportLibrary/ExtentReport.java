@@ -78,7 +78,7 @@ public static void initializeReport() throws IOException {
 
  
 
-String reportPath=System.getProperty("user.dir")+"\\Reports\\";
+String reportPath=System.getProperty("user.dir")+"\\\\";
 
  
 

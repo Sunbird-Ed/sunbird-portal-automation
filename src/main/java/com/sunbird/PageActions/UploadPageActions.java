@@ -17,11 +17,17 @@ public class UploadPageActions extends BaseTestConfig {
 		uploadPage.contentTypeDroddown();
 	}
 			public static void uploadPDF() throws InterruptedException {
+
 				clickUploadInWorkspace();
-			//	UtilityFunctions.switchFrameOnIndex(0);
+				UtilityFunctions.switchFrameOnIndex(0);
 				clickcontentTypeDroddown();
-Thread.sleep(5000);
-			}
+				uploadPage.selectETextbookValue();
+
+
+				String filepath = System.getProperty("user.dir")+ sunbird_config.getSunbidConfigPropertyValue("PDF");
+				uploadPage.clickBrowseButton(filepath);
+	Thread.sleep(5000);
+	}
 
 
 }

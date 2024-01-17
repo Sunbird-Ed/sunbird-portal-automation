@@ -27,7 +27,15 @@ public void uploadContentInWorkspace() {
 
 		UtilityFunctions.waitToBeClickableAndClick(contentTypeDropDown);
 	}
+	public void selectETextbookValue() {
 
-	
+		UtilityFunctions.waitToBeClickableAndClick(eTextbook);
+	}
+
+	public void clickBrowseButton(String filePath) {
+
+		UtilityFunctions.uploadSendKeys(browserbutton,filePath);
+
+	}
 
 }
