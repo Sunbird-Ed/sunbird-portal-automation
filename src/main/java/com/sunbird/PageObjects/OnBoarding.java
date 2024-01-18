@@ -1,5 +1,7 @@
 package com.sunbird.PageObjects;
 
+import com.sunbird.GenericLibrary.Listeners;
+import com.sunbird.GenericLibrary.SunbirdConstants;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -16,7 +18,7 @@ private WebElement Board;
 	private WebElement Cbsc;
 
 	@FindBy(how=How.XPATH,using="//div[@id='mat-select-value-39']")
-	//@FindBy(how=How.XPATH,using="//div[@id='mat-select-value-9']")
+//@FindBy(how=How.XPATH,using="//div[@id='mat-select-value-9']")
 	private WebElement Medium;
 
 
@@ -26,7 +28,7 @@ private WebElement Board;
 	private WebElement MediumValue;
 
 	@FindBy(how=How.XPATH,using="//div[@id='mat-select-value-43']")
-//	@FindBy(how=How.XPATH,using="//mat-form-field[@id='gradeLevel']")
+	//@FindBy(how=How.XPATH,using="//mat-form-field[@id='gradeLevel']")
 	private WebElement Classs;
 
 	//@FindBy(how=How.XPATH,using="//mat-form-field[@id='gradeLevel']//following::span[@class='mat-option-text']")
@@ -54,27 +56,28 @@ public void TeacherClick() {
 		
 	
 	UtilityFunctions.waitForElementAndClickable(Teacher);
-//	UtilityFunctions.waitToBeClickableAndClick(Teacher);
-//	 Teacher.click();
+	Listeners.addLogs("Clicked on Teacher");
+
 	}
 
 
 public void ContinueButtonClick() {
 	
 	UtilityFunctions.waitToBeClickableAndClick(ContinueButton);
-	
-	}
+	Listeners.addLogs("Clicked on Login Link");
+
+}
 	
 public void BoardDropdown() {
 	
 	UtilityFunctions.waitToBeClickableAndClick(Board);
-	
+
 	}
 
 public void BoardValueSelect(String frameworkName) {
 				
 	
-	String boardXpath=XPATH_CONTAINS+frameworkName+XPATH_CONAINSCLOSEBRACKET;
+	String boardXpath= SunbirdConstants.XPATH_CONTAINS +frameworkName+SunbirdConstants.XPATH_CONAINSCLOSEBRACKET;
 
 	
 	UtilityFunctions.findElementAndClick(boardXpath);

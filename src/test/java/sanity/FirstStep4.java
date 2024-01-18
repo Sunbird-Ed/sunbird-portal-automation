@@ -1,14 +1,10 @@
 package sanity;
 
-import com.sunbird.GenericLibrary.UtilityFunctions;
-import com.sunbird.PageActions.LoginPageActions;
-import org.testng.annotations.Test;
-
 import com.sunbird.GenericLibrary.BaseTestConfig;
 import com.sunbird.PageActions.OnBoardingActions;
-import com.sunbird.PageActions.OnBoardingActions;
+import org.testng.annotations.Test;
 
-public class FirstStep3 extends BaseTestConfig {
+public class FirstStep4 extends BaseTestConfig {
 
 
 	@Test

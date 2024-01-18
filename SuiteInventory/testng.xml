@@ -6,9 +6,12 @@
 	</listeners>
   <test thread-count="5" name="Test">
     <classes>
-      <class name="sanity.FirstStep3"/>
-            <class name="sanity.Login"/>
-      
+    <!--  <class name="sanity.FirstStep3"/>-->
+
+           <!-- <class name="sanity.Login"/>-->
+
+        <class name="sanity.UploadContent"/>
+
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

@@ -1,5 +1,6 @@
 package com.sunbird.PageObjects;
 
+import com.sunbird.GenericLibrary.SunbirdConstants;
 import com.sunbird.GenericLibrary.UtilityFunctions;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -13,6 +14,8 @@ public class DashboardPage {
 	@FindBy(how=How.XPATH,using="//*[contains(text(),'Workspace')]")
 	private WebElement workspace;
 
+
+
 public void userProfileIcon() {
 		
 	UtilityFunctions.waitToBeClickableAndClick(userProfileIcon);
@@ -22,6 +25,11 @@ public void workspace() {
 	UtilityFunctions.waitToBeClickableAndClick(workspace);
 	
 	}
-	
+	public String assertWorkspace() {
+		UtilityFunctions.waitForVisibilityOfWebElement(workspace);
+		String getActualText=	UtilityFunctions.getTextFromElement(workspace);
+		return getActualText;
+	}
+
 
 }

@@ -84,5 +84,9 @@ public class Listeners extends BaseTestConfig implements ITestListener {
 		return ts.getScreenshotAs(OutputType.BASE64);
 
 	}
+	public static void addLogs(String logsMsg)
+	{
+		extenttest.get().log(Status.INFO,logsMsg);
 
+	}
 }

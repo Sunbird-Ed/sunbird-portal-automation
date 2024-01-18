@@ -9,8 +9,8 @@ public class ExtendReportGenerator {
 	public static ExtentReports extent;
 	public static ExtentReports getReport(){
 		
-	//	String path=System.getProperty("user.dir")+"/Reports/Execution.html";
-		String path=System.getProperty("user.dir")+"\\Reports";
+	String path=System.getProperty("user.dir")+"/Reports/Execution.html";
+		//String path=System.getProperty("user.dir")+"\\Reports";
 
 
 		ExtentSparkReporter reporter=new ExtentSparkReporter(path);

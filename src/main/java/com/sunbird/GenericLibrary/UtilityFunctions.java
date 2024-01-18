@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 
 public class UtilityFunctions extends BaseTestConfig {
@@ -33,9 +34,14 @@ public class UtilityFunctions extends BaseTestConfig {
 		element.click();
 		element.sendKeys(Value);
 	}
-	
-	
 
+	/* This method will just wait untill the given webElement is visible */
+	public static void waitForVisibilityOfWebElement(WebElement element) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		wait.until(ExpectedConditions.visibilityOf(element));
+			}
+
+			/* FluentWait method will wait for the given webElement with provided max time with pollingEvery given second */
 	public static boolean fluenWait(WebElement element,int waitTime) {
 	    boolean conditionFulfilled = true;
 	    Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
@@ -52,7 +58,7 @@ public class UtilityFunctions extends BaseTestConfig {
 	    return conditionFulfilled;
 	}
 	
-	
+	/* This is fluentWait approach method which accepts WebElement as parameter and call the fluent method*/
 	public static void waitForElementAndClickable(WebElement element){
 		int waitTime = 30;
 		fluenWait(element,waitTime);
@@ -68,16 +74,16 @@ public class UtilityFunctions extends BaseTestConfig {
 	act.moveByOffset(a, b).click().build().perform();
 	}
 
-
+/* This method will take Xpath as string and perform findElement operation and click */
 	public static void findElementAndClick(String xpathValue)
 	{
+
 		driver.findElement(By.xpath(xpathValue)).click();
 	}
 
 	/* Method will get the current url and do the substring and returning the with extracted do_Id */
 	  	public static String generate_Do_id() {
-	//	String currentUrl = driver.getCurrentUrl();
-		String currentUrl="https://diksha.gov.in/workspace/edit/Course/do_31396703106942566414248/draft/Draft?lockKey=2bd4f204-c4b9-4648-a3e5-2a48714cc167&expiresAt=2024-01-11T08:57:27.591Z&expiresIn=60";
+		String currentUrl = driver.getCurrentUrl();
 		String do_id = "do_";
 		int startIndex = currentUrl.indexOf(do_id);
 		String parsedString = currentUrl.substring(startIndex);
@@ -97,16 +103,27 @@ public class UtilityFunctions extends BaseTestConfig {
 		return randamtestdata;
 	}
 
+	/* Method will accept WebElement as parameter and get text from the WebElement and return the fetched Text as String */
 	public static String getTextFromElement(WebElement elementName)
 	{
           String fetchedText=elementName.getText();
         return fetchedText;
     }
 
+	public static void waitForFrameToLoad(int frameValue) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(frameValue));
+	}
+
+	/* This method will accept index value as parameter and switchToFrame to that provided Index value */
 	public static void switchFrameOnIndex(int indexValue) throws InterruptedException {
-		Thread.sleep(3000);
+Thread.sleep(5000);
+	//	waitForFrameToLoad(indexValue);
 		driver.switchTo().frame(indexValue);
 	}
+
+	/* This method will accept WebElement as paramter and uploadFile Path as String and it will upload
+	using sendKeys approach using the provided String upload file path */
 
 	public static void uploadSendKeys(WebElement element,String Value) {
 			element.sendKeys(Value);
@@ -119,6 +136,12 @@ public class UtilityFunctions extends BaseTestConfig {
 		return filepath;
 	}
 
+	/* Method will accept Actual result and Expected Result as parameter value and Msg parameter is taken only if Assertion gets fail */
+	public  static void stringValueComparision(String actual, String expected,String Msg)
+	{
+		Assert.assertEquals(actual,expected,Msg);
+
+	}
 
 
 }

@@ -78,11 +78,12 @@ public static void initializeReport() throws IOException {
 
  
 
-String reportPath=System.getProperty("user.dir")+"\\\\";
+//String reportPath=System.getProperty("user.dir")+"\\\\";
 
- 
+    String reportPath=System.getProperty("user.dir")+"\\Reports\\";
 
-Date currentDate = new Date();
+
+    Date currentDate = new Date();
 
 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
