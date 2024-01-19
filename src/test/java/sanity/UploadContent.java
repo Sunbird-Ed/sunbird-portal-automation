@@ -1,4 +1,5 @@
 package sanity;
+
 import com.sunbird.GenericLibrary.BaseTestConfig;
 import com.sunbird.PageActions.DashboardPageActions;
 import com.sunbird.PageActions.LoginPageActions;
@@ -8,38 +9,34 @@ import org.testng.annotations.Test;
 
 public class UploadContent extends BaseTestConfig {
 
-	@Test(description = "Uploading PDF Content")
-	public void UploadPDF() throws InterruptedException {
+    @Test(description = "Uploading PDF Content and send for review ")
+    public void UploadPDF() throws InterruptedException {
 
-		OnBoardingActions.RolePoup();
-		OnBoardingActions.BMCPopup();
-		OnBoardingActions.LocationPopup();
-		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
-		DashboardPageActions.clickUserProfileIcon();
-		DashboardPageActions.assertWorkspace();
-		DashboardPageActions.clickOnWorkSpace();
-		UploadPageActions.uploadContent("PDF");
-	}
-
-
+        OnBoardingActions.RolePoup();
+        OnBoardingActions.BMCPopup();
+        OnBoardingActions.LocationPopup();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+        DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.assertWorkspace();
+        DashboardPageActions.clickOnWorkSpace();
+        UploadPageActions.uploadContent("PDF");
+    }
 
 
 
 
-
-
-
-
-//	@Test(description = "Uploading MP4 Content")
-//	public void UploadMP4() throws InterruptedException {
+//    @Test(description = "Uploading MP4 Content and Reject")
+//    public void UploadMP4() throws InterruptedException {
 //
-//		OnBoardingActions.RolePoup();
-//		OnBoardingActions.BMCPopup();
-//		OnBoardingActions.LocationPopup();
-//		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
-//		DashboardPageActions.clickUserProfileIcon();
-//		DashboardPageActions.assertWorkspace();
-//		DashboardPageActions.clickOnWorkSpace();
-//		UploadPageActions.uploadContent("MP4");
-//	}
+//        OnBoardingActions.RolePoup();
+//        OnBoardingActions.BMCPopup();
+//        OnBoardingActions.LocationPopup();
+//        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+//        DashboardPageActions.clickUserProfileIcon();
+//        DashboardPageActions.assertWorkspace();
+//        DashboardPageActions.clickOnWorkSpace();
+//        UploadPageActions.uploadContent("MP4");
+//    }
+
+
 }

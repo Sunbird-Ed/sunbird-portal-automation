@@ -10,48 +10,50 @@ import com.sunbird.PageObjects.OnBoarding;
 public class OnBoardingActions extends BaseTestConfig {
 
 
-	
-	/* This method will handle the Rolepopup in Onboarding flow */
-	public static void RolePoup()
-	{
-		OnBoarding onboard= PageFactory.initElements(driver, OnBoarding.class);
-		//UtilityFunctions.waitToBeClickableAndClick(onboard.TeacherClick());
-	
-		onboard.TeacherClick();
-		onboard.ContinueButtonClick();
-	}
-	
-	/* This method will handle the BMC popup in onboarding flow */
-	public static void BMCPopup() {
+    /* This method will handle the Rolepopup in Onboarding flow */
+    public static void RolePoup() {
+        OnBoarding onboard = PageFactory.initElements(driver, OnBoarding.class);
+        //UtilityFunctions.waitToBeClickableAndClick(onboard.TeacherClick());
+        onboard.explorebutton();
+        onboard.TeacherClick();
+        onboard.ContinueButtonClick();
+    }
 
-		OnBoarding onboard = PageFactory.initElements(driver, OnBoarding.class);
+    /* This method will handle the BMC popup in onboarding flow */
+    public static void BMCPopup() {
 
-		onboard.BoardDropdown();
+        OnBoarding onboard = PageFactory.initElements(driver, OnBoarding.class);
 
-		String frameworkName= sunbird_config.getSunbidConfigPropertyValue("TAMILNADU_Framework");
+        onboard.BoardDropdown();
+
+        String frameworkName = sunbird_config.getSunbidConfigPropertyValue("TAMILNADU_Framework");
 
 
-		onboard.BoardValueSelect(frameworkName);
+        onboard.BoardValueSelect(frameworkName);
 
-		onboard.MediumDropDown();
-		onboard.MediumValueSelect();
+        onboard.MediumDropDown();
+        onboard.MediumValueSelect();
 
-		UtilityFunctions.MoveByOffSet(50, 100);
+        UtilityFunctions.MoveByOffSet(50, 100);
 
-		onboard.ClassDropDown();
-		onboard.ClassValueSelect();
+        onboard.ClassDropDown();
+        onboard.ClassValueSelect();
 
-		UtilityFunctions.MoveByOffSet(50, 100);
+        UtilityFunctions.MoveByOffSet(50, 100);
 
-		onboard.BMCSubmit();
+        onboard.BMCSubmit();
 
-	}
-	
-	/* This method will handle the Location popup in onboarding flow */
-	public static void LocationPopup() throws InterruptedException {
-		OnBoarding onboard= PageFactory.initElements(driver, OnBoarding.class);
-		onboard.LocationPopupSubmit();
+    }
 
-	}
-	
+    /* This method will handle the Location popup in onboarding flow */
+    public static void LocationPopup() throws InterruptedException {
+        OnBoarding onboard = PageFactory.initElements(driver, OnBoarding.class);
+        onboard.clickStateDropdown();
+        onboard.selectStateValue();
+        onboard.clickDistrictDropDown();
+        onboard.selectDistrictValue();
+        onboard.LocationPopupSubmit();
+
+    }
+
 }
