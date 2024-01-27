@@ -3,6 +3,8 @@ package com.sunbird.PageObjects;
 import com.sunbird.GenericLibrary.Listeners;
 import com.sunbird.GenericLibrary.SunbirdConstants;
 import com.sunbird.GenericLibrary.UtilityFunctions;
+
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -29,7 +31,59 @@ public class UploadPage {
 
     @FindBy(how = How.XPATH, using = "//button[text()='Close']")
     private WebElement closeButton;
+    
 
+	@FindBy(how=How.XPATH,using="//i[@class='send icon']")
+	private WebElement sendforreview;
+	
+	@FindBy(how=How.XPATH,using="//div[text()='Add an image']")
+	private WebElement clickOnAddImage;
+	
+	@FindBy(how=How.XPATH,using="//a[text()='All image']")
+	private WebElement clickOnAllImage;
+	
+	@FindBy(how=How.XPATH,using="//input[@id='searchAllImageAssets']//following::img[2]")
+	private WebElement selectImageFromAllImage;
+    
+	@FindBy(how=How.XPATH,using="//button[text()='Select']")
+	private WebElement selectButton;
+	
+	@FindBy(how=How.XPATH,using="//input[@id='name']")
+	private WebElement TitleNameInSendForReview;
+	
+	@FindBy(how=How.XPATH,using="//div[text()='Select Board/Syllabus']")
+	private WebElement clickBoardDropdown;
+	
+	@FindBy(how=How.XPATH,using="//div[text()='Select Board/Syllabus']//following::div[2]")
+   private WebElement boardSelected;
+	
+	
+	@FindBy(how=How.XPATH,using="//div[text()='Select Medium']")
+	private WebElement clickMedium;
+	
+	@FindBy(how=How.XPATH,using="//div[text()='Select Medium']//following::div[2]")
+	private WebElement mediumSelected;
+	
+	@FindBy(how=How.XPATH,using="//div[text()='Select Class']")
+	private WebElement selectClass;
+	
+	@FindBy(how=How.XPATH,using="//div[text()='Select Class']//following::div[2]")
+	private WebElement classSelected;
+	
+	@FindBy(how=How.XPATH,using="//div[text()='Select Subject']")
+	private WebElement clickSubjectDropDown;
+	
+	@FindBy(how=How.XPATH,using="//div[text()='Select Subject']//following::div[2]")
+    private WebElement subjectSelected;
+	
+	@FindBy(how=How.XPATH,using="//input[@id='copyrightYear']")
+	private WebElement copyright;
+	
+	@FindBy(how=How.XPATH,using="//button[@class='ui blue button ']")
+	private WebElement savebuttonSendReivew;
+	
+	
+	
     public void uploadContentInWorkspace() {
 
         UtilityFunctions.waitToBeClickableAndClick(uploadcontent);
@@ -87,4 +141,117 @@ public class UploadPage {
         Listeners.addLogs("Clicked on close ");
 
     }
+    
+    public void clickSendForReviewButton() {
+
+        UtilityFunctions.waitToBeClickableAndClick(sendforreview);
+        Listeners.addLogs("Clicked on sendforreview ");
+
+    }
+    
+    public void clickAddImage() {
+
+        UtilityFunctions.waitToBeClickableAndClick(clickOnAddImage);
+        Listeners.addLogs("Clicked on AddImageIcon ");
+
+    }
+    
+    public void clickAllImageTab() {
+
+        UtilityFunctions.waitToBeClickableAndClick(clickOnAllImage);
+        Listeners.addLogs("Clicked on AllImageTab ");
+
+    }
+    
+    public void selectImage() {
+
+        UtilityFunctions.waitToBeClickableAndClick(selectImageFromAllImage);
+        Listeners.addLogs("select image");
+
+    }
+    
+    public void clearTitleAndEnterTitleName(String titleName) {
+    	TitleNameInSendForReview.clear();
+    	
+        UtilityFunctions.waitToBeClickableAndSendKeys(TitleNameInSendForReview,titleName);
+        Listeners.addLogs("Enter Title");
+
+    }    
+    public void clickSelectButton() {
+    	   	
+ 	    
+        UtilityFunctions.waitToBeClickableAndClick(selectButton);
+        Listeners.addLogs("Clicked on select button ");
+
+    }
+    public void clickBoardDropDown() {
+
+    	
+    	UtilityFunctions.scrollInToviewUsingJavaScript(clickBoardDropdown);
+        UtilityFunctions.waitToBeClickableAndClick(clickBoardDropdown);
+        Listeners.addLogs("Clicked on board dropdown ");
+
+    }
+    
+    public void selectBoardValue() {
+
+        UtilityFunctions.waitToBeClickableAndClick(boardSelected);
+        Listeners.addLogs("select board value ");
+
+    }
+    
+    public void clickMediumDropdown() {
+
+        UtilityFunctions.waitToBeClickableAndClick(clickMedium);
+        Listeners.addLogs("Clicked on dropdown ");
+
+    }
+    
+    public void selectMediumDropdown() {
+
+        UtilityFunctions.waitToBeClickableAndClick(mediumSelected);
+        Listeners.addLogs("Clicked on dropdown ");
+
+    }
+    
+    
+    public void clickClassDropDown() {
+
+        UtilityFunctions.waitToBeClickableAndClick(selectClass);
+        Listeners.addLogs("Clicked on dropdown class ");
+
+    }
+    public void selectClassDropdown() {
+
+        UtilityFunctions.waitToBeClickableAndClick(classSelected);
+        Listeners.addLogs("select class value ");
+
+    }
+    public void clickSubjectDropdown() {
+
+        UtilityFunctions.waitToBeClickableAndClick(clickSubjectDropDown);
+        Listeners.addLogs("clickSubjectDropDown");
+
+    }
+    public void selectSubjectDropdown() {
+
+        UtilityFunctions.waitToBeClickableAndClick(subjectSelected);
+        Listeners.addLogs("Clicked on subjectSelected");
+
+    }
+   
+    public void enterCopyRight(String yearValue) {
+
+    	UtilityFunctions.scrollInToviewUsingJavaScript(copyright);
+        UtilityFunctions.waitToBeClickableAndSendKeys(copyright, yearValue);
+        Listeners.addLogs("entered copywright");
+
+    }
+    public void clickSaveButtonSendForReivew() {
+
+        UtilityFunctions.waitToBeClickableAndClick(savebuttonSendReivew);
+        Listeners.addLogs("Clicked on savebutton");
+
+    }
+   
 }

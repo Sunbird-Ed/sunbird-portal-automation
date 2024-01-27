@@ -10,6 +10,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 
 public class DashboardPageActions extends BaseTestConfig {
@@ -33,6 +34,20 @@ public class DashboardPageActions extends BaseTestConfig {
 
     }
 
-
+    public static void logOut() throws InterruptedException {
+        dashboardPage.clickProfileIcon();
+        dashboardPage.clickLogout();
+        
+    }
+    
+    public static void assertDrafts()
+    {
+       dashboardPage.assertDrafts();
+    }
+    
+    public static void clickBook() throws InterruptedException {
+        dashboardPage.clickBook();
+        
+    }
 }
 	

@@ -4,6 +4,7 @@ import java.time.Duration;
 
 import com.github.javafaker.Faker;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -138,5 +139,17 @@ public class UtilityFunctions extends BaseTestConfig {
 
     }
 
+    /* Method will scrollIntoView untill the element is visible using javascript */
+    public static void scrollInToviewUsingJavaScript(WebElement element)
+    {
+    	 JavascriptExecutor js=(JavascriptExecutor)driver;
+ 	    js.executeScript("arguments[0].scrollIntoView(true);",element);
+    }
+    
+    public static void validatIsElementPresent(WebElement element,String ErrorMsg)
+    {
+Assert.assertTrue(element.isDisplayed(),ErrorMsg);
+}
 
+	
 }

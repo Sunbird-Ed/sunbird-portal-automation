@@ -4,12 +4,13 @@ import com.sunbird.GenericLibrary.BaseTestConfig;
 import com.sunbird.PageActions.DashboardPageActions;
 import com.sunbird.PageActions.LoginPageActions;
 import com.sunbird.PageActions.OnBoardingActions;
+import com.sunbird.PageActions.ReviewPageActions;
 import com.sunbird.PageActions.UploadPageActions;
 import org.testng.annotations.Test;
 
 public class UploadContent extends BaseTestConfig {
 
-    @Test(description = "Uploading PDF Content and send for review ")
+    @Test(description = "Uploading PDF Content And sendForReview and then Publish ")
     public void UploadPDF() throws InterruptedException {
 
         OnBoardingActions.RolePoup();
@@ -20,6 +21,13 @@ public class UploadContent extends BaseTestConfig {
         DashboardPageActions.assertWorkspace();
         DashboardPageActions.clickOnWorkSpace();
         UploadPageActions.uploadContent("PDF");
+       String contentTitleName=UploadPageActions.sendUploadContentForReview();       
+       DashboardPageActions.logOut();
+       LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
+       DashboardPageActions.clickUserProfileIcon();
+       DashboardPageActions.clickOnWorkSpace();
+       ReviewPageActions.reviewAndPubishUploadContent(contentTitleName);
+       
     }
 
 

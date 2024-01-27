@@ -6,5 +6,9 @@ public class SunbirdConstants {
 
     public static String XPATH_CONTAINS = "//*[contains(text(),'";
     public static String XPATH_CONAINSCLOSEBRACKET = "')]";
+    
+    public static String contetnPublishedToastrMsg = "Content published successfully...";
+    public static String contentSentForReview = "Content is sent for review";
 
+    
 }
