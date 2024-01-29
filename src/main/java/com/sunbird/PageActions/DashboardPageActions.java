@@ -40,14 +40,6 @@ public class DashboardPageActions extends BaseTestConfig {
         
     }
     
-    public static void assertDrafts()
-    {
-       dashboardPage.assertDrafts();
-    }
-    
-    public static void clickBook() throws InterruptedException {
-        dashboardPage.clickBook();
-        
-    }
+
 }
 	

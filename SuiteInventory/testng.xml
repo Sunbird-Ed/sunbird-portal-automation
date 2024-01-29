@@ -12,6 +12,8 @@
 
             <class name="sanity.UploadContent"/>
 
+       <!--     <class name="sanity.createBookAndPublish"/>-->
+
         </classes>
     </test> <!-- Test -->
 </suite> <!-- Suite -->

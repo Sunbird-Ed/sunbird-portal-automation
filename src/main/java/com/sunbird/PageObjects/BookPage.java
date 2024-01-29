@@ -91,6 +91,12 @@ public class BookPage {
     }
 
     public void clickBoardDropdown() {
+
+        UtilityFunctions.scrollDownUsingPixelValue();
+      //  UtilityFunctions.scrollDownUsingPixelValue();
+
+      //  UtilityFunctions.waitForVisibilityOfWebElement(clickBoardDropDown);
+       UtilityFunctions.scrollInToviewUsingJavaScript(clickBoardDropDown);
    	 UtilityFunctions.waitToBeClickableAndClick(clickBoardDropDown);
         Listeners.addLogs("clickBoardDropDown");
    }
@@ -133,7 +139,12 @@ public class BookPage {
              Listeners.addLogs("entered copywright");
 
          }
-         
+
+         public void assertSaveAsDraft()
+         {
+             UtilityFunctions.waitForVisibilityOfWebElement(SaveAsDraft);
+         }
+
          public void clickSaveAsDraft() {
         	 UtilityFunctions.waitToBeClickableAndClick(SaveAsDraft);
              Listeners.addLogs("SaveAsDraft");

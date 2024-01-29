@@ -24,12 +24,7 @@ public class DashboardPage {
 
 	@FindBy(how=How.XPATH,using="//li[text()=' Logout ']")
 	private WebElement logout;
-	
-	@FindBy(how=How.XPATH,using="//a[contains(text(),'Drafts')]")
-	private WebElement drafts;
-	
-	@FindBy(how=How.XPATH,using="//span[contains(text(),'Book')]")
-	private WebElement book;
+
 
     public void userProfileIcon() throws InterruptedException {
 
@@ -64,25 +59,5 @@ public class DashboardPage {
 
     }
     
-    public void assertDrafts()
-    {
-        UtilityFunctions.waitForVisibilityOfWebElement(drafts);
-        UtilityFunctions.validatIsElementPresent(drafts, "Draft Section not displayed");
-    	
-    }
-    public void clickDrafts()
-     {
-    	
-    	 UtilityFunctions.waitToBeClickableAndClick(drafts);
-         Listeners.addLogs("Clicked on drafts ");
-
-    }
-    public void clickBook()
-    {
-   	
-   	 UtilityFunctions.waitToBeClickableAndClick(book);
-        Listeners.addLogs("Clicked on book ");
-
-   }
 
 }

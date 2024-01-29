@@ -37,7 +37,7 @@ public class UtilityFunctions extends BaseTestConfig {
 
     /* This method will just wait untill the given webElement is visible */
     public static void waitForVisibilityOfWebElement(WebElement element) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
@@ -151,5 +151,11 @@ public class UtilityFunctions extends BaseTestConfig {
 Assert.assertTrue(element.isDisplayed(),ErrorMsg);
 }
 
+
+    public static void scrollDownUsingPixelValue()
+    {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,250)", "");
+    }
 	
 }

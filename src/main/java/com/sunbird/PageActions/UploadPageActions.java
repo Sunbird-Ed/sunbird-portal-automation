@@ -6,7 +6,7 @@ import com.sunbird.GenericLibrary.UtilityFunctions;
 import com.sunbird.PageObjects.ReviewPage;
 import com.sunbird.PageObjects.UploadPage;
 
-import javax.rmi.CORBA.Util;
+
 
 import org.openqa.selenium.support.PageFactory;
 
@@ -61,7 +61,7 @@ public class UploadPageActions extends BaseTestConfig {
                    uploadPage.selectSubjectDropdown();
                    uploadPage.enterCopyRight("2024");
                    uploadPage.clickSaveButtonSendForReivew();
-                   DashboardPageActions.assertDrafts();
+        WorkspaceDashboardPageActions.assertDrafts();
 return titleName;
     }
 
