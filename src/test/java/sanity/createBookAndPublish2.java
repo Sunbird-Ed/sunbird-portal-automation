@@ -2,13 +2,12 @@ package sanity;
 
 import com.sunbird.GenericLibrary.BaseTestConfig;
 import com.sunbird.PageActions.*;
-
 import org.testng.annotations.Test;
 
-public class createBookAndPublish extends BaseTestConfig {
+public class createBookAndPublish2 extends BaseTestConfig {
 
-	@Test(description = "Create book and Send for review and publish")
-	public void createBookAndPublish() throws Exception {
+	@Test(description = "Create book And Send For Review")
+	public void createBookAndSendForReview() throws Exception {
 
 		OnBoardingActions.RolePoup();
 		OnBoardingActions.BMCPopup();
@@ -26,19 +25,13 @@ public class createBookAndPublish extends BaseTestConfig {
 		BookPageActions.Section3();
 		BookPageActions.addResourceFromLibrary();
 		BookPageActions.submitAndSendForReview();
-				DashboardPageActions.logOut();
+		writesunbird_config.writeDataIntoPropertyFile("BookDoID",createdContent);
 
-		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"),
-				sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
-		DashboardPageActions.clickUserProfileIcon();
-		DashboardPageActions.clickOnWorkSpace();
-
-		ReviewPageActions.reviewCollection(createdContent);
 
 	}
 
-	/*@Test(description = "Book review")
-	public void sendForReview() throws Exception {
+	@Test(description = "Book Pubish")
+	public void publishBook() throws Exception {
 
 		OnBoardingActions.RolePoup();
 		OnBoardingActions.BMCPopup();
@@ -48,9 +41,9 @@ public class createBookAndPublish extends BaseTestConfig {
 				sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
 		DashboardPageActions.clickUserProfileIcon();
 		DashboardPageActions.clickOnWorkSpace();
+		String book=writesunbird_config.getWriteSunbidConfigPropertyValue("BookDoID");
+		ReviewPageActions.reviewCollection(book);
 
-		ReviewPageActions.reviewCollection("do_223232");
-
-	}*/
+	}
 
 }

@@ -26,12 +26,10 @@ public class ReviewPageActions extends BaseTestConfig {
 			reviewPage.assertPublichButton();
 			reviewPage.clickOnPublish();
 			reviewPage.selectCheckBoxes();
-			/*
-			 * reviewPage.clickYesButton(); String actualMsg =
-			 * reviewPage.assertContentPublishedMsgs();
-			 * UtilityFunctions.stringValueComparision(actualMsg,
-			 * SunbirdConstants.contentPublishedToastrMsg, "Failed to publish the content");
-			 */
+	/*	reviewPage.clickYesButton();
+		String actualMsg =  reviewPage.assertContentPublishedMsgs();
+		 UtilityFunctions.stringValueComparision(actualMsg,
+		 SunbirdConstants.contetnPublishedToastrMsg, "Failed to publish the content");*/
 		}
 
 		 public static void reviewAndPubishUploadContent(String contentName) throws InterruptedException
@@ -39,11 +37,14 @@ public class ReviewPageActions extends BaseTestConfig {
 		    	reviewPage.upForReviewBucket();
 				reviewPage.clickSearchBar(contentName);
 				reviewPage.clickOnSearch();
-				Thread.sleep(5000);
+			//	Thread.sleep(5000);
 				reviewPage.selectContentForReview();
-				Thread.sleep(1000);
-				reviewPage.scrollDownTillPublish();
+				//Thread.sleep(1000);
+				UtilityFunctions.scrollDownUsingPixelValue();
+				//reviewPage.scrollDownTillPublish();
+			//	Thread.sleep(2000);
 				reviewPage.clickOnPublish();
+
 reviewPage.selectAllCheckBoxesForUploadContent();
 				reviewPage.clickOnPublishButtonInPopup();
 			String actualMsg=reviewPage.assertContentPublishedMsgs();

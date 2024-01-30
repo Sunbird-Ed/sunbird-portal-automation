@@ -46,7 +46,9 @@ public class ReviewPage extends BaseTestConfig {
 		
 		@FindBy(how = How.XPATH, using = "//strong[contains(text(),'Content published successfully...')]")
 		private WebElement assertTostrMsg;
-		
+
+	@FindBy(how = How.XPATH, using = "//i[@class='icon close']")
+	private WebElement closeIconPublishPopup;
 
 		public void upForReviewBucket() {
 
@@ -117,15 +119,20 @@ public class ReviewPage extends BaseTestConfig {
 
 		public void selectAllCheckBoxesForUploadContent() throws InterruptedException {
 
+//UtilityFunctions.waitForVisibilityOfAllWebElement(checkBoxForUploadContent);
+
+			UtilityFunctions.waitForVisibilityOfWebElement(closeIconPublishPopup);
 			// Iterate through checkboxes using index values
 	for (int i = 0; i < checkBoxForUploadContent.size(); i++) {
 		checkBoxForUploadContent.get(i).click();
 	}
 }
 		
-		public void clickOnPublishButtonInPopup()
-		{
-			UtilityFunctions.waitToBeClickableAndClick(publishButtonUploadContent);
+		public void clickOnPublishButtonInPopup() throws InterruptedException {
+Thread.sleep(5000);
+UtilityFunctions.clickUsingJavaScriptExecutor(publishButtonUploadContent);
+
+		//	UtilityFunctions.waitToBeClickableAndClick(publishButtonUploadContent);
 
 		}
 	}

@@ -61,7 +61,8 @@ public class UploadPageActions extends BaseTestConfig {
                    uploadPage.selectSubjectDropdown();
                    uploadPage.enterCopyRight("2024");
                    uploadPage.clickSaveButtonSendForReivew();
-        WorkspaceDashboardPageActions.assertDrafts();
+                   driver.switchTo().defaultContent();
+                        WorkspaceDashboardPageActions.assertDrafts();
 return titleName;
     }
 

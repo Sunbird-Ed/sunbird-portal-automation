@@ -9,14 +9,15 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
-
 import com.sunbird.ReportLibrary.ExtendReportGenerator;
-
 
 public class BaseTestConfig {
 
     public static WebDriver driver;
     public static SunbirdConfigProvider sunbird_config;
+
+    public static WriteSunbirdConfigProvider writesunbird_config;
+
     Properties pro;
     public static ExtendReportGenerator reporter;
 
@@ -25,6 +26,7 @@ public class BaseTestConfig {
     public void loadFrameworkConfigs() throws Exception {
 
         sunbird_config = new SunbirdConfigProvider();
+        writesunbird_config=new WriteSunbirdConfigProvider();
     }
 
 
@@ -32,7 +34,7 @@ public class BaseTestConfig {
     /* Close the browser once the execution of each testscript  */
     @AfterMethod
     public void CloseBrowser() {
-        driver.close();
+       driver.close();
     }
 
 

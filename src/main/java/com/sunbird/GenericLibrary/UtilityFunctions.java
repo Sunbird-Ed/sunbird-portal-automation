@@ -1,6 +1,7 @@
 package com.sunbird.GenericLibrary;
 
 import java.time.Duration;
+import java.util.List;
 
 import com.github.javafaker.Faker;
 import org.openqa.selenium.By;
@@ -155,7 +156,16 @@ Assert.assertTrue(element.isDisplayed(),ErrorMsg);
     public static void scrollDownUsingPixelValue()
     {
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0,250)", "");
+        js.executeScript("window.scrollBy(0,400)", "");
     }
-	
+    public static void waitForVisibilityOfAllWebElement(List<WebElement> element) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.visibilityOfAllElements(element));
+    }
+
+    public static void clickUsingJavaScriptExecutor(WebElement element)
+    {
+        JavascriptExecutor js = (JavascriptExecutor)driver;
+        js.executeScript("arguments[0].click();", element);
+    }
 }

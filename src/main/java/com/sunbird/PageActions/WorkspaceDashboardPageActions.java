@@ -12,8 +12,7 @@ import org.openqa.selenium.support.PageFactory;
 public class WorkspaceDashboardPageActions extends BaseTestConfig {
 
 static WorkspaceDashboardPage workspacedashboardPage=PageFactory.initElements(driver, WorkspaceDashboardPage.class);
-    public static void assertDrafts()
-    {
+    public static void assertDrafts() throws InterruptedException {
         workspacedashboardPage.assertDrafts();
     }
     

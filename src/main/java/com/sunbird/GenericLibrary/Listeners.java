@@ -60,6 +60,7 @@ public class Listeners extends BaseTestConfig implements ITestListener {
 
         extenttest.get().log(Status.FAIL, result.getThrowable());
 
+
     }
 
     private String encodeURLParameter(String parameter) {

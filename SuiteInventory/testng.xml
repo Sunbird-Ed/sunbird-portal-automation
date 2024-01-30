@@ -6,13 +6,13 @@
     </listeners>
     <test thread-count="5" name="Test">
         <classes>
-            <!--  <class name="sanity.FirstStep3"/>-->
+           <!--   <class name="sanity.FirstStep3"/>
 
-            <!-- <class name="sanity.Login"/>-->
+             <class name="sanity.Login"/>-->
 
-            <class name="sanity.UploadContent"/>
-
-       <!--     <class name="sanity.createBookAndPublish"/>-->
+       <!--     <class name="sanity.WritePropetiesCheck"/>-->
+        <!--    <class name="sanity.UploadContent2"/>-->
+          <class name="sanity.createBookAndPublish"/>
 
         </classes>
     </test> <!-- Test -->

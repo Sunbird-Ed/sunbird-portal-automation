@@ -17,9 +17,9 @@ public class WorkspaceDashboardPage {
 	private WebElement book;
 
 
-    public void assertDrafts()
-    {
-        UtilityFunctions.waitForVisibilityOfWebElement(drafts);
+    public void assertDrafts() throws InterruptedException {
+
+        UtilityFunctions.waitToBeClickableAndClick(drafts);
         UtilityFunctions.validatIsElementPresent(drafts, "Draft Section not displayed");
     	
     }
