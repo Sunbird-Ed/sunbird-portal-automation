@@ -10,11 +10,12 @@ import org.openqa.selenium.support.PageFactory;
 
 public class BookPageActions extends BaseTestConfig {
 
-    static DashboardPage dashboardPage = PageFactory.initElements(driver, DashboardPage.class);
-    static BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
+  //  static DashboardPage dashboardPage = PageFactory.initElements(driver, DashboardPage.class);
+    //static BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
 
-    
 	public static String createBookPopup(String getContentType) throws Exception {
+		BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
+
 		String bookName = UtilityFunctions.generateRandomName("automationBook");
 		bookPage.enterBookName(bookName);
 		bookPage.clickStartCreateButton();
@@ -32,6 +33,7 @@ bookPage.assertSaveAsDraft();
 
 	public static void BMCDropdownSelectionSection2() throws InterruptedException {
 		Thread.sleep(5000);
+		BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
 				bookPage.clickBoardDropdown();
 		bookPage.selectBoardValue();
 		bookPage.clickMediumDropdown();
@@ -46,6 +48,7 @@ bookPage.assertSaveAsDraft();
 
 
 		public static void Section3() throws InterruptedException {
+			BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
 			bookPage.enterCopyRightYear("2024");
 			Thread.sleep(5000);
 			bookPage.clickSaveAsDraft();
@@ -56,6 +59,7 @@ bookPage.assertSaveAsDraft();
 
 	public static void addResourceFromLibrary()
 	{
+		BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
 		bookPage.clikAddChild();
 		bookPage.clickAddFromLibraryBtn();
 		bookPage.searchContentInLibrary("sdf");
@@ -66,6 +70,7 @@ bookPage.assertSaveAsDraft();
 	
 	public static void submitAndSendForReview()
 	{
+		BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
 		bookPage.clickSubmitbtn();
 		bookPage.clickTermsAndConditions();
 		bookPage.clickSubmitButtonInSendForReview();
@@ -76,6 +81,7 @@ bookPage.assertSaveAsDraft();
 	}
 	public static void assertSendForReviewToastrMsg()
 	{
+		BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
 		 String actualMsg = bookPage.assertSendForReviewTostrMsg();
 	        UtilityFunctions.stringValueComparision(actualMsg, SunbirdConstants.contentSentForReview, "Failed to send the content for review");
 

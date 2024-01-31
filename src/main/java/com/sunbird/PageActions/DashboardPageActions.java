@@ -15,26 +15,30 @@ import org.testng.Assert;
 
 public class DashboardPageActions extends BaseTestConfig {
 
-    static DashboardPage dashboardPage = PageFactory.initElements(driver, DashboardPage.class);
+   // static DashboardPage dashboardPage = PageFactory.initElements(driver, DashboardPage.class);
 
     public static void clickUserProfileIcon() throws InterruptedException {
+        DashboardPage dashboardPage = PageFactory.initElements(driver, DashboardPage.class);
         dashboardPage.userProfileIcon();
         Listeners.addLogs("Clicked on UserProfileIcon");
     }
 
     public static void clickOnWorkSpace() throws InterruptedException {
+        DashboardPage dashboardPage = PageFactory.initElements(driver, DashboardPage.class);
         dashboardPage.workspace();
     }
 
 
     /* validating workspace is availble after login */
     public static void assertWorkspace() {
+        DashboardPage dashboardPage = PageFactory.initElements(driver, DashboardPage.class);
         String actualMsg = dashboardPage.assertWorkspace();
         UtilityFunctions.stringValueComparision(actualMsg, SunbirdConstants.validateWorkspace, "Failed to Login: Workspace didn't load ");
 
     }
 
     public static void logOut() throws InterruptedException {
+        DashboardPage dashboardPage = PageFactory.initElements(driver, DashboardPage.class);
         dashboardPage.clickProfileIcon();
         dashboardPage.clickLogout();
         

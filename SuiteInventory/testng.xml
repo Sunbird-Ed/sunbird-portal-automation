@@ -11,8 +11,12 @@
              <class name="sanity.Login"/>-->
 
        <!--     <class name="sanity.WritePropetiesCheck"/>-->
-        <!--    <class name="sanity.UploadContent2"/>-->
-          <class name="sanity.createBookAndPublish"/>
+     <class name="sanity.UploadContent2"/>
+          <!--<class name="sanity.createBookAndPublish3"/>-->
+
+        <!--    <class name="sanity.createBookAndPublish"/>-->
+           <!-- <class name="sanity.createBookAndPublish"/>-->
+          <!--  <class name="sanity.createBookAndPublish2"/>-->
 
         </classes>
     </test> <!-- Test -->

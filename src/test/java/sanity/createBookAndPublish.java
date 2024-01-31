@@ -37,7 +37,7 @@ public class createBookAndPublish extends BaseTestConfig {
 
 	}
 
-	/*@Test(description = "Book review")
+	@Test(description = "Book review")
 	public void sendForReview() throws Exception {
 
 		OnBoardingActions.RolePoup();
@@ -51,6 +51,6 @@ public class createBookAndPublish extends BaseTestConfig {
 
 		ReviewPageActions.reviewCollection("do_223232");
 
-	}*/
+	}
 
 }

@@ -45,5 +45,20 @@ public class createBookAndPublish2 extends BaseTestConfig {
 		ReviewPageActions.reviewCollection(book);
 
 	}
+	@Test(description = "Consume Book")
+	public void consumeBook() throws Exception {
+
+		OnBoardingActions.RolePoup();
+		OnBoardingActions.BMCPopup();
+		OnBoardingActions.LocationPopup();
+
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"),
+				sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
+//		DashboardPageActions.clickUserProfileIcon();
+//		DashboardPageActions.clickOnWorkSpace();
+//		String book=writesunbird_config.getWriteSunbidConfigPropertyValue("BookDoID");
+//		ReviewPageActions.reviewCollection(book);
+
+	}
 
 }

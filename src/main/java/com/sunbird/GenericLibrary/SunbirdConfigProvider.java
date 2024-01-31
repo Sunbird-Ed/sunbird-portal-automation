@@ -5,7 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Properties;
 
-public class SunbirdConfigProvider {
+public class SunbirdConfigProvider extends BaseTestConfig {
 
     Properties sunbirdConfigPro;
 

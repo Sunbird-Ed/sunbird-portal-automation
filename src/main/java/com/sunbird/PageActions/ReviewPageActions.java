@@ -9,14 +9,14 @@ import com.sunbird.PageObjects.ReviewPage;
 
 public class ReviewPageActions extends BaseTestConfig {
 
-		static ReviewPage reviewPage = PageFactory.initElements(driver, ReviewPage.class);
+	//	static ReviewPage reviewPage = PageFactory.initElements(driver, ReviewPage.class);
 
 		/*
 		 * This method will handle the Collection review flow for Book, course and
 		 * collection
 		 */
 		public static void reviewCollection(String do_id) throws Exception {
-
+			ReviewPage reviewPage = PageFactory.initElements(driver, ReviewPage.class);
 			reviewPage.upForReviewBucket();
 			reviewPage.clickSearchBar(do_id);
 			reviewPage.clickOnSearch();
@@ -34,6 +34,7 @@ public class ReviewPageActions extends BaseTestConfig {
 
 		 public static void reviewAndPubishUploadContent(String contentName) throws InterruptedException
 		    {
+				ReviewPage reviewPage = PageFactory.initElements(driver, ReviewPage.class);
 		    	reviewPage.upForReviewBucket();
 				reviewPage.clickSearchBar(contentName);
 				reviewPage.clickOnSearch();
