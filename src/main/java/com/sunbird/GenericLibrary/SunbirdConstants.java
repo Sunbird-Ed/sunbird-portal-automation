@@ -10,5 +10,7 @@ public class SunbirdConstants {
     public static String contetnPublishedToastrMsg = "Content published successfully...";
     public static String contentSentForReview = "Content is sent for review";
 
+    public static String thankYouRatingToastrMsg="Thank you for rating this content!";
+
     
 }

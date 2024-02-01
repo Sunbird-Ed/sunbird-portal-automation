@@ -4,11 +4,7 @@ import java.time.Duration;
 import java.util.List;
 
 import com.github.javafaker.Faker;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
@@ -38,7 +34,7 @@ public class UtilityFunctions extends BaseTestConfig {
 
     /* This method will just wait untill the given webElement is visible */
     public static void waitForVisibilityOfWebElement(WebElement element) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
@@ -168,4 +164,16 @@ Assert.assertTrue(element.isDisplayed(),ErrorMsg);
         JavascriptExecutor js = (JavascriptExecutor)driver;
         js.executeScript("arguments[0].click();", element);
     }
+
+    public static void scrollUpUsingPixelValue()
+    {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,-350)", "");
+    }
+
+    public static void pressEnterKeyOnWebElement(WebElement element)
+    {
+element.sendKeys(Keys.ENTER);
+    }
+
 }

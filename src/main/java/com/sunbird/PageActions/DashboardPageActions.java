@@ -5,12 +5,7 @@ import com.sunbird.GenericLibrary.Listeners;
 import com.sunbird.GenericLibrary.SunbirdConstants;
 import com.sunbird.GenericLibrary.UtilityFunctions;
 import com.sunbird.PageObjects.DashboardPage;
-import com.sunbird.PageObjects.LoginPage;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
 
 
 public class DashboardPageActions extends BaseTestConfig {
@@ -43,7 +38,12 @@ public class DashboardPageActions extends BaseTestConfig {
         dashboardPage.clickLogout();
         
     }
-    
 
+public static void searchContentAndClickOnContentCard(String searchText) throws InterruptedException {
+        DashboardPage dashboardPage = PageFactory.initElements(driver, DashboardPage.class);
+        dashboardPage.enterContentInSearchBox(searchText);
+        dashboardPage.clickSearchIcon();
+        dashboardPage.clickOnFirstContent();
+    }
 }
 	

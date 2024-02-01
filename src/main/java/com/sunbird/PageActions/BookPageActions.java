@@ -4,7 +4,7 @@ import com.sunbird.GenericLibrary.BaseTestConfig;
 import com.sunbird.GenericLibrary.SunbirdConstants;
 import com.sunbird.GenericLibrary.UtilityFunctions;
 import com.sunbird.PageObjects.BookPage;
-import com.sunbird.PageObjects.DashboardPage;
+import org.checkerframework.checker.guieffect.qual.UI;
 import org.openqa.selenium.support.PageFactory;
 
 
@@ -26,6 +26,34 @@ bookPage.assertSaveAsDraft();
 
 			return UtilityFunctions.generate_Do_id();
 
+		}
+
+
+	}
+
+	public static String section1(String requestReturnType) throws InterruptedException {
+		BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
+		String description = UtilityFunctions.generateRandomName("autoDescription");
+		bookPage.enterDesciption(description);
+		String keyword = UtilityFunctions.generateRandomName("autoKeyword");
+		bookPage.enterKeywords(keyword);
+
+		bookPage.clickyesQRCodeRequiredCheckbox();
+		String enteredQrCode=sunbird_config.getSunbidConfigPropertyValue("QRCodeValue");
+bookPage.enterQrCode(enteredQrCode);
+		bookPage.clickqrCodeBlueTickIcon();
+		bookPage.assertGreenTickIcon();
+
+		if(requestReturnType.equalsIgnoreCase("getqrcode"))
+		{
+			return enteredQrCode;
+		}
+		if(requestReturnType.equalsIgnoreCase("getdescription"))
+		{
+			return description;
+		}
+		else {
+			return keyword;
 		}
 
 

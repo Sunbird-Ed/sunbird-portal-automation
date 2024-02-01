@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 public class createBookAndPublish3 extends BaseTestConfig {
 
 	@Test(description = "Create book And Send For Review")
-	public void createBookAndSendForReview() throws Exception {
+	public void createBookAndSendForReview2() throws Exception {
 
 		OnBoardingActions.RolePoup();
 		OnBoardingActions.BMCPopup();
@@ -37,7 +37,7 @@ public class createBookAndPublish3 extends BaseTestConfig {
 	}
 
 	@Test(description = "Book Pubish")
-	public void publishBook() throws Exception {
+	public void publishBook2() throws Exception {
 
 		OnBoardingActions.RolePoup();
 		OnBoardingActions.BMCPopup();
@@ -66,7 +66,7 @@ public class createBookAndPublish3 extends BaseTestConfig {
 
 	}
 	@Test(description = "Book Pubish")
-	public void publishBookee() throws Exception {
+	public void publishBookee2() throws Exception {
 
 		OnBoardingActions.RolePoup();
 		OnBoardingActions.BMCPopup();

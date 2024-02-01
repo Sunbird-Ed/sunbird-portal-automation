@@ -19,6 +19,24 @@ public class BookPage {
 	@FindBy(how=How.XPATH,using="//button[contains(text(),'Start creating')]")
 	private WebElement startCreating;
 
+    @FindBy(how=How.XPATH,using="//textarea[@placeholder='Description']")
+    private WebElement description;
+
+    @FindBy(how=How.XPATH,using="//input[@aria-label='Input the keyword and press enter']")
+    private WebElement keyWords;
+
+    @FindBy(how=How.XPATH,using="//label[@for='dialcode-required_yes']")
+    private WebElement yesQRCodeRequiredCheckbox;
+
+    @FindBy(how=How.XPATH,using="//input[@placeholder='Enter code here']")
+    private WebElement enterQrCode;
+
+    @FindBy(how=How.XPATH,using="//i[@class='large blue check circle icon']")
+    private WebElement qrCodeBlueTickIcon;
+
+    @FindBy(how=How.XPATH,using="//i[contains(@class,'green check icon')]")
+    private WebElement assertGreenCheckIcon;
+
 	@FindBy(how=How.XPATH,using="//label[contains(text(),'Board')]//following::select[@id='sb-dropdown']")
 	private WebElement clickBoardDropDown;
 	
@@ -200,5 +218,34 @@ public class BookPage {
              String getActualText = UtilityFunctions.getTextFromElement(assertSendForReviewToastrMsg);
              return getActualText;
          }
-         
+
+    public void enterDesciption(String randomDescriptionName) throws InterruptedException {
+        UtilityFunctions.waitToBeClickableAndSendKeys(description, randomDescriptionName);
+
+    }
+    public void enterKeywords(String randomKeywordName) throws InterruptedException {
+        UtilityFunctions.waitToBeClickableAndSendKeys(keyWords, randomKeywordName);
+UtilityFunctions.pressEnterKeyOnWebElement(keyWords);
+    }
+    public void clickyesQRCodeRequiredCheckbox() throws InterruptedException {
+        UtilityFunctions.scrollInToviewUsingJavaScript(yesQRCodeRequiredCheckbox);
+        UtilityFunctions.waitToBeClickableAndClick(yesQRCodeRequiredCheckbox);
+
+    }
+
+    public void enterQrCode(String dialCodeValue) throws InterruptedException {
+        UtilityFunctions.waitToBeClickableAndSendKeys(enterQrCode, dialCodeValue);
+
+    }
+    public void clickqrCodeBlueTickIcon() throws InterruptedException {
+        UtilityFunctions.waitToBeClickableAndClick(qrCodeBlueTickIcon);
+
+    }
+    public void assertGreenTickIcon() throws InterruptedException {
+        UtilityFunctions.scrollUpUsingPixelValue();
+UtilityFunctions.waitForVisibilityOfWebElement(assertGreenCheckIcon);
+        UtilityFunctions.validatIsElementPresent(assertGreenCheckIcon,"Entered QRCode is not valid");
+
+    }
+
 }

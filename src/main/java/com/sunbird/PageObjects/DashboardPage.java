@@ -1,7 +1,6 @@
 package com.sunbird.PageObjects;
 
 import com.sunbird.GenericLibrary.Listeners;
-import com.sunbird.GenericLibrary.SunbirdConstants;
 import com.sunbird.GenericLibrary.UtilityFunctions;
 
 import java.util.List;
@@ -9,7 +8,6 @@ import java.util.List;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.testng.Assert;
 
 public class DashboardPage {
     @FindBy(how = How.XPATH, using = "//span[contains(text(),'English')]//following::div[contains(@class,'avatar-container')]")
@@ -25,6 +23,14 @@ public class DashboardPage {
 	@FindBy(how=How.XPATH,using="//li[text()=' Logout ']")
 	private WebElement logout;
 
+    @FindBy(how=How.XPATH,using="//input[@placeholder='Search or enter QR code']")
+    private WebElement searchTextbox;
+
+    @FindBy(how=How.XPATH,using="//button[@title='Search in undefined']")
+    private WebElement searchIcon;
+
+    @FindBy(how=How.XPATH,using="//div[@class='sb--card__meta']")
+    private WebElement firstContentCard;
 
     public void userProfileIcon() throws InterruptedException {
 
@@ -58,6 +64,27 @@ public class DashboardPage {
          Listeners.addLogs("Clicked on logout ");
 
     }
-    
+
+    public void enterContentInSearchBox(String contentName) throws InterruptedException {
+        Thread.sleep(6000);
+UtilityFunctions.waitForVisibilityOfWebElement(searchTextbox);
+        UtilityFunctions.waitToBeClickableAndSendKeys(searchTextbox,contentName);
+        Listeners.addLogs("Clicked on searchTextbox and entered text ");
+
+    }
+    public void clickSearchIcon()
+    {
+
+        UtilityFunctions.waitToBeClickableAndClick(searchIcon);
+        Listeners.addLogs("Clicked on searchIcon ");
+
+    }
+    public void clickOnFirstContent() throws InterruptedException {
+        Thread.sleep(6000);
+UtilityFunctions.waitForVisibilityOfWebElement(firstContentCard);
+        UtilityFunctions.waitToBeClickableAndClick(firstContentCard);
+        Listeners.addLogs("Clicked on firstContentCard ");
+
+    }
 
 }
