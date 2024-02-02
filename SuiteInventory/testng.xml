@@ -16,7 +16,11 @@
 
         <!--    <class name="sanity.createBookAndPublish"/>-->
            <!-- <class name="sanity.createBookAndPublish"/>-->
-           <class name="sanity.FirstStep3"/>
+
+           <class name="sanity.BookScenario"/>
+
+
+        <!--    <class name="sanity.FirstStep3"/>-->
 
         </classes>
     </test> <!-- Test -->

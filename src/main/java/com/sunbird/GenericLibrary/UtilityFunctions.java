@@ -1,7 +1,11 @@
 package com.sunbird.GenericLibrary;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
+import java.util.Properties;
 
 import com.github.javafaker.Faker;
 import org.openqa.selenium.*;
@@ -173,7 +177,27 @@ Assert.assertTrue(element.isDisplayed(),ErrorMsg);
 
     public static void pressEnterKeyOnWebElement(WebElement element)
     {
-element.sendKeys(Keys.ENTER);
+    element.sendKeys(Keys.ENTER);
     }
+    public static String getProperyFilePath() throws IOException {
+        String path = System.getProperty("user.dir") + "//Config//SunbirdConfig.Properties";
+        FileInputStream fis = new FileInputStream(path);
+      Properties  pro = new Properties();
+        pro.load(fis);
 
+        String Env = pro.getProperty("EnvironmentSetup");
+        String path2="";
+        if (Env.equalsIgnoreCase("STAGING")) {
+        return     path2 = System.getProperty("user.dir") + "//Config//Sunbird.Properties";
+
+        } else if (Env.equalsIgnoreCase("PREPROD")) {
+
+            return   path2 = System.getProperty("user.dir") + "//Config//SunbirdPreProd.Properties";
+
+        } else if (Env.equalsIgnoreCase("Prod")) {
+            return     path2 = System.getProperty("user.dir") + "//Config//SunbirdProd.Properties";
+
+        }
+        return path2;
+    }
 }

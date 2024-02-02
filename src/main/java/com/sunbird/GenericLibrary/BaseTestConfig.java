@@ -24,20 +24,19 @@ public class BaseTestConfig {
     public static ExtendReportGenerator reporter;
 
 
-
     /* Loads sunbirdConfi properties object */
     @BeforeClass
     public void loadFrameworkConfigs() throws Exception {
 
         sunbird_config = new SunbirdConfigProvider();
-        writesunbird_config=new WriteSunbirdConfigProvider();
+        writesunbird_config = new WriteSunbirdConfigProvider();
     }
 
-/*@BeforeTest
-public void load() throws Exception {
-    sunbird_config = new SunbirdConfigProvider();
-    writesunbird_config=new WriteSunbirdConfigProvider();
-}*/
+    /*@BeforeTest
+    public void load() throws Exception {
+        sunbird_config = new SunbirdConfigProvider();
+        writesunbird_config=new WriteSunbirdConfigProvider();
+    }*/
     /* @Author = Raju
     /* Close the browser once the execution of each testscript  */
     @AfterMethod
@@ -58,10 +57,10 @@ public void load() throws Exception {
         pro.load(fis);
         //System.setProperty(CHROME_KEY,CHROME_VAl);
 
-  //      ChromeOptions options = new ChromeOptions();
+        //      ChromeOptions options = new ChromeOptions();
 //        options.addArguments("--disable-extensions");
 //        options.addArguments("--disable-gpu");
-      // options.addArguments("--disable-dev-shm-usage");
+        // options.addArguments("--disable-dev-shm-usage");
 //        options.setScriptTimeout(Duration.ofMillis(20000));
 //        options.setImplicitWaitTimeout(Duration.ofMillis(5000));
 //        options.setPageLoadTimeout(Duration.ofMillis(5000));
@@ -87,5 +86,26 @@ public void load() throws Exception {
 
 
     }
+
+
+//    public String getConfigPropertyEnvironmentPath() {
+//        String Env = pro.getProperty("EnvironmentSetup");
+//        if (Env.equalsIgnoreCase("STAGING")) {
+//
+//            String path = System.getProperty("user.dir") + "//Config//Sunbird.Properties";
+//
+//            return path;
+//
+//        } else if (Env.equalsIgnoreCase("PREPROD")) {
+//
+//            String path = System.getProperty("user.dir") + "//Config//SunbirdPreProd.Properties";
+//
+//            return path;
+//        } else if (Env.equalsIgnoreCase("Prod")) {
+//            String path = System.getProperty("user.dir") + "//Config//SunbirdProd.Properties";
+//            return path;
+//        }
+//        return "null";
+//    }
 
 }

@@ -14,16 +14,19 @@ public class FirstStep3 extends BaseTestConfig {
 public void BMCPopup() throws InterruptedException
 {
 
-	OnBoardingActions.RolePoup();
-	OnBoardingActions.BMCPopup();
-	OnBoardingActions.LocationPopup();
+	System.out.println("Usr" +sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"));
+	System.out.println("Pwd" +sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
 
-	LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CUSTODIAN_Usr"),
-			sunbird_config.getSunbidConfigPropertyValue("CUSTODIAN_PWD"));
-
-	DashboardPageActions.searchContentAndClickOnContentCard(sunbird_config.getSunbidConfigPropertyValue("Textbook"));
-	ConsumptionPageActions.consumePDF();
-	ConsumptionPageActions.giveRating(3);
+//	OnBoardingActions.RolePoup();
+//	OnBoardingActions.BMCPopup();
+//	OnBoardingActions.LocationPopup();
+//
+//	LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CUSTODIAN_Usr"),
+//			sunbird_config.getSunbidConfigPropertyValue("CUSTODIAN_PWD"));
+//
+//	DashboardPageActions.searchContentAndClickOnContentCard(sunbird_config.getSunbidConfigPropertyValue("Textbook"));
+//	ConsumptionPageActions.consumePDF();
+//	ConsumptionPageActions.giveRating(3);
 
 
 }

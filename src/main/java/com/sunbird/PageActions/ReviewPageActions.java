@@ -26,10 +26,10 @@ public class ReviewPageActions extends BaseTestConfig {
 			reviewPage.assertPublichButton();
 			reviewPage.clickOnPublish();
 			reviewPage.selectCheckBoxes();
-	/*	reviewPage.clickYesButton();
+		reviewPage.clickYesButton();
 		String actualMsg =  reviewPage.assertContentPublishedMsgs();
 		 UtilityFunctions.stringValueComparision(actualMsg,
-		 SunbirdConstants.contetnPublishedToastrMsg, "Failed to publish the content");*/
+		 SunbirdConstants.contetnPublishedToastrMsg, "Failed to publish the content");
 		}
 
 		 public static void reviewAndPubishUploadContent(String contentName) throws InterruptedException
