@@ -18,6 +18,9 @@ public class ConsumptionPage {
 	@FindBy(how=How.XPATH,using="//span[@class='pageNumberFullcount']//following::button[2]")
 	private WebElement nextIcon;
 
+    @FindBy(how=How.XPATH,using="//div[contains(text(),' Enjoyed this content? ')]")
+    private WebElement assertRatingPopup;
+
     @FindBy(how=How.XPATH,using="//*[@class='icon ng-star-inserted']")
     private List<WebElement> ratingStars;
 
@@ -46,7 +49,7 @@ return totalPDFCount;
     }
 
     public   void giveRatingStars(int a) throws InterruptedException {
-
+UtilityFunctions.waitForVisibilityOfWebElement(assertRatingPopup);
         UtilityFunctions.waitToBeClickableAndClick(ratingStars.get(a));
         Listeners.addLogs("Clicked on ratingStars");
 

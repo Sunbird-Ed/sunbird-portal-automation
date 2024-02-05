@@ -1,29 +1,28 @@
 package sanity;
 
 import com.sunbird.GenericLibrary.BaseTestConfig;
+import com.sunbird.PageActions.ConsumptionPageActions;
+import com.sunbird.PageActions.DashboardPageActions;
+import com.sunbird.PageActions.LoginPageActions;
 import com.sunbird.PageActions.OnBoardingActions;
 import org.testng.annotations.Test;
 
 public class FirstStep4 extends BaseTestConfig {
 
 
-	@Test
-public void BMCPopup() throws InterruptedException
-{
-		//Thread.sleep(8000);
-		//OnBoardingActions.RolePoup();
+	@Test(description = "consumeMp4")
+	public void consumeMp4() throws Exception {
+
+		OnBoardingActions.RolePoup();
 		OnBoardingActions.BMCPopup();
+		OnBoardingActions.LocationPopup();
 
-//String get=UtilityFunctions.generate_Do_id();
-//System.out.println(get);
-//
-//
-//String randomName=UtilityFunctions.generateRandomName("Course_");
-//System.out.println(randomName);
-//
-//
-//	LoginPageActions.fetchText();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CUSTODIAN_Usr"),
+				sunbird_config.getSunbidConfigPropertyValue("CUSTODIAN_PWD"));
 
-}
+		DashboardPageActions.searchContentAndClickOnContentCard(sunbird_config.getSunbidConfigPropertyValue("Textbook"));
+		ConsumptionPageActions.consumeMp4();
+		ConsumptionPageActions.giveRating(3);
+	}
 
 }

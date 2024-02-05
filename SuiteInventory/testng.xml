@@ -17,7 +17,7 @@
         <!--    <class name="sanity.createBookAndPublish"/>-->
            <!-- <class name="sanity.createBookAndPublish"/>-->
 
-           <class name="sanity.BookScenario"/>
+           <class name="sanity.FirstStep4"/>
 
 
         <!--    <class name="sanity.FirstStep3"/>-->

@@ -25,6 +25,6 @@ public class WriteSunbirdConfigProvider extends BaseTestConfig {
     }
     public void writeDataIntoPropertyFile(String keyName, String keyValue) throws IOException {
         writesunbirdConfigPro.setProperty(keyName,keyValue);
-        writesunbirdConfigPro.store(new FileWriter(System.getProperty("user.dir") + "//Config//CreatedSunbirdData.Properties"),"Javatpoint Properties Example");
+        writesunbirdConfigPro.store(new FileWriter(System.getProperty("user.dir") + "//Config//CreatedSunbirdStagingData.Properties"),"Created content data");
     }
 }

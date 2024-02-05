@@ -141,63 +141,77 @@ public class UtilityFunctions extends BaseTestConfig {
     }
 
     /* Method will scrollIntoView untill the element is visible using javascript */
-    public static void scrollInToviewUsingJavaScript(WebElement element)
-    {
-    	 JavascriptExecutor js=(JavascriptExecutor)driver;
- 	    js.executeScript("arguments[0].scrollIntoView(true);",element);
+    public static void scrollInToviewUsingJavaScript(WebElement element) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", element);
     }
-    
-    public static void validatIsElementPresent(WebElement element,String ErrorMsg)
-    {
-Assert.assertTrue(element.isDisplayed(),ErrorMsg);
-}
+
+    public static void validatIsElementPresent(WebElement element, String ErrorMsg) {
+        Assert.assertTrue(element.isDisplayed(), ErrorMsg);
+    }
 
 
-    public static void scrollDownUsingPixelValue()
-    {
+    public static void scrollDownUsingPixelValue() {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,400)", "");
     }
+
     public static void waitForVisibilityOfAllWebElement(List<WebElement> element) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         wait.until(ExpectedConditions.visibilityOfAllElements(element));
     }
 
-    public static void clickUsingJavaScriptExecutor(WebElement element)
-    {
-        JavascriptExecutor js = (JavascriptExecutor)driver;
+    public static void clickUsingJavaScriptExecutor(WebElement element) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].click();", element);
     }
 
-    public static void scrollUpUsingPixelValue()
-    {
+    public static void scrollUpUsingPixelValue() {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,-350)", "");
     }
 
-    public static void pressEnterKeyOnWebElement(WebElement element)
-    {
-    element.sendKeys(Keys.ENTER);
+    public static void pressEnterKeyOnWebElement(WebElement element) {
+        element.sendKeys(Keys.ENTER);
     }
+
     public static String getProperyFilePath() throws IOException {
         String path = System.getProperty("user.dir") + "//Config//SunbirdConfig.Properties";
         FileInputStream fis = new FileInputStream(path);
-      Properties  pro = new Properties();
+        Properties pro = new Properties();
         pro.load(fis);
 
         String Env = pro.getProperty("EnvironmentSetup");
-        String path2="";
+        String path2 = "";
         if (Env.equalsIgnoreCase("STAGING")) {
-        return     path2 = System.getProperty("user.dir") + "//Config//Sunbird.Properties";
+            return path2 = System.getProperty("user.dir") + "//Config//Sunbird.Properties";
 
         } else if (Env.equalsIgnoreCase("PREPROD")) {
 
-            return   path2 = System.getProperty("user.dir") + "//Config//SunbirdPreProd.Properties";
+            return path2 = System.getProperty("user.dir") + "//Config//SunbirdPreProd.Properties";
 
         } else if (Env.equalsIgnoreCase("Prod")) {
-            return     path2 = System.getProperty("user.dir") + "//Config//SunbirdProd.Properties";
+            return path2 = System.getProperty("user.dir") + "//Config//SunbirdProd.Properties";
 
         }
         return path2;
     }
+
+
+    public static String generateXpathUsingContainsWithKeyNameValue(String keynameValue) {
+        String firstXpath = "//*[contains(text(),'";
+        String thirdXpath = "')]";
+        String finalXpath = firstXpath + keynameValue + thirdXpath;
+        return finalXpath;
+    }
+
+    public static String generateXpathUsingAttributeNameAndKeynameValue(String attributeName,String keynameValue)
+    {
+        String finalXpath = "//*[@"+attributeName+"='"+keynameValue+"']";
+             return finalXpath;
+    }
+
+
+
 }
+

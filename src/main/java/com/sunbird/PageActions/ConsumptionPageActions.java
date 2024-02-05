@@ -19,22 +19,37 @@ public class ConsumptionPageActions extends BaseTestConfig {
             for (int i = 0; i <= totalPage; i++) {
                 consumptionPage.clickOnNextIcon();
             }
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             System.out.println("Exception handled");
         }
     }
 
-public static void giveRating(int a) throws InterruptedException {
-    ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
-   consumptionPage.giveRatingStars(a);
-consumptionPage.tellusMorecheckbox();
-consumptionPage.clickSubmitRatingPopup();
-String actual= consumptionPage.assertThankYouToastrMsg();
-                UtilityFunctions.stringValueComparision(actual, SunbirdConstants.thankYouRatingToastrMsg,"Failed on Rating the content");
+    public static void giveRating(int a) throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        consumptionPage.giveRatingStars(a);
+        consumptionPage.tellusMorecheckbox();
+        consumptionPage.clickSubmitRatingPopup();
+        String actual = consumptionPage.assertThankYouToastrMsg();
+        UtilityFunctions.stringValueComparision(actual, SunbirdConstants.thankYouRatingToastrMsg, "Failed on Rating the content");
     }
-    
+
+    public static void consumeMp4() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+
+        //   String txtBookName= sunbird_config.getSunbidConfigPropertyValue("Textbook_Name");
+
+        // String generatedXpath=  UtilityFunctions.generateXpathUsingContainsWithKeyNameValue(txtBookName);
+        // UtilityFunctions.findElementAndClick(generatedXpath);
+
+        Thread.sleep(7000);
+        String mp4Name = sunbird_config.getSunbidConfigPropertyValue("MP4_Consume");
+
+        String generatedXpath = UtilityFunctions.generateXpathUsingAttributeNameAndKeynameValue("title", mp4Name);
+        UtilityFunctions.findElementAndClick(generatedXpath);
+
+
+
+    }
 
 }
 	

@@ -12,5 +12,6 @@ public class SunbirdConstants {
 
     public static String thankYouRatingToastrMsg="Thank you for rating this content!";
 
-    
+
+
 }
