@@ -23,6 +23,7 @@ public class ReviewPageActions extends BaseTestConfig {
 			Thread.sleep(5000);
 			reviewPage.selectContentForReview();
 			Thread.sleep(1000);
+
 			reviewPage.assertPublichButton();
 			reviewPage.clickOnPublish();
 			reviewPage.selectCheckBoxes();
@@ -51,4 +52,32 @@ reviewPage.selectAllCheckBoxesForUploadContent();
 			String actualMsg=reviewPage.assertContentPublishedMsgs();
 				 UtilityFunctions.stringValueComparision(actualMsg,SunbirdConstants.contetnPublishedToastrMsg, "Failed to publish the upload content");
 		    }
+
+	public static void reviewAndPublishContent(String contentName,String contentType) throws Exception {
+		ReviewPage reviewPage = PageFactory.initElements(driver, ReviewPage.class);
+		reviewPage.upForReviewBucket();
+		reviewPage.clickSearchBar(contentName);
+		reviewPage.clickOnSearch();
+		reviewPage.selectContentForReview();
+		Thread.sleep(7000);
+		reviewPage.assertPublichButton();
+		reviewPage.clickOnPublish();
+		switch(contentType){
+			case "Book":
+			reviewPage.selectCheckBoxes();
+				reviewPage.clickYesButton();
+			break;
+			case "Course":
+				reviewPage.clickYesButton();
+				break;
+			case "Collection":
+				reviewPage.selectCheckBoxes();
+				reviewPage.clickYesButton();
+				break;
+
+		}
+				String actualMsg =  reviewPage.assertContentPublishedMsgs();
+		UtilityFunctions.stringValueComparision(actualMsg,SunbirdConstants.contetnPublishedToastrMsg, "Failed to publish the content");
+	}
+
 }

@@ -16,6 +16,8 @@ public class WorkspaceDashboardPage {
 	@FindBy(how=How.XPATH,using="//span[contains(text(),'Book')]")
 	private WebElement book;
 
+    @FindBy(how=How.XPATH,using="//span[contains(text(),'Course')]")
+    private WebElement course;
 
     public void assertDrafts() throws InterruptedException {
 
@@ -37,5 +39,12 @@ public class WorkspaceDashboardPage {
         Listeners.addLogs("Clicked on book ");
 
    }
+    public void clickCourse()
+    {
+
+        UtilityFunctions.waitToBeClickableAndClick(course);
+        Listeners.addLogs("Clicked on course ");
+
+    }
 
 }
