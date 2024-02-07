@@ -44,7 +44,7 @@ public class ConsumptionPageActions extends BaseTestConfig {
         Thread.sleep(7000);
         String mp4Name = sunbird_config.getSunbidConfigPropertyValue("MP4_Consume");
 
-        String generatedXpath = UtilityFunctions.generateXpathUsingAttributeNameAndKeynameValue("title", mp4Name);
+        String generatedXpath = UtilityFunctions.generateXpathUsingAttributeNameAndKeynameValue(SunbirdConstants.title, mp4Name);
         UtilityFunctions.findElementAndClick(generatedXpath);
 
 

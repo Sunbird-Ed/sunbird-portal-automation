@@ -12,6 +12,9 @@ public class SunbirdConstants {
 
     public static String thankYouRatingToastrMsg="Thank you for rating this content!";
 
+public static String title="title";
 
+public static String name="name";
 
+public static String placeholder="placeholer";
 }
