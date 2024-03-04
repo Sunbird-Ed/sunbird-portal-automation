@@ -28,5 +28,10 @@ public class WorkspaceDashboardPageActions extends BaseTestConfig {
         workspacedashboardPage.clickCourse();
 
     }
+    public static void clickResource() throws InterruptedException {
+        WorkspaceDashboardPage workspacedashboardPage=PageFactory.initElements(driver, WorkspaceDashboardPage.class);
+        workspacedashboardPage.clickResource();
+
+    }
 }
 	

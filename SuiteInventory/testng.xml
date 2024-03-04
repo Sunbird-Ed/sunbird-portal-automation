@@ -18,9 +18,10 @@
            <!-- <class name="sanity.createBookAndPublish"/>-->
 
            <class name="sanity.FirstStep5"/>
-           <!-- <class name="sanity.UploadContent"/>
+          <class name="sanity.UploadContent"/>
             <class name="sanity.BookScenario"/>
--->
+            <class name="sanity.CourseScenario"/>
+
 
         <!--    <class name="sanity.FirstStep3"/>-->
 

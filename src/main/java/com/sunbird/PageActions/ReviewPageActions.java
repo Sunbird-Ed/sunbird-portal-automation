@@ -74,6 +74,10 @@ reviewPage.selectAllCheckBoxesForUploadContent();
 				reviewPage.selectCheckBoxes();
 				reviewPage.clickYesButton();
 				break;
+			case "Resource":
+				reviewPage.selectCheckBoxesForResource();
+				reviewPage.clickonPublishButtonPopupResouce();
+				break;
 
 		}
 				String actualMsg =  reviewPage.assertContentPublishedMsgs();

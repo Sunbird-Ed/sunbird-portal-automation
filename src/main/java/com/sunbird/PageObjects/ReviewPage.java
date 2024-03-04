@@ -43,14 +43,20 @@ public class ReviewPage extends BaseTestConfig {
 		
 		@FindBy(how = How.XPATH, using = "//*[contains(text(),'Publish')]//following::input[@type='checkbox']")
 		private List<WebElement> checkBoxForUploadContent;
-		
-		@FindBy(how = How.XPATH, using = "//strong[contains(text(),'Content published successfully...')]")
+
+				@FindBy(how = How.XPATH, using = "//strong[contains(text(),'Content published successfully...')]")
 		private WebElement assertTostrMsg;
 
 	@FindBy(how = How.XPATH, using = "//i[@class='icon close']")
 	private WebElement closeIconPublishPopup;
 
-		public void upForReviewBucket() {
+	@FindBy(how = How.XPATH, using = "//*[contains(text(),'Please confirm')]//following::input[@type='checkbox']")
+	private List<WebElement> checkBoxForResource;
+
+	@FindBy(how = How.XPATH, using = "//*[contains(text(),'Please confirm')]//following::button[contains(text(),'Publish')]")
+	private WebElement clickPublishBtnInResource;
+
+	public void upForReviewBucket() {
 
 			UtilityFunctions.waitToBeClickableAndClick(upforreview);
 			Listeners.addLogs("Clicked Up for Review");
@@ -135,5 +141,17 @@ UtilityFunctions.clickUsingJavaScriptExecutor(publishButtonUploadContent);
 		//	UtilityFunctions.waitToBeClickableAndClick(publishButtonUploadContent);
 
 		}
+	public void selectCheckBoxesForResource() throws InterruptedException {
+
+		// Iterate through checkboxes using index values
+		for (int i = 0; i < checkBoxForResource.size(); i++) {
+			checkBoxForResource.get(i).click();
+		}
+	}
+	public void clickonPublishButtonPopupResouce() {
+
+		UtilityFunctions.waitToBeClickableAndClick(clickPublishBtnInResource);
+		Listeners.addLogs("Clicked on publish Button");
+	}
 	}
    

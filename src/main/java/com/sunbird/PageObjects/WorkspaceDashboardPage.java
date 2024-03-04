@@ -19,6 +19,10 @@ public class WorkspaceDashboardPage {
     @FindBy(how=How.XPATH,using="//span[contains(text(),'Course')]")
     private WebElement course;
 
+    @FindBy(how=How.XPATH,using="//span[text()='Resource']")
+    private WebElement resource;
+
+
     public void assertDrafts() throws InterruptedException {
 
         UtilityFunctions.waitToBeClickableAndClick(drafts);
@@ -44,6 +48,13 @@ public class WorkspaceDashboardPage {
 
         UtilityFunctions.waitToBeClickableAndClick(course);
         Listeners.addLogs("Clicked on course ");
+
+    }
+    public void clickResource()
+    {
+
+        UtilityFunctions.waitToBeClickableAndClick(resource);
+        Listeners.addLogs("Clicked on resource ");
 
     }
 

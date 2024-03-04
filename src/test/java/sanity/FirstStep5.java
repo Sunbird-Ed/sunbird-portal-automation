@@ -33,6 +33,7 @@ public class FirstStep5 extends BaseTestConfig {
 	}*/
 
 
+/*
 	@Test(description = "Publish the Course")
 	public void publishCourse() throws Exception {
 
@@ -48,5 +49,34 @@ public class FirstStep5 extends BaseTestConfig {
 		ReviewPageActions.reviewAndPublishContent(newcourseDoId,"Course");
 
 	}
+*/
+
+
+	@Test(description = "Publish the Resource")
+	public void createResourceAndPublish() throws Exception {
+
+		OnBoardingActions.RolePoup();
+		OnBoardingActions.BMCPopup();
+		OnBoardingActions.LocationPopup();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+				sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.clickOnWorkSpace();
+		WorkspaceDashboardPageActions.clickResource();
+String createdContent=ResourcePageActions.createResourcePopup("getContentName");
+ResourcePageActions.addTriangleShape();
+ResourcePageActions.addText();
+ResourcePageActions.addNewSlide();
+ResourcePageActions.saveAndCloseIcon();
+ResourcePageActions.resourceSendForReview();
+		DashboardPageActions.logOut();
+
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"),
+				sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.clickOnWorkSpace();
+		ReviewPageActions.reviewAndPublishContent(createdContent,"Resource");
+	}
+
 
 }
