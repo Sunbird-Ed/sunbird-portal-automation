@@ -20,8 +20,8 @@ public class OnBoarding extends BaseTestConfig {
     @FindBy(how = How.XPATH, using = "//*[contains(text(),'CBSE')]")
     private WebElement Cbsc;
 
-    @FindBy(how = How.XPATH, using = "//div[@id='mat-select-value-39']")
-//@FindBy(how=How.XPATH,using="//div[@id='mat-select-value-9']")
+//    @FindBy(how = How.XPATH, using = "//div[@id='mat-select-value-39']")
+@FindBy(how=How.XPATH,using="//div[@id='mat-select-value-9']")
     private WebElement Medium;
 
 
@@ -48,23 +48,41 @@ public class OnBoarding extends BaseTestConfig {
     private WebElement ContinueButton;
 
 
-    @FindBy(how = How.XPATH, using = "//span[contains(text(),'State')]//following::li[1]")
+    @FindBy(how = How.XPATH, using = "//span[contains(text(),'State')]//following::span[2]")
     private WebElement ClickStateDropDown;
 
-    @FindBy(how = How.XPATH, using = "//span[contains(text(),'State')]//following::li[3]")
+    @FindBy(how = How.XPATH, using = "//span[contains(text(),'State')]//following::span[2]//following::span[@class='mat-option-text'][2]")
     private WebElement SelectStateValue;
 
-    @FindBy(how = How.XPATH, using = "//span[contains(text(),'District')]//following::li[1]")
+    @FindBy(how = How.XPATH, using = "//span[contains(text(),'District')]//following::span[2]")
     private WebElement clickDistrictDropdown;
 
-    @FindBy(how = How.XPATH, using = "//span[contains(text(),'District')]//following::li[3]")
+    @FindBy(how = How.XPATH, using = "//span[contains(text(),'District')]//following::span[2]//following::span[@class='mat-option-text'][2]")
     private WebElement SelectDistrictvalue;
 
     @FindBy(how = How.XPATH, using = "(//button[@type='submit'])[2]")
     private WebElement LocationPopupSubmitButton;
 
-    
-    
+    @FindBy(how = How.XPATH, using = "//*[@id='mat-select-value-21']")
+    private WebElement farmingTypeDropDown;
+    @FindBy(how = How.XPATH, using = "//*[@id='mat-select-value-21']//following::span[@class='mat-option-text']")
+    private WebElement farmingTypeValue;
+
+    @FindBy(how = How.XPATH, using = "//*[@id='mat-select-30']")
+    private WebElement cropCategoryDropdown;
+    @FindBy(how = How.XPATH, using = "//*[@id='mat-select-value-31']//following::span[@class='mat-option-text']")
+    private WebElement cropCategoryValue;
+
+    @FindBy(how = How.XPATH, using = "//*[@id='mat-select-38']")
+    private WebElement cropTypeDropdown;
+    @FindBy(how = How.XPATH, using = "//*[@id='mat-select-38']//following::span[@class='mat-option-text']")
+    private WebElement cropTypeValue;
+
+    @FindBy(how = How.XPATH, using = "//*[@id='mat-select-value-45']")
+    private WebElement cropNameDropdown;
+    @FindBy(how = How.XPATH, using = "//*[@id='mat-select-value-45']//following::span[@class='mat-option-text']")
+    private WebElement cropNameValue;
+
 //	public WebElement TeacherClick() {
 //		
 //		return Teacher;
@@ -143,7 +161,7 @@ public class OnBoarding extends BaseTestConfig {
 
 
     public void clickStateDropdown() {
-
+UtilityFunctions.waitForVisibilityOfWebElement(ClickStateDropDown);
         UtilityFunctions.waitToBeClickableAndClick(ClickStateDropDown);
         Listeners.addLogs("Clicked on state dropdown");
 
@@ -181,6 +199,31 @@ public class OnBoarding extends BaseTestConfig {
 
         UtilityFunctions.waitToBeClickableAndClick(exploreDiksha);
         Listeners.addLogs("Clicked on explore button");
+
+    }
+
+    public void selectFarmingType()
+    {
+        UtilityFunctions.waitToBeClickableAndClick(farmingTypeDropDown);
+        UtilityFunctions.waitToBeClickableAndClick(farmingTypeValue);
+
+    }
+    public void selectCropCategory()
+    {
+        UtilityFunctions.waitToBeClickableAndClick(cropCategoryDropdown);
+        UtilityFunctions.waitToBeClickableAndClick(cropCategoryValue);
+
+    }
+    public void selectCropType()
+    {
+        UtilityFunctions.waitToBeClickableAndClick(cropTypeDropdown);
+        UtilityFunctions.waitToBeClickableAndClick(cropTypeValue);
+
+    }
+    public void selectCropName()
+    {
+        UtilityFunctions.waitToBeClickableAndClick(cropNameDropdown);
+        UtilityFunctions.waitToBeClickableAndClick(cropNameValue);
 
     }
 

@@ -21,7 +21,7 @@ public class ResourcePageActions extends BaseTestConfig {
 		resourcePage.clkContentTypeDropdown();
 		resourcePage.selectExplanationContentType();
 		resourcePage.clickStartCreating();
-
+		UtilityFunctions.switchFrameUsingName();
 		if (getContentType.equalsIgnoreCase("getContentName")) {
 			return resourceName;
 		} else {
@@ -29,8 +29,7 @@ public class ResourcePageActions extends BaseTestConfig {
 			return UtilityFunctions.generate_Do_id();
 
 		}
-
-	}
+    }
 
 	public static void addTriangleShape() throws InterruptedException {
 		ResourcePage resourcePage = PageFactory.initElements(driver, ResourcePage.class);

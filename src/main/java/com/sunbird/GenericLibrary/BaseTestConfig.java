@@ -2,8 +2,10 @@ package com.sunbird.GenericLibrary;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.Properties;
 
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -64,15 +66,15 @@ public class BaseTestConfig {
 //        options.setScriptTimeout(Duration.ofMillis(20000));
 //        options.setImplicitWaitTimeout(Duration.ofMillis(5000));
 //        options.setPageLoadTimeout(Duration.ofMillis(5000));
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
 
-
-        driver = new ChromeDriver();
+        driver = new ChromeDriver(chromeOptions);
         driver.manage().window().maximize();
         String Env = pro.getProperty("EnvironmentSetup");
 
 
         if (Env.equalsIgnoreCase("STAGING")) {
-
 
             driver.get(pro.getProperty("StagingURL"));
 

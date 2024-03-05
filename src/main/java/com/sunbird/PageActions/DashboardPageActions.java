@@ -34,7 +34,8 @@ public class DashboardPageActions extends BaseTestConfig {
 
     public static void logOut() throws InterruptedException {
         DashboardPage dashboardPage = PageFactory.initElements(driver, DashboardPage.class);
-        dashboardPage.clickProfileIcon();
+     //   dashboardPage.clickProfileIcon();
+        DashboardPageActions.clickUserProfileIcon();
         dashboardPage.clickLogout();
         
     }

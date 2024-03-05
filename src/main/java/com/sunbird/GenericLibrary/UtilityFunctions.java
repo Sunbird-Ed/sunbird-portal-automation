@@ -211,7 +211,9 @@ public class UtilityFunctions extends BaseTestConfig {
              return finalXpath;
     }
 
-
-
+    public static void switchFrameUsingName() throws InterruptedException {
+        WebElement iframe = driver.findElement(By.tagName("iframe"));
+        driver.switchTo().frame(iframe);
+    }
 }
 
