@@ -10,14 +10,15 @@ import org.openqa.selenium.support.PageFactory;
 
 public class DashboardPageActions extends BaseTestConfig {
 
-   // static DashboardPage dashboardPage = PageFactory.initElements(driver, DashboardPage.class);
 
+    /* click on userProfileIcon */
     public static void clickUserProfileIcon() throws InterruptedException {
         DashboardPage dashboardPage = PageFactory.initElements(driver, DashboardPage.class);
         dashboardPage.userProfileIcon();
         Listeners.addLogs("Clicked on UserProfileIcon");
     }
 
+    /*Click on workspace option*/
     public static void clickOnWorkSpace() throws InterruptedException {
         DashboardPage dashboardPage = PageFactory.initElements(driver, DashboardPage.class);
         dashboardPage.workspace();
@@ -32,14 +33,18 @@ public class DashboardPageActions extends BaseTestConfig {
 
     }
 
+    /* click on profileIcon and clicks logout */
     public static void logOut() throws InterruptedException {
         DashboardPage dashboardPage = PageFactory.initElements(driver, DashboardPage.class);
-     //   dashboardPage.clickProfileIcon();
-        DashboardPageActions.clickUserProfileIcon();
+
+     //  dashboardPage.clickProfileIcon();
+       dashboardPage.clickProfileIcon2();
+       // DashboardPageActions.clickUserProfileIcon();
         dashboardPage.clickLogout();
         
     }
 
+    /* search the content in searchbar and click on the first content */
 public static void searchContentAndClickOnContentCard(String searchText) throws InterruptedException {
         DashboardPage dashboardPage = PageFactory.initElements(driver, DashboardPage.class);
         dashboardPage.enterContentInSearchBox(searchText);

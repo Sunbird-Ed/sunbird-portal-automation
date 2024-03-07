@@ -113,4 +113,31 @@ public class SanitySuites extends BaseTestConfig {
 		BookPageActions.Section3();
 		BookPageActions.addResourceFromLibrary();
 	}
+
+	@Test(description = "Generate QrCode")
+	public void generateQRCode() throws Exception {
+
+		OnBoardingActions.RolePoup();
+		OnBoardingActions.BMCPopup();
+		OnBoardingActions.LocationPopup();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+				sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.assertWorkspace();
+		DashboardPageActions.clickOnWorkSpace();
+		WorkspaceDashboardPageActions.clickBook();
+		String createdContent = BookPageActions.createBookPopup("getdoid");
+		String des=BookPageActions.section1("getdescription");
+		BookPageActions.BMCDropdownSelectionSection2();
+		BookPageActions.Section3();
+		BookPageActions.generateQrCode("2");
+		BookPageActions.downloadQrCode();
+		BookPageActions.generateQrCode("245");
+		BookPageActions.downloadQrCode();
+
+		BookPageActions.addResourceFromLibrary();
+		BookPageActions.submitAndSendForReview();
+
+
+	}
 }

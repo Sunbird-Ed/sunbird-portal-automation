@@ -33,6 +33,7 @@ public class ReviewPageActions extends BaseTestConfig {
 		 SunbirdConstants.contetnPublishedToastrMsg, "Failed to publish the content");
 		}
 
+
 		 public static void reviewAndPubishUploadContent(String contentName) throws InterruptedException
 		    {
 				ReviewPage reviewPage = PageFactory.initElements(driver, ReviewPage.class);
@@ -53,6 +54,8 @@ reviewPage.selectAllCheckBoxesForUploadContent();
 				 UtilityFunctions.stringValueComparision(actualMsg,SunbirdConstants.contetnPublishedToastrMsg, "Failed to publish the upload content");
 		    }
 
+
+			/* review and publish all the content based on the type */
 	public static void reviewAndPublishContent(String contentName,String contentType) throws Exception {
 		ReviewPage reviewPage = PageFactory.initElements(driver, ReviewPage.class);
 		reviewPage.upForReviewBucket();

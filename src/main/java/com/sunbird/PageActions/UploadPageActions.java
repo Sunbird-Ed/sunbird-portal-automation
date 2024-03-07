@@ -20,11 +20,13 @@ public class UploadPageActions extends BaseTestConfig {
         uploadPage.uploadContentInWorkspace();
     }
 
+    /* click on contentype dropdown */
     public static void clickcontentTypeDroddown() throws InterruptedException {
         uploadPage.contentTypeDroddown();
 
     }
 
+    /* upload the content by taking the filePath */
     public static void uploadContent(String uploadFileType) throws InterruptedException {
 
         uploadPage.uploadContentInWorkspace();
@@ -43,6 +45,7 @@ public class UploadPageActions extends BaseTestConfig {
         
     }
 
+    /* fill all the details and Select BMC in uploadSendForReview form */
     public static String sendUploadContentForReview() throws InterruptedException {
                    uploadPage.clickSendForReviewButton();
                    uploadPage.clickAddImage();
@@ -66,7 +69,8 @@ public class UploadPageActions extends BaseTestConfig {
 return titleName;
     }
 
-    
+
+    /* publish the uploadContent using contentName*/
     public static void pubishUploadContent(String contentName) throws InterruptedException
     {
     	reviewPage.upForReviewBucket();

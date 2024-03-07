@@ -197,6 +197,7 @@ public class ResourcePage {
     }
     public void addImageInSendForReview() throws InterruptedException {
         UtilityFunctions.waitToBeClickableAndClick(clkAddImageIcon);
+        Thread.sleep(3000);
         UtilityFunctions.waitToBeClickableAndClick(selectFirstImages);
         UtilityFunctions.waitToBeClickableAndClick(clkSelectInImagePopup);
 
@@ -204,6 +205,8 @@ public class ResourcePage {
     }
     public void selectAdditionalCategory() throws InterruptedException {
         UtilityFunctions.scrollInToviewUsingJavaScript(clkAdditionalCategoryDropdown);
+        UtilityFunctions.waitToBeClickableAndClick(clkAdditionalCategoryDropdown);
+        UtilityFunctions.scrollInToviewUsingJavaScript(SelectadditionalCategorySelected);
         UtilityFunctions.waitToBeClickableAndClick(SelectadditionalCategorySelected);
 
     }
@@ -220,6 +223,7 @@ public class ResourcePage {
     }
 
     public void selectClass() throws InterruptedException {
+        UtilityFunctions.scrollInToviewUsingJavaScript(clickClassDropdown);
         UtilityFunctions.waitToBeClickableAndClick(clickClassDropdown);
         UtilityFunctions.waitToBeClickableAndClick(selectClassValue);
 

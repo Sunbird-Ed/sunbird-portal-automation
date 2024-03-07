@@ -9,7 +9,6 @@ import com.sunbird.PageObjects.LoginPage;
 
 /* Handle login flow by accepting username and password as parameter */
 public class LoginPageActions extends BaseTestConfig {
-  // static LoginPage loginpage = PageFactory.initElements(driver, LoginPage.class);
 
     /* this method will handle to login flow based on the user role */
     public static void Login(String usrName, String passWord) throws InterruptedException {

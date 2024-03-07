@@ -66,7 +66,7 @@ public class FirstStep5 extends BaseTestConfig {
 String createdContent=ResourcePageActions.createResourcePopup("getContentName");
 ResourcePageActions.addTriangleShape();
 ResourcePageActions.addText();
-ResourcePageActions.addNewSlide();
+//ResourcePageActions.addNewSlide();
 ResourcePageActions.saveAndCloseIcon();
 ResourcePageActions.resourceSendForReview();
 		DashboardPageActions.logOut();

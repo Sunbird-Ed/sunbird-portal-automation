@@ -11,23 +11,27 @@ import org.openqa.selenium.support.PageFactory;
 
 public class WorkspaceDashboardPageActions extends BaseTestConfig {
 
-//static WorkspaceDashboardPage workspacedashboardPage=PageFactory.initElements(driver, WorkspaceDashboardPage.class);
+/* validate Drafts sections is available */
     public static void assertDrafts() throws InterruptedException {
         WorkspaceDashboardPage workspacedashboardPage=PageFactory.initElements(driver, WorkspaceDashboardPage.class);
         workspacedashboardPage.assertDrafts();
     }
-    
+
+    /* click on book option in workspace */
     public static void clickBook() throws InterruptedException {
         WorkspaceDashboardPage workspacedashboardPage=PageFactory.initElements(driver, WorkspaceDashboardPage.class);
         workspacedashboardPage.clickBook();
         
     }
 
+    /* click on course option in workspace */
     public static void clickCourse() throws InterruptedException {
         WorkspaceDashboardPage workspacedashboardPage=PageFactory.initElements(driver, WorkspaceDashboardPage.class);
         workspacedashboardPage.clickCourse();
 
     }
+
+    /* click on resource option in workspace */
     public static void clickResource() throws InterruptedException {
         WorkspaceDashboardPage workspacedashboardPage=PageFactory.initElements(driver, WorkspaceDashboardPage.class);
         workspacedashboardPage.clickResource();

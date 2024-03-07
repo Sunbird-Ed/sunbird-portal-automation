@@ -95,8 +95,27 @@ public class BookPage {
 	
 	@FindBy(how=How.XPATH,using="//strong[contains(text(),'Content is sent for review')]")
 	private WebElement assertSendForReviewToastrMsg;
-	
-		
+
+    @FindBy(how=How.XPATH,using="//i[@Class='icon caret down']")
+    private WebElement qrCodeDropdown;
+
+    @FindBy(how=How.XPATH,using="//*[contains(text(),'QR Code ')]//following::span[contains(text(),'Generate')]")
+    private WebElement clickGenerateQRCodeBtn;
+
+    @FindBy(how=How.XPATH,using="//input[@inputmode='numeric']")
+    private WebElement NoOfQRCode;
+
+    @FindBy(how=How.XPATH,using="//button[text()='Request']")
+    private WebElement RequestButton;
+
+    @FindBy(how=How.XPATH,using="//strong[contains(text(),'QR code generated.')]")
+    private WebElement assertGeneratedQRCodeToastrMsg;
+
+    @FindBy(how=How.XPATH,using="//*[@class='icon download']")
+    private WebElement DownloadQRCode;
+
+    @FindBy(how=How.XPATH,using="//strong[contains(text(),'QR codes downloaded')]")
+    private WebElement assertDownloadQRCodeToastrMsg;
     public void enterBookName(String randomBookName) throws InterruptedException {
 
                       UtilityFunctions.waitToBeClickableAndSendKeys(bookname, randomBookName);
@@ -160,6 +179,7 @@ public class BookPage {
 
          public void assertSaveAsDraft()
          {
+
              UtilityFunctions.waitForVisibilityOfWebElement(SaveAsDraft);
          }
 
@@ -248,4 +268,36 @@ UtilityFunctions.waitForVisibilityOfWebElement(assertGreenCheckIcon);
 
     }
 
+    public void clickQrCodeDropdown()
+    {
+        UtilityFunctions.waitToBeClickableAndClick(qrCodeDropdown);
+
+    }
+    public void clickGenerateQrCode()
+    {
+        UtilityFunctions.waitToBeClickableAndClick(clickGenerateQRCodeBtn);
+    }
+    public void enterQrCodeValue(String qrCodesize) throws InterruptedException {
+        UtilityFunctions.waitToBeClickableAndSendKeys(NoOfQRCode, qrCodesize);
+    }
+    public void clkRequestBtn()
+    {
+        UtilityFunctions.waitToBeClickableAndClick(RequestButton);
+    }
+
+    public String assertGenerateQrCodeToastrMsg() {
+        UtilityFunctions.waitForVisibilityOfWebElement(assertGeneratedQRCodeToastrMsg);
+        String getActualText = UtilityFunctions.getTextFromElement(assertGeneratedQRCodeToastrMsg);
+        return getActualText;
+    }
+
+    public void clkDownloadQrCode()
+    {
+        UtilityFunctions.waitToBeClickableAndClick(DownloadQRCode);
+    }
+    public String assertDownloadQrCodeToastrMsg() {
+        UtilityFunctions.waitForVisibilityOfWebElement(assertDownloadQRCodeToastrMsg);
+        String getActualText = UtilityFunctions.getTextFromElement(assertDownloadQRCodeToastrMsg);
+        return getActualText;
+    }
 }

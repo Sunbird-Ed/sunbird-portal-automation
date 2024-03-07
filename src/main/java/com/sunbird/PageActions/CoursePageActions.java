@@ -11,7 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 public class CoursePageActions extends BaseTestConfig {
 
 
-
+/* hanlde course editor section1 and return the content name or doid based on parameter */
 	public static String createCourseSection1(String getContentType) throws Exception {
 		CoursePage coursePage = PageFactory.initElements(driver, CoursePage.class);
 		BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
@@ -43,7 +43,7 @@ public class CoursePageActions extends BaseTestConfig {
 	}
 
 
-
+	/* Selects BMC dropdown in Course editor */
 	public static void BMCDropdownSelectionSection2() throws InterruptedException {
 		Thread.sleep(5000);
 		BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
@@ -59,7 +59,7 @@ public class CoursePageActions extends BaseTestConfig {
 		bookPage.selectSubjectValue();
 		}
 
-
+/* click on saveAs drafts*/
 		public static void Section3() throws InterruptedException {
 			BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
 			bookPage.enterCopyRightYear("2024");
@@ -69,7 +69,7 @@ public class CoursePageActions extends BaseTestConfig {
 		}
 
 
-
+/* add resource from Library section */
 	public static void addResourceFromLibrary()
 	{
 		BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
@@ -80,7 +80,8 @@ public class CoursePageActions extends BaseTestConfig {
 		bookPage.addContentInLibrary();
 		bookPage.clickBackBtnFromLibrarysection();
 	}
-	
+
+	/* will click on submit and sendforreview */
 	public static void submitAndSendForReview()
 	{
 		BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
@@ -92,6 +93,8 @@ public class CoursePageActions extends BaseTestConfig {
 		UtilityFunctions.stringValueComparision(actualMsg, SunbirdConstants.contentSentForReview, "Failed to send the content for review");
 
 	}
+
+	/* Validate the SendForReview toastrMsg */
 	public static void assertSendForReviewToastrMsg()
 	{
 		BookPage bookPage = PageFactory.initElements(driver, BookPage.class);

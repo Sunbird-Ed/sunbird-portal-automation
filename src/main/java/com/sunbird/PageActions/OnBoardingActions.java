@@ -11,10 +11,16 @@ public class OnBoardingActions extends BaseTestConfig {
 
 
     /* This method will handle the Rolepopup in Onboarding flow */
-    public static void RolePoup() {
+    public static void RolePoup() throws InterruptedException {
         OnBoarding onboard = PageFactory.initElements(driver, OnBoarding.class);
         //UtilityFunctions.waitToBeClickableAndClick(onboard.TeacherClick());
        // onboard.explorebutton();
+        Thread.sleep(9000);
+        Thread.sleep(9000);
+        Thread.sleep(9000);
+        Thread.sleep(9000);
+
+
         onboard.TeacherClick();
         onboard.ContinueButtonClick();
     }
@@ -34,7 +40,6 @@ public class OnBoardingActions extends BaseTestConfig {
             case "agriculture_framework_20":
                 selectAgriculturePropertyDropdowns();
                 break;
-
             default:
                 BMCSelection();
         }
@@ -47,13 +52,15 @@ public class OnBoardingActions extends BaseTestConfig {
     public static void LocationPopup() throws InterruptedException {
         OnBoarding onboard = PageFactory.initElements(driver, OnBoarding.class);
       Thread.sleep(5000);
-        onboard.clickStateDropdown();
-        onboard.selectStateValue();
-        onboard.clickDistrictDropDown();
-        onboard.selectDistrictValue();
+//        onboard.clickStateDropdown();
+//        onboard.selectStateValue();
+//        onboard.clickDistrictDropDown();
+//        onboard.selectDistrictValue();
         onboard.LocationPopupSubmit();
 
     }
+
+    /* Select BMC dropdowns */
     public static void BMCSelection()
     {
         OnBoarding onboard = PageFactory.initElements(driver, OnBoarding.class);
@@ -68,6 +75,8 @@ public class OnBoardingActions extends BaseTestConfig {
         UtilityFunctions.MoveByOffSet(50, 100);
 
     }
+
+    /* select the dropdownValues in Agriculture framework */
     public static void selectAgriculturePropertyDropdowns()
     {
         OnBoarding onboard = PageFactory.initElements(driver, OnBoarding.class);

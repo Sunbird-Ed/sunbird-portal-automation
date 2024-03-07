@@ -17,4 +17,9 @@ public static String title="title";
 public static String name="name";
 
 public static String placeholder="placeholer";
+
+    public static String generateQrCodeToastrMsg = "QR code generated.";
+    public static String downloadQrCodeToastrMg = "QR codes downloaded";
+
+
 }

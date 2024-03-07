@@ -32,6 +32,9 @@ public class DashboardPage {
     @FindBy(how=How.XPATH,using="//div[@class='sb--card__meta']")
     private WebElement firstContentCard;
 
+    @FindBy(how=How.XPATH,using="//*[@aria-controls='overlaySidebarID']")
+    private WebElement profileIcon2;
+
     public void userProfileIcon() throws InterruptedException {
 
         UtilityFunctions.waitToBeClickableAndClick(userProfileIcon);
@@ -51,8 +54,8 @@ public class DashboardPage {
         String getActualText = UtilityFunctions.getTextFromElement(workspace);
         return getActualText;
     }
-    public void clickProfileIcon() {
-
+    public void clickProfileIcon() throws InterruptedException {
+Thread.sleep(9000);
         UtilityFunctions.waitToBeClickableAndClick(profileIcon.get(1));
         Listeners.addLogs("Clicked on profile icon");
 
@@ -86,5 +89,11 @@ UtilityFunctions.waitForVisibilityOfWebElement(firstContentCard);
         Listeners.addLogs("Clicked on firstContentCard ");
 
     }
+    public void clickProfileIcon2()
+    {
 
+        UtilityFunctions.waitToBeClickableAndClick(profileIcon2);
+        Listeners.addLogs("Clicked on profileIcon2 ");
+
+    }
 }

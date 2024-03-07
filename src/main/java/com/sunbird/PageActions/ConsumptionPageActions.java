@@ -11,6 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class ConsumptionPageActions extends BaseTestConfig {
 
+    /*  get the PDFPage Count and consume the content */
     public static void consumePDF() throws InterruptedException {
         ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
         int totalPage = consumptionPage.getPDFTotalCount();
@@ -24,6 +25,7 @@ public class ConsumptionPageActions extends BaseTestConfig {
         }
     }
 
+    /* give ratings after the consumption */
     public static void giveRating(int a) throws InterruptedException {
         ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
         consumptionPage.giveRatingStars(a);
@@ -33,6 +35,7 @@ public class ConsumptionPageActions extends BaseTestConfig {
         UtilityFunctions.stringValueComparision(actual, SunbirdConstants.thankYouRatingToastrMsg, "Failed on Rating the content");
     }
 
+    /* consume the Mp4 content */
     public static void consumeMp4() throws InterruptedException {
         ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
 

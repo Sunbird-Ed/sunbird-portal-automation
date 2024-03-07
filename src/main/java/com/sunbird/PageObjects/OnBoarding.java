@@ -25,17 +25,17 @@ public class OnBoarding extends BaseTestConfig {
     private WebElement Medium;
 
 
-    //@FindBy(how=How.XPATH,using="//div[@id='mat-select-value-9']//following::span[@class='mat-option-text']")
-    @FindBy(how = How.XPATH, using = "//div[@id='mat-select-value-39']//following::span[@class='mat-option-text']")
+    @FindBy(how=How.XPATH,using="//div[@id='mat-select-value-9']//following::span[@class='mat-option-text']")
+   // @FindBy(how = How.XPATH, using = "//div[@id='mat-select-value-39']//following::span[@class='mat-option-text']")
 
     private WebElement MediumValue;
 
-    @FindBy(how = How.XPATH, using = "//div[@id='mat-select-value-43']")
-    //@FindBy(how=How.XPATH,using="//mat-form-field[@id='gradeLevel']")
+  //  @FindBy(how = How.XPATH, using = "//div[@id='mat-select-value-43']")
+    @FindBy(how=How.XPATH,using="//div[@id='mat-select-value-13']")
     private WebElement Classs;
 
-    //@FindBy(how=How.XPATH,using="//mat-form-field[@id='gradeLevel']//following::span[@class='mat-option-text']")
-    @FindBy(how = How.XPATH, using = "//div[@id='mat-select-value-43']//following::span[@class='mat-option-text']")
+    @FindBy(how=How.XPATH,using="//div[@id='mat-select-value-13']//following::span[@class='mat-option-text'][2]")
+    //@FindBy(how = How.XPATH, using = "//div[@id='mat-select-value-43']//following::span[@class='mat-option-text']")
     private WebElement ClassValue;
 
     @FindBy(how = How.XPATH, using = "//button[@class='sb-btn sb-btn-normal sb-btn-primary']")
