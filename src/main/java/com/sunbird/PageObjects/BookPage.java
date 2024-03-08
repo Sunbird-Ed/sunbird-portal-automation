@@ -116,6 +116,13 @@ public class BookPage {
 
     @FindBy(how=How.XPATH,using="//strong[contains(text(),'QR codes downloaded')]")
     private WebElement assertDownloadQRCodeToastrMsg;
+
+    @FindBy(how=How.XPATH,using="//i[@class='icon ellipsis vertical h-1']")
+    private WebElement verticalEllipsisMenu;
+
+    @FindBy(how=How.XPATH,using="//span[contains(text(),' Download folders as csv file')]")
+    private WebElement downloadfolderAsCSVFile;
+
     public void enterBookName(String randomBookName) throws InterruptedException {
 
                       UtilityFunctions.waitToBeClickableAndSendKeys(bookname, randomBookName);
@@ -275,6 +282,7 @@ UtilityFunctions.waitForVisibilityOfWebElement(assertGreenCheckIcon);
     }
     public void clickGenerateQrCode()
     {
+
         UtilityFunctions.waitToBeClickableAndClick(clickGenerateQRCodeBtn);
     }
     public void enterQrCodeValue(String qrCodesize) throws InterruptedException {
@@ -299,5 +307,17 @@ UtilityFunctions.waitForVisibilityOfWebElement(assertGreenCheckIcon);
         UtilityFunctions.waitForVisibilityOfWebElement(assertDownloadQRCodeToastrMsg);
         String getActualText = UtilityFunctions.getTextFromElement(assertDownloadQRCodeToastrMsg);
         return getActualText;
+    }
+
+    public void clickVerticalEllipsisMenuIcon()
+    {
+
+        UtilityFunctions.waitToBeClickableAndClick(verticalEllipsisMenu);
+    }
+
+    public void clickDownloadAsCSVFile()
+    {
+
+        UtilityFunctions.waitToBeClickableAndClick(downloadfolderAsCSVFile);
     }
 }

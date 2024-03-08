@@ -11,7 +11,7 @@ public class CoursePage {
 	@FindBy(how=How.XPATH,using="//input[@placeholder='Title']")
 	private WebElement enterTitleName;
 
-	@FindBy(how=How.XPATH,using="//input[@aria-label='Input text & PRESS enter']")
+	@FindBy(how=How.XPATH,using="//input[@aria-label='Enter Keywords']")
 	private WebElement keyWords;
 
 	@FindBy(how=How.XPATH,using="//label[contains(text(),'Course Type')]//following::select")

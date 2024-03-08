@@ -38,15 +38,15 @@ public class BookPageActions extends BaseTestConfig {
         String keyword = UtilityFunctions.generateRandomName("autoKeyword");
         bookPage.enterKeywords(keyword);
 
-        bookPage.clickyesQRCodeRequiredCheckbox();
-        String enteredQrCode = sunbird_config.getSunbidConfigPropertyValue("QRCodeValue");
-        bookPage.enterQrCode(enteredQrCode);
-        bookPage.clickqrCodeBlueTickIcon();
-        bookPage.assertGreenTickIcon();
-
-        if (requestReturnType.equalsIgnoreCase("getqrcode")) {
-            return enteredQrCode;
-        }
+//        bookPage.clickyesQRCodeRequiredCheckbox();
+//        String enteredQrCode = sunbird_config.getSunbidConfigPropertyValue("QRCodeValue");
+//        bookPage.enterQrCode(enteredQrCode);
+//        bookPage.clickqrCodeBlueTickIcon();
+//        bookPage.assertGreenTickIcon();
+//
+//        if (requestReturnType.equalsIgnoreCase("getqrcode")) {
+//            return enteredQrCode;
+//        }
         if (requestReturnType.equalsIgnoreCase("getdescription")) {
             return description;
         } else {
@@ -133,4 +133,13 @@ public class BookPageActions extends BaseTestConfig {
         UtilityFunctions.stringValueComparision(actualMsg, SunbirdConstants.downloadQrCodeToastrMg, "Failed to download Qrcode");
 
     }
+
+    /*Will downloadFolder as CSV File */
+    public static void downloadFolderAsCSVFile() throws InterruptedException {
+        BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
+        bookPage.clickVerticalEllipsisMenuIcon();
+        bookPage.clickDownloadAsCSVFile();
+
+    }
+
 }

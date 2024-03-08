@@ -15,10 +15,7 @@ public class OnBoardingActions extends BaseTestConfig {
         OnBoarding onboard = PageFactory.initElements(driver, OnBoarding.class);
         //UtilityFunctions.waitToBeClickableAndClick(onboard.TeacherClick());
        // onboard.explorebutton();
-        Thread.sleep(9000);
-        Thread.sleep(9000);
-        Thread.sleep(9000);
-        Thread.sleep(9000);
+       Thread.sleep(15000);
 
 
         onboard.TeacherClick();
@@ -51,7 +48,7 @@ public class OnBoardingActions extends BaseTestConfig {
     /* This method will handle the Location popup in onboarding flow */
     public static void LocationPopup() throws InterruptedException {
         OnBoarding onboard = PageFactory.initElements(driver, OnBoarding.class);
-      Thread.sleep(5000);
+      //Thread.sleep(5000);
 //        onboard.clickStateDropdown();
 //        onboard.selectStateValue();
 //        onboard.clickDistrictDropDown();

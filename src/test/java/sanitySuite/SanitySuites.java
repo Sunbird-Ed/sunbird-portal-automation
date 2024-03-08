@@ -1,4 +1,4 @@
-package sanity;
+package sanitySuite;
 
 import com.sunbird.GenericLibrary.BaseTestConfig;
 import com.sunbird.PageActions.*;
