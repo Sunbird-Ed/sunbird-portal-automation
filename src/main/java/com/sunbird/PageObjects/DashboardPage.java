@@ -35,6 +35,9 @@ public class DashboardPage {
     @FindBy(how=How.XPATH,using="//*[@aria-controls='overlaySidebarID']")
     private WebElement profileIcon2;
 
+    @FindBy(how=How.XPATH,using="//*[contains(text(),'Home')]")
+    private WebElement homeTab;
+
     public void userProfileIcon() throws InterruptedException {
 
         UtilityFunctions.waitToBeClickableAndClick(userProfileIcon);
@@ -94,6 +97,13 @@ UtilityFunctions.waitForVisibilityOfWebElement(firstContentCard);
 
         UtilityFunctions.waitToBeClickableAndClick(profileIcon2);
         Listeners.addLogs("Clicked on profileIcon2 ");
+
+    }
+
+    public void homeTab() {
+
+        UtilityFunctions.waitToBeClickableAndClick(homeTab);
+        Listeners.addLogs("Clicked on homeTab");
 
     }
 }

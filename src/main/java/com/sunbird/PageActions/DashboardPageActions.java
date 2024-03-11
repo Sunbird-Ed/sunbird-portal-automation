@@ -51,5 +51,11 @@ public static void searchContentAndClickOnContentCard(String searchText) throws 
         dashboardPage.clickSearchIcon();
         dashboardPage.clickOnFirstContent();
     }
+public static void clickHomeTab()
+    {
+        DashboardPage dashboardPage = PageFactory.initElements(driver, DashboardPage.class);
+dashboardPage.homeTab();
+    }
+
 }
 	

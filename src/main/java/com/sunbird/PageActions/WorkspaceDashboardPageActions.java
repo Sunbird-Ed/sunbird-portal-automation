@@ -37,5 +37,12 @@ public class WorkspaceDashboardPageActions extends BaseTestConfig {
         workspacedashboardPage.clickResource();
 
     }
+
+    /* click on collection option in workspace */
+    public static void clickCollection() throws InterruptedException {
+        WorkspaceDashboardPage workspacedashboardPage=PageFactory.initElements(driver, WorkspaceDashboardPage.class);
+        workspacedashboardPage.clickCollection();
+
+    }
 }
 	

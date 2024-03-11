@@ -35,7 +35,7 @@ public class BookPageActions extends BaseTestConfig {
         BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
         String description = UtilityFunctions.generateRandomName("autoDescription");
         bookPage.enterDesciption(description);
-        String keyword = UtilityFunctions.generateRandomName("autoKeyword");
+        String keyword = UtilityFunctions.generateRandomName("autoBookKeyword");
         bookPage.enterKeywords(keyword);
 
 //        bookPage.clickyesQRCodeRequiredCheckbox();
@@ -141,5 +141,21 @@ public class BookPageActions extends BaseTestConfig {
         bookPage.clickDownloadAsCSVFile();
 
     }
-
+    public static void clickAddChild() {
+        BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
+        bookPage.clikAddChild();
+    }
+    /*Add resource from library section */
+    public static void addDifferentResourceTypeInLibrarySection(String resourceType) {
+        BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
+        bookPage.clickAddFromLibraryBtn();
+        bookPage.searchContentInLibrary(resourceType);
+        bookPage.selectButtonInLibrary();
+        bookPage.addContentInLibrary();
+        bookPage.clickBackBtnFromLibrarysection();
+    }
+    public static void clickSaveAsDrafts() {
+        BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
+        bookPage.clickSaveAsDraft();
+    }
 }

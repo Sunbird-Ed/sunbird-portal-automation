@@ -22,7 +22,7 @@ public class CoursePageActions extends BaseTestConfig {
 		String description = UtilityFunctions.generateRandomName("autoDescription");
 		bookPage.enterDesciption(description);
 
-		String keyword = UtilityFunctions.generateRandomName("autoKeyword");
+		String keyword = UtilityFunctions.generateRandomName("autoCourseKeyword");
 		coursePage.enterCourseKeywords(keyword);
 
 

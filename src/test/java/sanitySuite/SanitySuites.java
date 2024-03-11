@@ -70,6 +70,7 @@ public class SanitySuites extends BaseTestConfig {
 		WorkspaceDashboardPageActions.clickBook();
 		String createdContent = BookPageActions.createBookPopup("getdoid");
 		String des=BookPageActions.section1("getdescription");
+
 		BookPageActions.BMCDropdownSelectionSection2();
 		BookPageActions.Section3();
 		BookPageActions.addResourceFromLibrary();

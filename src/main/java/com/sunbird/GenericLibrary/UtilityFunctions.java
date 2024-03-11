@@ -215,5 +215,22 @@ public class UtilityFunctions extends BaseTestConfig {
         WebElement iframe = driver.findElement(By.tagName("iframe"));
         driver.switchTo().frame(iframe);
     }
-}
 
+    public static void waitForElementToBeClickable(WebElement element) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        wait.until(ExpectedConditions.elementToBeClickable(element));
+    }
+
+    public static void waitForElementUsingForLoopAndAssert(WebElement element,int maxAttempt)
+    {
+        for(int i=0;i<maxAttempt;i++) {
+            try {
+               validatIsElementPresent(element, "element is not Displayed");
+                break;
+            } catch (Exception e)
+            {
+
+            }
+    }
+}
+}
