@@ -1,7 +1,6 @@
 package com.sunbird.GenericLibrary;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
@@ -61,11 +60,16 @@ public class UtilityFunctions extends BaseTestConfig {
 
     /* This is fluentWait approach method which accepts WebElement as parameter and call the fluent method*/
     public static void waitForElementAndClickable(WebElement element) {
-        int waitTime = 30;
+        int waitTime = 60;
         fluenWait(element, waitTime);
         element.click();
     }
+    public static void waitForElementIsVisible(WebElement element) {
+        int waitTime = 30;
+        fluenWait(element, waitTime);
 
+
+    }
 
     /* This method will click on the UI screen using given dimension value */
     public static void MoveByOffSet(int a, int b) {
@@ -172,7 +176,9 @@ public class UtilityFunctions extends BaseTestConfig {
     }
 
     public static void pressEnterKeyOnWebElement(WebElement element) {
-        element.sendKeys(Keys.ENTER);
+
+       // element.sendKeys(Keys.ENTER);
+        element.sendKeys(Keys.RETURN);
     }
 
     public static String getProperyFilePath() throws IOException {
@@ -233,4 +239,9 @@ public class UtilityFunctions extends BaseTestConfig {
             }
     }
 }
+
+    public static void switchFrameUsingXpath() throws InterruptedException {
+        WebElement iframe = driver.findElement(By.xpath("//iframe[@class='iziModal-iframe']"));
+        driver.switchTo().frame(iframe);
+    }
 }

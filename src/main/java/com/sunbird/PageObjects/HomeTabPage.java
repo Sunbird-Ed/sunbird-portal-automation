@@ -3,12 +3,9 @@ package com.sunbird.PageObjects;
 import com.sunbird.GenericLibrary.BaseTestConfig;
 import com.sunbird.GenericLibrary.Listeners;
 import com.sunbird.GenericLibrary.UtilityFunctions;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-
-import java.util.List;
 
 public class HomeTabPage extends BaseTestConfig {
 
@@ -56,23 +53,19 @@ public class HomeTabPage extends BaseTestConfig {
 	}
 	public void asserContentIsDisplayed() throws InterruptedException {
 
-//		for(int i=0;i<=3;i++) {
-//			try {
-//				UtilityFunctions.validatIsElementPresent(assertContent, "content is not Displayed");
-//				break;
-//			} catch (Exception e) {
-//
-//			}
-//		}
+
 //		UtilityFunctions.validatIsElementPresent(assertContent, "content is not Displayed");
 //		Listeners.addLogs("validated contents");
 //		driver.navigate().back();
 //		Listeners.addLogs("clicked on back button");
 
-		UtilityFunctions.waitForElementUsingForLoopAndAssert(assertContent,5);
+
+UtilityFunctions.waitForElementIsVisible(assertContent);
+		UtilityFunctions.validatIsElementPresent(assertContent, "content is not Displayed");
+		//UtilityFunctions.waitForElementUsingForLoopAndAssert(assertContent,5);
 		Listeners.addLogs("validated content");
-		driver.navigate().back();
-		Listeners.addLogs("clicked on back button");
+	driver.navigate().back();
+//		Listeners.addLogs("clicked on back button");
 	}
 	public void clickContentInBrowseByCategories() {
 		UtilityFunctions.waitForVisibilityOfWebElement(browseByCategories);

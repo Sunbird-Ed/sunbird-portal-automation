@@ -56,7 +56,7 @@ public class CollectionPage {
 		Listeners.addLogs("selectQuestionPaperValue");
 	}
 
-	public void enterCollectionKeywords(String randomKeywordName) throws InterruptedException {
+	public void KeywordInCollection(String randomKeywordName) throws InterruptedException {
 		UtilityFunctions.waitToBeClickableAndSendKeys(keyWords, randomKeywordName);
 		UtilityFunctions.pressEnterKeyOnWebElement(keyWords);
 	}

@@ -145,17 +145,26 @@ public class BookPageActions extends BaseTestConfig {
         BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
         bookPage.clikAddChild();
     }
+
     /*Add resource from library section */
-    public static void addDifferentResourceTypeInLibrarySection(String resourceType) {
+    public static void addDifferentResourceTypeInLibrarySection(String resourceType) throws InterruptedException {
         BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
         bookPage.clickAddFromLibraryBtn();
         bookPage.searchContentInLibrary(resourceType);
-        bookPage.selectButtonInLibrary();
+           bookPage.selectButtonInLibrary();
         bookPage.addContentInLibrary();
         bookPage.clickBackBtnFromLibrarysection();
     }
+
+    /* click on saveAsdrafts */
     public static void clickSaveAsDrafts() {
         BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
         bookPage.clickSaveAsDraft();
+    }
+
+    /* click on childLeftSection */
+    public static void clickOnAddChildLeftSectionUnit() {
+        BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
+        bookPage.childUnitClick();
     }
 }

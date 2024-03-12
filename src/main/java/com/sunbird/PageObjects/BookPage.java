@@ -123,6 +123,9 @@ public class BookPage {
     @FindBy(how=How.XPATH,using="//span[contains(text(),' Download folders as csv file')]")
     private WebElement downloadfolderAsCSVFile;
 
+    @FindBy(how=How.XPATH,using="//span[@id='removeNodeIcon']//preceding::span[1]")
+    private WebElement childUnitClick;
+
     public void enterBookName(String randomBookName) throws InterruptedException {
 
                       UtilityFunctions.waitToBeClickableAndSendKeys(bookname, randomBookName);
@@ -320,4 +323,15 @@ UtilityFunctions.waitForVisibilityOfWebElement(assertGreenCheckIcon);
 
         UtilityFunctions.waitToBeClickableAndClick(downloadfolderAsCSVFile);
     }
+    public void childUnitClick()
+    {
+
+        UtilityFunctions.waitToBeClickableAndClick(childUnitClick);
+    }
+    public void pressEnterKeyOnSearchTxtbox()
+    {
+
+        UtilityFunctions.pressEnterKeyOnWebElement(searchContentFromLibrary);
+    }
+
 }

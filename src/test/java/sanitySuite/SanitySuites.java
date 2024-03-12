@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 public class SanitySuites extends BaseTestConfig {
 
-	@Test(description = "Publish the Resource")
+	@Test()
 	public void createResourceAndPublish() throws Exception {
 
 		OnBoardingActions.RolePoup();
@@ -162,7 +162,7 @@ public class SanitySuites extends BaseTestConfig {
 		BookPageActions.downloadFolderAsCSVFile();
 	}
 
-	@Test(description = "Generate QrCode")
+	@Test(description = "Generate QrCode",groups= {"Creation"})
 	public void downloadQRCode() throws Exception {
 
 		OnBoardingActions.RolePoup();

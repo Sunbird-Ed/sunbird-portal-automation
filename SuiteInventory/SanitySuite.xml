@@ -18,7 +18,7 @@
            <!-- <class name="sanity.createBookAndPublish"/>-->
 
         <!--   <class name="sanitySuite.SanitySuites2"/>-->
-<!--          <class name="sanity.UploadContent"/>-->
+<!--          clickOnAddChildLeftSectionUnitclass name="sanity.UploadContent"/>-->
 <!--            <class name="sanity.BookScenario"/>-->
 <!--            <class name="sanity.CourseScenario"/>-->
             <class name="sanity.FirstStep5"/>

@@ -15,7 +15,7 @@ public class OnBoardingActions extends BaseTestConfig {
         OnBoarding onboard = PageFactory.initElements(driver, OnBoarding.class);
         //UtilityFunctions.waitToBeClickableAndClick(onboard.TeacherClick());
        // onboard.explorebutton();
-       Thread.sleep(5000);
+      // Thread.sleep(5000);
 
 
         onboard.TeacherClick();

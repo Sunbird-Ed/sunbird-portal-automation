@@ -39,7 +39,7 @@ public class CollectionPageActions extends BaseTestConfig {
 		bookPage.clickStartCreateButton();
 
 		String keyword = UtilityFunctions.generateRandomName("autoCollectionKeyword");
-		collectionPage.enterCollectionKeywords(keyword);
+		collectionPage.KeywordInCollection(keyword);
 
 		if (getContentType.equalsIgnoreCase("getContentName")) {
 			return collectionName;
