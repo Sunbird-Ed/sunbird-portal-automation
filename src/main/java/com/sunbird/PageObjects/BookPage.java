@@ -126,6 +126,12 @@ public class BookPage {
     @FindBy(how=How.XPATH,using="//span[@id='removeNodeIcon']//preceding::span[1]")
     private WebElement childUnitClick;
 
+    @FindBy(how=How.XPATH,using="//button[@title='Copy']")
+    private WebElement clickCopy;
+
+    @FindBy(how=How.XPATH,using="//strong[contains(text(),'Content successfully copied')]")
+    private WebElement assertCopyToastrMsg;
+
     public void enterBookName(String randomBookName) throws InterruptedException {
 
                       UtilityFunctions.waitToBeClickableAndSendKeys(bookname, randomBookName);
@@ -333,5 +339,14 @@ UtilityFunctions.waitForVisibilityOfWebElement(assertGreenCheckIcon);
 
         UtilityFunctions.pressEnterKeyOnWebElement(searchContentFromLibrary);
     }
+    public void copyButton()
+    {
 
+        UtilityFunctions.waitForElementAndClickable(clickCopy);
+    }
+    public String assertCopyToastrMsg() {
+        UtilityFunctions.waitForVisibilityOfWebElement(assertCopyToastrMsg);
+        String getActualText = UtilityFunctions.getTextFromElement(assertCopyToastrMsg);
+        return getActualText;
+    }
 }

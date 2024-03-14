@@ -126,28 +126,28 @@ public class OnBoarding extends BaseTestConfig {
 
     public void MediumDropDown() {
 
-        UtilityFunctions.waitToBeClickableAndClick(Medium);
+        UtilityFunctions.waitForElementAndClickable(Medium);
         Listeners.addLogs("Clicked on MediumDropDown");
 
     }
 
     public void MediumValueSelect() {
 
-        UtilityFunctions.waitToBeClickableAndClick(MediumValue);
+        UtilityFunctions.waitForElementAndClickable(MediumValue);
         Listeners.addLogs("Selected Medium Value");
 
     }
 
     public void ClassDropDown() {
 
-        UtilityFunctions.waitToBeClickableAndClick(Classs);
+        UtilityFunctions.waitForElementAndClickable(Classs);
         Listeners.addLogs("Clicked on Class DropDown");
 
     }
 
     public void ClassValueSelect() {
 
-        UtilityFunctions.waitToBeClickableAndClick(ClassValue);
+        UtilityFunctions.waitForElementAndClickable(ClassValue);
         Listeners.addLogs("Selected class value");
 
     }
@@ -204,26 +204,26 @@ UtilityFunctions.waitForVisibilityOfWebElement(ClickStateDropDown);
 
     public void selectFarmingType()
     {
-        UtilityFunctions.waitToBeClickableAndClick(farmingTypeDropDown);
-        UtilityFunctions.waitToBeClickableAndClick(farmingTypeValue);
+        UtilityFunctions.waitForElementAndClickable(farmingTypeDropDown);
+        UtilityFunctions.waitForElementAndClickable(farmingTypeValue);
 
     }
     public void selectCropCategory()
     {
-        UtilityFunctions.waitToBeClickableAndClick(cropCategoryDropdown);
-        UtilityFunctions.waitToBeClickableAndClick(cropCategoryValue);
+        UtilityFunctions.waitForElementAndClickable(cropCategoryDropdown);
+        UtilityFunctions.waitForElementAndClickable(cropCategoryValue);
 
     }
     public void selectCropType()
     {
-        UtilityFunctions.waitToBeClickableAndClick(cropTypeDropdown);
-        UtilityFunctions.waitToBeClickableAndClick(cropTypeValue);
+        UtilityFunctions.waitForElementAndClickable(cropTypeDropdown);
+        UtilityFunctions.waitForElementAndClickable(cropTypeValue);
 
     }
     public void selectCropName()
     {
-        UtilityFunctions.waitToBeClickableAndClick(cropNameDropdown);
-        UtilityFunctions.waitToBeClickableAndClick(cropNameValue);
+        UtilityFunctions.waitForElementAndClickable(cropNameDropdown);
+        UtilityFunctions.waitForElementAndClickable(cropNameValue);
 
     }
 

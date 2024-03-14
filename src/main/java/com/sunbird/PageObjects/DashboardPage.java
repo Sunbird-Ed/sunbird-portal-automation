@@ -38,6 +38,12 @@ public class DashboardPage {
     @FindBy(how=How.XPATH,using="//*[contains(text(),'Home')]")
     private WebElement homeTab;
 
+    @FindBy(how=How.XPATH,using="//*[contains(text(),'Digital textbooks')]")
+    private WebElement digitalTxtBookTab;
+
+    @FindBy(how=How.XPATH,using="//*[contains(text(),'Courses')]")
+    private WebElement courseTab;
+
     public void userProfileIcon() throws InterruptedException {
 
         UtilityFunctions.waitToBeClickableAndClick(userProfileIcon);
@@ -104,6 +110,17 @@ UtilityFunctions.waitForVisibilityOfWebElement(firstContentCard);
 
         UtilityFunctions.waitToBeClickableAndClick(homeTab);
         Listeners.addLogs("Clicked on homeTab");
+
+    }
+    public void digitalTxtbookTab() {
+           UtilityFunctions.waitForElementAndClickable(digitalTxtBookTab);
+        Listeners.addLogs("Clicked on digitalTxtBookTab");
+
+    }
+
+    public void courseTab() {
+        UtilityFunctions.waitForElementAndClickable(courseTab);
+        Listeners.addLogs("Clicked on courseTab");
 
     }
 }

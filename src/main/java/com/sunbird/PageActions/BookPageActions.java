@@ -167,4 +167,16 @@ public class BookPageActions extends BaseTestConfig {
         BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
         bookPage.childUnitClick();
     }
+
+    public static void clickCopyButton() {
+        BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
+        bookPage.copyButton();
+    }
+    public static void assertCopyToastrMsg() {
+        BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
+        String actualMsg = bookPage.assertCopyToastrMsg();
+        UtilityFunctions.stringValueComparision(actualMsg, SunbirdConstants.copyToastrMsg, "Failed to copy the content");
+
+    }
+
 }

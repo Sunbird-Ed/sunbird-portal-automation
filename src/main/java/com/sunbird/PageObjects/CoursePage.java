@@ -26,6 +26,13 @@ public class CoursePage {
 	@FindBy(how=How.XPATH,using="//label[contains(text(),'Subjects covered in the course')]//following::option[2]")
 	private WebElement selectSbjectCoveredDropdown;
 
+	@FindBy(how=How.XPATH,using="//label[contains(text(),'Subjects covered in the course')]//following::select[1]")
+	private WebElement clickSubjectCoveredDropdown;
+
+	@FindBy(how=How.XPATH,using="//label[contains(text(),'Subjects covered in the course')]//following::select[1]")
+	private WebElement selectSubjectCoveredValue;
+
+
 	public void enterCourseTitleName(String randomCourseName) throws InterruptedException {
 		UtilityFunctions.waitToBeClickableAndSendKeys(enterTitleName, randomCourseName);
 
@@ -43,7 +50,9 @@ public class CoursePage {
 		UtilityFunctions.waitToBeClickableAndClick(selectCourseTypeValue);
 		Listeners.addLogs("selectCourseTypeValue");
 	}
-	public void clicksubjectCoveredDropdown() {
+	public void clicksubjectCoveredDropdown() throws InterruptedException {
+		Thread.sleep(5000);
+		UtilityFunctions.scrollDownUsingPixelValue();
 		UtilityFunctions.waitToBeClickableAndClick(subjectCoveredDropdown);
 		Listeners.addLogs("subjectCoveredDropdown");
 	}

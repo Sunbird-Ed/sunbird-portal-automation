@@ -133,9 +133,8 @@ public class SanitySuites extends BaseTestConfig {
 		BookPageActions.Section3();
 		BookPageActions.generateQrCode("2");
 		BookPageActions.downloadQrCode();
-		BookPageActions.generateQrCode("245");
-		BookPageActions.downloadQrCode();
-
+	BookPageActions.generateQrCode("245");
+	BookPageActions.downloadQrCode();
 		BookPageActions.addResourceFromLibrary();
 		BookPageActions.submitAndSendForReview();
 

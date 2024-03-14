@@ -106,28 +106,22 @@ public class FirstStep5 extends BaseTestConfig {
 
     }
 */
-    @Test(description = "Select questions from pick question page and SendForReview")
-    public void selectQuestionFromQuestionSetPage() throws Exception {
+    @Test(description = "Verify that if the course creator is able to copy a course.\n")
+    public void userAbleToCopyTheCourse() throws Exception {
 
         OnBoardingActions.RolePoup();
         OnBoardingActions.BMCPopup();
         OnBoardingActions.LocationPopup();
         LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
                 sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
-        DashboardPageActions.clickUserProfileIcon();
-        DashboardPageActions.clickOnWorkSpace();
-        WorkspaceDashboardPageActions.clickResource();
-        String createdContent = ResourcePageActions.createResourcePopup("getContentName");
-        QuestionSetPageActions.clickAddQuestionSetIcon();
-        Thread.sleep(5000);
-        UtilityFunctions.switchFrameUsingXpath();
-        QuestionSetPageActions.selectFirstQuestionInList();
-        QuestionSetPageActions.clkNextButtonInQuestionPage();
-      QuestionSetPageActions.enterQuestionSetTitle();
-        QuestionSetPageActions.clickAddQuestionSetIcon();
-        ResourcePageActions.saveAndCloseIcon();
-        ResourcePageActions.resourceSendForReview();
-        DashboardPageActions.logOut();
+        DashboardPageActions.clickCourseTab();
+        DashboardPageActions.searchContentAndClickOnContentCard(sunbird_config.getSunbidConfigPropertyValue("Course"));
+        BookPageActions.clickCopyButton();
+        BookPageActions.assertCopyToastrMsg();
+
+         CoursePageActions.subjectCoveredDropdown();
+        BookPageActions.BMCDropdownSelectionSection2();
+               BookPageActions.clickSaveAsDrafts();
 
     }
 

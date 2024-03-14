@@ -57,5 +57,15 @@ public static void clickHomeTab()
 dashboardPage.homeTab();
     }
 
+    public static void clickDigitalTextbookTab()
+    {
+        DashboardPage dashboardPage = PageFactory.initElements(driver, DashboardPage.class);
+        dashboardPage.digitalTxtbookTab();
+    }
+    public static void clickCourseTab()
+    {
+        DashboardPage dashboardPage = PageFactory.initElements(driver, DashboardPage.class);
+        dashboardPage.courseTab();
+    }
 }
 	

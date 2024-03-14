@@ -37,5 +37,14 @@ public class QuestionSetPageActions extends BaseTestConfig {
 		QuestionSetPage questionSetPage = PageFactory.initElements(driver, QuestionSetPage.class);
 		questionSetPage.clickAddButtonInQuestionTitlePage();
 	}
+
+	public static void clickImmediateFeedback() throws InterruptedException {
+		QuestionSetPage questionSetPage = PageFactory.initElements(driver, QuestionSetPage.class);
+		questionSetPage.immediateFeedback();
+	}
+	public static void clickShuffleQuestions() throws InterruptedException {
+		QuestionSetPage questionSetPage = PageFactory.initElements(driver, QuestionSetPage.class);
+		questionSetPage.shuffleQuestions();
+	}
 	}
 

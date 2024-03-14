@@ -14,7 +14,7 @@ public class OnBoardingActions extends BaseTestConfig {
     public static void RolePoup() throws InterruptedException {
         OnBoarding onboard = PageFactory.initElements(driver, OnBoarding.class);
         //UtilityFunctions.waitToBeClickableAndClick(onboard.TeacherClick());
-       // onboard.explorebutton();
+      //  onboard.explorebutton();
       // Thread.sleep(5000);
 
 
@@ -32,7 +32,7 @@ public class OnBoardingActions extends BaseTestConfig {
       //  String frameworkName = sunbird_config.getSunbidConfigPropertyValue("TAMILNADU_Framework");
         String frameworkName = sunbird_config.getSunbidConfigPropertyValue("FRAMEWORK");
         onboard.BoardValueSelect(frameworkName);
-       // Thread.sleep(5000);
+        Thread.sleep(5000);
         switch(frameworkName){
             case "agriculture_framework_20":
                 selectAgriculturePropertyDropdowns();

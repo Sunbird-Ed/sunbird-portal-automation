@@ -21,10 +21,11 @@
 <!--          clickOnAddChildLeftSectionUnitclass name="sanity.UploadContent"/>-->
 <!--            <class name="sanity.BookScenario"/>-->
 <!--            <class name="sanity.CourseScenario"/>-->
-            <class name="sanity.FirstStep5"/>
+         <!--   <class name="sanity.FirstStep5"/>-->
 
-        <!--    <class name="sanity.FirstStep3"/>-->
-
+         <class name="sanity.FirstStep5"/>
+          <!--  <class name="sanitySuite.SanitySuites"/>
+            <class name="sanitySuite.SanitySuites2"/>-->
         </classes>
     </test> <!-- Test -->
 </suite> <!-- Suite -->

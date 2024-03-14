@@ -102,4 +102,10 @@ public class CoursePageActions extends BaseTestConfig {
 	        UtilityFunctions.stringValueComparision(actualMsg, SunbirdConstants.contentSentForReview, "Failed to send the content for review");
 
 	}
+
+	public static void subjectCoveredDropdown() throws InterruptedException {
+		CoursePage coursePage = PageFactory.initElements(driver, CoursePage.class);
+coursePage.clicksubjectCoveredDropdown();
+coursePage.selectSubjectCoveredvalue();
+	}
 }

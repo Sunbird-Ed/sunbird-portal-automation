@@ -20,6 +20,6 @@ public static String placeholder="placeholer";
 
     public static String generateQrCodeToastrMsg = "QR code generated.";
     public static String downloadQrCodeToastrMg = "QR codes downloaded";
-
+    public static String copyToastrMsg = "Content successfully copied";
 
 }

@@ -1,5 +1,6 @@
 package com.sunbird.PageObjects;
 
+import com.sunbird.GenericLibrary.Listeners;
 import com.sunbird.GenericLibrary.UtilityFunctions;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -22,76 +23,11 @@ public class QuestionSetPage {
     @FindBy(how=How.XPATH,using="//button[@id='add-more-ques-button']//following::button[@class='ui blue button']")
     private WebElement addBtnInQuestionSeTitlePage;
 
+    @FindBy(how=How.XPATH,using="//input[@id='show-feedback']")
+    private WebElement showImmediateFeedback;
 
-
-
-
-
-
-
-    @FindBy(how=How.XPATH,using="//i[@id='org.ekstep.text']")
-    private WebElement clkAddText;
-
-    @FindBy(how=How.XPATH,using="//i[@id='shape']")
-    private WebElement clkAddShapeDropDown;
-
-    @FindBy(how=How.XPATH,using="//i[@id='shape']//following::span[contains(text(),'Triangle')]")
-    private WebElement selectShape;
-
-    @FindBy(how=How.XPATH,using="//div[@id='saveButton']")
-    private WebElement clkSaveButton;
-
-    @FindBy(how=How.XPATH,using="//button[@class='ui orange button']")
-    private WebElement clkCloseIcon;
-
-    @FindBy(how=How.XPATH,using="//i[@class='send icon']")
-    private WebElement clkSendForReviewBtn;
-
-    @FindBy(how=How.XPATH,using="//div[@class='addImageText']")
-    private WebElement clkAddImageIcon;
-
-    @FindBy(how=How.XPATH,using="//*[@id='allImagesTab']")
-    private WebElement clkAllImagesTab;
-
-    @FindBy(how=How.XPATH,using="//div[@class='ui image']")
-    private WebElement selectFirstImages;
-
-    @FindBy(how=How.XPATH,using="//button[contains(text(),'Select')]")
-    private WebElement clkSelectInImagePopup;
-
-    @FindBy(how=How.XPATH,using="//div[text()='Select Additional Category']")
-    private WebElement clkAdditionalCategoryDropdown;
-
-    @FindBy(how=How.XPATH,using="//div[text()='TV Lesson']")
-    private WebElement SelectadditionalCategorySelected;
-
-    @FindBy(how=How.XPATH,using="//div[text()='Select Board/Syllabus']")
-    private WebElement clkBoardDropdown;
-    @FindBy(how=How.XPATH,using="//div[text()='Select Board/Syllabus']//following::div[2]")
-    private WebElement SelectBoradValue;
-
-    @FindBy(how=How.XPATH,using="//div[text()='Select Medium']")
-    private WebElement clkMediumDropdown;
-    @FindBy(how=How.XPATH,using="//div[text()='Select Medium']//following::div[2]")
-    private WebElement selectMedium;
-
-    @FindBy(how=How.XPATH,using="//div[text()='Select Class']")
-    private WebElement clickClassDropdown;
-    @FindBy(how=How.XPATH,using="//div[text()='Select Class']//following::div[2]")
-    private WebElement selectClassValue;
-
-    @FindBy(how=How.XPATH,using="//div[text()='Select Subject']")
-    private WebElement clickSubject;
-    @FindBy(how=How.XPATH,using="//div[text()='Select Subject']//following::div[2]")
-    private WebElement selectSubjectValue;
-
-    @FindBy(how=How.XPATH,using="//input[@id='copyrightYear']")
-    private WebElement enterYearOfCreation;
-
-    @FindBy(how=How.XPATH,using="//button[contains(text(),'Save')]")
-    private WebElement SubmitBtnInSendForReview;
-
-
+    @FindBy(how=How.XPATH,using="//input[@id='shuffle0questions']")
+    private WebElement shuffleQuestions;
 
 
     @FindBy(how=How.XPATH,using="//button[@id='create-question-button']")
@@ -153,11 +89,13 @@ public class QuestionSetPage {
 
 
     public void clkAddQuestionSetIcon() throws InterruptedException {
+      //  UtilityFunctions.waitForElementIsVisible(addQuestionSet);
         UtilityFunctions.waitForElementAndClickable(addQuestionSet);
 
     }
 
     public void selectFirstQuestionInList() throws InterruptedException {
+        UtilityFunctions.waitForElementIsVisible(selectFirstQuestion);
         UtilityFunctions.waitForElementAndClickable(selectFirstQuestion);
 
     }
@@ -174,6 +112,13 @@ public class QuestionSetPage {
         UtilityFunctions.waitForElementAndClickable(addBtnInQuestionSeTitlePage);
 
     }
-
+    public void immediateFeedback() throws InterruptedException {
+        UtilityFunctions.waitForElementAndClickable(showImmediateFeedback);
+        Listeners.addLogs("clicked on showImmediate feedback");
+    }
+    public void shuffleQuestions() throws InterruptedException {
+        UtilityFunctions.waitForElementAndClickable(shuffleQuestions);
+        Listeners.addLogs("clicked on shuffleQuestions");
+    }
 
 }
