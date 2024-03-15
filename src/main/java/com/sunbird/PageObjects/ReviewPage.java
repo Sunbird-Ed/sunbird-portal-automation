@@ -35,7 +35,7 @@ public class ReviewPage extends BaseTestConfig {
 		@FindBy(how = How.XPATH, using = "//button[contains(text(),' Yes ')]")
 		private WebElement yesButton;
 
-		@FindBy(how = How.XPATH, using = "//strong[contains(text(),'Content published successfully...')]")
+		@FindBy(how = How.XPATH, using = "//strong[contains(text(),'Content is published')]")
 		private WebElement contentPublishedMsg;
 
 		@FindBy(how = How.XPATH, using = "//div[contains(text(),' Publish Collection ')]//following::input[@type='checkbox']")
@@ -83,19 +83,19 @@ public class ReviewPage extends BaseTestConfig {
 		}
 
 		public void selectContentForReview() {
-			UtilityFunctions.waitForVisibilityOfWebElement(upForReviewContent);
-			UtilityFunctions.waitToBeClickableAndClick(upForReviewContent);
+			UtilityFunctions.waitForElementIsVisible(upForReviewContent);
+			UtilityFunctions.waitForElementAndClickable(upForReviewContent);
 			Listeners.addLogs("Selected the Content");
 		}
 
 		public void assertPublichButton() {
-
+UtilityFunctions.waitForElementIsVisible(publishButton);
 			UtilityFunctions.validatIsElementPresent(publishButton, "Publish button is not Displayed");
 		}
 
 		public void clickOnPublish() {
 
-			UtilityFunctions.waitToBeClickableAndClick(publishButton);
+			UtilityFunctions.waitForElementAndClickable(publishButton);
 			Listeners.addLogs("Clicked on Publish Button");
 		}
 
@@ -118,7 +118,7 @@ public class ReviewPage extends BaseTestConfig {
 		}
 
 		public String assertContentPublishedMsgs() {
-			UtilityFunctions.waitForVisibilityOfWebElement(contentPublishedMsg);
+			UtilityFunctions.waitForElementIsVisible(contentPublishedMsg);
 			String getActualText = UtilityFunctions.getTextFromElement(contentPublishedMsg);
 			return getActualText;
 		}
@@ -144,7 +144,9 @@ UtilityFunctions.clickUsingJavaScriptExecutor(publishButtonUploadContent);
 	public void selectCheckBoxesForResource() throws InterruptedException {
 
 		// Iterate through checkboxes using index values
-		for (int i = 0; i < checkBoxForResource.size(); i++) {
+Thread.sleep(5000);
+for (int i = 0; i < checkBoxForResource.size(); i++) {
+	//UtilityFunctions.waitForElementAndClickable(checkBoxForResource.get(i));
 			checkBoxForResource.get(i).click();
 		}
 	}
@@ -153,5 +155,11 @@ UtilityFunctions.clickUsingJavaScriptExecutor(publishButtonUploadContent);
 		UtilityFunctions.waitToBeClickableAndClick(clickPublishBtnInResource);
 		Listeners.addLogs("Clicked on publish Button");
 	}
+	public String assertResourceContentPublishedMsgs() {
+		UtilityFunctions.waitForElementIsVisible(assertTostrMsg);
+		String getActualText = UtilityFunctions.getTextFromElement(assertTostrMsg);
+		return getActualText;
+	}
+
 	}
    

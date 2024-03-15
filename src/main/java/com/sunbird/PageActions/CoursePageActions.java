@@ -33,8 +33,11 @@ public class CoursePageActions extends BaseTestConfig {
 
 		if (getContentType.equalsIgnoreCase("getContentName")) {
 			return courseName;
-		} else {
-
+		}
+		if (getContentType.equalsIgnoreCase("getKeyword")) {
+			return keyword;
+		}
+		else {
 			return UtilityFunctions.generate_Do_id();
 
 		}

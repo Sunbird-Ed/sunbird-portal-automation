@@ -78,7 +78,7 @@ public class BookPageActions extends BaseTestConfig {
         bookPage.enterCopyRightYear("2024");
         Thread.sleep(5000);
         bookPage.clickSaveAsDraft();
-        Thread.sleep(5000);
+
     }
 
 /*Add resource from library section */
@@ -89,6 +89,9 @@ public class BookPageActions extends BaseTestConfig {
         bookPage.searchContentInLibrary("sdf");
         bookPage.selectButtonInLibrary();
         bookPage.addContentInLibrary();
+        String actualMsg = bookPage.assertContentAddedFolderToastrMsg();
+        UtilityFunctions.stringValueComparision(actualMsg, SunbirdConstants.contentAddedToFolderToastrMsg, "Failed to add content into folder");
+        bookPage.waitContentAddedToFolderToastrToDisappear();
         bookPage.clickBackBtnFromLibrarysection();
     }
 
@@ -121,16 +124,19 @@ public class BookPageActions extends BaseTestConfig {
         bookPage.clkRequestBtn();
         String actualMsg = bookPage.assertGenerateQrCodeToastrMsg();
         UtilityFunctions.stringValueComparision(actualMsg, SunbirdConstants.generateQrCodeToastrMsg, "Failed to generate Qrcode");
-
+bookPage.waitGenerateQRCodeToastrToDisappear();
+//Thread.sleep(8000);
     }
 
     /* click on DownloadqrCode in QRCode dropdown */
-    public static void downloadQrCode() {
+    public static void downloadQrCode() throws InterruptedException {
         BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
         bookPage.clickQrCodeDropdown();
+        Thread.sleep(8000);
         bookPage.clkDownloadQrCode();
         String actualMsg = bookPage.assertDownloadQrCodeToastrMsg();
         UtilityFunctions.stringValueComparision(actualMsg, SunbirdConstants.downloadQrCodeToastrMg, "Failed to download Qrcode");
+        bookPage.waitDownloadQRCodeToastrToDisappear();
 
     }
 
@@ -153,7 +159,10 @@ public class BookPageActions extends BaseTestConfig {
         bookPage.searchContentInLibrary(resourceType);
            bookPage.selectButtonInLibrary();
         bookPage.addContentInLibrary();
-        bookPage.clickBackBtnFromLibrarysection();
+        String actualMsg = bookPage.assertContentAddedFolderToastrMsg();
+        UtilityFunctions.stringValueComparision(actualMsg, SunbirdConstants.contentAddedToFolderToastrMsg, "Failed to add content into folder");
+        bookPage.waitContentAddedToFolderToastrToDisappear();
+          bookPage.clickBackBtnFromLibrarysection();
     }
 
     /* click on saveAsdrafts */
@@ -178,5 +187,18 @@ public class BookPageActions extends BaseTestConfig {
         UtilityFunctions.stringValueComparision(actualMsg, SunbirdConstants.copyToastrMsg, "Failed to copy the content");
 
     }
+    public static void assertContentIsSavedToastrMsg() {
+        BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
+        String actualMsg = bookPage.assertContentSavedToastMsg();
+        UtilityFunctions.stringValueComparision(actualMsg, SunbirdConstants.contentSavedTostrMsg, "Failed to copy the content");
 
+    }
+    public static void waitContentIsSavedToastToDisapper() {
+        BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
+        bookPage.waitContentIsSavedToastrToDisappear();
+    }
+    public static void waitCopyToastrMsgDisAppear() {
+        BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
+        bookPage.waitCopyToastrMsg();
+    }
 }

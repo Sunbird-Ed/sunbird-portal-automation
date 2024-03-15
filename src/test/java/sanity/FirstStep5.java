@@ -1,9 +1,7 @@
 package sanity;
 
 import com.sunbird.GenericLibrary.BaseTestConfig;
-import com.sunbird.GenericLibrary.UtilityFunctions;
 import com.sunbird.PageActions.*;
-import org.apache.poi.ss.formula.functions.T;
 import org.testng.annotations.Test;
 
 public class FirstStep5 extends BaseTestConfig {
@@ -106,6 +104,33 @@ public class FirstStep5 extends BaseTestConfig {
 
     }
 */
+//    @Test(description = "Generate QrCode",groups= {"Creation"})
+//    public void downloadQRCode() throws Exception {
+//
+//        OnBoardingActions.RolePoup();
+//        OnBoardingActions.BMCPopup();
+//        OnBoardingActions.LocationPopup();
+//        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+//                sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+//        DashboardPageActions.clickUserProfileIcon();
+//        DashboardPageActions.assertWorkspace();
+//        DashboardPageActions.clickOnWorkSpace();
+//        WorkspaceDashboardPageActions.clickBook();
+//        String createdContent = BookPageActions.createBookPopup("getdoid");
+//        String des=BookPageActions.section1("getdescription");
+//        BookPageActions.BMCDropdownSelectionSection2();
+//        BookPageActions.Section3();
+//        BookPageActions.aseertContentIsSavedToastrMsg();
+//        BookPageActions.waitContentIsSavedToastToDisapper();
+//        BookPageActions.generateQrCode("2");
+//        BookPageActions.downloadQrCode();
+//        BookPageActions.generateQrCode("245");
+//        BookPageActions.downloadQrCode();
+//        BookPageActions.addResourceFromLibrary();
+//        BookPageActions.submitAndSendForReview();
+//
+//    }
+
     @Test(description = "Verify that if the course creator is able to copy a course.\n")
     public void userAbleToCopyTheCourse() throws Exception {
 
@@ -118,11 +143,10 @@ public class FirstStep5 extends BaseTestConfig {
         DashboardPageActions.searchContentAndClickOnContentCard(sunbird_config.getSunbidConfigPropertyValue("Course"));
         BookPageActions.clickCopyButton();
         BookPageActions.assertCopyToastrMsg();
-
-         CoursePageActions.subjectCoveredDropdown();
+        BookPageActions.waitCopyToastrMsgDisAppear();
+        CoursePageActions.subjectCoveredDropdown();
         BookPageActions.BMCDropdownSelectionSection2();
-               BookPageActions.clickSaveAsDrafts();
+        BookPageActions.clickSaveAsDrafts();
 
     }
-
 }

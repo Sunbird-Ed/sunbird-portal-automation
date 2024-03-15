@@ -167,47 +167,47 @@ public class ResourcePage {
 
     }
     public void addShape() throws InterruptedException {
-        UtilityFunctions.waitToBeClickableAndClick(clkAddShapeDropDown);
+        UtilityFunctions.waitForElementAndClickable(clkAddShapeDropDown);
 
     }
     public void selectShape() throws InterruptedException {
-        UtilityFunctions.waitToBeClickableAndClick(selectShape);
+        UtilityFunctions.waitForElementAndClickable(selectShape);
 
     }
 
     public void addText() throws InterruptedException {
-        UtilityFunctions.waitToBeClickableAndClick(clkAddText);
+        UtilityFunctions.waitForElementAndClickable(clkAddText);
 
     }
     public void addNewSlide() throws InterruptedException {
-        UtilityFunctions.waitToBeClickableAndClick(clkAddSlide);
+        UtilityFunctions.waitForElementAndClickable(clkAddSlide);
 
     }
     public void clickSaveIcon() throws InterruptedException {
-        UtilityFunctions.waitToBeClickableAndClick(clkSaveButton);
+        UtilityFunctions.waitForElementAndClickable(clkSaveButton);
 
     }
     public void clickCloseIcon() throws InterruptedException {
-        UtilityFunctions.waitToBeClickableAndClick(clkCloseIcon);
+        UtilityFunctions.waitForElementAndClickable(clkCloseIcon);
 
     }
     public void clickSendForReviewButton() throws InterruptedException {
-        UtilityFunctions.waitToBeClickableAndClick(clkSendForReviewBtn);
+        UtilityFunctions.waitForElementAndClickable(clkSendForReviewBtn);
 
     }
     public void addImageInSendForReview() throws InterruptedException {
-        UtilityFunctions.waitToBeClickableAndClick(clkAddImageIcon);
-        Thread.sleep(3000);
-        UtilityFunctions.waitToBeClickableAndClick(selectFirstImages);
-        UtilityFunctions.waitToBeClickableAndClick(clkSelectInImagePopup);
+        UtilityFunctions.waitForElementAndClickable(clkAddImageIcon);
+       // Thread.sleep(3000);
+        UtilityFunctions.waitForElementAndClickable(selectFirstImages);
+        UtilityFunctions.waitForElementAndClickable(clkSelectInImagePopup);
 
 
     }
     public void selectAdditionalCategory() throws InterruptedException {
         UtilityFunctions.scrollInToviewUsingJavaScript(clkAdditionalCategoryDropdown);
-        UtilityFunctions.waitToBeClickableAndClick(clkAdditionalCategoryDropdown);
+        UtilityFunctions.waitForElementAndClickable(clkAdditionalCategoryDropdown);
         UtilityFunctions.scrollInToviewUsingJavaScript(SelectadditionalCategorySelected);
-        UtilityFunctions.waitToBeClickableAndClick(SelectadditionalCategorySelected);
+        UtilityFunctions.waitForElementAndClickable(SelectadditionalCategorySelected);
 
     }
 

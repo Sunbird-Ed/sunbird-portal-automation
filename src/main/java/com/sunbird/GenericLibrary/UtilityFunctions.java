@@ -70,7 +70,10 @@ public class UtilityFunctions extends BaseTestConfig {
 
 
     }
-
+    public static void waitForElementToDisappear(WebElement element) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        wait.until(ExpectedConditions.invisibilityOf(element));
+    }
     /* This method will click on the UI screen using given dimension value */
     public static void MoveByOffSet(int a, int b) {
 

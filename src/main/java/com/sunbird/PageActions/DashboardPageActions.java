@@ -41,7 +41,7 @@ public class DashboardPageActions extends BaseTestConfig {
        dashboardPage.clickProfileIcon2();
        // DashboardPageActions.clickUserProfileIcon();
         dashboardPage.clickLogout();
-        
+        Thread.sleep(6000);
     }
 
     /* search the content in searchbar and click on the first content */

@@ -21,7 +21,7 @@ public class ResourcePageActions extends BaseTestConfig {
 		resourcePage.clkContentTypeDropdown();
 		resourcePage.selectExplanationContentType();
 		resourcePage.clickStartCreating();
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		UtilityFunctions.switchFrameUsingName();
 		if (getContentType.equalsIgnoreCase("getContentName")) {
 			return resourceName;

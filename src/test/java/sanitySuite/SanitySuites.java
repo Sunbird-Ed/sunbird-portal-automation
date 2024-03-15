@@ -30,7 +30,6 @@ public class SanitySuites extends BaseTestConfig {
 		DashboardPageActions.clickOnWorkSpace();
 		ReviewPageActions.reviewAndPublishContent(createdContent, "Resource");
 	}
-
 	@Test(description = "createCourseSendForReview")
 	public void createcourseAndVerify() throws Exception {
 
@@ -46,6 +45,8 @@ public class SanitySuites extends BaseTestConfig {
 		String createdContent = CoursePageActions.createCourseSection1("getdoid");
 		BookPageActions.BMCDropdownSelectionSection2();
 		BookPageActions.Section3();
+		BookPageActions.assertContentIsSavedToastrMsg();
+		BookPageActions.waitContentIsSavedToastToDisapper();
 		BookPageActions.addResourceFromLibrary();
 		BookPageActions.submitAndSendForReview();
 		DashboardPageActions.logOut();
@@ -53,7 +54,7 @@ public class SanitySuites extends BaseTestConfig {
 				sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
 		DashboardPageActions.clickUserProfileIcon();
 		DashboardPageActions.clickOnWorkSpace();
-		ReviewPageActions.reviewAndPublishContent(createdContent, "course");
+		ReviewPageActions.reviewAndPublishContent(createdContent, "Course");
 
 	}
 	@Test(description = "Create Book with unit")
@@ -73,10 +74,10 @@ public class SanitySuites extends BaseTestConfig {
 
 		BookPageActions.BMCDropdownSelectionSection2();
 		BookPageActions.Section3();
+		BookPageActions.assertContentIsSavedToastrMsg();
+		BookPageActions.waitContentIsSavedToastToDisapper();
 		BookPageActions.addResourceFromLibrary();
 		BookPageActions.submitAndSendForReview();
-
-
 	}
 
 	@Test(description = "verify TVLesson in ResourceEditPage")
@@ -112,12 +113,13 @@ public class SanitySuites extends BaseTestConfig {
 		String createdContent = CoursePageActions.createCourseSection1("getdoid");
 		BookPageActions.BMCDropdownSelectionSection2();
 		BookPageActions.Section3();
+		BookPageActions.assertContentIsSavedToastrMsg();
+		BookPageActions.waitContentIsSavedToastToDisapper();
 		BookPageActions.addResourceFromLibrary();
 	}
 
 	@Test(description = "Generate QrCode")
-	public void generateQRCode() throws Exception {
-
+	public void GenerateQrCode() throws Exception {
 		OnBoardingActions.RolePoup();
 		OnBoardingActions.BMCPopup();
 		OnBoardingActions.LocationPopup();
@@ -131,13 +133,12 @@ public class SanitySuites extends BaseTestConfig {
 		String des=BookPageActions.section1("getdescription");
 		BookPageActions.BMCDropdownSelectionSection2();
 		BookPageActions.Section3();
+		BookPageActions.assertContentIsSavedToastrMsg();
+		BookPageActions.waitContentIsSavedToastToDisapper();
 		BookPageActions.generateQrCode("2");
 		BookPageActions.downloadQrCode();
-	BookPageActions.generateQrCode("245");
-	BookPageActions.downloadQrCode();
 		BookPageActions.addResourceFromLibrary();
 		BookPageActions.submitAndSendForReview();
-
 
 	}
 
@@ -157,13 +158,13 @@ public class SanitySuites extends BaseTestConfig {
 		String des=BookPageActions.section1("getdescription");
 		BookPageActions.BMCDropdownSelectionSection2();
 		BookPageActions.Section3();
+		BookPageActions.assertContentIsSavedToastrMsg();
+		BookPageActions.waitContentIsSavedToastToDisapper();
 		BookPageActions.addResourceFromLibrary();
 		BookPageActions.downloadFolderAsCSVFile();
 	}
-
 	@Test(description = "Generate QrCode",groups= {"Creation"})
 	public void downloadQRCode() throws Exception {
-
 		OnBoardingActions.RolePoup();
 		OnBoardingActions.BMCPopup();
 		OnBoardingActions.LocationPopup();
@@ -177,6 +178,8 @@ public class SanitySuites extends BaseTestConfig {
 		String des=BookPageActions.section1("getdescription");
 		BookPageActions.BMCDropdownSelectionSection2();
 		BookPageActions.Section3();
+		BookPageActions.assertContentIsSavedToastrMsg();
+		BookPageActions.waitContentIsSavedToastToDisapper();
 		BookPageActions.generateQrCode("2");
 		BookPageActions.downloadQrCode();
 		BookPageActions.generateQrCode("245");
@@ -188,7 +191,6 @@ public class SanitySuites extends BaseTestConfig {
 
 	@Test(description = "User shoule be able to search the particular course by Keyword")
 	public void searchCourseByKeyword() throws Exception {
-
 		OnBoardingActions.RolePoup();
 		OnBoardingActions.BMCPopup();
 		OnBoardingActions.LocationPopup();
@@ -198,9 +200,11 @@ public class SanitySuites extends BaseTestConfig {
 		DashboardPageActions.assertWorkspace();
 		DashboardPageActions.clickOnWorkSpace();
 		WorkspaceDashboardPageActions.clickCourse();
-		String createdContent = CoursePageActions.createCourseSection1("getdoid");
+		String createdContent = CoursePageActions.createCourseSection1("getKeyword");
 		BookPageActions.BMCDropdownSelectionSection2();
 		BookPageActions.Section3();
+		BookPageActions.assertContentIsSavedToastrMsg();
+		BookPageActions.waitContentIsSavedToastToDisapper();
 		BookPageActions.addResourceFromLibrary();
 		BookPageActions.submitAndSendForReview();
 		DashboardPageActions.logOut();
@@ -208,7 +212,7 @@ public class SanitySuites extends BaseTestConfig {
 				sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
 		DashboardPageActions.clickUserProfileIcon();
 		DashboardPageActions.clickOnWorkSpace();
-		ReviewPageActions.reviewAndPublishContent(createdContent, "course");
+		ReviewPageActions.reviewAndPublishContent(createdContent, "Course");
 
 	}
 }

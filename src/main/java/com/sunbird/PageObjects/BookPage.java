@@ -132,6 +132,12 @@ public class BookPage {
     @FindBy(how=How.XPATH,using="//strong[contains(text(),'Content successfully copied')]")
     private WebElement assertCopyToastrMsg;
 
+    @FindBy(how=How.XPATH,using="//strong[contains(text(),'Content is added to the folder')]")
+    private WebElement assertContentAddedToFolderToastrMSg;
+
+    @FindBy(how=How.XPATH,using="//strong[contains(text(),'Content is saved')]")
+    private WebElement assertContentSavedToastMsg;
+
     public void enterBookName(String randomBookName) throws InterruptedException {
 
                       UtilityFunctions.waitToBeClickableAndSendKeys(bookname, randomBookName);
@@ -287,15 +293,23 @@ UtilityFunctions.waitForVisibilityOfWebElement(assertGreenCheckIcon);
     public void clickQrCodeDropdown()
     {
         UtilityFunctions.waitToBeClickableAndClick(qrCodeDropdown);
-
+Listeners.addLogs("clicked on QRCodeDropdown");
     }
     public void clickGenerateQrCode()
     {
 
         UtilityFunctions.waitToBeClickableAndClick(clickGenerateQRCodeBtn);
+        Listeners.addLogs("clicked on GenerateQRCode");
+
     }
     public void enterQrCodeValue(String qrCodesize) throws InterruptedException {
+
+        UtilityFunctions.waitForElementIsVisible(NoOfQRCode);
+        NoOfQRCode.click();
+        NoOfQRCode.clear();
         UtilityFunctions.waitToBeClickableAndSendKeys(NoOfQRCode, qrCodesize);
+        Listeners.addLogs("Entered qrcode size and clicked on request");
+
     }
     public void clkRequestBtn()
     {
@@ -321,18 +335,24 @@ UtilityFunctions.waitForVisibilityOfWebElement(assertGreenCheckIcon);
     public void clickVerticalEllipsisMenuIcon()
     {
 
-        UtilityFunctions.waitToBeClickableAndClick(verticalEllipsisMenu);
+        UtilityFunctions.waitForElementAndClickable(verticalEllipsisMenu);
+        Listeners.addLogs("clicked on verticalEllipsis menu");
+
     }
 
     public void clickDownloadAsCSVFile()
     {
 
-        UtilityFunctions.waitToBeClickableAndClick(downloadfolderAsCSVFile);
+        UtilityFunctions.waitForElementAndClickable(downloadfolderAsCSVFile);
+        Listeners.addLogs("clicked on downloadFolderasCSV file");
+
     }
     public void childUnitClick()
     {
 
         UtilityFunctions.waitToBeClickableAndClick(childUnitClick);
+        Listeners.addLogs("clicked on childUnit");
+
     }
     public void pressEnterKeyOnSearchTxtbox()
     {
@@ -343,10 +363,44 @@ UtilityFunctions.waitForVisibilityOfWebElement(assertGreenCheckIcon);
     {
 
         UtilityFunctions.waitForElementAndClickable(clickCopy);
+        Listeners.addLogs("clicked on copy button");
+
     }
     public String assertCopyToastrMsg() {
         UtilityFunctions.waitForVisibilityOfWebElement(assertCopyToastrMsg);
         String getActualText = UtilityFunctions.getTextFromElement(assertCopyToastrMsg);
         return getActualText;
+    }
+
+    public void waitGenerateQRCodeToastrToDisappear() {
+        UtilityFunctions.waitForElementToDisappear(assertGeneratedQRCodeToastrMsg);
+
+    }
+    public void waitDownloadQRCodeToastrToDisappear() {
+        UtilityFunctions.waitForElementToDisappear(assertDownloadQRCodeToastrMsg);
+
+    }
+
+    public String assertContentAddedFolderToastrMsg() {
+        UtilityFunctions.waitForVisibilityOfWebElement(assertContentAddedToFolderToastrMSg);
+        String getActualText = UtilityFunctions.getTextFromElement(assertContentAddedToFolderToastrMSg);
+        return getActualText;
+    }
+    public void waitContentAddedToFolderToastrToDisappear() {
+        UtilityFunctions.waitForElementToDisappear(assertContentAddedToFolderToastrMSg);
+
+    }
+    public String assertContentSavedToastMsg() {
+        UtilityFunctions.waitForVisibilityOfWebElement(assertContentSavedToastMsg);
+        String getActualText = UtilityFunctions.getTextFromElement(assertContentSavedToastMsg);
+        return getActualText;
+    }
+    public void waitContentIsSavedToastrToDisappear() {
+        UtilityFunctions.waitForElementToDisappear(assertContentSavedToastMsg);
+
+    }
+    public void waitCopyToastrMsg() {
+        UtilityFunctions.waitForElementToDisappear(assertCopyToastrMsg);
+
     }
 }

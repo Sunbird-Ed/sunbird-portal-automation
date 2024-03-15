@@ -61,6 +61,7 @@ public class HomeTabPage extends BaseTestConfig {
 
 
 UtilityFunctions.waitForElementIsVisible(assertContent);
+		UtilityFunctions.waitForElementUsingForLoopAndAssert(assertContent,5);
 		UtilityFunctions.validatIsElementPresent(assertContent, "content is not Displayed");
 		//UtilityFunctions.waitForElementUsingForLoopAndAssert(assertContent,5);
 		Listeners.addLogs("validated content");

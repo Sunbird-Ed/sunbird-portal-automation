@@ -61,8 +61,9 @@ reviewPage.selectAllCheckBoxesForUploadContent();
 		reviewPage.upForReviewBucket();
 		reviewPage.clickSearchBar(contentName);
 		reviewPage.clickOnSearch();
+		Thread.sleep(3000);
 		reviewPage.selectContentForReview();
-		Thread.sleep(7000);
+	//	Thread.sleep(7000);
 		reviewPage.assertPublichButton();
 		reviewPage.clickOnPublish();
 		switch(contentType){
@@ -72,19 +73,24 @@ reviewPage.selectAllCheckBoxesForUploadContent();
 			break;
 			case "Course":
 				reviewPage.clickYesButton();
+				String actualMsg =  reviewPage.assertContentPublishedMsgs();
+				UtilityFunctions.stringValueComparision(actualMsg,SunbirdConstants.contetnPublishedToastrMsg, "Failed to publish the content");
 				break;
 			case "Collection":
 				reviewPage.selectCheckBoxes();
 				reviewPage.clickYesButton();
+				String actualMsg3 =  reviewPage.assertContentPublishedMsgs();
+				UtilityFunctions.stringValueComparision(actualMsg3,SunbirdConstants.contetnPublishedToastrMsg, "Failed to publish the content");
 				break;
 			case "Resource":
 				reviewPage.selectCheckBoxesForResource();
 				reviewPage.clickonPublishButtonPopupResouce();
+				String actualMsg2 =  reviewPage.assertResourceContentPublishedMsgs();
+				UtilityFunctions.stringValueComparision(actualMsg2,SunbirdConstants.resourceContentPublishedToastrMsg, "Failed to publish the content");
 				break;
 
 		}
-				String actualMsg =  reviewPage.assertContentPublishedMsgs();
-		UtilityFunctions.stringValueComparision(actualMsg,SunbirdConstants.contetnPublishedToastrMsg, "Failed to publish the content");
+
 	}
 
 }

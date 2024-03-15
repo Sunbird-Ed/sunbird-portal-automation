@@ -9,7 +9,6 @@ public class SanitySuites2 extends BaseTestConfig {
 
 	@Test(description = "User able to see sections in HomePage")
 	public void VerifyHomePageSection() throws Exception {
-
 		OnBoardingActions.RolePoup();
 		OnBoardingActions.BMCPopup();
 		OnBoardingActions.LocationPopup();
@@ -37,6 +36,8 @@ public class SanitySuites2 extends BaseTestConfig {
 		String createdContent = CollectionPageActions.createCollectionPopupSection1("Content Playlist","getdoid");
 		BookPageActions.BMCDropdownSelectionSection2();
 		BookPageActions.Section3();
+		BookPageActions.assertContentIsSavedToastrMsg();
+		BookPageActions.waitContentIsSavedToastToDisapper();
 		BookPageActions.addResourceFromLibrary();
 		BookPageActions.submitAndSendForReview();
 		DashboardPageActions.logOut();
@@ -47,7 +48,6 @@ public class SanitySuites2 extends BaseTestConfig {
 		ReviewPageActions.reviewAndPublishContent(createdContent, "Collection");
 
 	}
-
 	@Test(description = "Create Book with DifferentResourceType")
 	public void createBookwithDifferentResourceType() throws Exception {
 
@@ -64,6 +64,8 @@ public class SanitySuites2 extends BaseTestConfig {
 		String des = BookPageActions.section1("getdescription");
 		BookPageActions.BMCDropdownSelectionSection2();
 		BookPageActions.Section3();
+		BookPageActions.assertContentIsSavedToastrMsg();
+		BookPageActions.waitContentIsSavedToastToDisapper();
 		BookPageActions.clickAddChild();
 		BookPageActions.addDifferentResourceTypeInLibrarySection("Resource");
 		BookPageActions.clickOnAddChildLeftSectionUnit();
@@ -86,6 +88,8 @@ public class SanitySuites2 extends BaseTestConfig {
 		String createdContent = CoursePageActions.createCourseSection1("getdoid");
 		BookPageActions.BMCDropdownSelectionSection2();
 		BookPageActions.Section3();
+		BookPageActions.assertContentIsSavedToastrMsg();
+		BookPageActions.waitContentIsSavedToastToDisapper();
 		BookPageActions.clickAddChild();
 		BookPageActions.addDifferentResourceTypeInLibrarySection("Resource");
 		BookPageActions.clickOnAddChildLeftSectionUnit();
@@ -141,6 +145,8 @@ public class SanitySuites2 extends BaseTestConfig {
 
 		BookPageActions.BMCDropdownSelectionSection2();
 		BookPageActions.Section3();
+		BookPageActions.assertContentIsSavedToastrMsg();
+		BookPageActions.waitContentIsSavedToastToDisapper();
 		BookPageActions.addResourceFromLibrary();
 		BookPageActions.submitAndSendForReview();
 		DashboardPageActions.logOut();
@@ -163,13 +169,12 @@ public class SanitySuites2 extends BaseTestConfig {
 		DashboardPageActions.searchContentAndClickOnContentCard(sunbird_config.getSunbidConfigPropertyValue("Textbook"));
 		BookPageActions.clickCopyButton();
 		BookPageActions.assertCopyToastrMsg();
+		BookPageActions.waitCopyToastrMsgDisAppear();
 		BookPageActions.BMCDropdownSelectionSection2();
 		BookPageActions.clickSaveAsDrafts();
-
-
 	}
 
-@Test(description = "Verify that if the course creator is able to copy a course.\n")
+	@Test(description = "Verify that if the course creator is able to copy a course.\n")
 	public void userAbleToCopyTheCourse() throws Exception {
 
 		OnBoardingActions.RolePoup();
@@ -181,7 +186,8 @@ public class SanitySuites2 extends BaseTestConfig {
 		DashboardPageActions.searchContentAndClickOnContentCard(sunbird_config.getSunbidConfigPropertyValue("Course"));
 		BookPageActions.clickCopyButton();
 		BookPageActions.assertCopyToastrMsg();
-	CoursePageActions.subjectCoveredDropdown();
+		BookPageActions.waitCopyToastrMsgDisAppear();
+		CoursePageActions.subjectCoveredDropdown();
 		BookPageActions.BMCDropdownSelectionSection2();
 		BookPageActions.clickSaveAsDrafts();
 
