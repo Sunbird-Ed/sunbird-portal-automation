@@ -95,8 +95,10 @@ public class QuestionSetPage {
     }
 
     public void selectFirstQuestionInList() throws InterruptedException {
-        UtilityFunctions.waitForElementIsVisible(selectFirstQuestion);
-        UtilityFunctions.waitForElementAndClickable(selectFirstQuestion);
+       // UtilityFunctions.waitForElementIsVisible(selectFirstQuestion);
+Thread.sleep(5000);
+        selectFirstQuestion.click();
+      //  UtilityFunctions.waitForElementAndClickable(selectFirstQuestion);
 
     }
     public void clickNextBtnInQuestionListPage() throws InterruptedException {

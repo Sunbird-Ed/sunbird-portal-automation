@@ -3,6 +3,11 @@ package com.sunbird.GenericLibrary;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.Duration;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.Month;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Properties;
 
@@ -246,5 +251,39 @@ public class UtilityFunctions extends BaseTestConfig {
     public static void switchFrameUsingXpath() throws InterruptedException {
         WebElement iframe = driver.findElement(By.xpath("//iframe[@class='iziModal-iframe']"));
         driver.switchTo().frame(iframe);
+    }
+
+    public static String getTodayDate(String pattern)
+    {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern(pattern);
+        LocalDateTime now = LocalDateTime.now();
+        String todayDate=dtf.format(now);
+        return  todayDate;
+    }
+    public static String getFutureDate(int dayCount)
+    {
+        LocalDate today = LocalDate.now();
+        String futureDate = (today.plusDays(dayCount)).format(DateTimeFormatter.ISO_DATE);
+  return  futureDate;
+    }
+    public static void getDataInMonth(int dayCount)
+    {
+        // Get an instance of LocalTime
+        // from date
+        LocalDate currentDate = LocalDate.parse("date");
+
+        // Get day from date
+        int day = currentDate.getDayOfMonth();
+
+        // Get month from date
+        Month month = currentDate.getMonth();
+
+        // Get year from date
+        int year = currentDate.getYear();
+
+        // Print the day, month, and year
+        System.out.println("Day: " + day);
+        System.out.println("Month: " + month);
+        System.out.println("Year: " + year);
     }
 }

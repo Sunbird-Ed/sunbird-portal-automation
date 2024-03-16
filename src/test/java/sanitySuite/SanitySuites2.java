@@ -117,7 +117,6 @@ public class SanitySuites2 extends BaseTestConfig {
 		WorkspaceDashboardPageActions.clickResource();
 		String createdContent = ResourcePageActions.createResourcePopup("getContentName");
 		QuestionSetPageActions.clickAddQuestionSetIcon();
-
 		QuestionSetPageActions.selectFirstQuestionInList();
 		QuestionSetPageActions.clkNextButtonInQuestionPage();
 		QuestionSetPageActions.enterQuestionSetTitle();

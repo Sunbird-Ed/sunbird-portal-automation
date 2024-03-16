@@ -130,23 +130,22 @@ public class FirstStep5 extends BaseTestConfig {
 //        BookPageActions.submitAndSendForReview();
 //
 //    }
-
-    @Test(description = "Verify that if the course creator is able to copy a course.\n")
-    public void userAbleToCopyTheCourse() throws Exception {
-
+    @Test(description = "verify TVLesson in ResourceEditPage")
+    public void TvLessonOptionInResourceSendForReview() throws Exception {
         OnBoardingActions.RolePoup();
         OnBoardingActions.BMCPopup();
         OnBoardingActions.LocationPopup();
         LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
                 sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
-        DashboardPageActions.clickCourseTab();
-        DashboardPageActions.searchContentAndClickOnContentCard(sunbird_config.getSunbidConfigPropertyValue("Course"));
-        BookPageActions.clickCopyButton();
-        BookPageActions.assertCopyToastrMsg();
-        BookPageActions.waitCopyToastrMsgDisAppear();
-        CoursePageActions.subjectCoveredDropdown();
-        BookPageActions.BMCDropdownSelectionSection2();
-        BookPageActions.clickSaveAsDrafts();
-
+        DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.clickOnWorkSpace();
+        WorkspaceDashboardPageActions.clickResource();
+        String createdContent = ResourcePageActions.createResourcePopup("getContentName");
+        ResourcePageActions.addTriangleShape();
+        ResourcePageActions.addText();
+        ResourcePageActions.addNewSlide();
+        ResourcePageActions.saveAndCloseIcon();
+        ResourcePageActions.resourceSendForReview();
     }
+
 }
