@@ -81,8 +81,15 @@ resourcePage.selectMedium();
 resourcePage.selectClass();
 resourcePage.selectSubject();
 
-
 }
 
+	public static void clickPreivewIcon() throws InterruptedException {
+		ResourcePage resourcePage = PageFactory.initElements(driver, ResourcePage.class);
+		resourcePage.previewIconButton();
+	}
+public static void assertContentInPreviewPlayer() throws InterruptedException {
+	ResourcePage resourcePage = PageFactory.initElements(driver, ResourcePage.class);
+	resourcePage.asssertQuestionInPreviewPlayer();
+}
 	}
 

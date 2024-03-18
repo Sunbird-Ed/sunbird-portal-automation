@@ -238,7 +238,7 @@ public class BookPage {
         }
          
          public void clickBackBtnFromLibrarysection() {
-        	 UtilityFunctions.waitToBeClickableAndClick(contentFromLibrayBackButton);
+             UtilityFunctions.waitForElementAndClickable(contentFromLibrayBackButton);
              Listeners.addLogs("contentFromLibrayBackButton");
         }
          

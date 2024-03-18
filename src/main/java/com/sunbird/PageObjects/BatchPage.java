@@ -14,7 +14,7 @@ public class BatchPage {
 	@FindBy(how=How.XPATH,using="//input[@name='name']")
 	private WebElement enterBatchName;
 
-	@FindBy(how=How.XPATH,using="//input[@id='no']")
+	@FindBy(how=How.XPATH,using="//label[@for='no']")
 	private WebElement issueCertificateNo;
 
 	@FindBy(how=How.XPATH,using="//input[@id='yes']")
@@ -39,6 +39,10 @@ public class BatchPage {
 
 	@FindBy(how=How.XPATH,using="//strong[contains(text(),'Batch created successfully...')]")
 	private WebElement assertBatchCreationToastrMsg;
+
+	@FindBy(how=How.XPATH,using="//*[@class='calendar outline icon']")
+	private WebElement assertCalenderIcon;
+
 
 	public void createBatchClick() {
 		UtilityFunctions.waitToBeClickableAndClick(createBatchBtn);
@@ -87,9 +91,15 @@ public class BatchPage {
 		Listeners.addLogs("assertBatchCreationToastrMsg validated");
 		return actualText;
 	}
-
 	public void waitBatchCreationToastrMsgDisAppear() {
 		UtilityFunctions.waitForElementToDisappear(assertBatchCreationToastrMsg);
+	}
+
+
+	public void createBatchShouldNotDisplay() {
+		UtilityFunctions.waitForVisibilityOfWebElement(assertCalenderIcon);
+		UtilityFunctions.validatIsElementPresent(assertCalenderIcon,"Create Batch option is displayed for already createdBatch");
+		Listeners.addLogs("calender icon validated");
 	}
 	
 }

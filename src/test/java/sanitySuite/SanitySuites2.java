@@ -1,6 +1,7 @@
 package sanitySuite;
 
 import com.sunbird.GenericLibrary.BaseTestConfig;
+import com.sunbird.GenericLibrary.UtilityFunctions;
 import com.sunbird.PageActions.*;
 import org.testng.annotations.Test;
 
@@ -191,6 +192,48 @@ public class SanitySuites2 extends BaseTestConfig {
 		BookPageActions.clickSaveAsDrafts();
 
 	}
+	@Test(description = " User should be able to search the question successfully")
+	public void UserAbleToSearchQuestionInResource() throws Exception {
+
+		OnBoardingActions.RolePoup();
+		OnBoardingActions.BMCPopup();
+		OnBoardingActions.LocationPopup();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+				sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.clickOnWorkSpace();
+		WorkspaceDashboardPageActions.clickResource();
+		String createdContent = ResourcePageActions.createResourcePopup("getContentName");
+		QuestionSetPageActions.clickAddQuestionSetIcon();
+		QuestionSetPageActions.searchByQuestionTitle("MCQ");
+		QuestionSetPageActions.assertQuestionDisplayedBasedonText();
+
+	}
+
+	@Test(description = "User should be able to add the questions successfully and preview the same.")
+	public void UserAbleToSearchQuestionAndPreviewInResource() throws Exception {
+
+		OnBoardingActions.RolePoup();
+		OnBoardingActions.BMCPopup();
+		OnBoardingActions.LocationPopup();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+				sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.clickOnWorkSpace();
+		WorkspaceDashboardPageActions.clickResource();
+		String createdContent = ResourcePageActions.createResourcePopup("getContentName");
+		QuestionSetPageActions.clickAddQuestionSetIcon();
+		QuestionSetPageActions.searchByQuestionTitle(sunbird_config.getSunbidConfigPropertyValue("QuestionSearch"));
+		QuestionSetPageActions.selectFirstQuestionInList();
+		QuestionSetPageActions.clkNextButtonInQuestionPage();
+		QuestionSetPageActions.enterQuestionSetTitle();
+		QuestionSetPageActions.clkAddButtonInQuestionTitlePage();
+		ResourcePageActions.saveAndCloseIcon();
+		ResourcePageActions.clickPreivewIcon();
+		UtilityFunctions.switchFrameUsingName();
+		ResourcePageActions.assertContentInPreviewPlayer();
+	}
+
 	@Test(description = "Turn toggle on/off for the shuffle and show immediate feedback in question set page")
 	public void turnOnAndOffImmediateFeedbackAndShuffleQuestions() throws Exception {
 
@@ -214,5 +257,8 @@ public class SanitySuites2 extends BaseTestConfig {
 		ResourcePageActions.resourceSendForReview();
 
 	}
+
+
+
 	}
 

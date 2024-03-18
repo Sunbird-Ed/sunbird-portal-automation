@@ -29,6 +29,18 @@ public class QuestionSetPage {
     @FindBy(how=How.XPATH,using="//input[@id='shuffle0questions']")
     private WebElement shuffleQuestions;
 
+    @FindBy(how=How.XPATH,using="//input[@id='searchText']")
+    private WebElement searchTextBox;
+
+    @FindBy(how=How.XPATH,using="//i[@id='qb-search-button']")
+    private WebElement searchIcon;
+
+    @FindBy(how=How.XPATH,using="//*[contains(text(),'mcq')]")
+    private WebElement assertSearchedQuestionTypeDisplayed;
+
+
+
+
 
     @FindBy(how=How.XPATH,using="//button[@id='create-question-button']")
     private WebElement createQuestionButton;
@@ -121,6 +133,24 @@ Thread.sleep(5000);
     public void shuffleQuestions() throws InterruptedException {
         UtilityFunctions.waitForElementAndClickable(shuffleQuestions);
         Listeners.addLogs("clicked on shuffleQuestions");
+    }
+
+
+    public void searchTextBoxInQuestionSet(String questionType) throws InterruptedException {
+        UtilityFunctions.waitForElementIsVisible(searchTextBox);
+        UtilityFunctions.waitToBeClickableAndSendKeys(searchTextBox, questionType);
+        Listeners.addLogs("Entered question in  searchTextBox");
+    }
+
+    public void clickSearchIcon() throws InterruptedException {
+        UtilityFunctions.waitForElementAndClickable(searchIcon);
+        Listeners.addLogs("clicked on searchIcon button");
+    }
+    public void assertQuestionDisplayedBasedOnSearch() {
+        UtilityFunctions.waitForElementIsVisible(assertSearchedQuestionTypeDisplayed);
+        UtilityFunctions.validatIsElementPresent(assertSearchedQuestionTypeDisplayed, "assertSearchedQuestionTypeDisplayed  is not Displayed");
+        Listeners.addLogs("validated questionSet after question search");
+
     }
 
 }

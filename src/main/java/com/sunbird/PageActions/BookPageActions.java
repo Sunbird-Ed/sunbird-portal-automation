@@ -92,6 +92,7 @@ public class BookPageActions extends BaseTestConfig {
         String actualMsg = bookPage.assertContentAddedFolderToastrMsg();
         UtilityFunctions.stringValueComparision(actualMsg, SunbirdConstants.contentAddedToFolderToastrMsg, "Failed to add content into folder");
         bookPage.waitContentAddedToFolderToastrToDisappear();
+
         bookPage.clickBackBtnFromLibrarysection();
     }
 

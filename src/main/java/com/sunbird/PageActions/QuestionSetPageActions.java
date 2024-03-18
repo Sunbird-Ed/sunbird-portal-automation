@@ -46,5 +46,17 @@ public class QuestionSetPageActions extends BaseTestConfig {
 		QuestionSetPage questionSetPage = PageFactory.initElements(driver, QuestionSetPage.class);
 		questionSetPage.shuffleQuestions();
 	}
+
+	public static void searchByQuestionTitle(String questionType) throws Exception {
+		QuestionSetPage questionSetPage = PageFactory.initElements(driver, QuestionSetPage.class);
+		questionSetPage.searchTextBoxInQuestionSet(questionType);
+		questionSetPage.clickSearchIcon();
+	}
+public static void assertQuestionDisplayedBasedonText()
+{
+	QuestionSetPage questionSetPage = PageFactory.initElements(driver, QuestionSetPage.class);
+questionSetPage.assertQuestionDisplayedBasedOnSearch();
+}
+
 	}
 

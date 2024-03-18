@@ -161,6 +161,9 @@ public class UtilityFunctions extends BaseTestConfig {
     public static void validatIsElementPresent(WebElement element, String ErrorMsg) {
         Assert.assertTrue(element.isDisplayed(), ErrorMsg);
     }
+    public static void validatElementNotPresent(WebElement element, String ErrorMsg) {
+        Assert.assertFalse(element.isDisplayed(), ErrorMsg);
+    }
 
 
     public static void scrollDownUsingPixelValue() {

@@ -85,6 +85,13 @@ public class ResourcePage {
     @FindBy(how=How.XPATH,using="//button[contains(text(),'Save')]")
     private WebElement SubmitBtnInSendForReview;
 
+    @FindBy(how=How.XPATH,using="//div[@data-content='Preview']")
+    private WebElement previewIcon;
+
+    @FindBy(how=How.XPATH,using="//img[@class='menu-icon icon']")
+    private WebElement assertQuestionInPreview;
+
+
 
 
 
@@ -241,6 +248,17 @@ public class ResourcePage {
     }
     public void clickSubmitInReviewPopup() throws InterruptedException {
         UtilityFunctions.waitToBeClickableAndClick(SubmitBtnInSendForReview);
+
+    }
+
+    public void previewIconButton() throws InterruptedException {
+        UtilityFunctions.waitToBeClickableAndClick(previewIcon);
+Listeners.addLogs("Clicked on preview Icon");
+    }
+    public void asssertQuestionInPreviewPlayer() {
+        UtilityFunctions.waitForVisibilityOfWebElement(assertQuestionInPreview);
+        UtilityFunctions.validatIsElementPresent(assertQuestionInPreview, "assertSearchedQuestionTypeDisplayed  is not Displayed");
+        Listeners.addLogs("validated question in Preview Player");
 
     }
 }

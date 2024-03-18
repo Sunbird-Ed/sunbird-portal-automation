@@ -48,16 +48,16 @@ public class OnBoarding extends BaseTestConfig {
     private WebElement ContinueButton;
 
 
-    @FindBy(how = How.XPATH, using = "//span[contains(text(),'State')]//following::span[2]")
+    @FindBy(how = How.XPATH, using = "//span[contains(text(),'State')]//following::div[3]")
     private WebElement ClickStateDropDown;
 
-    @FindBy(how = How.XPATH, using = "//span[contains(text(),'State')]//following::span[2]//following::span[@class='mat-option-text'][2]")
+    @FindBy(how = How.XPATH, using = "//span[contains(text(),'State')]//following::span[3]//following::span[@class='mat-option-text'][2]")
     private WebElement SelectStateValue;
 
-    @FindBy(how = How.XPATH, using = "//span[contains(text(),'District')]//following::span[2]")
+    @FindBy(how = How.XPATH, using = "//span[contains(text(),'District')]//following::li[1]")
     private WebElement clickDistrictDropdown;
 
-    @FindBy(how = How.XPATH, using = "//span[contains(text(),'District')]//following::span[2]//following::span[@class='mat-option-text'][2]")
+    @FindBy(how = How.XPATH, using = "//span[contains(text(),'District')]//following::li[1]//following::span[2]")
     private WebElement SelectDistrictvalue;
 
     @FindBy(how = How.XPATH, using = "(//button[@type='submit'])[2]")
@@ -161,7 +161,7 @@ public class OnBoarding extends BaseTestConfig {
 
 
     public void clickStateDropdown() {
-UtilityFunctions.waitForVisibilityOfWebElement(ClickStateDropDown);
+UtilityFunctions.waitForElementIsVisible(ClickStateDropDown);
         UtilityFunctions.waitToBeClickableAndClick(ClickStateDropDown);
         Listeners.addLogs("Clicked on state dropdown");
 
