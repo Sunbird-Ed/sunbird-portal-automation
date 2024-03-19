@@ -1,7 +1,6 @@
 package sanity;
 
 import com.sunbird.GenericLibrary.BaseTestConfig;
-import com.sunbird.GenericLibrary.UtilityFunctions;
 import com.sunbird.PageActions.*;
 import org.testng.annotations.Test;
 
@@ -169,18 +168,18 @@ public class FirstStep5 extends BaseTestConfig {
 //    }
 
 
-    @Test(description = "The create Batch option should not be displayed to the user when there is an open batch already created.")
-    public void createBatchOptionShouldNotDisplayIfBatchIsAlreadyCreated() throws Exception {
+    @Test(description = "On clicking the Course card, the user should be displayed with a toast message saying there are no open batches available ")
+    public void validateNoOpenBatchAvailableToastrMsg() throws Exception {
 
         OnBoardingActions.RolePoup();
         OnBoardingActions.BMCPopup();
         OnBoardingActions.LocationPopup();
-
-       LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
-                sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("PUBLIC_USER"),
+                sunbird_config.getSunbidConfigPropertyValue("PUBLIC_PASSWORD"));
         DashboardPageActions.clickCourseTab();
-        DashboardPageActions.searchContentAndClickOnContentCard(sunbird_config.getSunbidConfigPropertyValue("AlreadyCreatedBatch"));
-        BatchPageActions.batchCreationShouldNotDisplay();
+        DashboardPageActions.searchContentAndClickOnContentCard(sunbird_config.getSunbidConfigPropertyValue("ExpiredBatch"));
+BatchPageActions.assertNoOpenBatchToasrtMsg();
 
-    }
+         }
 }
+

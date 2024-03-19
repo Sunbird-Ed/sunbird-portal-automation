@@ -28,4 +28,6 @@ public static String placeholder="placeholer";
     public static String resourceContentPublishedToastrMsg = "Content published successfully...";
     public static String batchCreationToastrMSG = "Batch created successfully...";
 
+    public static String noOpenBatchAvailableToastrMSG = "This course does not have any open batches";
+
 }

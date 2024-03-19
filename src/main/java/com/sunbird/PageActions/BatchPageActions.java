@@ -68,4 +68,54 @@ String actualMsg=batchPage.assertBatchCretionToastrMsg();
 	batchPage.createBatchShouldNotDisplay();
 
 	}
+
+	public static void clickJoinCourse()
+	{
+		BatchPage batchPage = PageFactory.initElements(driver, BatchPage.class);
+batchPage.JoinCourseButton();
+	}
+	public static void validateAttributesInConsentPopup()
+	{
+		BatchPage batchPage = PageFactory.initElements(driver, BatchPage.class);
+batchPage.assertConsentPopupAttributes();
+
+	}
+	public static void clickTermsCheckInConsentPopup()
+	{
+		BatchPage batchPage = PageFactory.initElements(driver, BatchPage.class);
+		batchPage.termsCheckBoxInConsentPopup();
+	}
+	public static void clickShareBtn()
+	{
+		BatchPage batchPage = PageFactory.initElements(driver, BatchPage.class);
+		batchPage.shareBtn();
+	}
+	public static void assertBatchEndTimeStamp() throws InterruptedException {
+		BatchPage batchPage = PageFactory.initElements(driver, BatchPage.class);
+batchPage.assertBatchTimerStamp();
+
+	}
+
+	public static void clickLeaveCourse()
+	{
+		BatchPage batchPage = PageFactory.initElements(driver, BatchPage.class);
+batchPage.leaveCourse();
+	}
+	public static void clickLeaveCourseInUnEnrollPopup()
+	{
+		BatchPage batchPage = PageFactory.initElements(driver, BatchPage.class);
+		batchPage.leaveCourseInUnenrollPopup();
+	}
+	public static void assertJoinCourse()
+	{
+		BatchPage batchPage = PageFactory.initElements(driver, BatchPage.class);
+		batchPage.assertJoinCourse();
+	}
+
+	public static void assertNoOpenBatchToasrtMsg()
+	{
+		BatchPage batchPage = PageFactory.initElements(driver, BatchPage.class);
+String actualtxt=batchPage.assertNoOpenBatchToastrMsg();
+UtilityFunctions.stringValueComparision(actualtxt,SunbirdConstants.noOpenBatchAvailableToastrMSG,"Didn't display No openBatch toastr msg ");
+	}
 }

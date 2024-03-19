@@ -43,6 +43,59 @@ public class BatchPage {
 	@FindBy(how=How.XPATH,using="//*[@class='calendar outline icon']")
 	private WebElement assertCalenderIcon;
 
+	@FindBy(how=How.XPATH,using="//button[contains(text(),'Join Course')]")
+	private WebElement joinCourse;
+
+	@FindBy(how=How.XPATH,using="//label[contains(text(),'User Name')]")
+	private WebElement assertUserName;
+
+	@FindBy(how=How.XPATH,using="//label[contains(text(),'State')]")
+	private WebElement assertState;
+
+	@FindBy(how=How.XPATH,using="//label[contains(text(),'User ID')]")
+	private WebElement assertUserID;
+
+	@FindBy(how=How.XPATH,using="//label[contains(text(),'External Id')]")
+	private WebElement assertExternalrID;
+
+	@FindBy(how=How.XPATH,using="//label[contains(text(),'District')]")
+	private WebElement assertDistrict;
+
+	@FindBy(how=How.XPATH,using="//label[contains(text(),'Block')]")
+	private WebElement assertBlock;
+
+	@FindBy(how=How.XPATH,using="//label[contains(text(),'School ID')]")
+	private WebElement assertSchoolID;
+	@FindBy(how=How.XPATH,using="//label[contains(text(),'School or Org name')]")
+	private WebElement assertSchoolOrg;
+	@FindBy(how=How.XPATH,using="//label[contains(text(),'Mobile Number')]")
+	private WebElement assertMobileNo;
+	@FindBy(how=How.XPATH,using="//label[contains(text(),'Email address')]")
+	private WebElement assertEmailId;
+
+	@FindBy(how=How.XPATH,using="//input[@type='checkbox']")
+	private WebElement termsCheckBoxInConsentPopup;
+
+	@FindBy(how=How.XPATH,using="//button[contains(text(),'Do not share')]")
+	private WebElement doNotShare;
+
+	@FindBy(how=How.XPATH,using="//button[contains(text(),'Do not share')]//following::button[1]")
+	private WebElement sharebtn;
+
+	@FindBy(how=How.XPATH,using="//span[contains(text(),'Batch expiring in:')]")
+	private WebElement batchExpiringText;
+
+	@FindBy(how=How.XPATH,using="//*[contains(text(),'day')]")
+	private WebElement batchEndTimeStamp;
+
+	@FindBy(how=How.XPATH,using="//button[contains(text(),'Leave course')]")
+	private WebElement leaveCourse;
+
+	@FindBy(how=How.XPATH,using="//button[@id='unenrollFromCourse']")
+	private WebElement leaveCourseInUnEnrollPopup;
+
+	@FindBy(how=How.XPATH,using="//strong[contains(text(),'This course does not have any open batches')]")
+	private WebElement assertNoOpenBatchesToastrMsg;
 
 	public void createBatchClick() {
 		UtilityFunctions.waitToBeClickableAndClick(createBatchBtn);
@@ -101,5 +154,73 @@ public class BatchPage {
 		UtilityFunctions.validatIsElementPresent(assertCalenderIcon,"Create Batch option is displayed for already createdBatch");
 		Listeners.addLogs("calender icon validated");
 	}
-	
+
+	public void JoinCourseButton() {
+
+		UtilityFunctions.waitForElementAndClickable(joinCourse);
+		Listeners.addLogs("clicked on JoinCourse");
+	}
+	public  void assertConsentPopupAttributes() {
+		UtilityFunctions.waitForVisibilityOfWebElement(assertUserName);
+		UtilityFunctions.validatIsElementPresent(assertUserName,"assertUserName is not displayed");
+		Listeners.addLogs("UserName attributes validated");
+		UtilityFunctions.validatIsElementPresent(assertState,"assertState is not displayed");
+		Listeners.addLogs("assertState attributes validated");
+		UtilityFunctions.validatIsElementPresent(assertUserID,"assertUserID is not displayed");
+		Listeners.addLogs("assertUserID attributes validated");
+		UtilityFunctions.validatIsElementPresent(assertExternalrID,"assertExternalrID is not displayed");
+		Listeners.addLogs("assertExternalrID attributes validated");
+		UtilityFunctions.validatIsElementPresent(assertDistrict,"assertDistrict is not displayed");
+		Listeners.addLogs("assertDistrict attributes validated");
+		UtilityFunctions.validatIsElementPresent(assertBlock,"assertBlock is not displayed");
+		Listeners.addLogs("assertBlock attributes validated");
+		UtilityFunctions.validatIsElementPresent(assertSchoolID,"assertSchoolID is not displayed");
+		Listeners.addLogs("assertSchoolID attributes validated");
+		UtilityFunctions.validatIsElementPresent(assertSchoolOrg,"assertSchoolOrg is not displayed");
+		Listeners.addLogs("assertSchoolOrg attributes validated");
+		UtilityFunctions.validatIsElementPresent(assertMobileNo,"assertMobileNo is not displayed");
+		Listeners.addLogs("assertMobileNo attributes validated");
+		UtilityFunctions.validatIsElementPresent(assertEmailId,"assertEmailId is not displayed");
+		Listeners.addLogs("assertEmailId attributes validated");
+	}
+
+	public void termsCheckBoxInConsentPopup() {
+		UtilityFunctions.scrollInToviewUsingJavaScript(termsCheckBoxInConsentPopup);
+		UtilityFunctions.waitToBeClickableAndClick(termsCheckBoxInConsentPopup);
+		Listeners.addLogs("clicked on termsCheckBoxInConsentPopup");
+	}
+	public void shareBtn() {
+		UtilityFunctions.waitToBeClickableAndClick(sharebtn);
+		Listeners.addLogs("clicked on sharebtn");
+	}
+	public void assertBatchTimerStamp() {
+		UtilityFunctions.waitForVisibilityOfWebElement(batchExpiringText);
+		UtilityFunctions.validatIsElementPresent(batchExpiringText,"batchExpiringText is not displayed");
+		Listeners.addLogs("Validated BatchExpire text");
+		UtilityFunctions.validatIsElementPresent(batchEndTimeStamp,"batchEndTimeStamp is not displayed");
+		Listeners.addLogs("Validated batchEndTimeStamp ");
+	}
+
+	public void leaveCourse() {
+		UtilityFunctions.scrollInToviewUsingJavaScript(leaveCourse);
+		UtilityFunctions.waitForElementAndClickable(leaveCourse);
+		Listeners.addLogs("clicked on leaveCourse");
+	}
+	public void leaveCourseInUnenrollPopup() {
+		UtilityFunctions.waitForElementAndClickable(leaveCourseInUnEnrollPopup);
+		Listeners.addLogs("clicked on leaveCourseInUnEnrollPopup");
+	}
+	public void assertJoinCourse()
+	{
+		UtilityFunctions.waitForElementIsVisible(joinCourse);
+		UtilityFunctions.validatIsElementPresent(joinCourse,"Failed for UnEnroll");
+	}
+
+	public String assertNoOpenBatchToastrMsg() {
+		UtilityFunctions.waitForVisibilityOfWebElement(assertNoOpenBatchesToastrMsg);
+		String actualText=UtilityFunctions.getTextFromElement(assertNoOpenBatchesToastrMsg);
+		Listeners.addLogs("NoOpenBatchesToastrMsg validated");
+		return actualText;
+	}
 }
+
