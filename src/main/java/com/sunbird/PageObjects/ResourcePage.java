@@ -161,12 +161,12 @@ public class ResourcePage {
     }
 
     public void clkContentTypeDropdown() throws InterruptedException {
-        UtilityFunctions.waitToBeClickableAndClick(clickSelectContentType);
+        UtilityFunctions.waitForElementAndClickable(clickSelectContentType);
 
     }
 
     public void selectExplanationContentType() throws InterruptedException {
-        UtilityFunctions.waitToBeClickableAndClick(selectExplanationContent);
+        UtilityFunctions.waitForElementAndClickable(selectExplanationContent);
 
     }
     public void clickStartCreating() throws InterruptedException {
@@ -204,7 +204,7 @@ public class ResourcePage {
     }
     public void addImageInSendForReview() throws InterruptedException {
         UtilityFunctions.waitForElementAndClickable(clkAddImageIcon);
-       // Thread.sleep(3000);
+     Thread.sleep(2000);
         UtilityFunctions.waitForElementAndClickable(selectFirstImages);
         UtilityFunctions.waitForElementAndClickable(clkSelectInImagePopup);
 

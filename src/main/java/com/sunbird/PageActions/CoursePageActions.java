@@ -73,8 +73,7 @@ public class CoursePageActions extends BaseTestConfig {
 
 
 /* add resource from Library section */
-	public static void addResourceFromLibrary()
-	{
+	public static void addResourceFromLibrary() throws InterruptedException {
 		BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
 		bookPage.clikAddChild();
 		bookPage.clickAddFromLibraryBtn();

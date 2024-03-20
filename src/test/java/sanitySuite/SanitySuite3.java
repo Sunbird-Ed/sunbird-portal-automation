@@ -224,7 +224,7 @@ public class SanitySuite3 extends BaseTestConfig {
 
     }
 
-    @Test(description = "On clicking the Course card, the user should be displayed with a toast message saying there are no open batches available ")
+     @Test(description = "On clicking the Course card, the user should be displayed with a toast message saying there are no open batches available ")
     public void validateNoOpenBatchAvailableToastrMsg() throws Exception {
 
         OnBoardingActions.RolePoup();
@@ -237,4 +237,79 @@ public class SanitySuite3 extends BaseTestConfig {
         BatchPageActions.assertNoOpenBatchToasrtMsg();
 
     }
+    @Test(description = "creator is able to create course using textbook and is able to send the course for review.")
+    public void copyBookAsCourseAndSendForReview() throws Exception {
+        OnBoardingActions.RolePoup();
+        OnBoardingActions.BMCPopup();
+        OnBoardingActions.LocationPopup();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+                sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+        DashboardPageActions.clickCourseTab();
+        DashboardPageActions.searchContentAndClickOnContentCard(sunbird_config.getSunbidConfigPropertyValue("CopyBookAsCourse"));
+        BookPageActions.copyAsCourse();
+        BookPageActions.selectAllInCopyAscourse();
+        BookPageActions.clickOnCreateBtnInCopyAsCourse();
+        BookPageActions.assertCopyToastrMsg();
+        BookPageActions.waitCopyToastrMsgDisAppear();
+        CoursePageActions.subjectCoveredDropdown();
+        BookPageActions.BMCDropdownSelectionSection2();
+        BookPageActions.Section3();
+        BookPageActions.assertContentIsSavedToastrMsg();
+        BookPageActions.waitContentIsSavedToastToDisapper();
+        BookPageActions.addResourceFromLibrary();
+        BookPageActions.submitAndSendForReview();
+
+    }
+
+    @Test(description = "Verify that user is able copy the question")
+    public void userAbleToCopyQuestion() throws Exception {
+
+        OnBoardingActions.RolePoup();
+        OnBoardingActions.BMCPopup();
+        OnBoardingActions.LocationPopup();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+                sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+        DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.clickOnWorkSpace();
+        WorkspaceDashboardPageActions.clickResource();
+        String createdContent = ResourcePageActions.createResourcePopup("getContentName");
+        QuestionSetPageActions.clickAddQuestionSetIcon();
+        QuestionSetPageActions.clickCopyQuestionIcon();
+        QuestionSetPageActions.clickNextBtnInQuestionPage();
+        QuestionSetPageActions.clickSubmitInQuestionPage();
+        QuestionSetPageActions.clkNextButtonInQuestionPage();
+        QuestionSetPageActions.enterQuestionSetTitle();
+        QuestionSetPageActions.clkAddButtonInQuestionTitlePage();
+        ResourcePageActions.saveAndCloseIcon();
+        ResourcePageActions.clickPreivewIcon();
+        UtilityFunctions.switchFrameUsingName();
+        ResourcePageActions.assertContentInPreviewPlayer();
+    }
+    @Test(description = "User should able to edit the question")
+    public void UserAbleToEditQuestionInAddQuestionPage() throws Exception {
+
+        OnBoardingActions.RolePoup();
+        OnBoardingActions.BMCPopup();
+        OnBoardingActions.LocationPopup();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+                sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+        DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.clickOnWorkSpace();
+        WorkspaceDashboardPageActions.clickResource();
+        String createdContent = ResourcePageActions.createResourcePopup("getContentName");
+        QuestionSetPageActions.clickAddQuestionSetIcon();
+        QuestionSetPageActions.clickEditIconInQuestion();
+        Thread.sleep(5000);
+        QuestionSetPageActions.clickNextBtnInQuestionPage();
+        QuestionSetPageActions.enterTitleName();
+        QuestionSetPageActions.clickSubmitInQuestionPage();
+        QuestionSetPageActions.clkNextButtonInQuestionPage();
+        QuestionSetPageActions.enterQuestionSetTitle();
+        QuestionSetPageActions.clkAddButtonInQuestionTitlePage();
+        ResourcePageActions.saveAndCloseIcon();
+        ResourcePageActions.clickPreivewIcon();
+        UtilityFunctions.switchFrameUsingName();
+        ResourcePageActions.assertContentInPreviewPlayer();
+    }
+
 }

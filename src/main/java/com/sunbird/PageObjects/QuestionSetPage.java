@@ -38,67 +38,20 @@ public class QuestionSetPage {
     @FindBy(how=How.XPATH,using="//*[contains(text(),'mcq')]")
     private WebElement assertSearchedQuestionTypeDisplayed;
 
+    @FindBy(how=How.XPATH,using="//span[@data-tooltip='copy question']")
+    private WebElement copyButtonInQuestionPage;
 
-
-
-
-    @FindBy(how=How.XPATH,using="//button[@id='create-question-button']")
-    private WebElement createQuestionButton;
-
-    @FindBy(how=How.XPATH,using="(//div[@class='ui small primary button'])[2]")
-    private WebElement selectMCQButton;
-
-    @FindBy(how=How.XPATH,using="//body[@class='cke_editable cke_editable_themed cke_contents_ltr cke_show_borders']")
-    private WebElement enterTheQuestionTextfield;
-
-    @FindBy(how=How.XPATH,using="(//div[@title='Set Answer'])[1]")
-    private WebElement answerNo1Textfield;
-
-    @FindBy(how=How.XPATH,using="(//div[@title='Set Answer'])[2]")
-    private WebElement answerNo2Textfield;
-
-    @FindBy(how=How.XPATH,using="//input[@id='0']")
-    private WebElement tickCorrectAnswer;
+    @FindBy(how=How.XPATH,using="//button[@id='save-question-button'][contains(text(),'Submit')]")
+    private WebElement SubmitInQuestioPage;
 
     @FindBy(how=How.XPATH,using="//button[@id='next-button']")
-    private WebElement nextButton;
+    private WebElement nextBtnInQuestionPage;
 
+    @FindBy(how=How.XPATH,using="//span[@data-tooltip='edit question']")
+    private WebElement editQuestion;
 
-    @FindBy(how=How.XPATH,using="(//button[@id='save-question-button'])[1]")
-    private WebElement saveAndCreateButton;
-
-    @FindBy(how=How.XPATH,using="(//button[@id='cancel-button'])")
-    private WebElement cancelButton;
-
-
-    @FindBy(how=How.XPATH,using="//button[@class='ui blue button next-button']")
-    private WebElement nextButtonAfterClickingCheckbox;
-
-    @FindBy(how=How.XPATH,using="//button[text()='Edit']")
-    private WebElement editQuestionSetButton;
-
-    @FindBy(how=How.XPATH,using="(//div[@class='qb-question-action three wide column'])[51]/child::span[2]")
-    private WebElement editQuestionButton;
-
-    //(//div[@class='qb-question-action three wide column'])[1]//child::span
-    @FindBy(how=How.XPATH,using="(//i[@class='copy icon'])[1]")
-    private WebElement copyQuestionButton;
-
-    @FindBy(how=How.XPATH,using="//button[text()='Add answer ']")
-    private WebElement addAnswerButton;
-
-    @FindBy(how=How.XPATH,using="(//div[@title='Set Answer'])[3]")
-    private WebElement answerNo3Textfield;
-
-    @FindBy(how=How.XPATH,using="//i[@class='cursor-pointer close link icon']")
-    private WebElement crossIcon;
-
-    @FindBy(how=How.XPATH,using="(//button[@id='save-question-button'])[2]")
-    private WebElement submitButton;
-
-    @FindBy(how=How.XPATH,using="//input[@id='shuffle0questions']")
-    private WebElement shuffleQuestionsButton;
-
+    @FindBy(how=How.XPATH,using="//input[@name='name']")
+    private WebElement titleQuestionName;
 
     public void clkAddQuestionSetIcon() throws InterruptedException {
       //  UtilityFunctions.waitForElementIsVisible(addQuestionSet);
@@ -151,6 +104,29 @@ Thread.sleep(5000);
         UtilityFunctions.validatIsElementPresent(assertSearchedQuestionTypeDisplayed, "assertSearchedQuestionTypeDisplayed  is not Displayed");
         Listeners.addLogs("validated questionSet after question search");
 
+    }  public void copyQuestionIcon() throws InterruptedException {
+        UtilityFunctions.waitForVisibilityOfWebElement(copyButtonInQuestionPage);
+        UtilityFunctions.waitForElementAndClickable(copyButtonInQuestionPage);
+        Listeners.addLogs("clicked on copy button");
     }
+    public void nextBtnInQuestion() throws InterruptedException {
+        UtilityFunctions.waitForElementAndClickable(nextBtnInQuestionPage);
+        Listeners.addLogs("clicked on nextBtnInQuestionPage");
+    }
+    public void submitInQuestionPage() throws InterruptedException {
+        UtilityFunctions.waitForElementAndClickable(SubmitInQuestioPage);
+        Listeners.addLogs("clicked on SubmitInQuestioPage");
+    }
+    public void titleName(String titleName) throws InterruptedException {
+        UtilityFunctions.waitForElementIsVisible(titleQuestionName);
+        titleQuestionName.clear();
+        UtilityFunctions.waitToBeClickableAndSendKeys(titleQuestionName, titleName);
+        Listeners.addLogs("Entered titleName");
 
+    }
+    public void editIcon() throws InterruptedException {
+        UtilityFunctions.waitForVisibilityOfWebElement(editQuestion);
+        UtilityFunctions.waitForElementAndClickable(editQuestion);
+        Listeners.addLogs("clicked on editQuestion");
+    }
 }

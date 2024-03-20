@@ -68,12 +68,11 @@ public class SanitySuites2 extends BaseTestConfig {
 		BookPageActions.assertContentIsSavedToastrMsg();
 		BookPageActions.waitContentIsSavedToastToDisapper();
 		BookPageActions.clickAddChild();
-		BookPageActions.addDifferentResourceTypeInLibrarySection("Resource");
+		BookPageActions.addDifferentResourceTypeInLibrarySection("Collections");
 		BookPageActions.clickOnAddChildLeftSectionUnit();
-		BookPageActions.addDifferentResourceTypeInLibrarySection("Collection");
+		BookPageActions.addDifferentResourceTypeInLibrarySection("Resource");
 		BookPageActions.clickSaveAsDrafts();
 	}
-
 	@Test(description = "Create course with DifferentResourceType")
 	public void CreateCourseWithAllResourceType() throws Exception {
 

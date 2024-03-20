@@ -1,6 +1,7 @@
 package sanity;
 
 import com.sunbird.GenericLibrary.BaseTestConfig;
+import com.sunbird.GenericLibrary.UtilityFunctions;
 import com.sunbird.PageActions.*;
 import org.testng.annotations.Test;
 
@@ -168,18 +169,31 @@ public class FirstStep5 extends BaseTestConfig {
 //    }
 
 
-    @Test(description = "On clicking the Course card, the user should be displayed with a toast message saying there are no open batches available ")
-    public void validateNoOpenBatchAvailableToastrMsg() throws Exception {
+    @Test(description = "User should able to edit the question")
+    public void UserAbleToEditQuestionInAddQuestionPage() throws Exception {
 
         OnBoardingActions.RolePoup();
         OnBoardingActions.BMCPopup();
         OnBoardingActions.LocationPopup();
-        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("PUBLIC_USER"),
-                sunbird_config.getSunbidConfigPropertyValue("PUBLIC_PASSWORD"));
-        DashboardPageActions.clickCourseTab();
-        DashboardPageActions.searchContentAndClickOnContentCard(sunbird_config.getSunbidConfigPropertyValue("ExpiredBatch"));
-BatchPageActions.assertNoOpenBatchToasrtMsg();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+                sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+        DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.clickOnWorkSpace();
+        WorkspaceDashboardPageActions.clickResource();
+        String createdContent = ResourcePageActions.createResourcePopup("getContentName");
+        QuestionSetPageActions.clickAddQuestionSetIcon();
+     QuestionSetPageActions.clickEditIconInQuestion();
+     Thread.sleep(5000);
+QuestionSetPageActions.clickNextBtnInQuestionPage();
+QuestionSetPageActions.enterTitleName();
+QuestionSetPageActions.clickSubmitInQuestionPage();
+        QuestionSetPageActions.clkNextButtonInQuestionPage();
+        QuestionSetPageActions.enterQuestionSetTitle();
+        QuestionSetPageActions.clkAddButtonInQuestionTitlePage();
+        ResourcePageActions.saveAndCloseIcon();
+        ResourcePageActions.clickPreivewIcon();
+        UtilityFunctions.switchFrameUsingName();
+        ResourcePageActions.assertContentInPreviewPlayer();
+    }
 
-         }
 }
-

@@ -82,11 +82,11 @@ public class BookPageActions extends BaseTestConfig {
     }
 
 /*Add resource from library section */
-    public static void addResourceFromLibrary() {
+    public static void addResourceFromLibrary() throws InterruptedException {
         BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
         bookPage.clikAddChild();
         bookPage.clickAddFromLibraryBtn();
-        bookPage.searchContentInLibrary("sdf");
+        bookPage.searchContentInLibrary("mp4");
         bookPage.selectButtonInLibrary();
         bookPage.addContentInLibrary();
         String actualMsg = bookPage.assertContentAddedFolderToastrMsg();
@@ -201,5 +201,17 @@ bookPage.waitGenerateQRCodeToastrToDisappear();
     public static void waitCopyToastrMsgDisAppear() {
         BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
         bookPage.waitCopyToastrMsg();
+    }
+    public static void copyAsCourse() {
+        BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
+        bookPage.copyAsCourse();
+    }
+    public static void selectAllInCopyAscourse() {
+        BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
+        bookPage.selectAllBtn();
+    }
+    public static void clickOnCreateBtnInCopyAsCourse() {
+        BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
+        bookPage.createButtonIncopyascourse();
     }
 }

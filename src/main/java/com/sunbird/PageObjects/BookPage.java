@@ -138,6 +138,15 @@ public class BookPage {
     @FindBy(how=How.XPATH,using="//strong[contains(text(),'Content is saved')]")
     private WebElement assertContentSavedToastMsg;
 
+    @FindBy(how=How.XPATH,using="//button[contains(text(),'Copy as course')]")
+    private WebElement copyAsCourse;
+
+    @FindBy(how=How.XPATH,using="//label[@for='checkbox']")
+    private WebElement selectAllInCopyAsCourse;
+
+    @FindBy(how=How.XPATH,using="//button[contains(text(),'Create')] ")
+    private WebElement clickCreateInCopyAscourse;
+
     public void enterBookName(String randomBookName) throws InterruptedException {
 
                       UtilityFunctions.waitToBeClickableAndSendKeys(bookname, randomBookName);
@@ -220,11 +229,12 @@ public class BookPage {
              Listeners.addLogs("addFromLibraryButton");
         }
          
-         public void searchContentInLibrary(String resourceName) {
+         public void searchContentInLibrary(String resourceName) throws InterruptedException {
 
               UtilityFunctions.waitToBeClickableAndSendKeys(searchContentFromLibrary, resourceName);
               Listeners.addLogs("entered resourceName");
-
+             UtilityFunctions.pressEnterKeyOnWebElement(searchContentFromLibrary);
+Thread.sleep(3000);
           }
          
          public void selectButtonInLibrary() {
@@ -401,6 +411,22 @@ Listeners.addLogs("clicked on QRCodeDropdown");
     }
     public void waitCopyToastrMsg() {
         UtilityFunctions.waitForElementToDisappear(assertCopyToastrMsg);
+
+    }
+    public void copyAsCourse()
+    {
+        UtilityFunctions.waitForElementAndClickable(copyAsCourse);
+        Listeners.addLogs("clicked on copyAsCourse");
+    }
+    public void selectAllBtn()
+    {
+        UtilityFunctions.waitForElementAndClickable(selectAllInCopyAsCourse);
+        Listeners.addLogs("clicked on selectAllInCopyAsCourse");
+    }
+    public void createButtonIncopyascourse()
+    {
+        UtilityFunctions.waitForElementAndClickable(clickCreateInCopyAscourse);
+        Listeners.addLogs("click on createInCopyAscourse");
 
     }
 }

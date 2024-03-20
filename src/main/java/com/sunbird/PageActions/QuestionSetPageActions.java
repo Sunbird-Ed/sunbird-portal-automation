@@ -58,5 +58,28 @@ public static void assertQuestionDisplayedBasedonText()
 questionSetPage.assertQuestionDisplayedBasedOnSearch();
 }
 
+	public static void clickCopyQuestionIcon() throws InterruptedException {
+		QuestionSetPage questionSetPage = PageFactory.initElements(driver, QuestionSetPage.class);
+		questionSetPage.copyQuestionIcon();
+	}
+	public static void clickNextBtnInQuestionPage() throws InterruptedException {
+		QuestionSetPage questionSetPage = PageFactory.initElements(driver, QuestionSetPage.class);
+		questionSetPage.nextBtnInQuestion();
+	}
+	public static void clickSubmitInQuestionPage() throws InterruptedException {
+		QuestionSetPage questionSetPage = PageFactory.initElements(driver, QuestionSetPage.class);
+		questionSetPage.submitInQuestionPage();
+	}
+
+	public static void clickEditIconInQuestion() throws InterruptedException {
+		QuestionSetPage questionSetPage = PageFactory.initElements(driver, QuestionSetPage.class);
+		questionSetPage.editIcon();
+	}
+	public static String enterTitleName() throws Exception {
+		QuestionSetPage questionSetPage = PageFactory.initElements(driver, QuestionSetPage.class);
+		String titleNameQues = UtilityFunctions.generateRandomName("automationTitleQueSet");
+		questionSetPage.titleName(titleNameQues);
+		return titleNameQues;
+	}
 	}
 
