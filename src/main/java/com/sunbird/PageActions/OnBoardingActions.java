@@ -48,7 +48,7 @@ public class OnBoardingActions extends BaseTestConfig {
     /* This method will handle the Location popup in onboarding flow */
     public static void LocationPopup() throws InterruptedException {
         OnBoarding onboard = PageFactory.initElements(driver, OnBoarding.class);
-      Thread.sleep(2000);
+       Thread.sleep(2000);
         onboard.clickStateDropdown();
         onboard.selectStateValue();
         onboard.clickDistrictDropDown();

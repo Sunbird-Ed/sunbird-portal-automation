@@ -169,8 +169,8 @@ public class FirstStep5 extends BaseTestConfig {
 //    }
 
 
-    @Test(description = "User should able to edit the question")
-    public void UserAbleToEditQuestionInAddQuestionPage() throws Exception {
+    @Test(description = "User should able to delete the question")
+    public void userAbleToDeleteQuestionInQuestionPage() throws Exception {
 
         OnBoardingActions.RolePoup();
         OnBoardingActions.BMCPopup();
@@ -182,18 +182,14 @@ public class FirstStep5 extends BaseTestConfig {
         WorkspaceDashboardPageActions.clickResource();
         String createdContent = ResourcePageActions.createResourcePopup("getContentName");
         QuestionSetPageActions.clickAddQuestionSetIcon();
-     QuestionSetPageActions.clickEditIconInQuestion();
-     Thread.sleep(5000);
-QuestionSetPageActions.clickNextBtnInQuestionPage();
-QuestionSetPageActions.enterTitleName();
-QuestionSetPageActions.clickSubmitInQuestionPage();
-        QuestionSetPageActions.clkNextButtonInQuestionPage();
-        QuestionSetPageActions.enterQuestionSetTitle();
-        QuestionSetPageActions.clkAddButtonInQuestionTitlePage();
-        ResourcePageActions.saveAndCloseIcon();
-        ResourcePageActions.clickPreivewIcon();
-        UtilityFunctions.switchFrameUsingName();
-        ResourcePageActions.assertContentInPreviewPlayer();
-    }
+       String questName= QuestionSetPageActions.fetchFirstQuestionName();
+       QuestionSetPageActions.searchByQuestionTitle(questName);
+      int beforeDeleteCount=QuestionSetPageActions.getTotalQuestionCount();
+       QuestionSetPageActions.clickDeleteIconInQuestion();
+QuestionSetPageActions.deleteConfimation();
+        int afterDeleteCount=QuestionSetPageActions.getTotalQuestionCount();
+  int finalcount=beforeDeleteCount-1;
+        UtilityFunctions.numberValueComparision(afterDeleteCount,finalcount,"Failed to delete question");
+         }
 
 }

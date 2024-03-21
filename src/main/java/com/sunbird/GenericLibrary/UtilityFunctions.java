@@ -189,7 +189,7 @@ public class UtilityFunctions extends BaseTestConfig {
     public static void pressEnterKeyOnWebElement(WebElement element) {
 
        // element.sendKeys(Keys.ENTER);
-        element.sendKeys(Keys.RETURN);
+       element.sendKeys(Keys.RETURN);
     }
 
     public static String getProperyFilePath() throws IOException {
@@ -288,5 +288,16 @@ public class UtilityFunctions extends BaseTestConfig {
         System.out.println("Day: " + day);
         System.out.println("Month: " + month);
         System.out.println("Year: " + year);
+    }
+
+    public static int extractNumberFromString(String data)
+    {
+        int value = Integer.parseInt(data.replaceAll("[^0-9]", ""));
+return value;
+    }
+
+    public static void numberValueComparision(int actual, int expected, String Msg) {
+        Assert.assertEquals(actual, expected, Msg);
+
     }
 }

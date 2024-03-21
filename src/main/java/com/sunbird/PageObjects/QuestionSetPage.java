@@ -53,6 +53,29 @@ public class QuestionSetPage {
     @FindBy(how=How.XPATH,using="//input[@name='name']")
     private WebElement titleQuestionName;
 
+
+    @FindBy(how=How.XPATH,using="//div[@class='header ng-binding']")
+    private WebElement getFirstQuestion;
+
+    @FindBy(how=How.XPATH,using="//span[@data-tooltip='delete question']")
+    private WebElement deleteQuestion;
+
+    @FindBy(how=How.XPATH,using="//button[@id='deleteQuestionButton']")
+    private WebElement deleteConfirmBtn;
+
+    @FindBy(how=How.XPATH,using="//*[contains(text(),'Didn’t find what you were looking for? Try search for something more specific.')]")
+    private WebElement assertDidNotFindQuestionMsg;
+
+    @FindBy(how=How.XPATH,using="//span[@class='ui label ng-binding']")
+    private WebElement totalQuestionFound;
+
+    @FindBy(how=How.XPATH,using="//div[@class='advanceFilterDiv']")
+    private WebElement advanceFilter;
+
+    @FindBy(how=How.XPATH,using="//input[@name='myQuestions']//following::label[1]")
+    private WebElement myQuestionTogglebtn;
+
+
     public void clkAddQuestionSetIcon() throws InterruptedException {
       //  UtilityFunctions.waitForElementIsVisible(addQuestionSet);
         UtilityFunctions.waitForElementAndClickable(addQuestionSet);
@@ -129,4 +152,43 @@ Thread.sleep(5000);
         UtilityFunctions.waitForElementAndClickable(editQuestion);
         Listeners.addLogs("clicked on editQuestion");
     }
+
+    public void deleteIcon() throws InterruptedException {
+        UtilityFunctions.waitForElementAndClickable(deleteQuestion);
+        Listeners.addLogs("clicked on deleteQuestion");
+    }
+    public void deleteConfirm() throws InterruptedException {
+        UtilityFunctions.waitForElementAndClickable(deleteConfirmBtn);
+        Listeners.addLogs("clicked on deleteQuestion");
+    }
+
+    public void assertDidNotFindQuestion() {
+        UtilityFunctions.waitForVisibilityOfWebElement(assertDidNotFindQuestionMsg);
+        UtilityFunctions.validatIsElementPresent(assertDidNotFindQuestionMsg, "Didn't delete the question");
+        Listeners.addLogs("validated Question got deleted in questionSet");
+     }
+     public String getFirstQuestionName()
+     {
+         UtilityFunctions.waitForVisibilityOfWebElement(getFirstQuestion);
+         String quesName= UtilityFunctions.getTextFromElement(getFirstQuestion);
+      return quesName;
+     }
+
+    public void advanceFilter() throws InterruptedException {
+        UtilityFunctions.waitForElementAndClickable(advanceFilter);
+        Listeners.addLogs("clicked on advanceFilter");
+    }
+
+    public void myQuestiontoggle() throws InterruptedException {
+        UtilityFunctions.pressEnterKeyOnWebElement(myQuestionTogglebtn);
+        // UtilityFunctions.waitForElementAndClickable(myQuestionTogglebtn);
+        Listeners.addLogs("clicked on myQuestionTogglebtn");
+    }
+    public String getTotalQuestionCount()
+    {
+        UtilityFunctions.waitForVisibilityOfWebElement(totalQuestionFound);
+        String quescount= UtilityFunctions.getTextFromElement(totalQuestionFound);
+        return quescount;
+    }
 }
+

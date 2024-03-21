@@ -299,7 +299,6 @@ public class SanitySuite3 extends BaseTestConfig {
         String createdContent = ResourcePageActions.createResourcePopup("getContentName");
         QuestionSetPageActions.clickAddQuestionSetIcon();
         QuestionSetPageActions.clickEditIconInQuestion();
-        Thread.sleep(5000);
         QuestionSetPageActions.clickNextBtnInQuestionPage();
         QuestionSetPageActions.enterTitleName();
         QuestionSetPageActions.clickSubmitInQuestionPage();
@@ -311,5 +310,29 @@ public class SanitySuite3 extends BaseTestConfig {
         UtilityFunctions.switchFrameUsingName();
         ResourcePageActions.assertContentInPreviewPlayer();
     }
+
+    @Test(description = "User should able to delete the question")
+    public void userAbleToDeleteQuestionInQuestionPage() throws Exception {
+
+        OnBoardingActions.RolePoup();
+        OnBoardingActions.BMCPopup();
+        OnBoardingActions.LocationPopup();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+                sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+        DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.clickOnWorkSpace();
+        WorkspaceDashboardPageActions.clickResource();
+        String createdContent = ResourcePageActions.createResourcePopup("getContentName");
+        QuestionSetPageActions.clickAddQuestionSetIcon();
+        String questName= QuestionSetPageActions.fetchFirstQuestionName();
+        QuestionSetPageActions.searchByQuestionTitle(questName);
+        int beforeDeleteCount=QuestionSetPageActions.getTotalQuestionCount();
+        QuestionSetPageActions.clickDeleteIconInQuestion();
+        QuestionSetPageActions.deleteConfimation();
+        int afterDeleteCount=QuestionSetPageActions.getTotalQuestionCount();
+        int finalcount=beforeDeleteCount-1;
+        UtilityFunctions.numberValueComparision(afterDeleteCount,finalcount,"Failed to delete question");
+    }
+
 
 }
