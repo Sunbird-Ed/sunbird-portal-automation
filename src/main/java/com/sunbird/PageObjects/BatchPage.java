@@ -2,6 +2,7 @@ package com.sunbird.PageObjects;
 
 import com.sunbird.GenericLibrary.Listeners;
 import com.sunbird.GenericLibrary.UtilityFunctions;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -96,6 +97,9 @@ public class BatchPage {
 
 	@FindBy(how=How.XPATH,using="//strong[contains(text(),'This course does not have any open batches')]")
 	private WebElement assertNoOpenBatchesToastrMsg;
+
+	@FindBy(how=How.XPATH,using="//strong[contains(text(),'Profile share settings submitted successfully')]")
+	private WebElement profileShareTostrtMsg;
 
 	public void createBatchClick() {
 		UtilityFunctions.waitToBeClickableAndClick(createBatchBtn);
@@ -202,11 +206,13 @@ public class BatchPage {
 	}
 
 	public void leaveCourse() {
-		UtilityFunctions.scrollInToviewUsingJavaScript(leaveCourse);
+		UtilityFunctions.scrollDownUsingPixelValue();
+	//	UtilityFunctions.scrollInToviewUsingJavaScript(leaveCourse);
 		UtilityFunctions.waitForElementAndClickable(leaveCourse);
 		Listeners.addLogs("clicked on leaveCourse");
 	}
 	public void leaveCourseInUnenrollPopup() {
+		UtilityFunctions.waitForElementIsVisible(leaveCourseInUnEnrollPopup);
 		UtilityFunctions.waitForElementAndClickable(leaveCourseInUnEnrollPopup);
 		Listeners.addLogs("clicked on leaveCourseInUnEnrollPopup");
 	}
@@ -221,6 +227,15 @@ public class BatchPage {
 		String actualText=UtilityFunctions.getTextFromElement(assertNoOpenBatchesToastrMsg);
 		Listeners.addLogs("NoOpenBatchesToastrMsg validated");
 		return actualText;
+	}
+	public String assertProfileShareToastrMsg() {
+		UtilityFunctions.waitForVisibilityOfWebElement(profileShareTostrtMsg);
+		String actualText=UtilityFunctions.getTextFromElement(profileShareTostrtMsg);
+		Listeners.addLogs("profileShareTostrtMsg validated");
+		return actualText;
+	}
+	public void waitProfileShareToastrMsgDisappear() {
+		UtilityFunctions.waitForElementToDisappear(profileShareTostrtMsg);
 	}
 }
 

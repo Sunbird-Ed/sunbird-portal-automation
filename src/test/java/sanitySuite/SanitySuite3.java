@@ -165,17 +165,13 @@ public class SanitySuite3 extends BaseTestConfig {
         BatchPageActions.validateAttributesInConsentPopup();
         BatchPageActions.clickTermsCheckInConsentPopup();
         BatchPageActions.clickShareBtn();
-
-
     }
 
     @Test(description = "User should be able to unenroll from the open courses,Join course button should be displayed")
     public void unEnrollFromCourse() throws Exception {
-
         OnBoardingActions.RolePoup();
         OnBoardingActions.BMCPopup();
         OnBoardingActions.LocationPopup();
-
         LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
                 sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
         DashboardPageActions.clickUserProfileIcon();
@@ -209,7 +205,6 @@ public class SanitySuite3 extends BaseTestConfig {
         BatchPageActions.clickTermsCheckBoxAndSubmit();
         BatchPageActions.assertBatchTostrMsg();
         DashboardPageActions.logOut();
-
         LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("PUBLIC_USER"),
                 sunbird_config.getSunbidConfigPropertyValue("PUBLIC_PASSWORD"));
         DashboardPageActions.clickCourseTab();
@@ -218,12 +213,13 @@ public class SanitySuite3 extends BaseTestConfig {
         BatchPageActions.validateAttributesInConsentPopup();
         BatchPageActions.clickTermsCheckInConsentPopup();
         BatchPageActions.clickShareBtn();
+        BatchPageActions.assertProfileShareToastrMessage();
+        BatchPageActions.waitProfileShareTostrToDisapper();
         BatchPageActions.clickLeaveCourse();
         BatchPageActions.clickLeaveCourseInUnEnrollPopup();
         BatchPageActions.assertJoinCourse();
 
     }
-
      @Test(description = "On clicking the Course card, the user should be displayed with a toast message saying there are no open batches available ")
     public void validateNoOpenBatchAvailableToastrMsg() throws Exception {
 
@@ -332,6 +328,25 @@ public class SanitySuite3 extends BaseTestConfig {
         int afterDeleteCount=QuestionSetPageActions.getTotalQuestionCount();
         int finalcount=beforeDeleteCount-1;
         UtilityFunctions.numberValueComparision(afterDeleteCount,finalcount,"Failed to delete question");
+    }
+
+    @Test(description = "Verify user able to searchBookViaNameAndDOIDAndQRCodeValue")
+    public void searchBookViaNameAndDOIDAndQRCodeValue() throws Exception {
+
+        OnBoardingActions.RolePoup();
+        OnBoardingActions.BMCPopup();
+        OnBoardingActions.LocationPopup();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+                sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+        DashboardPageActions.clickDigitalTextbookTab();
+        DashboardPageActions.searchContentAndClickOnContentCard(sunbird_config.getSunbidConfigPropertyValue("Textbook"));
+        UtilityFunctions.backButtonInBrowser();
+        DashboardPageActions.clickDigitalTextbookTab();
+        DashboardPageActions.searchContentAndClickOnContentCard(sunbird_config.getSunbidConfigPropertyValue("BookName"));
+        UtilityFunctions.backButtonInBrowser();
+        DashboardPageActions.clickDigitalTextbookTab();
+        DashboardPageActions.searchContentAndClickOnContentCard(sunbird_config.getSunbidConfigPropertyValue("TextbookQrCode"));
+        UtilityFunctions.backButtonInBrowser();
     }
 
 

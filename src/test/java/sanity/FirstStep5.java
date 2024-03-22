@@ -169,8 +169,9 @@ public class FirstStep5 extends BaseTestConfig {
 //    }
 
 
-    @Test(description = "User should able to delete the question")
-    public void userAbleToDeleteQuestionInQuestionPage() throws Exception {
+
+    @Test(description = "Create Book with DifferentResourceType")
+    public void createBookwithDifferentResourceType() throws Exception {
 
         OnBoardingActions.RolePoup();
         OnBoardingActions.BMCPopup();
@@ -178,18 +179,25 @@ public class FirstStep5 extends BaseTestConfig {
         LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
                 sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
         DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.assertWorkspace();
         DashboardPageActions.clickOnWorkSpace();
-        WorkspaceDashboardPageActions.clickResource();
-        String createdContent = ResourcePageActions.createResourcePopup("getContentName");
-        QuestionSetPageActions.clickAddQuestionSetIcon();
-       String questName= QuestionSetPageActions.fetchFirstQuestionName();
-       QuestionSetPageActions.searchByQuestionTitle(questName);
-      int beforeDeleteCount=QuestionSetPageActions.getTotalQuestionCount();
-       QuestionSetPageActions.clickDeleteIconInQuestion();
-QuestionSetPageActions.deleteConfimation();
-        int afterDeleteCount=QuestionSetPageActions.getTotalQuestionCount();
-  int finalcount=beforeDeleteCount-1;
-        UtilityFunctions.numberValueComparision(afterDeleteCount,finalcount,"Failed to delete question");
-         }
+        WorkspaceDashboardPageActions.clickBook();
+        String createdContent = BookPageActions.createBookPopup("getdoid");
+        String des = BookPageActions.section1("getdescription");
+        BookPageActions.BMCDropdownSelectionSection2();
+        BookPageActions.Section3();
+        BookPageActions.assertContentIsSavedToastrMsg();
+        BookPageActions.waitContentIsSavedToastToDisapper();
+        BookPageActions.clickAddChild();
+        BookPageActions.addDifferentResourceTypeInLibrarySection("Collections");
+        BookPageActions.clickOnAddChildLeftSectionUnit();
+        BookPageActions.addDifferentResourceTypeInLibrarySection("Resource");
+        BookPageActions.addDifferentResourceTypeInLibrarySection("Youtube");
+        BookPageActions.addDifferentResourceTypeInLibrarySection("Pdf");
+        BookPageActions.addDifferentResourceTypeInLibrarySection("Epub");
+        BookPageActions.addDifferentResourceTypeInLibrarySection("h5p");
+        BookPageActions.addDifferentResourceTypeInLibrarySection("Courses");
+        BookPageActions.clickSaveAsDrafts();
+    }
 
 }

@@ -300,4 +300,10 @@ return value;
         Assert.assertEquals(actual, expected, Msg);
 
     }
+
+    public static void backButtonInBrowser()
+    {
+
+        driver.navigate().back();
+    }
 }

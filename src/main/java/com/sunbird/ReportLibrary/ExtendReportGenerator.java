@@ -17,13 +17,12 @@ public class ExtendReportGenerator {
         ExtentSparkReporter reporter = new ExtentSparkReporter(path);
         reporter.config().setDocumentTitle("Sunbird Automation Test Report");
         reporter.config().setReportName("Automation Test Report");
-        reporter.config().setTheme(Theme.DARK);
+        reporter.config().setTheme(Theme.STANDARD);
 
         extent = new ExtentReports();
         extent.attachReporter(reporter);
         extent.setSystemInfo("Project Name", "Sunbird");
         extent.setSystemInfo("O.S", "Windows");
-
         return extent;
     }
 

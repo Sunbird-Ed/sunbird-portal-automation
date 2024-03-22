@@ -21,7 +21,6 @@ public class SanitySuites2 extends BaseTestConfig {
 		HomeTabPageActions.validateBrowseByCategoriesSection();
 		HomeTabPageActions.validateRecentlyPublishedSection();
 	}
-
 	@Test(description = "createCollectionAndVerify")
 	public void createCollectionAndVerify() throws Exception {
 

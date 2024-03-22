@@ -47,7 +47,7 @@ public class HomeTabPage extends BaseTestConfig {
 	public void clickContentInBrowseBySubjects() {
 		UtilityFunctions.scrollInToviewUsingJavaScript(browseBySubjectsSection);
 		UtilityFunctions.validatIsElementPresent(browseBySubjectsSection, "browseBySubjectsSection  is not Displayed");
-		UtilityFunctions.waitToBeClickableAndClick(clickSubSectionInBrowseBySubjects);
+		UtilityFunctions.waitForElementAndClickable(clickSubSectionInBrowseBySubjects);
 		Listeners.addLogs("Clicked on browseBySubjects");
 
 	}
@@ -72,7 +72,7 @@ UtilityFunctions.waitForElementIsVisible(assertContent);
 		UtilityFunctions.waitForVisibilityOfWebElement(browseByCategories);
 		UtilityFunctions.scrollInToviewUsingJavaScript(browseByCategories);
 		UtilityFunctions.validatIsElementPresent(browseByCategories, "browseByCategoriesSection  is not Displayed");
-		UtilityFunctions.waitToBeClickableAndClick(clickSubSectionInBrowseByCategories);
+		UtilityFunctions.waitForElementAndClickable(clickSubSectionInBrowseByCategories);
 		Listeners.addLogs("Clicked on BrowseByCategories");
 
 	}

@@ -108,7 +108,7 @@ UtilityFunctions.waitForVisibilityOfWebElement(firstContentCard);
 
     public void homeTab() {
 
-        UtilityFunctions.waitToBeClickableAndClick(homeTab);
+        UtilityFunctions.waitForElementAndClickable(homeTab);
         Listeners.addLogs("Clicked on homeTab");
 
     }

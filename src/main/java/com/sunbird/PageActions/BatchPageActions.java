@@ -4,6 +4,8 @@ import com.sunbird.GenericLibrary.BaseTestConfig;
 import com.sunbird.GenericLibrary.SunbirdConstants;
 import com.sunbird.GenericLibrary.UtilityFunctions;
 import com.sunbird.PageObjects.BatchPage;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 
@@ -105,6 +107,8 @@ batchPage.leaveCourse();
 	{
 		BatchPage batchPage = PageFactory.initElements(driver, BatchPage.class);
 		batchPage.leaveCourseInUnenrollPopup();
+
+
 	}
 	public static void assertJoinCourse()
 	{
@@ -118,4 +122,16 @@ batchPage.leaveCourse();
 String actualtxt=batchPage.assertNoOpenBatchToastrMsg();
 UtilityFunctions.stringValueComparision(actualtxt,SunbirdConstants.noOpenBatchAvailableToastrMSG,"Didn't display No openBatch toastr msg ");
 	}
+	public static void assertProfileShareToastrMessage()
+	{
+		BatchPage batchPage = PageFactory.initElements(driver, BatchPage.class);
+		String actualtxt=batchPage.assertProfileShareToastrMsg();
+		UtilityFunctions.stringValueComparision(actualtxt,SunbirdConstants.profileShareToastrMsg,"ProfileShare Toastr didn't display ");
+	}
+	public static void waitProfileShareTostrToDisapper()
+	{
+		BatchPage batchPage = PageFactory.initElements(driver, BatchPage.class);
+batchPage.waitProfileShareToastrMsgDisappear();
+	}
+
 }

@@ -17,10 +17,10 @@
 
     <!-- offline report -->
     <timelineEnabled>true</timelineEnabled>
-
+    
     <!-- offline report -->
     <enableOfflineMode>false</enableOfflineMode>
-
+    
     <!-- use thumbnails for base64 images -->
     <!-- this may slowdown viewing tests -->
     <thumbnailForBase64>false</thumbnailForBase64>
@@ -38,7 +38,7 @@
     <scripts>
       <![CDATA[
         $(document).ready(function() {
-
+            
         });
       ]]>
     </scripts>
@@ -46,7 +46,7 @@
     <!-- custom styles -->
     <styles>
       <![CDATA[
-
+      
       ]]>
     </styles>
 
