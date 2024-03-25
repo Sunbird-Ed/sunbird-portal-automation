@@ -44,6 +44,9 @@ public class DashboardPage {
     @FindBy(how=How.XPATH,using="//*[contains(text(),'Courses')]")
     private WebElement courseTab;
 
+    @FindBy(how=How.XPATH,using="//*[contains(text(),' My Groups ')][@role='link']")
+    private WebElement myGroups;
+
     public void userProfileIcon() throws InterruptedException {
 
         UtilityFunctions.waitToBeClickableAndClick(userProfileIcon);
@@ -121,6 +124,11 @@ UtilityFunctions.waitForVisibilityOfWebElement(firstContentCard);
     public void courseTab() {
         UtilityFunctions.waitForElementAndClickable(courseTab);
         Listeners.addLogs("Clicked on courseTab");
+
+    }
+    public void myGroups() {
+        UtilityFunctions.waitForElementAndClickable(myGroups);
+        Listeners.addLogs("Clicked on myGroups");
 
     }
 }

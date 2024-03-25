@@ -349,5 +349,36 @@ public class SanitySuite3 extends BaseTestConfig {
         UtilityFunctions.backButtonInBrowser();
     }
 
+    @Test(description = "Create Book with all ResourceType")
+    public void createBookwithAllResourceType() throws Exception {
+
+        OnBoardingActions.RolePoup();
+        OnBoardingActions.BMCPopup();
+        OnBoardingActions.LocationPopup();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+                sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+        DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.assertWorkspace();
+        DashboardPageActions.clickOnWorkSpace();
+        WorkspaceDashboardPageActions.clickBook();
+        String createdContent = BookPageActions.createBookPopup("getdoid");
+        String des = BookPageActions.section1("getdescription");
+        BookPageActions.BMCDropdownSelectionSection2();
+        BookPageActions.Section3();
+        BookPageActions.assertContentIsSavedToastrMsg();
+        BookPageActions.waitContentIsSavedToastToDisapper();
+        BookPageActions.clickAddChild();
+        BookPageActions.addDifferentResourceTypeInLibrarySection("Collections");
+        BookPageActions.clickOnAddChildLeftSectionUnit();
+        BookPageActions.addDifferentResourceTypeInLibrarySection("Resource");
+        BookPageActions.addDifferentResourceTypeInLibrarySection("Youtube");
+        BookPageActions.addDifferentResourceTypeInLibrarySection("Pdf");
+        BookPageActions.addDifferentResourceTypeInLibrarySection("Epub");
+        BookPageActions.addDifferentResourceTypeInLibrarySection("h5p");
+        BookPageActions.addDifferentResourceTypeInLibrarySection("Courses");
+        BookPageActions.clickSaveAsDrafts();
+    }
+
+
 
 }

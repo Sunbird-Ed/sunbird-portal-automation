@@ -51,21 +51,33 @@ public static void searchContentAndClickOnContentCard(String searchText) throws 
         dashboardPage.clickSearchIcon();
         dashboardPage.clickOnFirstContent();
     }
-public static void clickHomeTab()
+
+    /* click on HomeTab */
+    public static void clickHomeTab()
     {
         DashboardPage dashboardPage = PageFactory.initElements(driver, DashboardPage.class);
 dashboardPage.homeTab();
     }
 
+    /* click on DigitalTextbookTab */
     public static void clickDigitalTextbookTab()
     {
         DashboardPage dashboardPage = PageFactory.initElements(driver, DashboardPage.class);
         dashboardPage.digitalTxtbookTab();
     }
+
+    /* click on courseTab */
     public static void clickCourseTab()
     {
         DashboardPage dashboardPage = PageFactory.initElements(driver, DashboardPage.class);
         dashboardPage.courseTab();
     }
+
+    /* click on myGroups Page */
+    public static void clickOnMyGroups() throws InterruptedException {
+        DashboardPage dashboardPage = PageFactory.initElements(driver, DashboardPage.class);
+        dashboardPage.myGroups();
+    }
+
 }
 	

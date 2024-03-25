@@ -163,8 +163,8 @@ public class SanitySuites extends BaseTestConfig {
 		BookPageActions.addResourceFromLibrary();
 		BookPageActions.downloadFolderAsCSVFile();
 	}
-	@Test(description = "Generate QrCode",groups= {"Creation"})
-	public void downloadQRCode() throws Exception {
+	@Test(description = "Generate QrCode")
+	public void downloadBulkQRCode() throws Exception {
 		OnBoardingActions.RolePoup();
 		OnBoardingActions.BMCPopup();
 		OnBoardingActions.LocationPopup();

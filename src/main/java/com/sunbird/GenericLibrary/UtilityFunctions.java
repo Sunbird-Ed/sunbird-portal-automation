@@ -90,6 +90,7 @@ public class UtilityFunctions extends BaseTestConfig {
     public static void findElementAndClick(String xpathValue) {
 
         driver.findElement(By.xpath(xpathValue)).click();
+
     }
 
     /* Method will get the current url and do the substring and returning the with extracted do_Id */

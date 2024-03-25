@@ -6,7 +6,9 @@ public class SunbirdConstants {
 
     public static String XPATH_CONTAINS = "//*[contains(text(),'";
     public static String XPATH_CONAINSCLOSEBRACKET = "')]";
-    
+
+    public static String xpathGroup1="//div[@class='sb--card__info']//preceding::div[@title='";
+    public static String xpathGrooup2="'][1]";
     public static String contetnPublishedToastrMsg = "Content is published";
     public static String contentSentForReview = "Content is sent for review";
 
@@ -31,4 +33,5 @@ public static String placeholder="placeholer";
     public static String noOpenBatchAvailableToastrMSG = "This course does not have any open batches";
     public static String profileShareToastrMsg = "Profile share settings submitted successfully";
 
+    public static String groupCreationToastrMsg="Group created successfully";
 }

@@ -170,8 +170,8 @@ public class FirstStep5 extends BaseTestConfig {
 
 
 
-    @Test(description = "Create Book with DifferentResourceType")
-    public void createBookwithDifferentResourceType() throws Exception {
+    @Test(description = "createG Group")
+    public void createGroup() throws Exception {
 
         OnBoardingActions.RolePoup();
         OnBoardingActions.BMCPopup();
@@ -180,24 +180,13 @@ public class FirstStep5 extends BaseTestConfig {
                 sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
         DashboardPageActions.clickUserProfileIcon();
         DashboardPageActions.assertWorkspace();
-        DashboardPageActions.clickOnWorkSpace();
-        WorkspaceDashboardPageActions.clickBook();
-        String createdContent = BookPageActions.createBookPopup("getdoid");
-        String des = BookPageActions.section1("getdescription");
-        BookPageActions.BMCDropdownSelectionSection2();
-        BookPageActions.Section3();
-        BookPageActions.assertContentIsSavedToastrMsg();
-        BookPageActions.waitContentIsSavedToastToDisapper();
-        BookPageActions.clickAddChild();
-        BookPageActions.addDifferentResourceTypeInLibrarySection("Collections");
-        BookPageActions.clickOnAddChildLeftSectionUnit();
-        BookPageActions.addDifferentResourceTypeInLibrarySection("Resource");
-        BookPageActions.addDifferentResourceTypeInLibrarySection("Youtube");
-        BookPageActions.addDifferentResourceTypeInLibrarySection("Pdf");
-        BookPageActions.addDifferentResourceTypeInLibrarySection("Epub");
-        BookPageActions.addDifferentResourceTypeInLibrarySection("h5p");
-        BookPageActions.addDifferentResourceTypeInLibrarySection("Courses");
-        BookPageActions.clickSaveAsDrafts();
+        DashboardPageActions.clickOnMyGroups();
+        GroupsPageActions.clickCloseCrossIcon();
+        GroupsPageActions.clickCreateGroup();
+       String fetchGroupName= GroupsPageActions.enterGroupNameAndDesc();
+        GroupsPageActions.assertGroupCreatedToastrMessage();
+        GroupsPageActions.clickCreatedGroupCard(fetchGroupName);
+GroupsPageActions.assertGroupKababMenuIcon();
     }
 
 }
