@@ -36,8 +36,7 @@ groupPage.createGroup();
 		UtilityFunctions.stringValueComparision(actualtxt, SunbirdConstants.groupCreationToastrMsg,"Failed to create groups");
 		groupPage.waitGroupCreatedToastrMsgDisappear();
 	}
-public static void clickCreatedGroupCard(String createdGroupName)
-{
+public static void clickCreatedGroupCard(String createdGroupName) throws InterruptedException {
 String groupsCardXpath=SunbirdConstants.xpathGroup1+createdGroupName+SunbirdConstants.xpathGrooup2;
 UtilityFunctions.findElementAndClick(groupsCardXpath);
 
@@ -59,5 +58,99 @@ groupPage.groupKababMenu();
 		GroupsPage groupPage = PageFactory.initElements(driver, GroupsPage.class);
 		groupPage.closeIconInMyGroupClick();
 	}
+	public static void clickEnableDiscusison()
+	{
+		GroupsPage groupPage = PageFactory.initElements(driver, GroupsPage.class);
+		groupPage.enableDiscussion();
+	}
+	public static void assertEnableDisussionToastrMsg()
+	{
+		GroupsPage groupPage = PageFactory.initElements(driver, GroupsPage.class);
+		String actualtxt=groupPage.assertEnableDiscussionToastr();
+		UtilityFunctions.stringValueComparision(actualtxt,SunbirdConstants.enableDisussionToastrMsg,"enableDisussionToastrMsg not displayed ");
+		groupPage.waitEnableDiscussionToastrMsgDisappear();
+	}
+	public static void clickForumIcon()
+	{
+		GroupsPage groupPage = PageFactory.initElements(driver, GroupsPage.class);
+		groupPage.forumIcon();
+	}
+	public static void assertAllOptionInsideForum()
+	{
+		GroupsPage groupPage = PageFactory.initElements(driver, GroupsPage.class);
+		groupPage.assertAllOptionInsideForumIconPage();
+	}
 
+	public static void clickGeneralDiscussionCard()
+	{
+		GroupsPage groupPage = PageFactory.initElements(driver, GroupsPage.class);
+groupPage.generalDisussionCard();
+	}
+	public static void clickStartCreating()
+	{
+		GroupsPage groupPage = PageFactory.initElements(driver, GroupsPage.class);
+		groupPage.startCreating();
+	}
+	public static String enterTopicNameandDescrption(String creationType) throws InterruptedException {
+		GroupsPage groupPage = PageFactory.initElements(driver, GroupsPage.class);
+		String topicName = UtilityFunctions.generateRandomName("autoTopic");
+		String topicDesc = UtilityFunctions.generateRandomName("autoDescTopic");
+		String topicTags = UtilityFunctions.generateRandomName("autoTags");
+
+		groupPage.enterTopicName(topicName);
+		groupPage.enterTopicDescription(topicDesc);
+		groupPage.enterTags(topicTags);
+
+
+		switch(creationType){
+			case "Update":
+				groupPage.updateTopicButton();
+				break;
+			default:
+				groupPage.submitButton();
+		}
+
+		return topicName;
+	}
+public static void clickCreatedTopic(String topicName) throws InterruptedException {
+	String createdTopicName = SunbirdConstants.XPATH_CONTAINS + topicName + SunbirdConstants.XPATH_CONAINSCLOSEBRACKET;
+	Thread.sleep(6000);
+	UtilityFunctions.findElementAndClick(createdTopicName);
+
+}
+	public static void kababMenuInTopic()
+	{
+		GroupsPage groupPage = PageFactory.initElements(driver, GroupsPage.class);
+		groupPage.clickTopicKababMenu();
+	}
+	public static void editTopic()
+	{
+		GroupsPage groupPage = PageFactory.initElements(driver, GroupsPage.class);
+		groupPage.editTopicIcon();
+	}
+	public static void deleteTopic()
+	{
+		GroupsPage groupPage = PageFactory.initElements(driver, GroupsPage.class);
+		groupPage.deleteTopic();
+	}
+	public static void clickCloseIcon()
+	{
+		GroupsPage groupPage = PageFactory.initElements(driver, GroupsPage.class);
+		groupPage.closeIconInForum();
+	}
+	public static void assertCloseIcon()
+	{
+		GroupsPage groupPage = PageFactory.initElements(driver, GroupsPage.class);
+groupPage.assertCloseIcon();
+	}
+	public static void clickTags()
+	{
+		GroupsPage groupPage = PageFactory.initElements(driver, GroupsPage.class);
+		groupPage.tags();
+	}
+	public static void clickMyDisussionOption()
+	{
+		GroupsPage groupPage = PageFactory.initElements(driver, GroupsPage.class);
+		groupPage.myDisussionOption();
+	}
 }

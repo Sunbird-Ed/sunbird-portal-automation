@@ -111,7 +111,7 @@ public class OnBoarding extends BaseTestConfig {
 
     }
 
-    public void BoardValueSelect(String frameworkName) {
+    public void BoardValueSelect(String frameworkName) throws InterruptedException {
 
 
         String boardXpath = SunbirdConstants.XPATH_CONTAINS + frameworkName + SunbirdConstants.XPATH_CONAINSCLOSEBRACKET;

@@ -91,6 +91,27 @@ public class GroupsPage {
 	@FindBy(how=How.XPATH,using="//*[@class='icon-svg icon-svg--xs icon-close']")
 	private WebElement closeIconInMyGroupsClick;
 
+	@FindBy(how=How.XPATH,using="//*[contains(text(),'Tags')]")
+	private WebElement clickTagsOptions;
+
+	@FindBy(how=How.XPATH,using="//*[contains(text(),'My discussion')]")
+	private WebElement myDisussionOption;
+
+	@FindBy(how=How.XPATH,using="//*[@id='recent-post']")
+	private WebElement recentPost;
+
+	@FindBy(how=How.XPATH,using="//*[@id='best-post']")
+	private WebElement bestPost;
+
+	@FindBy(how=How.XPATH,using="//*[@id='saved-post']")
+	private WebElement savedPost;
+
+	@FindBy(how=How.XPATH,using="//*[@id='upvoted-post']")
+	private WebElement upvotedPost;
+
+	@FindBy(how=How.XPATH,using="//*[@id='downvoted-post']")
+	private WebElement downVotedPost;
+
 	public void createGroup() {
 		UtilityFunctions.waitForElementAndClickable(createGroup);
 		Listeners.addLogs("click on createGroup");
@@ -132,8 +153,106 @@ public class GroupsPage {
 	}
 	public void closeIconInMyGroupClick()
 	{
+UtilityFunctions.waitForElementIsVisible(closeIconInMyGroupsClick);
 		UtilityFunctions.waitForElementAndClickable(closeIconInMyGroupsClick);
 	}
+
+public void enableDiscussion() {
+	UtilityFunctions.waitForElementAndClickable(enableDiscussions);
+	Listeners.addLogs("click on enableDiscussions");
 }
+	public String assertEnableDiscussionToastr() {
+		UtilityFunctions.waitForVisibilityOfWebElement(assertEnableDiscssionToastrMsg);
+		String actualText=UtilityFunctions.getTextFromElement(assertEnableDiscssionToastrMsg);
+		Listeners.addLogs("assertEnableDiscssionToastrMsg validated");
+		return actualText;
+	}
+	public void waitEnableDiscussionToastrMsgDisappear() {
+		UtilityFunctions.waitForElementToDisappear(assertEnableDiscssionToastrMsg);
+	}
+	public void forumIcon() {
+		UtilityFunctions.waitForElementAndClickable(forumIcon);
+		Listeners.addLogs("click on forumIcon");
+	}
+	public void assertAllOptionInsideForumIconPage()
+	{
+		UtilityFunctions.waitForElementIsVisible(generalDiscussion);
+		UtilityFunctions.validatIsElementPresent(generalDiscussion,"Failed for load generalDiscussion ");
+		UtilityFunctions.waitForElementAndClickable(clickTagsOptions);
+		UtilityFunctions.waitForElementAndClickable(myDisussionOption);
+		UtilityFunctions.validatIsElementPresent(recentPost,"Failed for load recentPost");
+		UtilityFunctions.validatIsElementPresent(bestPost,"Failed for load bestPost");
+		UtilityFunctions.validatIsElementPresent(savedPost,"Failed for load savedPost");
+		UtilityFunctions.validatIsElementPresent(upvotedPost,"Failed for load upvotedPost");
+		UtilityFunctions.validatIsElementPresent(downVotedPost,"Failed for load downVotedPost");
+	}
+	public void generalDisussionCard() {
+		UtilityFunctions.waitForElementIsVisible(generalDiscussion);
+		UtilityFunctions.waitForElementAndClickable(generalDiscussion);
+		Listeners.addLogs("click on generalDiscussion");
+	}
+	public void startCreating() {
+		UtilityFunctions.waitForElementIsVisible(startDiscussion);
+		UtilityFunctions.waitForElementAndClickable(startDiscussion);
+		Listeners.addLogs("click on startDiscussion");
+	}
+	public void enterTopicName(String randomTopicName) throws InterruptedException {
+		UtilityFunctions.waitForElementIsVisible(enterDisussionTopicName);
+		enterDisussionTopicName.clear();
+		UtilityFunctions.waitToBeClickableAndSendKeys(enterDisussionTopicName, randomTopicName);
+		Listeners.addLogs("Entered topicName");
 
+	}
+	public void enterTopicDescription(String randomTopicDes) throws InterruptedException {
+		UtilityFunctions.waitForElementIsVisible(enterDisussionTopicDescription);
+		enterDisussionTopicDescription.clear();
+		UtilityFunctions.waitToBeClickableAndSendKeys(enterDisussionTopicDescription, randomTopicDes);
+		Listeners.addLogs("Entered topicDescription");
 
+	}
+	public void enterTags(String randomTopicTags) throws InterruptedException {
+		UtilityFunctions.waitToBeClickableAndSendKeys(enterTags, randomTopicTags);
+		UtilityFunctions.pressEnterKeyOnWebElement(enterTags);
+		Listeners.addLogs("Entered tags");
+
+	}
+	public void submitButton() {
+		UtilityFunctions.waitForElementAndClickable(submitInDisussionForum);
+		Listeners.addLogs("click on submitInDisussionForum");
+	}
+	public void clickTopicKababMenu() {
+		UtilityFunctions.waitForVisibilityOfWebElement(kebabMenuInGeneralDiscusion);
+		UtilityFunctions.waitForElementAndClickable(kebabMenuInGeneralDiscusion);
+		Listeners.addLogs("click on kebabMenuInGeneralDiscusion");
+	}
+	public void editTopicIcon() {
+		UtilityFunctions.waitForElementAndClickable(editTopic);
+		Listeners.addLogs("click on editTopic");
+	}
+	public void updateTopicButton() {
+		UtilityFunctions.waitForElementAndClickable(updateButtonInTopic);
+		Listeners.addLogs("click on editTopic");
+	}
+	public void deleteTopic() {
+		UtilityFunctions.waitForElementAndClickable(deleteTopic);
+		Listeners.addLogs("click on deleteTopic");
+	}
+	public void closeIconInForum() {
+		UtilityFunctions.waitForElementAndClickable(closeIcon);
+		Listeners.addLogs("click on closeIcon");
+	}
+public void assertCloseIcon()
+{
+	UtilityFunctions.waitForElementIsVisible(closeIcon);
+	UtilityFunctions.validatIsElementPresent(closeIcon,"close icon not displayed");
+
+}
+	public void tags() {
+		UtilityFunctions.waitForElementAndClickable(clickTagsOptions);
+		Listeners.addLogs("click on clickTagsOptions");
+	}
+	public void myDisussionOption() {
+		UtilityFunctions.waitForElementAndClickable(myDisussionOption);
+		Listeners.addLogs("click on myDisussionOption");
+	}
+}

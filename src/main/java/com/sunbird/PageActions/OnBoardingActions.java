@@ -28,11 +28,11 @@ public class OnBoardingActions extends BaseTestConfig {
         OnBoarding onboard = PageFactory.initElements(driver, OnBoarding.class);
 
         onboard.BoardDropdown();
+        Thread.sleep(2000);
 
       //  String frameworkName = sunbird_config.getSunbidConfigPropertyValue("TAMILNADU_Framework");
         String frameworkName = sunbird_config.getSunbidConfigPropertyValue("FRAMEWORK");
         onboard.BoardValueSelect(frameworkName);
-        Thread.sleep(5000);
         switch(frameworkName){
             case "agriculture_framework_20":
                 selectAgriculturePropertyDropdowns();
@@ -49,10 +49,10 @@ public class OnBoardingActions extends BaseTestConfig {
     public static void LocationPopup() throws InterruptedException {
         OnBoarding onboard = PageFactory.initElements(driver, OnBoarding.class);
        Thread.sleep(2000);
-        onboard.clickStateDropdown();
-        onboard.selectStateValue();
-        onboard.clickDistrictDropDown();
-        onboard.selectDistrictValue();
+//        onboard.clickStateDropdown();
+//        onboard.selectStateValue();
+//        onboard.clickDistrictDropDown();
+//        onboard.selectDistrictValue();
         onboard.LocationPopupSubmit();
 
     }
@@ -74,8 +74,8 @@ public class OnBoardingActions extends BaseTestConfig {
     }
 
     /* select the dropdownValues in Agriculture framework */
-    public static void selectAgriculturePropertyDropdowns()
-    {
+    public static void selectAgriculturePropertyDropdowns() throws InterruptedException {
+Thread.sleep(3000);
         OnBoarding onboard = PageFactory.initElements(driver, OnBoarding.class);
         onboard.selectFarmingType();
        UtilityFunctions.MoveByOffSet(50, 100);

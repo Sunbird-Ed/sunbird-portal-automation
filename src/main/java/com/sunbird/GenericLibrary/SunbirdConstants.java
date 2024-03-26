@@ -34,4 +34,5 @@ public static String placeholder="placeholer";
     public static String profileShareToastrMsg = "Profile share settings submitted successfully";
 
     public static String groupCreationToastrMsg="Group created successfully";
+    public static String enableDisussionToastrMsg="Enabled discussion forum successfully";
 }

@@ -87,8 +87,7 @@ public class UtilityFunctions extends BaseTestConfig {
     }
 
     /* This method will take Xpath as string and perform findElement operation and click */
-    public static void findElementAndClick(String xpathValue) {
-
+    public static void findElementAndClick(String xpathValue) throws InterruptedException {
         driver.findElement(By.xpath(xpathValue)).click();
 
     }
@@ -306,5 +305,9 @@ return value;
     {
 
         driver.navigate().back();
+    }
+    public static void acceptAlert()
+    {
+        driver.switchTo().alert().accept();
     }
 }
