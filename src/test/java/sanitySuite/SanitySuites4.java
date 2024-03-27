@@ -116,5 +116,32 @@ public class SanitySuites4 extends BaseTestConfig
 		GroupsPageActions.assertCloseIcon();
 
 	}
+	@Test(description = "Verify user able to searchQrCodeInGetPage")
+	public void searchQrCodeInGetPage() throws Exception {
+		OnBoardingActions.RolePoup();
+		OnBoardingActions.BMCPopup();
+		OnBoardingActions.LocationPopup();
+		String currentUrl = driver.getCurrentUrl();
+		driver.get(currentUrl+"/get");
+		GetPageActions.enterQrCode(sunbird_config.getSunbidConfigPropertyValue("TextbookQrCode"));
+		GetPageActions.clickSearhIcon();
+		GetPageActions.assertContentDisplayed();
+
+	}
+	@Test(description = "Verify guest user is able to get Login Popup while join the course \n")
+	public void loginPopupShouldDisplayForGuestUserDuringCourseEnroll() throws Exception {
+
+		OnBoardingActions.RolePoup();
+		OnBoardingActions.BMCPopup();
+		OnBoardingActions.LocationPopup();
+		DashboardPageActions.clickCourseTab();
+		DashboardPageActions.searchContentAndClickOnContentCard(sunbird_config.getSunbidConfigPropertyValue("Course"));
+		BatchPageActions.clickJoinCourse();
+		LoginPageActions.clickLoginInPopup();
+		LoginPageActions.LoginForJoinCourse(sunbird_config.getSunbidConfigPropertyValue("PUBLIC_USER"),sunbird_config.getSunbidConfigPropertyValue("PUBLIC_PASSWORD"));
+		BatchPageActions.assertJoinCourse();
+		BatchPageActions.assertShareIcon();
+	}
+
 }
 

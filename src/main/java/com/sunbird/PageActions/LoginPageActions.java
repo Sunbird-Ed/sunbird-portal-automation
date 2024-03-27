@@ -27,5 +27,18 @@ public class LoginPageActions extends BaseTestConfig {
         String chec = loginpage.getTeacherText();
         System.out.println("Able to fetch text" + chec);
     }
+    public static void clickLoginInPopup()
+    {
+        LoginPage loginpage = PageFactory.initElements(driver, LoginPage.class);
+        loginpage.LoginButtonInProfileIconDropdown();
+    }
+    public static void LoginForJoinCourse(String usrName, String passWord) throws InterruptedException {
+        LoginPage loginpage = PageFactory.initElements(driver, LoginPage.class);
+        loginpage.LoginUserName(usrName);
+        loginpage.LoginPassword(passWord);
+        loginpage.TapLoginButton();
+
+
+    }
 }
 	

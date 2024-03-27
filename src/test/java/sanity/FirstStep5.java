@@ -205,8 +205,9 @@ public class FirstStep5 extends BaseTestConfig {
 //UtilityFunctions.acceptAlert();
 //    }
 
-    @Test(description = "The close option should be displayed on the below pages when the user opens the discussion forum ")
-    public void closeButtonInDisussionForum() throws Exception {
+
+    @Test(description = "User should able to edit the question")
+    public void UserAbleToEditQuestionInAddQuestionPage() throws Exception {
 
         OnBoardingActions.RolePoup();
         OnBoardingActions.BMCPopup();
@@ -214,26 +215,21 @@ public class FirstStep5 extends BaseTestConfig {
         LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
                 sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
         DashboardPageActions.clickUserProfileIcon();
-        DashboardPageActions.assertWorkspace();
-        DashboardPageActions.clickOnMyGroups();
-        GroupsPageActions.clickCloseCrossIcon();
-        GroupsPageActions.clickCreateGroup();
-        String fetchGroupName= GroupsPageActions.enterGroupNameAndDesc();
-        GroupsPageActions.assertGroupCreatedToastrMessage();
-        GroupsPageActions.clickCreatedGroupCard(fetchGroupName);
-        GroupsPageActions.assertGroupKababMenuIcon();
-        GroupsPageActions.clickGroupKababMenu();
-        GroupsPageActions.clickEnableDiscusison();
-        GroupsPageActions.assertEnableDisussionToastrMsg();
-        UtilityFunctions.MoveByOffSet(50, 100);
-        GroupsPageActions.clickForumIcon();
-GroupsPageActions.clickCloseIcon();
-        GroupsPageActions.clickForumIcon();
-GroupsPageActions.assertCloseIcon();
-GroupsPageActions.clickTags();
-        GroupsPageActions.assertCloseIcon();
-GroupsPageActions.clickMyDisussionOption();
-        GroupsPageActions.assertCloseIcon();
-
+        DashboardPageActions.clickOnWorkSpace();
+        WorkspaceDashboardPageActions.clickResource();
+        String createdContent = ResourcePageActions.createResourcePopup("getContentName");
+        QuestionSetPageActions.clickAddQuestionSetIcon();
+        QuestionSetPageActions.clickEditIconInQuestion();
+        QuestionSetPageActions.clickNextBtnInQuestionPage();
+        QuestionSetPageActions.enterTitleName();
+        QuestionSetPageActions.clickSubmitInQuestionPage();
+        QuestionSetPageActions.clkNextButtonInQuestionPage();
+        QuestionSetPageActions.enterQuestionSetTitle();
+        QuestionSetPageActions.clkAddButtonInQuestionTitlePage();
+        ResourcePageActions.saveAndCloseIcon();
+        ResourcePageActions.clickPreivewIcon();
+        UtilityFunctions.switchFrameUsingName();
+        ResourcePageActions.assertContentInPreviewPlayer();
     }
+
 }

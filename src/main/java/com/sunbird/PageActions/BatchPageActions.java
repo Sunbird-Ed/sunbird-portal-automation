@@ -133,5 +133,9 @@ UtilityFunctions.stringValueComparision(actualtxt,SunbirdConstants.noOpenBatchAv
 		BatchPage batchPage = PageFactory.initElements(driver, BatchPage.class);
 batchPage.waitProfileShareToastrMsgDisappear();
 	}
-
+	public static void assertShareIcon()
+	{
+		BatchPage batchPage = PageFactory.initElements(driver, BatchPage.class);
+		batchPage.assertShareIcon();
+	}
 }

@@ -101,6 +101,10 @@ public class BatchPage {
 	@FindBy(how=How.XPATH,using="//strong[contains(text(),'Profile share settings submitted successfully')]")
 	private WebElement profileShareTostrtMsg;
 
+	@FindBy(how=How.XPATH,using="//button[contains(text(),' Share ')]")
+	private WebElement shareIconCouseToc;
+
+
 	public void createBatchClick() {
 		UtilityFunctions.waitToBeClickableAndClick(createBatchBtn);
 		Listeners.addLogs("createBatchBtn");
@@ -220,6 +224,7 @@ public class BatchPage {
 	{
 		UtilityFunctions.waitForElementIsVisible(joinCourse);
 		UtilityFunctions.validatIsElementPresent(joinCourse,"Failed for UnEnroll");
+		Listeners.addLogs("JoinCourse button Validated");
 	}
 
 	public String assertNoOpenBatchToastrMsg() {
@@ -235,7 +240,14 @@ public class BatchPage {
 		return actualText;
 	}
 	public void waitProfileShareToastrMsgDisappear() {
+
 		UtilityFunctions.waitForElementToDisappear(profileShareTostrtMsg);
+	}
+	public void assertShareIcon()
+	{
+		UtilityFunctions.waitForElementIsVisible(shareIconCouseToc);
+		UtilityFunctions.validatIsElementPresent(shareIconCouseToc,"Share icon not displayed in course TOC");
+		Listeners.addLogs("Share Icon is validated");
 	}
 }
 
