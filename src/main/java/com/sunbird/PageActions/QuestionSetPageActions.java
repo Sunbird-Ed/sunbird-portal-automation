@@ -122,4 +122,34 @@ return displayedCount;
 		QuestionSetPage questionSetPage = PageFactory.initElements(driver, QuestionSetPage.class);
 		questionSetPage.myQuestiontoggle();
 	}
+	public static void selectDifficultLevel() throws InterruptedException {
+		QuestionSetPage questionSetPage = PageFactory.initElements(driver, QuestionSetPage.class);
+		questionSetPage.difficlutFilter();
+		questionSetPage.selectDifficuluEasy();
+	}
+	public static void selectQuestionType() throws InterruptedException {
+		QuestionSetPage questionSetPage = PageFactory.initElements(driver, QuestionSetPage.class);
+		questionSetPage.questType();
+		questionSetPage.selectQueMCQType();
+	}
+	public static void selectBoard() throws InterruptedException {
+		QuestionSetPage questionSetPage = PageFactory.initElements(driver, QuestionSetPage.class);
+		questionSetPage.boardDropdown();
+		questionSetPage.selectBoardValue();
+	}
+	public static void selectMedium() throws InterruptedException {
+		QuestionSetPage questionSetPage = PageFactory.initElements(driver, QuestionSetPage.class);
+		questionSetPage.mediumDropdown();
+		questionSetPage.selectMediumValue();
+	}
+	public static void selectClass() throws InterruptedException {
+		QuestionSetPage questionSetPage = PageFactory.initElements(driver, QuestionSetPage.class);
+		questionSetPage.classDropdown();
+		questionSetPage.selectClassValue();
+	}
+	public static void selectSubject() throws InterruptedException {
+		QuestionSetPage questionSetPage = PageFactory.initElements(driver, QuestionSetPage.class);
+		questionSetPage.subjectDropdown();
+		questionSetPage.selectSubjectValue();
+	}
 }

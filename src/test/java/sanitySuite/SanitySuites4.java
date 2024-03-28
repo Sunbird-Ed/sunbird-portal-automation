@@ -143,5 +143,37 @@ public class SanitySuites4 extends BaseTestConfig
 		BatchPageActions.assertShareIcon();
 	}
 
+	@Test(description = "User should be able to apply Difficult,QuestionType,BMCS filter")
+	public void ApplyAllFilterAndEditQuestionInAddQuestionPage() throws Exception {
+
+		OnBoardingActions.RolePoup();
+		OnBoardingActions.BMCPopup();
+		OnBoardingActions.LocationPopup();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+				sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.clickOnWorkSpace();
+		WorkspaceDashboardPageActions.clickResource();
+		String createdContent = ResourcePageActions.createResourcePopup("getContentName");
+		QuestionSetPageActions.clickAddQuestionSetIcon();
+		QuestionSetPageActions.clickAdvanceFilter();
+		QuestionSetPageActions.selectDifficultLevel();
+		QuestionSetPageActions.selectQuestionType();
+		QuestionSetPageActions.selectBoard();
+		QuestionSetPageActions.selectMedium();
+		QuestionSetPageActions.selectClass();
+		QuestionSetPageActions.selectSubject();
+		QuestionSetPageActions.clickEditIconInQuestion();
+		QuestionSetPageActions.clickNextBtnInQuestionPage();
+		QuestionSetPageActions.enterTitleName();
+		QuestionSetPageActions.clickSubmitInQuestionPage();
+		QuestionSetPageActions.clkNextButtonInQuestionPage();
+		QuestionSetPageActions.enterQuestionSetTitle();
+		QuestionSetPageActions.clkAddButtonInQuestionTitlePage();
+		ResourcePageActions.saveAndCloseIcon();
+		ResourcePageActions.clickPreivewIcon();
+		UtilityFunctions.switchFrameUsingName();
+		ResourcePageActions.assertContentInPreviewPlayer();
+	}
 }
 

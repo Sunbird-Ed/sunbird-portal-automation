@@ -59,7 +59,7 @@ public class HomeTabPage extends BaseTestConfig {
 //		driver.navigate().back();
 //		Listeners.addLogs("clicked on back button");
 
-
+Thread.sleep(5000);
 UtilityFunctions.waitForElementIsVisible(assertContent);
 		UtilityFunctions.waitForElementUsingForLoopAndAssert(assertContent,5);
 		UtilityFunctions.validatIsElementPresent(assertContent, "content is not Displayed");

@@ -169,7 +169,6 @@ public class FirstStep5 extends BaseTestConfig {
 //    }
 
 
-
 //    @Test(description = "The creator of the post/topic should be able to edit/delete the below fields on the post.")
 //    public void userAbleToCreateTopicAndEditAndDelete() throws Exception {
 //
@@ -206,8 +205,79 @@ public class FirstStep5 extends BaseTestConfig {
 //    }
 
 
-    @Test(description = "User should able to edit the question")
-    public void UserAbleToEditQuestionInAddQuestionPage() throws Exception {
+//    @Test(description = "User should be able to apply Difficult,QuestionType,BMCS filter")
+//    public void ApplyAllFilterAndEditQuestionInAddQuestionPage() throws Exception {
+//
+//        OnBoardingActions.RolePoup();
+//        OnBoardingActions.BMCPopup();
+//        OnBoardingActions.LocationPopup();
+//        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+//                sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+//        DashboardPageActions.clickUserProfileIcon();
+//        DashboardPageActions.clickOnWorkSpace();
+//        WorkspaceDashboardPageActions.clickResource();
+//        String createdContent = ResourcePageActions.createResourcePopup("getContentName");
+//        QuestionSetPageActions.clickAddQuestionSetIcon();
+//        QuestionSetPageActions.clickAdvanceFilter();
+//QuestionSetPageActions.selectDifficultLevel();
+//QuestionSetPageActions.selectQuestionType();
+//QuestionSetPageActions.selectBoard();
+//QuestionSetPageActions.selectMedium();
+//QuestionSetPageActions.selectClass();
+//QuestionSetPageActions.selectSubject();
+//        QuestionSetPageActions.clickEditIconInQuestion();
+//        QuestionSetPageActions.clickNextBtnInQuestionPage();
+//        QuestionSetPageActions.enterTitleName();
+//        QuestionSetPageActions.clickSubmitInQuestionPage();
+//        QuestionSetPageActions.clkNextButtonInQuestionPage();
+//        QuestionSetPageActions.enterQuestionSetTitle();
+//        QuestionSetPageActions.clkAddButtonInQuestionTitlePage();
+//        ResourcePageActions.saveAndCloseIcon();
+//        ResourcePageActions.clickPreivewIcon();
+//        UtilityFunctions.switchFrameUsingName();
+//        ResourcePageActions.assertContentInPreviewPlayer();
+//    }
+
+
+    @Test()
+    public void createResourceAndPublish() throws Exception {
+
+        OnBoardingActions.RolePoup();
+        OnBoardingActions.BMCPopup();
+        OnBoardingActions.LocationPopup();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+                sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+        DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.clickOnWorkSpace();
+        WorkspaceDashboardPageActions.clickResource();
+        String createdContent = ResourcePageActions.createResourcePopup("getContentName");
+        ResourcePageActions.addTriangleShape();
+        ResourcePageActions.addText();
+        ResourcePageActions.addNewSlide();
+        ResourcePageActions.saveAndCloseIcon();
+        ResourcePageActions.resourceSendForReview();
+        DashboardPageActions.logOut();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"),
+                sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
+        DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.clickOnWorkSpace();
+        ReviewPageActions.reviewAndPublishContent(createdContent, "Resource");
+    }
+    @Test(description = "User able to see sections in HomePage")
+    public void VerifyHomePageSection() throws Exception {
+        OnBoardingActions.RolePoup();
+        OnBoardingActions.BMCPopup();
+        OnBoardingActions.LocationPopup();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+                sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+        DashboardPageActions.clickHomeTab();
+        HomeTabPageActions.validateContinueLearningSection();
+        HomeTabPageActions.validateBrowseBySubjectSection();
+        HomeTabPageActions.validateBrowseByCategoriesSection();
+        HomeTabPageActions.validateRecentlyPublishedSection();
+    }
+    @Test(description = "Turn toggle on/off for the shuffle and show immediate feedback in question set page")
+    public void turnOnAndOffImmediateFeedbackAndShuffleQuestions() throws Exception {
 
         OnBoardingActions.RolePoup();
         OnBoardingActions.BMCPopup();
@@ -219,6 +289,197 @@ public class FirstStep5 extends BaseTestConfig {
         WorkspaceDashboardPageActions.clickResource();
         String createdContent = ResourcePageActions.createResourcePopup("getContentName");
         QuestionSetPageActions.clickAddQuestionSetIcon();
+        QuestionSetPageActions.selectFirstQuestionInList();
+        QuestionSetPageActions.clkNextButtonInQuestionPage();
+        QuestionSetPageActions.enterQuestionSetTitle();
+        QuestionSetPageActions.clickImmediateFeedback();
+        QuestionSetPageActions.clickShuffleQuestions();
+        QuestionSetPageActions.clkAddButtonInQuestionTitlePage();
+        ResourcePageActions.saveAndCloseIcon();
+        ResourcePageActions.resourceSendForReview();
+
+    }
+    @Test(description = "User should be able to unenroll from the open courses,Join course button should be displayed")
+    public void unEnrollFromCourse() throws Exception {
+        OnBoardingActions.RolePoup();
+        OnBoardingActions.BMCPopup();
+        OnBoardingActions.LocationPopup();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+                sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+        DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.assertWorkspace();
+        DashboardPageActions.clickOnWorkSpace();
+        WorkspaceDashboardPageActions.clickCourse();
+        String createdContent = CoursePageActions.createCourseSection1("getdoid");
+        BookPageActions.BMCDropdownSelectionSection2();
+        BookPageActions.Section3();
+        BookPageActions.assertContentIsSavedToastrMsg();
+        BookPageActions.waitContentIsSavedToastToDisapper();
+        BookPageActions.addResourceFromLibrary();
+        BookPageActions.submitAndSendForReview();
+        DashboardPageActions.logOut();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"),
+                sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
+        DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.clickOnWorkSpace();
+        ReviewPageActions.reviewAndPublishContent(createdContent, "Course");
+        DashboardPageActions.logOut();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+                sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+        DashboardPageActions.clickCourseTab();
+        DashboardPageActions.searchContentAndClickOnContentCard(createdContent);
+        BatchPageActions.clickBatchCreationBtn();
+        BatchPageActions.enterBatchNameandDescription();
+        BatchPageActions.clickIssueCertificateNo();
+        BatchPageActions.startDate(UtilityFunctions.getTodayDate("MM/dd/yyyy"));
+        BatchPageActions.endDate(2);
+        BatchPageActions.enrollmentEndDate(1);
+        BatchPageActions.clickTermsCheckBoxAndSubmit();
+        BatchPageActions.assertBatchTostrMsg();
+        DashboardPageActions.logOut();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("PUBLIC_USER"),
+                sunbird_config.getSunbidConfigPropertyValue("PUBLIC_PASSWORD"));
+        DashboardPageActions.clickCourseTab();
+        DashboardPageActions.searchContentAndClickOnContentCard(createdContent);
+        BatchPageActions.clickJoinCourse();
+        BatchPageActions.validateAttributesInConsentPopup();
+        BatchPageActions.clickTermsCheckInConsentPopup();
+        BatchPageActions.clickShareBtn();
+        BatchPageActions.assertProfileShareToastrMessage();
+        BatchPageActions.waitProfileShareTostrToDisapper();
+        BatchPageActions.clickLeaveCourse();
+        BatchPageActions.clickLeaveCourseInUnEnrollPopup();
+        BatchPageActions.assertJoinCourse();
+
+    }
+    @Test(description = "create Group")
+    public void createGroup() throws Exception {
+        OnBoardingActions.RolePoup();
+        OnBoardingActions.BMCPopup();
+        OnBoardingActions.LocationPopup();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+                sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+        DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.assertWorkspace();
+        DashboardPageActions.clickOnMyGroups();
+        GroupsPageActions.clickCloseCrossIcon();
+        GroupsPageActions.clickCreateGroup();
+        String fetchGroupName= GroupsPageActions.enterGroupNameAndDesc();
+        GroupsPageActions.assertGroupCreatedToastrMessage();
+        GroupsPageActions.clickCreatedGroupCard(fetchGroupName);
+        GroupsPageActions.assertGroupKababMenuIcon();
+    }
+
+    @Test(description = "validate all the option inside the forum icon page")
+    public void validateAllOptionsInsideForumIcon() throws Exception {
+        OnBoardingActions.RolePoup();
+        OnBoardingActions.BMCPopup();
+        OnBoardingActions.LocationPopup();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+                sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+        DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.assertWorkspace();
+        DashboardPageActions.clickOnMyGroups();
+        GroupsPageActions.clickCloseCrossIcon();
+        GroupsPageActions.clickCreateGroup();
+        String fetchGroupName= GroupsPageActions.enterGroupNameAndDesc();
+        GroupsPageActions.assertGroupCreatedToastrMessage();
+        GroupsPageActions.clickCreatedGroupCard(fetchGroupName);
+        GroupsPageActions.assertGroupKababMenuIcon();
+        GroupsPageActions.clickGroupKababMenu();
+        GroupsPageActions.clickEnableDiscusison();
+        GroupsPageActions.assertEnableDisussionToastrMsg();
+        UtilityFunctions.MoveByOffSet(50, 100);
+        GroupsPageActions.clickForumIcon();
+        GroupsPageActions.assertAllOptionInsideForum();
+    }
+
+    @Test(description = "The creator of the post/topic should be able to edit/delete the below fields on the post.")
+    public void userAbleToCreateTopicAndEditAndDelete() throws Exception {
+
+        OnBoardingActions.RolePoup();
+        OnBoardingActions.BMCPopup();
+        OnBoardingActions.LocationPopup();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+                sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+        DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.assertWorkspace();
+        DashboardPageActions.clickOnMyGroups();
+        GroupsPageActions.clickCloseCrossIcon();
+        GroupsPageActions.clickCreateGroup();
+        String fetchGroupName= GroupsPageActions.enterGroupNameAndDesc();
+        GroupsPageActions.assertGroupCreatedToastrMessage();
+        GroupsPageActions.clickCreatedGroupCard(fetchGroupName);
+        GroupsPageActions.assertGroupKababMenuIcon();
+        GroupsPageActions.clickGroupKababMenu();
+        GroupsPageActions.clickEnableDiscusison();
+        GroupsPageActions.assertEnableDisussionToastrMsg();
+        UtilityFunctions.MoveByOffSet(50, 100);
+        GroupsPageActions.clickForumIcon();
+        GroupsPageActions.clickGeneralDiscussionCard();
+        GroupsPageActions.clickStartCreating();
+        String topicName=GroupsPageActions.enterTopicNameandDescrption("Create");
+        GroupsPageActions.clickCreatedTopic(topicName);
+        GroupsPageActions.kababMenuInTopic();
+        GroupsPageActions.editTopic();
+        String updatedTopicName=GroupsPageActions.enterTopicNameandDescrption("Update");
+        GroupsPageActions.clickCreatedTopic(updatedTopicName);
+        GroupsPageActions.kababMenuInTopic();
+        GroupsPageActions.deleteTopic();
+        UtilityFunctions.acceptAlert();
+    }
+
+    @Test(description = "The close option should be displayed on the below pages when the user opens the discussion forum ")
+    public void closeButtonInDisussionForum() throws Exception {
+
+        OnBoardingActions.RolePoup();
+        OnBoardingActions.BMCPopup();
+        OnBoardingActions.LocationPopup();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+                sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+        DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.assertWorkspace();
+        DashboardPageActions.clickOnMyGroups();
+        GroupsPageActions.clickCloseCrossIcon();
+        GroupsPageActions.clickCreateGroup();
+        String fetchGroupName= GroupsPageActions.enterGroupNameAndDesc();
+        GroupsPageActions.assertGroupCreatedToastrMessage();
+        GroupsPageActions.clickCreatedGroupCard(fetchGroupName);
+        GroupsPageActions.assertGroupKababMenuIcon();
+        GroupsPageActions.clickGroupKababMenu();
+        GroupsPageActions.clickEnableDiscusison();
+        GroupsPageActions.assertEnableDisussionToastrMsg();
+        UtilityFunctions.MoveByOffSet(50, 100);
+        GroupsPageActions.clickForumIcon();
+        GroupsPageActions.clickCloseIcon();
+        GroupsPageActions.clickForumIcon();
+        GroupsPageActions.assertCloseIcon();
+        GroupsPageActions.clickTags();
+        GroupsPageActions.assertCloseIcon();
+        GroupsPageActions.clickMyDisussionOption();
+        GroupsPageActions.assertCloseIcon();
+
+    }
+    @Test(description = "User should be able to apply Difficult,QuestionType,BMCS filter")
+    public void ApplyAllFilterAndEditQuestionInAddQuestionPage() throws Exception {
+
+        OnBoardingActions.RolePoup();
+        OnBoardingActions.BMCPopup();
+        OnBoardingActions.LocationPopup();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+                sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+        DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.clickOnWorkSpace();
+        WorkspaceDashboardPageActions.clickResource();
+        String createdContent = ResourcePageActions.createResourcePopup("getContentName");
+        QuestionSetPageActions.clickAddQuestionSetIcon();
+        QuestionSetPageActions.clickAdvanceFilter();
+        QuestionSetPageActions.selectDifficultLevel();
+        QuestionSetPageActions.selectQuestionType();
+        QuestionSetPageActions.selectBoard();
+        QuestionSetPageActions.selectMedium();
+        QuestionSetPageActions.selectClass();
+        QuestionSetPageActions.selectSubject();
         QuestionSetPageActions.clickEditIconInQuestion();
         QuestionSetPageActions.clickNextBtnInQuestionPage();
         QuestionSetPageActions.enterTitleName();
@@ -231,5 +492,4 @@ public class FirstStep5 extends BaseTestConfig {
         UtilityFunctions.switchFrameUsingName();
         ResourcePageActions.assertContentInPreviewPlayer();
     }
-
 }

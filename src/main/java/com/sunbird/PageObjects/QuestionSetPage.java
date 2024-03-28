@@ -75,6 +75,36 @@ public class QuestionSetPage {
     @FindBy(how=How.XPATH,using="//input[@name='myQuestions']//following::label[1]")
     private WebElement myQuestionTogglebtn;
 
+    @FindBy(how=How.XPATH,using="//div[contains(text(),'Select Level')]")
+    private WebElement difficultyLevelDropdown;
+    @FindBy(how=How.XPATH,using="//div[@data-value='EASY']")
+    private WebElement selectDifficultLevelEasy;
+
+    @FindBy(how=How.XPATH,using="//div[contains(text(),'Question Type')]")
+    private WebElement questionTypeDropdown;
+    @FindBy(how=How.XPATH,using="//div[@data-value='Multiple Choice Questions']")
+    private WebElement selectQuestionTypeMCQ;
+
+    @FindBy(how=How.XPATH,using="//div[contains(text(),'Select Board/Syllabus')]")
+    private WebElement boardDropDown;
+    @FindBy(how=How.XPATH,using="//div[contains(text(),'Select Board/Syllabus')]//following::div[2]")
+    private WebElement selectBoardDropdown;
+
+    @FindBy(how=How.XPATH,using="//div[contains(text(),'Select Medium')]")
+    private WebElement mediumDropDown;
+    @FindBy(how=How.XPATH,using="//div[contains(text(),'Select Medium')]//following::div[2]")
+    private WebElement selectMediumDropdown;
+
+    @FindBy(how=How.XPATH,using="//div[contains(text(),'Select Class')]")
+    private WebElement classDropDown;
+    @FindBy(how=How.XPATH,using="//div[contains(text(),'Select Class')]//following::div[2]")
+    private WebElement selectClassValue;
+
+    @FindBy(how=How.XPATH,using="//div[contains(text(),'Select Subject')]")
+    private WebElement subjectDropDown;
+    @FindBy(how=How.XPATH,using="//div[contains(text(),'Select Subject')]//following::div[2]")
+    private WebElement selectSubjectValue;
+
 
     public void clkAddQuestionSetIcon() throws InterruptedException {
       //  UtilityFunctions.waitForElementIsVisible(addQuestionSet);
@@ -189,6 +219,58 @@ Thread.sleep(5000);
         UtilityFunctions.waitForVisibilityOfWebElement(totalQuestionFound);
         String quescount= UtilityFunctions.getTextFromElement(totalQuestionFound);
         return quescount;
+    }
+
+    public void difficlutFilter() throws InterruptedException {
+        UtilityFunctions.waitForElementAndClickable(difficultyLevelDropdown);
+        Listeners.addLogs("clicked on difficultyLevelDropdown");
+    }
+    public void selectDifficuluEasy() throws InterruptedException {
+        UtilityFunctions.waitForElementAndClickable(selectDifficultLevelEasy);
+        Listeners.addLogs("clicked on selectDifficultLevelEasy");
+    }
+
+    public void questType() throws InterruptedException {
+        UtilityFunctions.waitForElementAndClickable(questionTypeDropdown);
+        Listeners.addLogs("clicked on questionTypeDropdown");
+    }
+    public void selectQueMCQType() throws InterruptedException {
+        UtilityFunctions.waitForElementAndClickable(selectQuestionTypeMCQ);
+        Listeners.addLogs("clicked on selectQuestionTypeMCQ");
+    }
+    public void boardDropdown() throws InterruptedException {
+        UtilityFunctions.waitForElementAndClickable(boardDropDown);
+        Listeners.addLogs("clicked on boardDropDown");
+    }
+    public void selectBoardValue() throws InterruptedException {
+        UtilityFunctions.waitForElementAndClickable(selectBoardDropdown);
+        Listeners.addLogs("clicked on selectBoardDropdown");
+    }
+
+    public void mediumDropdown() throws InterruptedException {
+        UtilityFunctions.waitForElementAndClickable(mediumDropDown);
+        Listeners.addLogs("clicked on mediumDropDown");
+    }
+    public void selectMediumValue() throws InterruptedException {
+        UtilityFunctions.waitForElementAndClickable(selectMediumDropdown);
+        Listeners.addLogs("clicked on selectMediumDropdown");
+    }
+
+    public void classDropdown() throws InterruptedException {
+        UtilityFunctions.waitForElementAndClickable(classDropDown);
+        Listeners.addLogs("clicked on classDropDown");
+    }
+    public void selectClassValue() throws InterruptedException {
+        UtilityFunctions.waitForElementAndClickable(selectClassValue);
+        Listeners.addLogs("clicked on selectClassValue");
+    }
+    public void subjectDropdown() throws InterruptedException {
+        UtilityFunctions.waitForElementAndClickable(subjectDropDown);
+        Listeners.addLogs("clicked on subjectDropDown");
+    }
+    public void selectSubjectValue() throws InterruptedException {
+        UtilityFunctions.waitForElementAndClickable(selectSubjectValue);
+        Listeners.addLogs("clicked on selectSubjectValue");
     }
 }
 
