@@ -47,6 +47,9 @@ public class DashboardPage {
     @FindBy(how=How.XPATH,using="//*[contains(text(),' My Groups ')][@role='link']")
     private WebElement myGroups;
 
+    @FindBy(how=How.XPATH,using="//*[contains(text(),' Observations ')]")
+    private WebElement observationTab;
+
     public void userProfileIcon() throws InterruptedException {
 
         UtilityFunctions.waitToBeClickableAndClick(userProfileIcon);
@@ -129,6 +132,11 @@ UtilityFunctions.waitForVisibilityOfWebElement(firstContentCard);
     public void myGroups() {
         UtilityFunctions.waitForElementAndClickable(myGroups);
         Listeners.addLogs("Clicked on myGroups");
+
+    }
+    public void observationTab() {
+        UtilityFunctions.waitForElementAndClickable(observationTab);
+        Listeners.addLogs("Clicked on observationTab");
 
     }
 }

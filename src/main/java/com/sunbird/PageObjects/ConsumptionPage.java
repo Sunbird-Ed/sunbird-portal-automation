@@ -50,18 +50,18 @@ return totalPDFCount;
 
     public   void giveRatingStars(int a) throws InterruptedException {
 UtilityFunctions.waitForVisibilityOfWebElement(assertRatingPopup);
-        UtilityFunctions.waitToBeClickableAndClick(ratingStars.get(a));
+        UtilityFunctions.waitForElementAndClickable(ratingStars.get(a));
         Listeners.addLogs("Clicked on ratingStars");
 
     }
     public   void tellusMorecheckbox() throws InterruptedException {
-        UtilityFunctions.waitToBeClickableAndClick(tellUsMoreCheckbox.get(3));
+        UtilityFunctions.waitForElementAndClickable(tellUsMoreCheckbox.get(3));
         Listeners.addLogs("Clicked on tellusMorecheckbox");
 
     }
 
     public   void clickSubmitRatingPopup() throws InterruptedException {
-        UtilityFunctions.waitToBeClickableAndClick(submitButtonRatingPopup);
+        UtilityFunctions.waitForElementAndClickable(submitButtonRatingPopup);
         Listeners.addLogs("clickSubmitRatingPopup");
 
     }

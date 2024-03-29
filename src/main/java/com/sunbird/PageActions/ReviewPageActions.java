@@ -40,18 +40,15 @@ public class ReviewPageActions extends BaseTestConfig {
 		    	reviewPage.upForReviewBucket();
 				reviewPage.clickSearchBar(contentName);
 				reviewPage.clickOnSearch();
-			//	Thread.sleep(5000);
+				Thread.sleep(5000);
 				reviewPage.selectContentForReview();
-				//Thread.sleep(1000);
 				UtilityFunctions.scrollDownUsingPixelValue();
-				//reviewPage.scrollDownTillPublish();
-			//	Thread.sleep(2000);
 				reviewPage.clickOnPublish();
-
 reviewPage.selectAllCheckBoxesForUploadContent();
+Thread.sleep(5000);
 				reviewPage.clickOnPublishButtonInPopup();
-			String actualMsg=reviewPage.assertContentPublishedMsgs();
-				 UtilityFunctions.stringValueComparision(actualMsg,SunbirdConstants.contetnPublishedToastrMsg, "Failed to publish the upload content");
+			String actualMsg=reviewPage.assertResourceContentPublishedMsgs();
+				 UtilityFunctions.stringValueComparision(actualMsg,SunbirdConstants.resourceContentPublishedToastrMsg, "Failed to publish the upload content");
 		    }
 
 
@@ -87,6 +84,13 @@ reviewPage.selectAllCheckBoxesForUploadContent();
 				reviewPage.clickonPublishButtonPopupResouce();
 				String actualMsg2 =  reviewPage.assertResourceContentPublishedMsgs();
 				UtilityFunctions.stringValueComparision(actualMsg2,SunbirdConstants.resourceContentPublishedToastrMsg, "Failed to publish the content");
+				break;
+			case "Upload":
+				reviewPage.selectAllCheckBoxesForUploadContent();
+				//Thread.sleep(5000);
+				reviewPage.clickOnPublishButtonInPopup();
+				String actualMsg4=reviewPage.assertResourceContentPublishedMsgs();
+				UtilityFunctions.stringValueComparision(actualMsg4,SunbirdConstants.resourceContentPublishedToastrMsg, "Failed to publish the upload content");
 				break;
 
 		}

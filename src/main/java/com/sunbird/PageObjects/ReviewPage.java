@@ -135,10 +135,10 @@ UtilityFunctions.waitForElementIsVisible(publishButton);
 }
 		
 		public void clickOnPublishButtonInPopup() throws InterruptedException {
-Thread.sleep(5000);
-UtilityFunctions.clickUsingJavaScriptExecutor(publishButtonUploadContent);
+//Thread.sleep(5000);
+//UtilityFunctions.clickUsingJavaScriptExecutor(publishButtonUploadContent);
 
-		//	UtilityFunctions.waitToBeClickableAndClick(publishButtonUploadContent);
+	UtilityFunctions.waitForElementAndClickable(publishButtonUploadContent);
 
 		}
 	public void selectCheckBoxesForResource() throws InterruptedException {

@@ -79,5 +79,9 @@ dashboardPage.homeTab();
         dashboardPage.myGroups();
     }
 
+    public static void clickOnObservationTab() throws InterruptedException {
+        DashboardPage dashboardPage = PageFactory.initElements(driver, DashboardPage.class);
+        dashboardPage.observationTab();
+    }
 }
 	

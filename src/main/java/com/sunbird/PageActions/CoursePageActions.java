@@ -110,4 +110,26 @@ public class CoursePageActions extends BaseTestConfig {
 coursePage.clicksubjectCoveredDropdown();
 coursePage.selectSubjectCoveredvalue();
 	}
+
+	public static void verifyFrameworkInCourseTypeDropDown() throws Exception {
+		CoursePage coursePage = PageFactory.initElements(driver, CoursePage.class);
+		BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
+
+		String courseName = UtilityFunctions.generateRandomName("automationCourse");
+		coursePage.enterCourseTitleName(courseName);
+
+		String description = UtilityFunctions.generateRandomName("autoDescription");
+		bookPage.enterDesciption(description);
+
+		String keyword = UtilityFunctions.generateRandomName("autoCourseKeyword");
+		coursePage.enterCourseKeywords(keyword);
+
+
+		coursePage.clickCourseType();
+		coursePage.selectCourseK2TypeValue();
+
+
+
+	}
+
 }

@@ -214,4 +214,18 @@ bookPage.waitGenerateQRCodeToastrToDisappear();
         BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
         bookPage.createButtonIncopyascourse();
     }
+    public static void addResourceInLibrarySection(String resourceName) throws InterruptedException {
+        BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
+        bookPage.clikAddChild();
+        bookPage.clickAddFromLibraryBtn();
+        bookPage.searchContentInLibrary(resourceName);
+        bookPage.selectButtonInLibrary();
+        bookPage.addContentInLibrary();
+        String actualMsg = bookPage.assertContentAddedFolderToastrMsg();
+        UtilityFunctions.stringValueComparision(actualMsg, SunbirdConstants.contentAddedToFolderToastrMsg, "Failed to add content into folder");
+        bookPage.waitContentAddedToFolderToastrToDisappear();
+
+        bookPage.clickBackBtnFromLibrarysection();
+    }
+
 }

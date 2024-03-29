@@ -32,6 +32,8 @@ public class CoursePage {
 	@FindBy(how=How.XPATH,using="//label[contains(text(),'Subjects covered in the course')]//following::select[1]")
 	private WebElement selectSubjectCoveredValue;
 
+	@FindBy(how=How.XPATH,using="//label[contains(text(),'Course Type')]//following::option[3]")
+	private WebElement selectCourseTypeValueK2;
 
 	public void enterCourseTitleName(String randomCourseName) throws InterruptedException {
 		UtilityFunctions.waitToBeClickableAndSendKeys(enterTitleName, randomCourseName);
@@ -61,6 +63,9 @@ public class CoursePage {
 		Listeners.addLogs("selectSbjectCoveredDropdown");
 	}
 
-
+	public void selectCourseK2TypeValue() {
+		UtilityFunctions.waitToBeClickableAndClick(selectCourseTypeValueK2);
+		Listeners.addLogs("selectCourseTypeValueK2");
+	}
 
 }

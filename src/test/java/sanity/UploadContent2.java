@@ -39,4 +39,23 @@ public class UploadContent2 extends BaseTestConfig {
     }
 
 
+    @Test(description = "Uploading PDF Content And sendForReview and then Publish ")
+    public void UploadPDF5() throws Exception {
+
+        OnBoardingActions.RolePoup();
+        OnBoardingActions.BMCPopup();
+        OnBoardingActions.LocationPopup();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+        DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.assertWorkspace();
+        DashboardPageActions.clickOnWorkSpace();
+        UploadPageActions.uploadContent("PDF");
+        String contentTitleName = UploadPageActions.sendUploadContentForReview();
+        DashboardPageActions.logOut();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
+        DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.clickOnWorkSpace();
+        ReviewPageActions.reviewAndPublishContent(contentTitleName,"Upload");
+    }
+
 }

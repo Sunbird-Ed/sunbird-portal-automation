@@ -19,6 +19,7 @@ public class ConsumptionPageActions extends BaseTestConfig {
         try {
             for (int i = 0; i <= totalPage; i++) {
                 consumptionPage.clickOnNextIcon();
+                Thread.sleep(5000);
             }
         } catch (Exception e) {
             System.out.println("Exception handled");
