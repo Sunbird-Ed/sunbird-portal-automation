@@ -24,6 +24,10 @@ public class WorkspaceDashboardPage {
 
     @FindBy(how=How.XPATH,using="//span[text()='Collection']")
     private WebElement collection;
+
+    @FindBy(how=How.XPATH,using="//*[contains(text(),' All My Content ')]")
+    private WebElement allMyContent;
+
     public void assertDrafts() throws InterruptedException {
 
         UtilityFunctions.waitToBeClickableAndClick(drafts);
@@ -63,6 +67,13 @@ public class WorkspaceDashboardPage {
 
         UtilityFunctions.waitToBeClickableAndClick(collection);
         Listeners.addLogs("Clicked on collection ");
+
+    }
+    public void allMyContent()
+    {
+
+        UtilityFunctions.waitToBeClickableAndClick(allMyContent);
+        Listeners.addLogs("Clicked on allMyContent ");
 
     }
 }

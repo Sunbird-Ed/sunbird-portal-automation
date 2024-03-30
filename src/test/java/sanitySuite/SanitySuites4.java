@@ -204,7 +204,9 @@ public class SanitySuites4 extends BaseTestConfig
 		DashboardPageActions.assertWorkspace();
 		DashboardPageActions.clickOnWorkSpace();
 		UploadPageActions.uploadContent("PDF");
+		UploadPageActions.clickSendForReview();
 		String resourceName = UploadPageActions.sendUploadContentForReview();
+		UtilityFunctions.switchToDefaultContentFrame();
 		DashboardPageActions.logOut();
 		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
 		DashboardPageActions.clickUserProfileIcon();
@@ -254,7 +256,28 @@ public class SanitySuites4 extends BaseTestConfig
 		ObservationPageActions.clickOnObservationCard();
 		ObservationPageActions.assertObservationDetails();
 	}
+	@Test(description = "Post uploading and saving, content resides in all my bucket .")
+	public void verifyUploadContentInAllMyContent() throws Exception {
 
+		OnBoardingActions.RolePoup();
+		OnBoardingActions.BMCPopup();
+		OnBoardingActions.LocationPopup();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.assertWorkspace();
+		DashboardPageActions.clickOnWorkSpace();
+		UploadPageActions.uploadContent("MP4");
+		UploadPageActions.clickEditDetails();
+		String uploadContentName = UploadPageActions.sendUploadContentForReview();
+		UploadPageActions.clickCloseIcon();
+		UploadPageActions.clickCloseCrossIcon();
+		UtilityFunctions.switchToDefaultContentFrame();
+		WorkspaceDashboardPageActions.clickAllMyContent();
+		AllMyContentPageActions.enterContentInSearchBox(uploadContentName);
+		AllMyContentPageActions.clickFirstCard();
+		UtilityFunctions.switchFrameOnIndex(0);
+		UploadPageActions.assertEditDetails();
+	}
 
 }
 

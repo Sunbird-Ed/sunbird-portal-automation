@@ -28,6 +28,7 @@ public class UploadPageActions extends BaseTestConfig {
 
     /* upload the content by taking the filePath */
     public static void uploadContent(String uploadFileType) throws InterruptedException {
+        UploadPage uploadPage = PageFactory.initElements(driver, UploadPage.class);
 
         uploadPage.uploadContentInWorkspace();
         UtilityFunctions.switchFrameOnIndex(0);
@@ -39,7 +40,7 @@ public class UploadPageActions extends BaseTestConfig {
         //	uploadPage.assertUploadContentMsg();
         String actualMsg = uploadPage.assertUploadContentMsgs();
         UtilityFunctions.stringValueComparision(actualMsg, SunbirdConstants.contentUploadToastrMsg, "Failed to upload the content");
-
+uploadPage.waitForContentUploadToastrMsgDisAppear();
         uploadPage.clickSave();
         uploadPage.clickClose();
         
@@ -47,7 +48,9 @@ public class UploadPageActions extends BaseTestConfig {
 
     /* fill all the details and Select BMC in uploadSendForReview form */
     public static String sendUploadContentForReview() throws InterruptedException {
-                   uploadPage.clickSendForReviewButton();
+        UploadPage uploadPage = PageFactory.initElements(driver, UploadPage.class);
+
+        //uploadPage.clickSendForReviewButton();
                    uploadPage.clickAddImage();
                    uploadPage.clickAllImageTab();
                    uploadPage.selectImage();                  
@@ -64,24 +67,39 @@ public class UploadPageActions extends BaseTestConfig {
                    uploadPage.selectSubjectDropdown();
                    uploadPage.enterCopyRight("2024");
                    uploadPage.clickSaveButtonSendForReivew();
-                   driver.switchTo().defaultContent();
-                        WorkspaceDashboardPageActions.assertDrafts();
+
+
+//        uploadPage.clickClose();
+//        driver.switchTo().defaultContent();
+                       // WorkspaceDashboardPageActions.assertDrafts();
 return titleName;
     }
 
 
-    /* publish the uploadContent using contentName*/
-    public static void pubishUploadContent(String contentName) throws InterruptedException
-    {
-    	reviewPage.upForReviewBucket();
-		reviewPage.clickSearchBar(contentName);
-		reviewPage.clickOnSearch();
-		Thread.sleep(5000);
-		reviewPage.selectContentForReview();
-		Thread.sleep(1000);
-		reviewPage.scrollDownTillPublish();
-		reviewPage.clickOnPublish();
 
-		
+    public static void clickEditDetails() throws InterruptedException
+    {
+        UploadPage uploadPage = PageFactory.initElements(driver, UploadPage.class);
+uploadPage.editDetails();
+    }
+    public static void clickSendForReview() throws InterruptedException
+    {
+        UploadPage uploadPage = PageFactory.initElements(driver, UploadPage.class);
+        uploadPage.clickSendForReviewButton();
+    }
+    public static void clickCloseIcon() throws InterruptedException
+    {
+        UploadPage uploadPage = PageFactory.initElements(driver, UploadPage.class);
+        uploadPage.clickClose();
+    }
+    public static void clickCloseCrossIcon() throws InterruptedException
+    {
+        UploadPage uploadPage = PageFactory.initElements(driver, UploadPage.class);
+        uploadPage.closeCrossIcon();
+    }
+    public static void assertEditDetails() throws InterruptedException
+    {
+        UploadPage uploadPage = PageFactory.initElements(driver, UploadPage.class);
+        uploadPage.assertEditDetails();
     }
 }

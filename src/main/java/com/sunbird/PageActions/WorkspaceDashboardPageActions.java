@@ -44,5 +44,10 @@ public class WorkspaceDashboardPageActions extends BaseTestConfig {
         workspacedashboardPage.clickCollection();
 
     }
+    public static void clickAllMyContent() throws InterruptedException {
+        WorkspaceDashboardPage workspacedashboardPage=PageFactory.initElements(driver, WorkspaceDashboardPage.class);
+        workspacedashboardPage.allMyContent();
+
+    }
 }
 	

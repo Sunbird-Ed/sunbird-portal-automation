@@ -50,6 +50,7 @@ public class UploadContent2 extends BaseTestConfig {
         DashboardPageActions.assertWorkspace();
         DashboardPageActions.clickOnWorkSpace();
         UploadPageActions.uploadContent("PDF");
+        UploadPageActions.clickSendForReview();
         String contentTitleName = UploadPageActions.sendUploadContentForReview();
         DashboardPageActions.logOut();
         LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));

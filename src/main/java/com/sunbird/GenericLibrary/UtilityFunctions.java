@@ -310,4 +310,9 @@ return value;
     {
         driver.switchTo().alert().accept();
     }
+    public static void switchToDefaultContentFrame()
+    {
+        driver.switchTo().defaultContent();
+    }
+
 }

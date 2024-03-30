@@ -81,9 +81,14 @@ public class UploadPage {
 	
 	@FindBy(how=How.XPATH,using="//button[@class='ui blue button ']")
 	private WebElement savebuttonSendReivew;
-	
-	
-	
+
+    @FindBy(how=How.XPATH,using="//span[@ng-if='showEditMeta']")
+    private WebElement editDetails;
+
+    @FindBy(how = How.XPATH, using = "//div[@id='closeButton']")
+    private WebElement crossCloseEditorIcon;
+
+
     public void uploadContentInWorkspace() {
 
         UtilityFunctions.waitToBeClickableAndClick(uploadcontent);
@@ -253,5 +258,25 @@ public class UploadPage {
         Listeners.addLogs("Clicked on savebutton");
 
     }
-   
+    public void editDetails() {
+
+        UtilityFunctions.waitToBeClickableAndClick(editDetails);
+        Listeners.addLogs("Clicked on editDetails ");
+
+    }
+    public void closeCrossIcon() {
+
+        UtilityFunctions.waitForElementAndClickable(crossCloseEditorIcon);
+        Listeners.addLogs("Clicked on crossCloseEditorIcon ");
+
+    }
+    public void assertEditDetails()
+    {
+        UtilityFunctions.waitForElementIsVisible(editDetails);
+        UtilityFunctions.validatIsElementPresent(editDetails,"Edit details not displayed");
+    }
+    public void waitForContentUploadToastrMsgDisAppear()
+    {
+        UtilityFunctions.waitForElementToDisappear(contentUploadToastrMsg);
+    }
 }

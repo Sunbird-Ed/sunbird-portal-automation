@@ -4,6 +4,7 @@ import com.sunbird.GenericLibrary.BaseTestConfig;
 import com.sunbird.GenericLibrary.UtilityFunctions;
 import com.sunbird.PageActions.*;
 import com.sunbird.PageObjects.ObservationPage;
+import org.apache.xmlbeans.impl.xb.xsdschema.All;
 import org.testng.annotations.Test;
 
 public class FirstStep5 extends BaseTestConfig {
@@ -59,7 +60,7 @@ public class FirstStep5 extends BaseTestConfig {
 //    }
 
 
-    @Test(description = "Users view observations as tiles")
+ /*   @Test(description = "Users view observations as tiles")
     public void validateObservationListsInObservationTab() throws Exception {
 
         OnBoardingActions.RolePoup();
@@ -71,6 +72,29 @@ public class FirstStep5 extends BaseTestConfig {
 ObservationPageActions.assertObservationCount();
         ObservationPageActions.clickOnObservationCard();
         ObservationPageActions.assertObservationDetails();
+    }*/
+
+    @Test(description = "Post uploading and saving, content resides in all my bucket .")
+    public void verifyUploadContentInAllMyContent() throws Exception {
+
+        OnBoardingActions.RolePoup();
+        OnBoardingActions.BMCPopup();
+        OnBoardingActions.LocationPopup();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+        DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.assertWorkspace();
+        DashboardPageActions.clickOnWorkSpace();
+        UploadPageActions.uploadContent("MP4");
+        UploadPageActions.clickEditDetails();
+ String uploadContentName = UploadPageActions.sendUploadContentForReview();
+ UploadPageActions.clickCloseIcon();
+ UploadPageActions.clickCloseCrossIcon();
+   UtilityFunctions.switchToDefaultContentFrame();
+   WorkspaceDashboardPageActions.clickAllMyContent();
+        AllMyContentPageActions.enterContentInSearchBox(uploadContentName);
+        AllMyContentPageActions.clickFirstCard();
+    UtilityFunctions.switchFrameOnIndex(0);
+        UploadPageActions.assertEditDetails();
     }
 
 
