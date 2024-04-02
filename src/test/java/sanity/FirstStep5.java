@@ -5,6 +5,7 @@ import com.sunbird.GenericLibrary.UtilityFunctions;
 import com.sunbird.PageActions.*;
 import com.sunbird.PageObjects.DashboardPage;
 import com.sunbird.PageObjects.ObservationPage;
+import org.apache.poi.ss.formula.functions.T;
 import org.apache.xmlbeans.impl.xb.xsdschema.All;
 import org.testng.annotations.Test;
 
@@ -90,8 +91,8 @@ ObservationPageActions.assertObservationCount();
        DashBoardFiltersPageActions.verifyAllFilter();
 
     }*/
-    @Test(description = "User should be able to see all the questions created by him/herself by turning on My question toggle button along with edit")
-    public void toogleMyQuestionFilterAndValidateQuestions() throws Exception {
+    @Test(description = "User should be able to bundle the question along with immediate feedback and shuffle question")
+    public void bundleTheQuestionWithImmediateFeedBackAndShuffle() throws Exception {
 
         OnBoardingActions.RolePoup();
         OnBoardingActions.BMCPopup();
@@ -103,19 +104,22 @@ ObservationPageActions.assertObservationCount();
         WorkspaceDashboardPageActions.clickResource();
         String createdContent = ResourcePageActions.createResourcePopup("getContentName");
         QuestionSetPageActions.clickAddQuestionSetIcon();
-        QuestionSetPageActions.clickAdvanceFilter();
-        QuestionSetPageActions.selectMyQuestionFilter();
-        QuestionSetPageActions.assertDeleteIcon();
-        QuestionSetPageActions.clickEditIconInQuestion();
-        QuestionSetPageActions.clickNextBtnInQuestionPage();
-        QuestionSetPageActions.enterTitleName();
-        QuestionSetPageActions.clickSubmitInQuestionPage();
+        QuestionSetPageActions.selectFirstQuestionInList();
         QuestionSetPageActions.clkNextButtonInQuestionPage();
         QuestionSetPageActions.enterQuestionSetTitle();
-        QuestionSetPageActions.clkAddButtonInQuestionTitlePage();
-        ResourcePageActions.saveAndCloseIcon();
-        ResourcePageActions.clickPreivewIcon();
-        UtilityFunctions.switchFrameUsingName();
-        ResourcePageActions.assertContentInPreviewPlayer();
+        QuestionSetPageActions.clickImmediateFeedback();
+        QuestionSetPageActions.clickShuffleQuestions();
+QuestionSetPageActions.clickAddMoreQuestionButton();
+        QuestionSetPageActions.searchByQuestionTitle("FTB");
+        QuestionSetPageActions.selectFirstQuestionInList();
+        QuestionSetPageActions.clkNextButtonInQuestionPage();
+        QuestionSetPageActions.enterQuestionSetTitle();
+        QuestionSetPageActions.clickImmediateFeedback();
+        QuestionSetPageActions.clickShuffleQuestions();
+
+
     }
+
+
+
 }

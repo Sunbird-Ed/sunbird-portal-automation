@@ -324,5 +324,33 @@ public class SanitySuites4 extends BaseTestConfig
 		UtilityFunctions.switchFrameUsingName();
 		ResourcePageActions.assertContentInPreviewPlayer();
 	}
+	@Test(description = "User should be able to bundle the question along with immediate feedback and shuffle question")
+	public void bundleTheQuestionWithImmediateFeedBackAndShuffle() throws Exception {
+
+		OnBoardingActions.RolePoup();
+		OnBoardingActions.BMCPopup();
+		OnBoardingActions.LocationPopup();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+				sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.clickOnWorkSpace();
+		WorkspaceDashboardPageActions.clickResource();
+		String createdContent = ResourcePageActions.createResourcePopup("getContentName");
+		QuestionSetPageActions.clickAddQuestionSetIcon();
+		QuestionSetPageActions.selectFirstQuestionInList();
+		QuestionSetPageActions.clkNextButtonInQuestionPage();
+		QuestionSetPageActions.enterQuestionSetTitle();
+		QuestionSetPageActions.clickImmediateFeedback();
+		QuestionSetPageActions.clickShuffleQuestions();
+		QuestionSetPageActions.clickAddMoreQuestionButton();
+		QuestionSetPageActions.searchByQuestionTitle("FTB");
+		QuestionSetPageActions.selectFirstQuestionInList();
+		QuestionSetPageActions.clkNextButtonInQuestionPage();
+		QuestionSetPageActions.enterQuestionSetTitle();
+		QuestionSetPageActions.clickImmediateFeedback();
+		QuestionSetPageActions.clickShuffleQuestions();
+
+
+	}
 }
 

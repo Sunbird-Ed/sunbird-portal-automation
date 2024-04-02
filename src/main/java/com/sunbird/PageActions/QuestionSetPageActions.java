@@ -43,11 +43,13 @@ public class QuestionSetPageActions extends BaseTestConfig {
 	public static void clickImmediateFeedback() throws InterruptedException {
 		QuestionSetPage questionSetPage = PageFactory.initElements(driver, QuestionSetPage.class);
 		questionSetPage.immediateFeedback();
+		Thread.sleep(2000);
 	}
 
 	public static void clickShuffleQuestions() throws InterruptedException {
 		QuestionSetPage questionSetPage = PageFactory.initElements(driver, QuestionSetPage.class);
 		questionSetPage.shuffleQuestions();
+		Thread.sleep(4000);
 	}
 
 	public static void searchByQuestionTitle(String questionType) throws Exception {
@@ -156,5 +158,9 @@ return displayedCount;
 	public static void assertDeleteIcon() throws InterruptedException {
 		QuestionSetPage questionSetPage = PageFactory.initElements(driver, QuestionSetPage.class);
 		questionSetPage.assertDeleteIcon();
+	}
+	public static void clickAddMoreQuestionButton() throws InterruptedException {
+		QuestionSetPage questionSetPage = PageFactory.initElements(driver, QuestionSetPage.class);
+		questionSetPage.addMoreQuestions();
 	}
 }

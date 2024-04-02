@@ -20,8 +20,11 @@ public class QuestionSetPage {
     @FindBy(how=How.XPATH,using="//input[@placeholder='Question Set Title']")
     private WebElement questionSetTitleTextBox;
 
-    @FindBy(how=How.XPATH,using="//button[@id='add-more-ques-button']//following::button[@class='ui blue button']")
-    private WebElement addBtnInQuestionSeTitlePage;
+   // @FindBy(how=How.XPATH,using="//button[@id='add-more-ques-button']//following::button[@class='ui blue button']")
+   @FindBy(how=How.XPATH,using="//button[@id='add-to-stage']")
+   private WebElement addBtnInQuestionSeTitlePage;
+
+
 
     @FindBy(how=How.XPATH,using="//input[@id='show-feedback']")
     private WebElement showImmediateFeedback;
@@ -105,6 +108,9 @@ public class QuestionSetPage {
     @FindBy(how=How.XPATH,using="//div[contains(text(),'Select Subject')]//following::div[2]")
     private WebElement selectSubjectValue;
 
+    @FindBy(how=How.XPATH,using="//button[@id='add-more-ques-button']")
+    private WebElement addMoreQuestionButton;
+
 
     public void clkAddQuestionSetIcon() throws InterruptedException {
       //  UtilityFunctions.waitForElementIsVisible(addQuestionSet);
@@ -129,15 +135,18 @@ Thread.sleep(5000);
         UtilityFunctions.waitToBeClickableAndSendKeys(questionSetTitleTextBox, questionsetTitle);
     }
     public void clickAddButtonInQuestionTitlePage() throws InterruptedException {
-        UtilityFunctions.waitForElementAndClickable(addBtnInQuestionSeTitlePage);
-
+      //  UtilityFunctions.waitForElementUsingForLoopAndAssert(addBtnInQuestionSeTitlePage,4);
+     UtilityFunctions.waitForElementAndClickable(addBtnInQuestionSeTitlePage);
+      //  addBtnInQuestionSeTitlePage.click();
     }
     public void immediateFeedback() throws InterruptedException {
-        UtilityFunctions.waitForElementAndClickable(showImmediateFeedback);
+        showImmediateFeedback.click();
+       // UtilityFunctions.waitForElementAndClickable(showImmediateFeedback);
         Listeners.addLogs("clicked on showImmediate feedback");
     }
     public void shuffleQuestions() throws InterruptedException {
-        UtilityFunctions.waitForElementAndClickable(shuffleQuestions);
+       shuffleQuestions.click();
+      // UtilityFunctions.waitForElementAndClickable(shuffleQuestions);
         Listeners.addLogs("clicked on shuffleQuestions");
     }
 
@@ -278,6 +287,11 @@ Thread.sleep(5000);
         UtilityFunctions.waitForElementIsVisible(deleteQuestion);
         UtilityFunctions.validatIsElementPresent(deleteQuestion,"Delete icon not displayed");
         Listeners.addLogs("Delete Icon displayed");
+    }
+    public void addMoreQuestions() throws InterruptedException {
+        UtilityFunctions.waitForElementAndClickable(addMoreQuestionButton);
+        Listeners.addLogs("Clicked on AddMoreQuestion button");
+
     }
 }
 
