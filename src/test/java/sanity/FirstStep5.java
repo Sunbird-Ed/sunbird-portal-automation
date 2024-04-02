@@ -11,7 +11,6 @@ import org.testng.annotations.Test;
 public class FirstStep5 extends BaseTestConfig {
 
 
-
 //    @Test(description = "User should be able to search and consume the published content.\n")
 //    public void verifyThatUserIsAbleToSearchAndConsumeThePublishedContent() throws Exception {
 //
@@ -75,7 +74,7 @@ ObservationPageActions.assertObservationCount();
         ObservationPageActions.assertObservationDetails();
     }*/
 
-    @Test(description = "The Digital textbooks, Courses, and TV Classes tabs should have the same filters")
+    /*@Test(description = "The Digital textbooks, Courses, and TV Classes tabs should have the same filters")
     public void verifyFilterIsSameInDigitalAndCourseAndTVClassTabs() throws Exception {
 
         OnBoardingActions.RolePoup();
@@ -90,6 +89,33 @@ ObservationPageActions.assertObservationCount();
         DashboardPageActions.clickOnTVClasses();
        DashBoardFiltersPageActions.verifyAllFilter();
 
-    }
+    }*/
+    @Test(description = "User should be able to see all the questions created by him/herself by turning on My question toggle button along with edit")
+    public void toogleMyQuestionFilterAndValidateQuestions() throws Exception {
 
+        OnBoardingActions.RolePoup();
+        OnBoardingActions.BMCPopup();
+        OnBoardingActions.LocationPopup();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+                sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+        DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.clickOnWorkSpace();
+        WorkspaceDashboardPageActions.clickResource();
+        String createdContent = ResourcePageActions.createResourcePopup("getContentName");
+        QuestionSetPageActions.clickAddQuestionSetIcon();
+        QuestionSetPageActions.clickAdvanceFilter();
+        QuestionSetPageActions.selectMyQuestionFilter();
+        QuestionSetPageActions.assertDeleteIcon();
+        QuestionSetPageActions.clickEditIconInQuestion();
+        QuestionSetPageActions.clickNextBtnInQuestionPage();
+        QuestionSetPageActions.enterTitleName();
+        QuestionSetPageActions.clickSubmitInQuestionPage();
+        QuestionSetPageActions.clkNextButtonInQuestionPage();
+        QuestionSetPageActions.enterQuestionSetTitle();
+        QuestionSetPageActions.clkAddButtonInQuestionTitlePage();
+        ResourcePageActions.saveAndCloseIcon();
+        ResourcePageActions.clickPreivewIcon();
+        UtilityFunctions.switchFrameUsingName();
+        ResourcePageActions.assertContentInPreviewPlayer();
+    }
 }

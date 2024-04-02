@@ -72,7 +72,7 @@ public class QuestionSetPage {
     @FindBy(how=How.XPATH,using="//div[@class='advanceFilterDiv']")
     private WebElement advanceFilter;
 
-    @FindBy(how=How.XPATH,using="//input[@name='myQuestions']//following::label[1]")
+    @FindBy(how=How.XPATH,using="//input[@id='myQuestions']")
     private WebElement myQuestionTogglebtn;
 
     @FindBy(how=How.XPATH,using="//div[contains(text(),'Select Level')]")
@@ -210,8 +210,9 @@ Thread.sleep(5000);
     }
 
     public void myQuestiontoggle() throws InterruptedException {
-        UtilityFunctions.pressEnterKeyOnWebElement(myQuestionTogglebtn);
-        // UtilityFunctions.waitForElementAndClickable(myQuestionTogglebtn);
+        //UtilityFunctions.pressEnterKeyOnWebElement(myQuestionTogglebtn);
+       myQuestionTogglebtn.click();
+    //    UtilityFunctions.waitForElementAndClickable(myQuestionTogglebtn);
         Listeners.addLogs("clicked on myQuestionTogglebtn");
     }
     public String getTotalQuestionCount()
@@ -271,6 +272,12 @@ Thread.sleep(5000);
     public void selectSubjectValue() throws InterruptedException {
         UtilityFunctions.waitForElementAndClickable(selectSubjectValue);
         Listeners.addLogs("clicked on selectSubjectValue");
+    }
+
+    public void assertDeleteIcon() throws InterruptedException {
+        UtilityFunctions.waitForElementIsVisible(deleteQuestion);
+        UtilityFunctions.validatIsElementPresent(deleteQuestion,"Delete icon not displayed");
+        Listeners.addLogs("Delete Icon displayed");
     }
 }
 

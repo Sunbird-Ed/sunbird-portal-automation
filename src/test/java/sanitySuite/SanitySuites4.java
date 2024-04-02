@@ -278,18 +278,8 @@ public class SanitySuites4 extends BaseTestConfig
 		UtilityFunctions.switchFrameOnIndex(0);
 		UploadPageActions.assertEditDetails();
 	}
-	@Test(description = "Users view observations as tiles")
-	public void consumeBookInFullScreen() throws Exception {
 
-		OnBoardingActions.RolePoup();
-		OnBoardingActions.BMCPopup();
-		OnBoardingActions.LocationPopup();
-		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
-				sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
-
-	}
-
-
+/* Sprint 2*/
 	@Test(description = "The Digital textbooks, Courses, and TV Classes tabs should have the same filters")
 	public void verifyFilterIsSameInDigitalAndCourseAndTVClassTabs() throws Exception {
 
@@ -305,6 +295,34 @@ public class SanitySuites4 extends BaseTestConfig
 		DashboardPageActions.clickOnTVClasses();
 		DashBoardFiltersPageActions.verifyAllFilter();
 
+	}
+	@Test(description = "User should be able to see all the questions created by him/herself by turning on My question toggle button along with edit")
+	public void toogleMyQuestionFilterAndValidateQuestions() throws Exception {
+
+		OnBoardingActions.RolePoup();
+		OnBoardingActions.BMCPopup();
+		OnBoardingActions.LocationPopup();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+				sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.clickOnWorkSpace();
+		WorkspaceDashboardPageActions.clickResource();
+		String createdContent = ResourcePageActions.createResourcePopup("getContentName");
+		QuestionSetPageActions.clickAddQuestionSetIcon();
+		QuestionSetPageActions.clickAdvanceFilter();
+		QuestionSetPageActions.selectMyQuestionFilter();
+		QuestionSetPageActions.assertDeleteIcon();
+		QuestionSetPageActions.clickEditIconInQuestion();
+		QuestionSetPageActions.clickNextBtnInQuestionPage();
+		QuestionSetPageActions.enterTitleName();
+		QuestionSetPageActions.clickSubmitInQuestionPage();
+		QuestionSetPageActions.clkNextButtonInQuestionPage();
+		QuestionSetPageActions.enterQuestionSetTitle();
+		QuestionSetPageActions.clkAddButtonInQuestionTitlePage();
+		ResourcePageActions.saveAndCloseIcon();
+		ResourcePageActions.clickPreivewIcon();
+		UtilityFunctions.switchFrameUsingName();
+		ResourcePageActions.assertContentInPreviewPlayer();
 	}
 }
 

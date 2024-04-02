@@ -117,6 +117,7 @@ return displayedCount;
 	public static void clickAdvanceFilter() throws InterruptedException {
 		QuestionSetPage questionSetPage = PageFactory.initElements(driver, QuestionSetPage.class);
 		questionSetPage.advanceFilter();
+		Thread.sleep(4000);
 	}
 	public static void selectMyQuestionFilter() throws InterruptedException {
 		QuestionSetPage questionSetPage = PageFactory.initElements(driver, QuestionSetPage.class);
@@ -151,5 +152,9 @@ return displayedCount;
 		QuestionSetPage questionSetPage = PageFactory.initElements(driver, QuestionSetPage.class);
 		questionSetPage.subjectDropdown();
 		questionSetPage.selectSubjectValue();
+	}
+	public static void assertDeleteIcon() throws InterruptedException {
+		QuestionSetPage questionSetPage = PageFactory.initElements(driver, QuestionSetPage.class);
+		questionSetPage.assertDeleteIcon();
 	}
 }
