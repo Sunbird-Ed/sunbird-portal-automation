@@ -83,6 +83,9 @@ public class OnBoarding extends BaseTestConfig {
     @FindBy(how = How.XPATH, using = "//*[@id='mat-select-value-45']//following::span[@class='mat-option-text']")
     private WebElement cropNameValue;
 
+    @FindBy(how = How.XPATH, using = "//*[@med='English']")
+    private WebElement mediumValue;
+
 //	public WebElement TeacherClick() {
 //		
 //		return Teacher;
@@ -115,8 +118,6 @@ public class OnBoarding extends BaseTestConfig {
 
 
         String boardXpath = SunbirdConstants.XPATH_CONTAINS + frameworkName + SunbirdConstants.XPATH_CONAINSCLOSEBRACKET;
-
-
         UtilityFunctions.findElementAndClick(boardXpath);
         Listeners.addLogs("Selected Board " + frameworkName);
 

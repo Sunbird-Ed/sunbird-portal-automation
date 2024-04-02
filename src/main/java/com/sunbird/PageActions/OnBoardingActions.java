@@ -1,5 +1,7 @@
 package com.sunbird.PageActions;
 
+import com.sunbird.PageActions.Agriculture.AgricultureOnBoardingActions;
+import com.sunbird.PageActions.BMC.BmcOnBoardingActions;
 import org.openqa.selenium.support.PageFactory;
 
 import com.sunbird.GenericLibrary.BaseTestConfig;
@@ -23,7 +25,7 @@ public class OnBoardingActions extends BaseTestConfig {
     }
 
     /* This method will handle the BMC popup in onboarding flow */
-    public static void BMCPopup() throws InterruptedException {
+    public static void   BMCPopup() throws InterruptedException {
 
         OnBoarding onboard = PageFactory.initElements(driver, OnBoarding.class);
 
@@ -35,10 +37,12 @@ public class OnBoardingActions extends BaseTestConfig {
         onboard.BoardValueSelect(frameworkName);
         switch(frameworkName){
             case "agriculture_framework_20":
-                selectAgriculturePropertyDropdowns();
+              //  selectAgriculturePropertyDropdowns();
+                AgricultureOnBoardingActions.selectAgriculturePropertyDropdowns();
                 break;
             default:
-                BMCSelection();
+                BmcOnBoardingActions.BMCSelection();
+              //  BMCSelection();
         }
 
        onboard.BMCSubmit();

@@ -50,6 +50,9 @@ public class DashboardPage {
     @FindBy(how=How.XPATH,using="//*[contains(text(),' Observations ')]")
     private WebElement observationTab;
 
+    @FindBy(how=How.XPATH,using="//*[contains(text(),' TV classes ')]")
+    private WebElement tVClasses;
+
     public void userProfileIcon() throws InterruptedException {
 
         UtilityFunctions.waitToBeClickableAndClick(userProfileIcon);
@@ -137,6 +140,12 @@ UtilityFunctions.waitForVisibilityOfWebElement(firstContentCard);
     public void observationTab() {
         UtilityFunctions.waitForElementAndClickable(observationTab);
         Listeners.addLogs("Clicked on observationTab");
+
+    }
+    public void tvClass() {
+        UtilityFunctions.waitForElementIsVisible(tVClasses);
+        UtilityFunctions.waitForElementAndClickable(tVClasses);
+        Listeners.addLogs("Clicked on tVClasses");
 
     }
 }

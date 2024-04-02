@@ -19,9 +19,11 @@ public class ResourcePageActions extends BaseTestConfig {
 		String resourceName = UtilityFunctions.generateRandomName("automationResource");
 		resourcePage.enterResourceName(resourceName);
 		resourcePage.clkContentTypeDropdown();
+		Thread.sleep(2000);
 		resourcePage.selectExplanationContentType();
+		Thread.sleep(2000);
 		resourcePage.clickStartCreating();
-		Thread.sleep(5000);
+		Thread.sleep(7000);
 		UtilityFunctions.switchFrameUsingName();
 		if (getContentType.equalsIgnoreCase("getContentName")) {
 			return resourceName;

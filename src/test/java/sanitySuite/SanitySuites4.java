@@ -278,6 +278,33 @@ public class SanitySuites4 extends BaseTestConfig
 		UtilityFunctions.switchFrameOnIndex(0);
 		UploadPageActions.assertEditDetails();
 	}
+	@Test(description = "Users view observations as tiles")
+	public void consumeBookInFullScreen() throws Exception {
 
+		OnBoardingActions.RolePoup();
+		OnBoardingActions.BMCPopup();
+		OnBoardingActions.LocationPopup();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+				sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+
+	}
+
+
+	@Test(description = "The Digital textbooks, Courses, and TV Classes tabs should have the same filters")
+	public void verifyFilterIsSameInDigitalAndCourseAndTVClassTabs() throws Exception {
+
+		OnBoardingActions.RolePoup();
+		OnBoardingActions.BMCPopup();
+		OnBoardingActions.LocationPopup();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+				sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+		DashboardPageActions.clickDigitalTextbookTab();
+		DashBoardFiltersPageActions.verifyAllFilter();
+		DashboardPageActions.clickCourseTab();
+		DashBoardFiltersPageActions.verifyAllFilter();
+		DashboardPageActions.clickOnTVClasses();
+		DashBoardFiltersPageActions.verifyAllFilter();
+
+	}
 }
 

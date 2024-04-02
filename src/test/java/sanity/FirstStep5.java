@@ -3,6 +3,7 @@ package sanity;
 import com.sunbird.GenericLibrary.BaseTestConfig;
 import com.sunbird.GenericLibrary.UtilityFunctions;
 import com.sunbird.PageActions.*;
+import com.sunbird.PageObjects.DashboardPage;
 import com.sunbird.PageObjects.ObservationPage;
 import org.apache.xmlbeans.impl.xb.xsdschema.All;
 import org.testng.annotations.Test;
@@ -74,28 +75,21 @@ ObservationPageActions.assertObservationCount();
         ObservationPageActions.assertObservationDetails();
     }*/
 
-    @Test(description = "Post uploading and saving, content resides in all my bucket .")
-    public void verifyUploadContentInAllMyContent() throws Exception {
+    @Test(description = "The Digital textbooks, Courses, and TV Classes tabs should have the same filters")
+    public void verifyFilterIsSameInDigitalAndCourseAndTVClassTabs() throws Exception {
 
         OnBoardingActions.RolePoup();
         OnBoardingActions.BMCPopup();
         OnBoardingActions.LocationPopup();
-        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
-        DashboardPageActions.clickUserProfileIcon();
-        DashboardPageActions.assertWorkspace();
-        DashboardPageActions.clickOnWorkSpace();
-        UploadPageActions.uploadContent("MP4");
-        UploadPageActions.clickEditDetails();
- String uploadContentName = UploadPageActions.sendUploadContentForReview();
- UploadPageActions.clickCloseIcon();
- UploadPageActions.clickCloseCrossIcon();
-   UtilityFunctions.switchToDefaultContentFrame();
-   WorkspaceDashboardPageActions.clickAllMyContent();
-        AllMyContentPageActions.enterContentInSearchBox(uploadContentName);
-        AllMyContentPageActions.clickFirstCard();
-    UtilityFunctions.switchFrameOnIndex(0);
-        UploadPageActions.assertEditDetails();
-    }
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+                sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+   DashboardPageActions.clickDigitalTextbookTab();
+   DashBoardFiltersPageActions.verifyAllFilter();
+        DashboardPageActions.clickCourseTab();
+        DashBoardFiltersPageActions.verifyAllFilter();
+        DashboardPageActions.clickOnTVClasses();
+       DashBoardFiltersPageActions.verifyAllFilter();
 
+    }
 
 }

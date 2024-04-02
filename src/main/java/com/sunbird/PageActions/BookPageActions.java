@@ -3,6 +3,10 @@ package com.sunbird.PageActions;
 import com.sunbird.GenericLibrary.BaseTestConfig;
 import com.sunbird.GenericLibrary.SunbirdConstants;
 import com.sunbird.GenericLibrary.UtilityFunctions;
+import com.sunbird.PageActions.Agriculture.AgricultureBookPageActions;
+import com.sunbird.PageActions.Agriculture.AgricultureOnBoardingActions;
+import com.sunbird.PageActions.BMC.BMCBookPageActions;
+import com.sunbird.PageActions.BMC.BmcOnBoardingActions;
 import com.sunbird.PageObjects.BookPage;
 import org.openqa.selenium.support.PageFactory;
 
@@ -58,18 +62,31 @@ public class BookPageActions extends BaseTestConfig {
 
     /* select all the BMC dropdown in book editor */
     public static void BMCDropdownSelectionSection2() throws InterruptedException {
+        String frameworkName = sunbird_config.getSunbidConfigPropertyValue("FRAMEWORK");
+        switch(frameworkName){
+            case "agriculture_framework_20":
+                //  selectAgriculturePropertyDropdowns();
+                AgricultureBookPageActions.AgricultureDropdownSelectionSection2();
+                break;
+
+            default:
+                BMCBookPageActions.BMCDropdownSelectionSection2();
+                //  BMCSelection();
+        }
+
+
         Thread.sleep(5000);
-        BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
-        bookPage.clickBoardDropdown();
-        bookPage.selectBoardValue();
-        bookPage.clickMediumDropdown();
-        bookPage.selectMediumValue();
-        Thread.sleep(2000);
-        bookPage.clickClassDropdown();
-        Thread.sleep(2000);
-        bookPage.selectClassValue();
-        bookPage.clickSubjectDropdown();
-        bookPage.selectSubjectValue();
+//        BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
+//        bookPage.clickBoardDropdown();
+//        bookPage.selectBoardValue();
+//        bookPage.clickMediumDropdown();
+//        bookPage.selectMediumValue();
+//        Thread.sleep(2000);
+//        bookPage.clickClassDropdown();
+//        Thread.sleep(2000);
+//        bookPage.selectClassValue();
+//        bookPage.clickSubjectDropdown();
+//        bookPage.selectSubjectValue();
     }
 
 /* enterCopyRight and click on savedraft */

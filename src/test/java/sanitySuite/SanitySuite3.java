@@ -380,5 +380,14 @@ public class SanitySuite3 extends BaseTestConfig {
     }
 
 
+    @Test(description = "Users view observations as tiles")
+    public void consumeBook() throws Exception {
 
+        OnBoardingActions.RolePoup();
+        OnBoardingActions.BMCPopup();
+        OnBoardingActions.LocationPopup();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+                sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+
+    }
 }
