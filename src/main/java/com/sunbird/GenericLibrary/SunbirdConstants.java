@@ -35,4 +35,6 @@ public static String placeholder="placeholer";
 
     public static String groupCreationToastrMsg="Group created successfully";
     public static String enableDisussionToastrMsg="Enabled discussion forum successfully";
+
+   public static String questionCreatedToastrMsg="Question is created sucessfully";
 }

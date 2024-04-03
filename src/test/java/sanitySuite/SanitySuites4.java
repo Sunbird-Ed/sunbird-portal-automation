@@ -352,5 +352,77 @@ public class SanitySuites4 extends BaseTestConfig
 
 
 	}
+
+	@Test(description = "User should be able to create a Question Set by filling all the mandatory details in the root node")
+	public void userAbleToCreateMCQQuestionSetByFillingRootNode() throws Exception {
+
+		OnBoardingActions.RolePoup();
+		OnBoardingActions.BMCPopup();
+		OnBoardingActions.LocationPopup();
+
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+				sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.assertWorkspace();
+		DashboardPageActions.clickOnWorkSpace();
+		WorkspaceDashboardPageActions.clickOnQuestionSet();
+		String createdContent = CreateQuestionSetPageActions.fillQuestionSetSection1("getdoid");
+		CreateQuestionSetPageActions.BMCDropdownSelectionSection2();
+		CreateQuestionSetPageActions.selectAudienceType();
+		CreateQuestionSetPageActions.setMaxTime("5", "10");
+		BookPageActions.clickSaveAsDrafts();
+		BookPageActions.assertContentIsSavedToastrMsg();
+		BookPageActions.waitContentIsSavedToastToDisapper();
+		BookPageActions.clickAddChild();
+		CreateQuestionSetPageActions.fillSectionDetails();
+		BookPageActions.clickSaveAsDrafts();
+		BookPageActions.waitContentIsSavedToastToDisapper();
+		CreateQuestionSetPageActions.clickCreateNew();
+		CreateQuestionSetPageActions.clickMcqTemplate();
+		CreateQuestionSetPageActions.clickNextBtn();
+		CreateQuestionSetPageActions.questParagraph();
+		CreateQuestionSetPageActions.optionParagraph();
+		CreateQuestionSetPageActions.optionParagraph2();
+		CreateQuestionSetPageActions.clickCorrectAnswers();
+		String title= CreateQuestionSetPageActions.questionTitle();
+		CreateQuestionSetPageActions.clickSave();
+		CreateQuestionSetPageActions.assertQuestionCreatedToastrMsg();
+		BookPageActions.submitAndSendForReview();
+	}
+	@Test(description = "User should be able to Create Subjective QuestionSet ByFillingRootNode")
+	public void CreateSubjectiveQuestionSetByFillingRootNode() throws Exception {
+
+		OnBoardingActions.RolePoup();
+		OnBoardingActions.BMCPopup();
+		OnBoardingActions.LocationPopup();
+
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+				sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.assertWorkspace();
+		DashboardPageActions.clickOnWorkSpace();
+		WorkspaceDashboardPageActions.clickOnQuestionSet();
+		String createdContent = CreateQuestionSetPageActions.fillQuestionSetSection1("getdoid");
+		CreateQuestionSetPageActions.BMCDropdownSelectionSection2();
+		CreateQuestionSetPageActions.selectAudienceType();
+		CreateQuestionSetPageActions.setMaxTime("5", "10");
+		BookPageActions.clickSaveAsDrafts();
+		BookPageActions.assertContentIsSavedToastrMsg();
+		BookPageActions.waitContentIsSavedToastToDisapper();
+		BookPageActions.clickAddChild();
+		CreateQuestionSetPageActions.fillSectionDetails();
+		BookPageActions.clickSaveAsDrafts();
+		BookPageActions.waitContentIsSavedToastToDisapper();
+		CreateQuestionSetPageActions.clickCreateNew();
+		CreateQuestionSetPageActions.clickSubjectiveTemplate();
+		CreateQuestionSetPageActions.clickNextBtn();
+		CreateQuestionSetPageActions.questParagraph();
+		CreateQuestionSetPageActions.optionParagraph();
+		String title= CreateQuestionSetPageActions.questionTitle();
+		CreateQuestionSetPageActions.questionMarks("10");
+		CreateQuestionSetPageActions.clickSave();
+		CreateQuestionSetPageActions.assertQuestionCreatedToastrMsg();
+		BookPageActions.submitAndSendForReview();
+	}
 }
 
