@@ -95,66 +95,6 @@ public class ResourcePage {
 
 
 
-    @FindBy(how=How.XPATH,using="//button[@id='create-question-button']")
-    private WebElement createQuestionButton;
-
-    @FindBy(how=How.XPATH,using="(//div[@class='ui small primary button'])[2]")
-    private WebElement selectMCQButton;
-
-    @FindBy(how=How.XPATH,using="//body[@class='cke_editable cke_editable_themed cke_contents_ltr cke_show_borders']")
-    private WebElement enterTheQuestionTextfield;
-
-    @FindBy(how=How.XPATH,using="(//div[@title='Set Answer'])[1]")
-    private WebElement answerNo1Textfield;
-
-    @FindBy(how=How.XPATH,using="(//div[@title='Set Answer'])[2]")
-    private WebElement answerNo2Textfield;
-
-    @FindBy(how=How.XPATH,using="//input[@id='0']")
-    private WebElement tickCorrectAnswer;
-
-    @FindBy(how=How.XPATH,using="//button[@id='next-button']")
-    private WebElement nextButton;
-
-
-    @FindBy(how=How.XPATH,using="(//button[@id='save-question-button'])[1]")
-    private WebElement saveAndCreateButton;
-
-    @FindBy(how=How.XPATH,using="(//button[@id='cancel-button'])")
-    private WebElement cancelButton;
-
-
-    @FindBy(how=How.XPATH,using="//button[@class='ui blue button next-button']")
-    private WebElement nextButtonAfterClickingCheckbox;
-
-    @FindBy(how=How.XPATH,using="//button[text()='Edit']")
-    private WebElement editQuestionSetButton;
-
-    @FindBy(how=How.XPATH,using="(//div[@class='qb-question-action three wide column'])[51]/child::span[2]")
-    private WebElement editQuestionButton;
-
-    //(//div[@class='qb-question-action three wide column'])[1]//child::span
-    @FindBy(how=How.XPATH,using="(//i[@class='copy icon'])[1]")
-    private WebElement copyQuestionButton;
-
-    @FindBy(how=How.XPATH,using="//button[text()='Add answer ']")
-    private WebElement addAnswerButton;
-
-    @FindBy(how=How.XPATH,using="(//div[@title='Set Answer'])[3]")
-    private WebElement answerNo3Textfield;
-
-    @FindBy(how=How.XPATH,using="//i[@class='cursor-pointer close link icon']")
-    private WebElement crossIcon;
-
-    @FindBy(how=How.XPATH,using="(//button[@id='save-question-button'])[2]")
-    private WebElement submitButton;
-
-    @FindBy(how=How.XPATH,using="//input[@id='shuffle0questions']")
-    private WebElement shuffleQuestionsButton;
-
-
-
-
     public void enterResourceName(String resourceNamecreation) throws InterruptedException {
         UtilityFunctions.waitToBeClickableAndSendKeys(resourceName, resourceNamecreation);
 
@@ -261,4 +201,5 @@ Listeners.addLogs("Clicked on preview Icon");
         Listeners.addLogs("validated question in Preview Player");
 
     }
+
 }

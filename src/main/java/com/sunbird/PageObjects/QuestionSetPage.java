@@ -110,7 +110,98 @@ public class QuestionSetPage {
 
     @FindBy(how=How.XPATH,using="//button[@id='add-more-ques-button']")
     private WebElement addMoreQuestionButton;
+    @FindBy(how=How.XPATH,using="//button[@id='create-question-button']")
+    private WebElement createQuestion;
 
+    @FindBy(how=How.XPATH,using="//*[contains(text(),'Match The Following')]//following::div[contains(text(),'Select')][1]")
+    private WebElement mTF;
+    @FindBy(how=How.XPATH,using="//iframe[contains(@title,'Rich Text Editor')]")
+    private WebElement frameRichTextEditorSwitch;
+
+    @FindBy(how=How.XPATH,using="//iframe[@class='iziModal-iframe']")
+    private WebElement frameParentSwitch;
+
+    @FindBy(how=How.XPATH,using="//body[@contenteditable='true']")
+    private WebElement enterQuestionTextBox;
+    @FindBy(how=How.XPATH,using="//body[@spellcheck='false']")
+    private WebElement enterMCQQuestionTextBox;
+
+    @FindBy(how=How.ID,id="cke_mtfoptionsLHS_0")
+    private WebElement enterQuestion1;
+    @FindBy(how=How.ID,id="cke_mtfoptionsRHS_0")
+    private WebElement enterAnswer1;
+
+    @FindBy(how=How.ID,id="cke_mtfoptionsLHS_1")
+    private WebElement enterQuestion2;
+    @FindBy(how=How.ID,id="cke_mtfoptionsRHS_1")
+    private WebElement enterAnswer2;
+
+    @FindBy(how=How.ID,id="cke_mtfoptionsLHS_2")
+    private WebElement enterQuestion3;
+    @FindBy(how=How.ID,id="cke_mtfoptionsRHS_2")
+    private WebElement enterAnswer3;
+
+    @FindBy(how=How.XPATH,using="//button[.='Refresh']")
+    private WebElement refreshBtn;
+
+    @FindBy(how=How.XPATH,using="//label[contains(text(),'BOARD/SYLLABUS')]//following::div[contains(text(),'Select Board/Syllabus')]")
+    private WebElement clickBoardDropDownInQuestCreation;
+
+    @FindBy(how=How.XPATH,using="//label[contains(text(),'BOARD/SYLLABUS')]//following::div[contains(text(),'Select Board/Syllabus')]//following::div[2]")
+    private WebElement boardSelectedInQuestCreation;
+
+    @FindBy(how=How.XPATH,using="//label[contains(text(),'MEDIUM')]//following::div[contains(text(),'Select Medium')]")
+    private WebElement clickMediumInQuestCreation;
+
+    @FindBy(how=How.XPATH,using="//label[contains(text(),'MEDIUM')]//following::div[contains(text(),'Select Medium')]//following::div[2]")
+    private WebElement mediumSelectedInQuestCreation;
+
+    @FindBy(how=How.XPATH,using="//label[contains(text(),'GRADE LEVEL')]//following::div[contains(text(),'Select Grade')]")
+    private WebElement clickClassInQuestCreation;
+
+    @FindBy(how=How.XPATH,using="//label[contains(text(),'GRADE LEVEL')]//following::div[contains(text(),'Select Grade')]//following::div[2]")
+    private WebElement classSelectedInQuestCreation;
+
+    @FindBy(how=How.XPATH,using="//label[contains(text(),'SUBJECT')]//following::div[contains(text(),'Select Subject')]")
+    private WebElement clickSubjectInQuestCreation;
+
+    @FindBy(how=How.XPATH,using="//label[contains(text(),'SUBJECT')]//following::div[contains(text(),'Select Subject')]//following::div[2]")
+    private WebElement subjectSelectedInQuestCreation;
+
+    @FindBy(how=How.XPATH,using="//label[contains(text(),'LEVEL')]//following::div[contains(text(),'Select Level')]")
+    private WebElement levelInQuestCreation;
+
+    @FindBy(how=How.XPATH,using="//label[contains(text(),'LEVEL')]//following::div[contains(text(),'Select Level')]//following::div[2]")
+    private WebElement selectEasyLevelInQuestCreation;
+
+    @FindBy(how=How.XPATH,using="//button[@id='save-question-button'][contains(text(),'Save and Create')]")
+    private WebElement saveAndCreate;
+
+    @FindBy(how=How.ID,id="mcqoptions_0")
+    private WebElement mcqAnswer1;
+    @FindBy(how=How.ID,id="mcqoptions_1")
+    private WebElement mcqAnswer2;
+
+    @FindBy(how=How.XPATH,using="//input[@id='1']")
+    private WebElement mcqCorrectAnswer;
+    @FindBy(how=How.XPATH,using="//img[@alt='Navigate to Next']")
+    private WebElement nextIconInPreview;
+
+    @FindBy(how=How.XPATH,using="//div[@aria-label='Next']")
+    private WebElement nextBtnInPreview;
+
+
+    @FindBy(how=How.XPATH,using="//*[contains(text(),'Match The Following')]//following::div[contains(text(),'Select')][2]")
+    private WebElement mCQ;
+
+    @FindBy(how=How.XPATH,using="//*[contains(text(),'Match The Following')]//following::div[contains(text(),'Select')][3]")
+    private WebElement fTB;
+
+    @FindBy(how=How.XPATH,using="//*[contains(text(),'Match The Following')]//following::div[contains(text(),'Select')][4]")
+    private WebElement reOrderingWords;
+
+    @FindBy(how=How.XPATH,using="//*[contains(text(),'Match The Following')]//following::div[contains(text(),'Select')][5]")
+    private WebElement ArrangeInSequence;
 
     public void clkAddQuestionSetIcon() throws InterruptedException {
       //  UtilityFunctions.waitForElementIsVisible(addQuestionSet);
@@ -292,6 +383,170 @@ Thread.sleep(5000);
         UtilityFunctions.waitForElementAndClickable(addMoreQuestionButton);
         Listeners.addLogs("Clicked on AddMoreQuestion button");
 
+    }
+
+    public void createQuestion() throws InterruptedException {
+        UtilityFunctions.waitForElementAndClickable(createQuestion);
+        Listeners.addLogs("Clicked on createQuestion button");
+
+    }
+    public void switchToFrameUsingName() throws InterruptedException {
+        UtilityFunctions.waitForFrameToBeAvailable(frameRichTextEditorSwitch);
+//UtilityFunctions.switchToFrameUsingXpath(frameRichTextEditorSwitch);
+       Listeners.addLogs("Switched Frame");
+
+    }
+    public void selectMTF() throws InterruptedException {
+        UtilityFunctions.waitForElementAndClickable(mTF);
+        Listeners.addLogs("Clicked on mTF Template");
+
+    }
+    public void selectMCQ() throws InterruptedException {
+        UtilityFunctions.waitForElementAndClickable(mCQ);
+        Listeners.addLogs("Clicked on mCQ Template");
+
+    }
+    public void selectFTB() throws InterruptedException {
+        UtilityFunctions.waitForElementAndClickable(fTB);
+        Listeners.addLogs("Clicked on fTB");
+
+    }
+    public void enterQuestionInTextBox(String questionData) throws InterruptedException {
+       // UtilityFunctions.waitForElementUsingForLoop(enterQuestionTextBox,50);
+       // UtilityFunctions.waitForElementIsVisible(enterQuestionTextBox);
+
+//        try {
+//            UtilityFunctions.waitToBeClickableAndSendKeys(enterQuestionTextBox, questionData);
+//        }
+//        catch(org.openqa.selenium.StaleElementReferenceException ex)
+//        {
+//            UtilityFunctions.waitToBeClickableAndSendKeys(enterQuestionTextBox, questionData);
+//
+//        }
+
+      UtilityFunctions.waitToBeClickableAndSendKeys(enterQuestionTextBox, questionData);
+      Listeners.addLogs("Entered titleName");
+    }
+
+    public void enterMCQQuestionInTextBox(String questionData) throws InterruptedException {
+
+            UtilityFunctions.waitToBeClickableAndSendKeys(enterMCQQuestionTextBox, questionData);
+   Listeners.addLogs("Entered MCQ titlename");
+    }
+    public void parentSwitchFrame() throws InterruptedException {
+        UtilityFunctions.waitForFrameToBeAvailable(frameParentSwitch);
+       // UtilityFunctions.switchToFrameUsingXpath(frameParentSwitch);
+        Listeners.addLogs(" frameParentSwitch");
+
+    }
+    public void enterFirstPairQuestion(String quest1) throws InterruptedException {
+        UtilityFunctions.waitForElementIsVisible(enterQuestion1);
+        UtilityFunctions.waitToBeClickableAndSendKeys(enterQuestion1,quest1);
+        Listeners.addLogs("EnterQuestion1");
+    }
+    public void enterFirstPairAnswer(String answer1) throws InterruptedException {
+        UtilityFunctions.waitForElementIsVisible(enterAnswer1);
+        UtilityFunctions.waitToBeClickableAndSendKeys(enterAnswer1,answer1);
+        Listeners.addLogs("EnterAnswer1");
+    }
+
+    public void enterSecondPairQuestion(String quest2) throws InterruptedException {
+        UtilityFunctions.waitForElementIsVisible(enterQuestion2);
+        UtilityFunctions.waitToBeClickableAndSendKeys(enterQuestion2,quest2);
+        Listeners.addLogs("EnterQuestion2");
+    }
+    public void enteSecondPairAnswer(String answer2) throws InterruptedException {
+        UtilityFunctions.waitForElementIsVisible(enterAnswer2);
+        UtilityFunctions.waitToBeClickableAndSendKeys(enterAnswer2,answer2);
+        Listeners.addLogs("EnterAnswer2");
+    }
+    public void enterThirdPairQuestion(String quest3) throws InterruptedException {
+        UtilityFunctions.waitForElementIsVisible(enterQuestion3);
+        UtilityFunctions.waitToBeClickableAndSendKeys(enterQuestion3,quest3);
+        Listeners.addLogs("EnterQuestion3");
+    }
+    public void enterThirdPairAnswer(String answer3) throws InterruptedException {
+        UtilityFunctions.waitForElementIsVisible(enterAnswer3);
+        UtilityFunctions.waitToBeClickableAndSendKeys(enterAnswer3,answer3);
+        Listeners.addLogs("EnterAnswer3");
+    }
+    public void refresh() throws InterruptedException {
+        UtilityFunctions.waitForElementAndClickable(refreshBtn);
+        Listeners.addLogs("Clicked on refreshBtn");
+
+    }
+
+    public void boardDropdownInQuestCreation() throws InterruptedException {
+        UtilityFunctions.waitForElementAndClickable(clickBoardDropDownInQuestCreation);
+        Listeners.addLogs("clicked on boardDropDown");
+    }
+    public void selectBoardValueInQuestCreation() throws InterruptedException {
+        UtilityFunctions.waitForElementAndClickable(boardSelectedInQuestCreation);
+        Listeners.addLogs("clicked on selectBoardDropdown");
+    }
+
+    public void mediumDropdownInQuestCreation() throws InterruptedException {
+        UtilityFunctions.waitForElementAndClickable(clickMediumInQuestCreation);
+        Listeners.addLogs("clicked on mediumDropDown");
+    }
+    public void selectMediumValueInQuestCreation() throws InterruptedException {
+        UtilityFunctions.waitForElementAndClickable(mediumSelectedInQuestCreation);
+        Listeners.addLogs("clicked on selectMediumDropdown");
+    }
+
+    public void classDropdownInQuestCreation() throws InterruptedException {
+        UtilityFunctions.waitForElementAndClickable(clickClassInQuestCreation);
+        Listeners.addLogs("clicked on classDropDown");
+    }
+    public void selectClassValueInQuestCreation() throws InterruptedException {
+        UtilityFunctions.waitForElementAndClickable(classSelectedInQuestCreation);
+        Listeners.addLogs("clicked on selectClassValue");
+    }
+    public void subjectDropdownInQuestCreation() throws InterruptedException {
+        UtilityFunctions.waitForElementAndClickable(clickSubjectInQuestCreation);
+        Listeners.addLogs("clicked on subjectDropDown");
+    }
+    public void selectSubjectValueInQuestCreation() throws InterruptedException {
+        UtilityFunctions.waitForElementAndClickable(subjectSelectedInQuestCreation);
+        Listeners.addLogs("clicked on selectSubjectValue");
+    }
+    public void levelDropDownInQuestionCreation() throws InterruptedException {
+        UtilityFunctions.scrollInToviewUsingJavaScript(levelInQuestCreation);
+        UtilityFunctions.waitForElementAndClickable(levelInQuestCreation);
+        Listeners.addLogs("clicked on levelInQuestCreation");
+    }
+    public void easylevelDropDownInQuestionCreation() throws InterruptedException {
+        UtilityFunctions.waitForElementAndClickable(selectEasyLevelInQuestCreation);
+        Listeners.addLogs("selectEasyLevelInQuestCreation");
+    }
+    public void saveAndCreateBtn() throws InterruptedException {
+        UtilityFunctions.waitForElementAndClickable(saveAndCreate);
+        Listeners.addLogs("saveAndCreate");
+    }
+
+    public void entermcqAns1(String answer1) throws InterruptedException {
+        UtilityFunctions.scrollInToviewUsingJavaScript(mcqAnswer1);
+        UtilityFunctions.waitForElementIsVisible(mcqAnswer1);
+        UtilityFunctions.waitToBeClickableAndSendKeys(mcqAnswer1,answer1);
+        Listeners.addLogs("entered mcqAnswer1");
+    }
+    public void entermcqAns2(String answer2) throws InterruptedException {
+        UtilityFunctions.waitForElementIsVisible(mcqAnswer2);
+        UtilityFunctions.waitToBeClickableAndSendKeys(mcqAnswer2,answer2);
+        Listeners.addLogs("entered MCQ answer2");
+    }
+    public void mcaMarkAsRigthAnswer() throws InterruptedException {
+        UtilityFunctions.waitForElementAndClickable(mcqCorrectAnswer);
+        Listeners.addLogs("clicked on mcqCorrectAnswer");
+    }
+
+    public void nextIconInPreview() throws InterruptedException {
+        UtilityFunctions.waitToBeClickableAndClick(nextIconInPreview);
+        Listeners.addLogs("Clicked on nextIconInPreview");
+    }
+    public void nextButtonPreview() throws InterruptedException {
+        UtilityFunctions.waitToBeClickableAndClick(nextBtnInPreview);
+        Listeners.addLogs("Clicked on nextBtnInPreview");
     }
 }
 

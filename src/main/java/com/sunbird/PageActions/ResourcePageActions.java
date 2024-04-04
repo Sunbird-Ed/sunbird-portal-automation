@@ -93,5 +93,6 @@ public static void assertContentInPreviewPlayer() throws InterruptedException {
 	ResourcePage resourcePage = PageFactory.initElements(driver, ResourcePage.class);
 	resourcePage.asssertQuestionInPreviewPlayer();
 }
+
 	}
 

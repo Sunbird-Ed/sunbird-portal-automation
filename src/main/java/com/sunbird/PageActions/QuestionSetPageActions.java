@@ -163,4 +163,113 @@ return displayedCount;
 		QuestionSetPage questionSetPage = PageFactory.initElements(driver, QuestionSetPage.class);
 		questionSetPage.addMoreQuestions();
 	}
+	public static void createQuestionbutton() throws InterruptedException {
+		QuestionSetPage questionSetPage = PageFactory.initElements(driver, QuestionSetPage.class);
+		questionSetPage.createQuestion();
+	}
+	public static void selectMTF() throws InterruptedException {
+		QuestionSetPage questionSetPage = PageFactory.initElements(driver, QuestionSetPage.class);
+		questionSetPage.selectMTF();
+	}
+	public static void switchToRichFrameEditor() throws InterruptedException {
+		QuestionSetPage questionSetPage = PageFactory.initElements(driver, QuestionSetPage.class);
+		questionSetPage.switchToFrameUsingName();
+	}
+	public static void enterQuestionInsideTextBox(String questionData) throws InterruptedException {
+		QuestionSetPage questionSetPage = PageFactory.initElements(driver, QuestionSetPage.class);
+			questionSetPage.enterQuestionInTextBox(questionData);
+
+	}
+	public static void enterMCQQuestionInsideTextBox(String questionData) throws InterruptedException {
+		QuestionSetPage questionSetPage = PageFactory.initElements(driver, QuestionSetPage.class);
+		questionSetPage.enterMCQQuestionInTextBox(questionData);
+
+	}
+	public static void switchToParentFrame() throws InterruptedException {
+		QuestionSetPage questionSetPage = PageFactory.initElements(driver, QuestionSetPage.class);
+		questionSetPage.parentSwitchFrame();
+	}
+
+	public static void enterAllQuestionAndAnswerForMTF() throws Exception
+	{
+		QuestionSetPage questionSetPage = PageFactory.initElements(driver, QuestionSetPage.class);
+questionSetPage.enterFirstPairQuestion("Animal");
+questionSetPage.enterFirstPairAnswer("Lion");
+questionSetPage.enterSecondPairQuestion("Flower");
+questionSetPage.enteSecondPairAnswer("Rose");
+questionSetPage.enterThirdPairQuestion("Colour");
+questionSetPage.enterThirdPairAnswer("Black");
+	}
+	public static void clickRefreshIcon() throws Exception
+	{
+		QuestionSetPage questionSetPage = PageFactory.initElements(driver, QuestionSetPage.class);
+
+		questionSetPage.refresh();
+		Thread.sleep(8000);
+	}
+	public static void selectBMCInQuestionCreationPage() throws Exception
+	{
+		QuestionSetPage questionSetPage = PageFactory.initElements(driver, QuestionSetPage.class);
+		questionSetPage.boardDropdownInQuestCreation();
+		questionSetPage.selectBoardValueInQuestCreation();
+		questionSetPage.mediumDropdownInQuestCreation();
+		questionSetPage.selectMediumValueInQuestCreation();
+		questionSetPage.classDropdownInQuestCreation();
+		questionSetPage.selectClassValueInQuestCreation();
+		questionSetPage.subjectDropdownInQuestCreation();
+		questionSetPage.selectSubjectValueInQuestCreation();
+	}
+	public static void selectEasyLevelInQuestionCreationPage() throws Exception
+	{
+		QuestionSetPage questionSetPage = PageFactory.initElements(driver, QuestionSetPage.class);
+	questionSetPage.levelDropDownInQuestionCreation();
+		questionSetPage.easylevelDropDownInQuestionCreation();
+	}
+	public static void saveAndCreateButton() throws Exception
+	{
+		QuestionSetPage questionSetPage = PageFactory.initElements(driver, QuestionSetPage.class);
+		questionSetPage.saveAndCreateBtn();
+	}
+	public static void selectMCQ() throws InterruptedException {
+		QuestionSetPage questionSetPage = PageFactory.initElements(driver, QuestionSetPage.class);
+		questionSetPage.selectMCQ();
+	}
+	public static void selectFTB() throws InterruptedException {
+		QuestionSetPage questionSetPage = PageFactory.initElements(driver, QuestionSetPage.class);
+		questionSetPage.selectFTB();
+	}
+
+	public static void enterAllQuestAndAsnwerInMCQ() throws Exception
+	{
+		QuestionSetPage questionSetPage = PageFactory.initElements(driver, QuestionSetPage.class);
+		questionSetPage.entermcqAns1("America");
+		questionSetPage.entermcqAns2("India");
+	questionSetPage.mcaMarkAsRigthAnswer();
+	}
+	public static void nextIconPreview() throws InterruptedException {
+		QuestionSetPage questionSetPage = PageFactory.initElements(driver, QuestionSetPage.class);
+		questionSetPage.nextIconInPreview();
+	}
+	public static void nextButtonInPreivewPlayer() throws InterruptedException {
+		QuestionSetPage questionSetPage = PageFactory.initElements(driver, QuestionSetPage.class);
+		questionSetPage.nextButtonPreview();
+	}
+//	public static void sd() throws Exception
+//	{
+//		QuestionSetPageActions.selectMTF();
+//		QuestionSetPageActions.switchToRichFrameEditor();
+//		String mcq=QuestionSetPageActions.enterQuestionInsideTextBox();
+//		UtilityFunctions.switchToDefaultContentFrame();
+//		QuestionSetPageActions.switchToParentFrame();
+//		QuestionSetPageActions.enterAllQuestionAndAnswerForMTF();
+//		UtilityFunctions.switchToDefaultContentFrame();
+//		QuestionSetPageActions.switchToParentFrame();
+//		QuestionSetPageActions.clickRefreshIcon();
+//		UtilityFunctions.switchToDefaultContentFrame();
+//		QuestionSetPageActions.switchToParentFrame();
+//		QuestionSetPageActions.clickNextBtnInQuestionPage();
+//		QuestionSetPageActions.selectBMCInQuestionCreationPage();
+//		QuestionSetPageActions.selectEasyLevelInQuestionCreationPage();
+//		QuestionSetPageActions.saveAndCreateButton();
+//	}
 }

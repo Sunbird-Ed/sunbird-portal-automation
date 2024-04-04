@@ -250,7 +250,22 @@ public class UtilityFunctions extends BaseTestConfig {
             }
     }
 }
+    public static void waitForElementUsingForLoop(WebElement element,int maxAttempt)
+    {
+        for(int i=0;i<maxAttempt;i++) {
+            try {
+                validatIsElementPresent(element, "element is not Displayed");
+                break;
+            } catch (StaleElementReferenceException e)
+            {
 
+                 }
+        }
+    }
+    public static void switchToFrameUsingXpath(WebElement element) throws InterruptedException {
+       // WebElement iframe = driver.findElement(By.xpath(element));
+        driver.switchTo().frame(element);
+    }
     public static void switchFrameUsingXpath() throws InterruptedException {
         WebElement iframe = driver.findElement(By.xpath("//iframe[@class='iziModal-iframe']"));
         driver.switchTo().frame(iframe);
@@ -312,7 +327,13 @@ return value;
     }
     public static void switchToDefaultContentFrame()
     {
+
         driver.switchTo().defaultContent();
     }
 
+    public static void waitForFrameToBeAvailable(WebElement element) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(element));
+
+    }
 }

@@ -5,8 +5,7 @@ import com.sunbird.GenericLibrary.UtilityFunctions;
 import com.sunbird.PageActions.*;
 import org.testng.annotations.Test;
 
-public class SanitySuites4 extends BaseTestConfig
-{
+public class SanitySuites4 extends BaseTestConfig {
 
 	@Test(description = "create Group")
 	public void createGroup() throws Exception {
@@ -20,7 +19,7 @@ public class SanitySuites4 extends BaseTestConfig
 		DashboardPageActions.clickOnMyGroups();
 		GroupsPageActions.clickCloseCrossIcon();
 		GroupsPageActions.clickCreateGroup();
-		String fetchGroupName= GroupsPageActions.enterGroupNameAndDesc();
+		String fetchGroupName = GroupsPageActions.enterGroupNameAndDesc();
 		GroupsPageActions.assertGroupCreatedToastrMessage();
 		GroupsPageActions.clickCreatedGroupCard(fetchGroupName);
 		GroupsPageActions.assertGroupKababMenuIcon();
@@ -38,7 +37,7 @@ public class SanitySuites4 extends BaseTestConfig
 		DashboardPageActions.clickOnMyGroups();
 		GroupsPageActions.clickCloseCrossIcon();
 		GroupsPageActions.clickCreateGroup();
-		String fetchGroupName= GroupsPageActions.enterGroupNameAndDesc();
+		String fetchGroupName = GroupsPageActions.enterGroupNameAndDesc();
 		GroupsPageActions.assertGroupCreatedToastrMessage();
 		GroupsPageActions.clickCreatedGroupCard(fetchGroupName);
 		GroupsPageActions.assertGroupKababMenuIcon();
@@ -63,7 +62,7 @@ public class SanitySuites4 extends BaseTestConfig
 		DashboardPageActions.clickOnMyGroups();
 		GroupsPageActions.clickCloseCrossIcon();
 		GroupsPageActions.clickCreateGroup();
-		String fetchGroupName= GroupsPageActions.enterGroupNameAndDesc();
+		String fetchGroupName = GroupsPageActions.enterGroupNameAndDesc();
 		GroupsPageActions.assertGroupCreatedToastrMessage();
 		GroupsPageActions.clickCreatedGroupCard(fetchGroupName);
 		GroupsPageActions.assertGroupKababMenuIcon();
@@ -74,11 +73,11 @@ public class SanitySuites4 extends BaseTestConfig
 		GroupsPageActions.clickForumIcon();
 		GroupsPageActions.clickGeneralDiscussionCard();
 		GroupsPageActions.clickStartCreating();
-		String topicName=GroupsPageActions.enterTopicNameandDescrption("Create");
+		String topicName = GroupsPageActions.enterTopicNameandDescrption("Create");
 		GroupsPageActions.clickCreatedTopic(topicName);
 		GroupsPageActions.kababMenuInTopic();
 		GroupsPageActions.editTopic();
-		String updatedTopicName=GroupsPageActions.enterTopicNameandDescrption("Update");
+		String updatedTopicName = GroupsPageActions.enterTopicNameandDescrption("Update");
 		GroupsPageActions.clickCreatedTopic(updatedTopicName);
 		GroupsPageActions.kababMenuInTopic();
 		GroupsPageActions.deleteTopic();
@@ -98,7 +97,7 @@ public class SanitySuites4 extends BaseTestConfig
 		DashboardPageActions.clickOnMyGroups();
 		GroupsPageActions.clickCloseCrossIcon();
 		GroupsPageActions.clickCreateGroup();
-		String fetchGroupName= GroupsPageActions.enterGroupNameAndDesc();
+		String fetchGroupName = GroupsPageActions.enterGroupNameAndDesc();
 		GroupsPageActions.assertGroupCreatedToastrMessage();
 		GroupsPageActions.clickCreatedGroupCard(fetchGroupName);
 		GroupsPageActions.assertGroupKababMenuIcon();
@@ -116,18 +115,20 @@ public class SanitySuites4 extends BaseTestConfig
 		GroupsPageActions.assertCloseIcon();
 
 	}
+
 	@Test(description = "Verify user able to searchQrCodeInGetPage")
 	public void searchQrCodeInGetPage() throws Exception {
 		OnBoardingActions.RolePoup();
 		OnBoardingActions.BMCPopup();
 		OnBoardingActions.LocationPopup();
 		String currentUrl = driver.getCurrentUrl();
-		driver.get(currentUrl+"/get");
+		driver.get(currentUrl + "/get");
 		GetPageActions.enterQrCode(sunbird_config.getSunbidConfigPropertyValue("TextbookQrCode"));
 		GetPageActions.clickSearhIcon();
 		GetPageActions.assertContentDisplayed();
 
 	}
+
 	@Test(description = "Verify guest user is able to get Login Popup while join the course \n")
 	public void loginPopupShouldDisplayForGuestUserDuringCourseEnroll() throws Exception {
 
@@ -138,7 +139,7 @@ public class SanitySuites4 extends BaseTestConfig
 		DashboardPageActions.searchContentAndClickOnContentCard(sunbird_config.getSunbidConfigPropertyValue("Course"));
 		BatchPageActions.clickJoinCourse();
 		LoginPageActions.clickLoginInPopup();
-		LoginPageActions.LoginForJoinCourse(sunbird_config.getSunbidConfigPropertyValue("PUBLIC_USER"),sunbird_config.getSunbidConfigPropertyValue("PUBLIC_PASSWORD"));
+		LoginPageActions.LoginForJoinCourse(sunbird_config.getSunbidConfigPropertyValue("PUBLIC_USER"), sunbird_config.getSunbidConfigPropertyValue("PUBLIC_PASSWORD"));
 		BatchPageActions.assertJoinCourse();
 		BatchPageActions.assertShareIcon();
 	}
@@ -175,6 +176,7 @@ public class SanitySuites4 extends BaseTestConfig
 		UtilityFunctions.switchFrameUsingName();
 		ResourcePageActions.assertContentInPreviewPlayer();
 	}
+
 	@Test(description = "verify different framework values in courseType")
 	public void verifyFrameworksInCourseType() throws Exception {
 
@@ -211,7 +213,7 @@ public class SanitySuites4 extends BaseTestConfig
 		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
 		DashboardPageActions.clickUserProfileIcon();
 		DashboardPageActions.clickOnWorkSpace();
-		ReviewPageActions.reviewAndPublishContent(resourceName,"Upload");
+		ReviewPageActions.reviewAndPublishContent(resourceName, "Upload");
 		DashboardPageActions.logOut();
 
 		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
@@ -221,7 +223,7 @@ public class SanitySuites4 extends BaseTestConfig
 		DashboardPageActions.clickOnWorkSpace();
 		WorkspaceDashboardPageActions.clickBook();
 		String createdContent = BookPageActions.createBookPopup("getdoid");
-		String des=BookPageActions.section1("getdescription");
+		String des = BookPageActions.section1("getdescription");
 		BookPageActions.BMCDropdownSelectionSection2();
 		BookPageActions.Section3();
 		BookPageActions.assertContentIsSavedToastrMsg();
@@ -256,6 +258,7 @@ public class SanitySuites4 extends BaseTestConfig
 		ObservationPageActions.clickOnObservationCard();
 		ObservationPageActions.assertObservationDetails();
 	}
+
 	@Test(description = "Post uploading and saving, content resides in all my bucket .")
 	public void verifyUploadContentInAllMyContent() throws Exception {
 
@@ -279,7 +282,7 @@ public class SanitySuites4 extends BaseTestConfig
 		UploadPageActions.assertEditDetails();
 	}
 
-/* Sprint 2*/
+	/* Sprint 2*/
 	@Test(description = "The Digital textbooks, Courses, and TV Classes tabs should have the same filters")
 	public void verifyFilterIsSameInDigitalAndCourseAndTVClassTabs() throws Exception {
 
@@ -296,6 +299,7 @@ public class SanitySuites4 extends BaseTestConfig
 		DashBoardFiltersPageActions.verifyAllFilter();
 
 	}
+
 	@Test(description = "User should be able to see all the questions created by him/herself by turning on My question toggle button along with edit")
 	public void toogleMyQuestionFilterAndValidateQuestions() throws Exception {
 
@@ -324,6 +328,7 @@ public class SanitySuites4 extends BaseTestConfig
 		UtilityFunctions.switchFrameUsingName();
 		ResourcePageActions.assertContentInPreviewPlayer();
 	}
+
 	@Test(description = "User should be able to bundle the question along with immediate feedback and shuffle question")
 	public void bundleTheQuestionWithImmediateFeedBackAndShuffle() throws Exception {
 
@@ -384,11 +389,12 @@ public class SanitySuites4 extends BaseTestConfig
 		CreateQuestionSetPageActions.optionParagraph();
 		CreateQuestionSetPageActions.optionParagraph2();
 		CreateQuestionSetPageActions.clickCorrectAnswers();
-		String title= CreateQuestionSetPageActions.questionTitle();
+		String title = CreateQuestionSetPageActions.questionTitle();
 		CreateQuestionSetPageActions.clickSave();
 		CreateQuestionSetPageActions.assertQuestionCreatedToastrMsg();
 		BookPageActions.submitAndSendForReview();
 	}
+
 	@Test(description = "User should be able to Create Subjective QuestionSet ByFillingRootNode")
 	public void CreateSubjectiveQuestionSetByFillingRootNode() throws Exception {
 
@@ -418,11 +424,87 @@ public class SanitySuites4 extends BaseTestConfig
 		CreateQuestionSetPageActions.clickNextBtn();
 		CreateQuestionSetPageActions.questParagraph();
 		CreateQuestionSetPageActions.optionParagraph();
-		String title= CreateQuestionSetPageActions.questionTitle();
+		String title = CreateQuestionSetPageActions.questionTitle();
 		CreateQuestionSetPageActions.questionMarks("10");
 		CreateQuestionSetPageActions.clickSave();
 		CreateQuestionSetPageActions.assertQuestionCreatedToastrMsg();
 		BookPageActions.submitAndSendForReview();
 	}
-}
 
+	@Test()
+	public void createMCAandFTBandMCQInResource() throws Exception {
+
+		OnBoardingActions.RolePoup();
+		OnBoardingActions.BMCPopup();
+		OnBoardingActions.LocationPopup();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+				sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.clickOnWorkSpace();
+		WorkspaceDashboardPageActions.clickResource();
+		String createdContent = ResourcePageActions.createResourcePopup("getContentName");
+		QuestionSetPageActions.clickAddQuestionSetIcon();
+		QuestionSetPageActions.createQuestionbutton();
+		QuestionSetPageActions.selectMTF();
+		QuestionSetPageActions.switchToRichFrameEditor();
+		QuestionSetPageActions.enterQuestionInsideTextBox("Arrange Following Matches");
+		UtilityFunctions.switchToDefaultContentFrame();
+		QuestionSetPageActions.switchToParentFrame();
+		QuestionSetPageActions.enterAllQuestionAndAnswerForMTF();
+		UtilityFunctions.switchToDefaultContentFrame();
+		QuestionSetPageActions.switchToParentFrame();
+		QuestionSetPageActions.clickRefreshIcon();
+		UtilityFunctions.switchToDefaultContentFrame();
+		QuestionSetPageActions.switchToParentFrame();
+		QuestionSetPageActions.clickNextBtnInQuestionPage();
+		QuestionSetPageActions.selectBMCInQuestionCreationPage();
+		QuestionSetPageActions.selectEasyLevelInQuestionCreationPage();
+		QuestionSetPageActions.saveAndCreateButton();
+		//  Thread.sleep(4000);
+
+		QuestionSetPageActions.selectMCQ();
+		Thread.sleep(4000);
+		QuestionSetPageActions.switchToRichFrameEditor();
+		Thread.sleep(4000);
+		QuestionSetPageActions.enterMCQQuestionInsideTextBox("Multiple Choice Questions");
+		UtilityFunctions.switchToDefaultContentFrame();
+		QuestionSetPageActions.switchToParentFrame();
+		QuestionSetPageActions.enterAllQuestAndAsnwerInMCQ();
+		UtilityFunctions.switchToDefaultContentFrame();
+		QuestionSetPageActions.switchToParentFrame();
+		QuestionSetPageActions.clickRefreshIcon();
+		UtilityFunctions.switchToDefaultContentFrame();
+		QuestionSetPageActions.switchToParentFrame();
+		QuestionSetPageActions.clickNextBtnInQuestionPage();
+		QuestionSetPageActions.saveAndCreateButton();
+
+		QuestionSetPageActions.selectFTB();
+		Thread.sleep(4000);
+		QuestionSetPageActions.switchToRichFrameEditor();
+		Thread.sleep(4000);
+		QuestionSetPageActions.enterQuestionInsideTextBox("Life is [[Beautiful]]");
+		UtilityFunctions.switchToDefaultContentFrame();
+		QuestionSetPageActions.switchToParentFrame();
+		QuestionSetPageActions.clickRefreshIcon();
+		UtilityFunctions.switchToDefaultContentFrame();
+		QuestionSetPageActions.switchToParentFrame();
+		QuestionSetPageActions.clickNextBtnInQuestionPage();
+		QuestionSetPageActions.clickSubmitInQuestionPage();
+		QuestionSetPageActions.clkNextButtonInQuestionPage();
+		QuestionSetPageActions.enterQuestionSetTitle();
+		QuestionSetPageActions.clkAddButtonInQuestionTitlePage();
+		Thread.sleep(4000);
+		ResourcePageActions.saveAndCloseIcon();
+		ResourcePageActions.clickPreivewIcon();
+		UtilityFunctions.switchFrameUsingName();
+		QuestionSetPageActions.nextIconPreview();
+		QuestionSetPageActions.nextButtonInPreivewPlayer();
+		QuestionSetPageActions.nextIconPreview();
+		QuestionSetPageActions.nextButtonInPreivewPlayer();
+		QuestionSetPageActions.nextIconPreview();
+		QuestionSetPageActions.nextButtonInPreivewPlayer();
+
+
+	}
+
+}
