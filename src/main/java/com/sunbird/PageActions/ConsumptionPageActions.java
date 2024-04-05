@@ -51,9 +51,12 @@ public class ConsumptionPageActions extends BaseTestConfig {
         String generatedXpath = UtilityFunctions.generateXpathUsingAttributeNameAndKeynameValue(SunbirdConstants.title, mp4Name);
         UtilityFunctions.findElementAndClick(generatedXpath);
 
-
-
     }
 
+    public static void clickFullScreen() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        consumptionPage.fullScreen();
+
+    }
 }
 	

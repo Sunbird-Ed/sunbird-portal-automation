@@ -147,6 +147,9 @@ public class BookPage {
     @FindBy(how=How.XPATH,using="//button[contains(text(),'Create')] ")
     private WebElement clickCreateInCopyAscourse;
 
+    @FindBy(how=How.XPATH,using="//button[@aria-label='back']")
+    private WebElement backButtonInEditor;
+
     public void enterBookName(String randomBookName) throws InterruptedException {
 
                       UtilityFunctions.waitToBeClickableAndSendKeys(bookname, randomBookName);
@@ -427,6 +430,12 @@ Listeners.addLogs("clicked on QRCodeDropdown");
     {
         UtilityFunctions.waitForElementAndClickable(clickCreateInCopyAscourse);
         Listeners.addLogs("click on createInCopyAscourse");
+
+    }
+    public void backButtonEditor()
+    {
+        UtilityFunctions.waitForElementAndClickable(backButtonInEditor);
+        Listeners.addLogs("click on backButtonInEditor");
 
     }
 }

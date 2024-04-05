@@ -244,5 +244,8 @@ bookPage.waitGenerateQRCodeToastrToDisappear();
 
         bookPage.clickBackBtnFromLibrarysection();
     }
-
+    public static void clickBackButtonInEditor() {
+        BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
+        bookPage.backButtonEditor();
+    }
 }

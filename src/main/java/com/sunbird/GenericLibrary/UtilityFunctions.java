@@ -336,4 +336,13 @@ return value;
         wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(element));
 
     }
+    public static void refreshPage() {
+     driver.navigate().refresh();
+    }
+
+    public static void elementToBeSelected(WebElement element) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        wait.until(ExpectedConditions.elementToBeSelected(element));
+
+    }
 }

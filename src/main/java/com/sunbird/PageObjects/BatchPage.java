@@ -104,6 +104,19 @@ public class BatchPage {
 	@FindBy(how=How.XPATH,using="//button[contains(text(),' Share ')]")
 	private WebElement shareIconCouseToc;
 
+	@FindBy(how=How.XPATH,using="//label[@for='true']")
+	private WebElement enableDisussionYes;
+
+	@FindBy(how=How.XPATH,using="//button[contains(text(),' View course dashboard ')]")
+	private WebElement viewCourseDashboard;
+
+	@FindBy(how=How.XPATH,using="//*[contains(text(),'Batches')]//following::mat-select[1]")
+	private WebElement selectBatchDropdown;
+
+
+	@FindBy(how=How.XPATH,using="//*[contains(text(),'Batches')]//following::mat-option[@role='option']")
+	private WebElement selectCreatedBatchName;
+
 
 	public void createBatchClick() {
 		UtilityFunctions.waitToBeClickableAndClick(createBatchBtn);
@@ -249,5 +262,23 @@ public class BatchPage {
 		UtilityFunctions.validatIsElementPresent(shareIconCouseToc,"Share icon not displayed in course TOC");
 		Listeners.addLogs("Share Icon is validated");
 	}
+	public void enableDiscussionYes() {
+		UtilityFunctions.waitToBeClickableAndClick(enableDisussionYes);
+		Listeners.addLogs("clicked on enableDisussionYes");
+	}
+	public void viewcoursedashboard() {
+		UtilityFunctions.waitForElementAndClickable(viewCourseDashboard);
+		Listeners.addLogs("clicked on viewCourseDashboard");
+	}
+	public void selectbatchdropddown() {
+
+		UtilityFunctions.waitForElementAndClickable(selectBatchDropdown);
+		Listeners.addLogs("clicked on selectBatchDropdown");
+	}
+	public void selectcreatedBatch() {
+		UtilityFunctions.waitForElementAndClickable(selectCreatedBatchName);
+		Listeners.addLogs("clicked on selectCreatedBatchName");
+	}
+
 }
 

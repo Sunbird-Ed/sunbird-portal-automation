@@ -281,6 +281,57 @@ public class SanitySuites4 extends BaseTestConfig {
 		UtilityFunctions.switchFrameOnIndex(0);
 		UploadPageActions.assertEditDetails();
 	}
+	@Test(description = "User can play all content type in full screen mode")
+	public void consumContentInFullScreen() throws Exception {
+
+		OnBoardingActions.RolePoup();
+		OnBoardingActions.BMCPopup();
+		OnBoardingActions.LocationPopup();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.assertWorkspace();
+		DashboardPageActions.clickOnWorkSpace();
+		UploadPageActions.uploadContent("PDF");
+		UploadPageActions.clickSendForReview();
+		String resourceName = UploadPageActions.sendUploadContentForReview();
+		UtilityFunctions.switchToDefaultContentFrame();
+		DashboardPageActions.logOut();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.clickOnWorkSpace();
+		ReviewPageActions.reviewAndPublishContent(resourceName, "Upload");
+		DashboardPageActions.logOut();
+
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+				sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.assertWorkspace();
+		DashboardPageActions.clickOnWorkSpace();
+		WorkspaceDashboardPageActions.clickBook();
+		String createdContent = BookPageActions.createBookPopup("getdoid");
+		String des = BookPageActions.section1("getdescription");
+		BookPageActions.BMCDropdownSelectionSection2();
+		BookPageActions.Section3();
+		BookPageActions.assertContentIsSavedToastrMsg();
+		BookPageActions.waitContentIsSavedToastToDisapper();
+		BookPageActions.addResourceInLibrarySection(resourceName);
+		BookPageActions.submitAndSendForReview();
+		DashboardPageActions.logOut();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"),
+				sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.clickOnWorkSpace();
+		ReviewPageActions.reviewAndPublishContent(createdContent, "Book");
+		DashboardPageActions.logOut();
+
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("PUBLIC_USER"),
+				sunbird_config.getSunbidConfigPropertyValue("PUBLIC_PASSWORD"));
+		DashboardPageActions.searchContentAndClickOnContentCard(createdContent);
+		UtilityFunctions.scrollUpUsingPixelValue();
+		ConsumptionPageActions.clickFullScreen();
+		ConsumptionPageActions.consumePDF();
+
+	}
 
 	/* Sprint 2*/
 	@Test(description = "The Digital textbooks, Courses, and TV Classes tabs should have the same filters")
@@ -505,6 +556,83 @@ public class SanitySuites4 extends BaseTestConfig {
 		QuestionSetPageActions.nextButtonInPreivewPlayer();
 
 
+	}
+
+
+	@Test(description = "Post enabling user should be able to see the forum icon in dashboard page")
+	public void forumIconInViewCourseDashboardInBatch() throws Exception {
+
+		OnBoardingActions.RolePoup();
+		OnBoardingActions.BMCPopup();
+		OnBoardingActions.LocationPopup();
+
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+				sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.assertWorkspace();
+		DashboardPageActions.clickOnWorkSpace();
+		WorkspaceDashboardPageActions.clickCourse();
+		String createdContent = CoursePageActions.createCourseSection1("getdoid");
+		BookPageActions.BMCDropdownSelectionSection2();
+		BookPageActions.Section3();
+		BookPageActions.assertContentIsSavedToastrMsg();
+		BookPageActions.waitContentIsSavedToastToDisapper();
+		BookPageActions.addResourceFromLibrary();
+		BookPageActions.submitAndSendForReview();
+		DashboardPageActions.logOut();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"),
+				sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.clickOnWorkSpace();
+		ReviewPageActions.reviewAndPublishContent(createdContent, "Course");
+		DashboardPageActions.logOut();
+
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+				sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+		DashboardPageActions.clickCourseTab();
+		DashboardPageActions.searchContentAndClickOnContentCard(createdContent);
+		BatchPageActions.clickBatchCreationBtn();
+		BatchPageActions.enterBatchNameandDescription();
+		BatchPageActions.clickIssueCertificateNo();
+		BatchPageActions.clickEnableDisussionYes();
+		BatchPageActions.startDate(UtilityFunctions.getTodayDate("MM/dd/yyyy"));
+		BatchPageActions.endDate(3);
+		BatchPageActions.enrollmentEndDate(2);
+		BatchPageActions.clickTermsCheckBoxAndSubmit();
+		BatchPageActions.assertBatchTostrMsg();
+		UtilityFunctions.refreshPage();
+		BatchPageActions.clickViewCourseDashboard();
+		Thread.sleep(1000);
+		BatchPageActions.clickBatchDropdown();
+		BatchPageActions.selectBatchNameInDropdown();
+		GroupsPageActions.clickForumIcon();
+		GroupsPageActions.assertCloseIcon();
+	}
+	@Test(description = "Verify that the book creator is able to generate the bulk QR codes for the draft book")
+	public void downloadBulkQRcodeForDraftBook() throws Exception {
+
+		OnBoardingActions.RolePoup();
+		OnBoardingActions.BMCPopup();
+		OnBoardingActions.LocationPopup();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+				sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.assertWorkspace();
+		DashboardPageActions.clickOnWorkSpace();
+		WorkspaceDashboardPageActions.clickBook();
+		String createdContent = BookPageActions.createBookPopup("getdoid");
+		String des = BookPageActions.section1("getdescription");
+		BookPageActions.BMCDropdownSelectionSection2();
+		BookPageActions.Section3();
+		BookPageActions.assertContentIsSavedToastrMsg();
+		BookPageActions.waitContentIsSavedToastToDisapper();
+		BookPageActions.clickBackButtonInEditor();
+		AllMyContentPageActions.enterContentInSearchBox(createdContent);
+		DraftsPageActions.clickFirstCard();
+		BookPageActions.generateQrCode("2");
+		BookPageActions.downloadQrCode();
+		BookPageActions.generateQrCode("245");
+		BookPageActions.downloadQrCode();
 	}
 
 }

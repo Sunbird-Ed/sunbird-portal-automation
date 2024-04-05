@@ -138,4 +138,24 @@ batchPage.waitProfileShareToastrMsgDisappear();
 		BatchPage batchPage = PageFactory.initElements(driver, BatchPage.class);
 		batchPage.assertShareIcon();
 	}
+	public static void clickEnableDisussionYes()
+	{
+		BatchPage batchPage = PageFactory.initElements(driver, BatchPage.class);
+		batchPage.enableDiscussionYes();
+	}
+	public static void clickViewCourseDashboard()
+	{
+		BatchPage batchPage = PageFactory.initElements(driver, BatchPage.class);
+		batchPage.viewcoursedashboard();
+	}
+	public static void clickBatchDropdown()
+		{
+		BatchPage batchPage = PageFactory.initElements(driver, BatchPage.class);
+		batchPage.selectbatchdropddown();
+	}
+	public static void selectBatchNameInDropdown()
+	{
+		BatchPage batchPage = PageFactory.initElements(driver, BatchPage.class);
+		batchPage.selectcreatedBatch();
+	}
 }

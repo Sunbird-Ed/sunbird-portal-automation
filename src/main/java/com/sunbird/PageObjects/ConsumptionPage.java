@@ -33,6 +33,10 @@ public class ConsumptionPage {
     @FindBy(how=How.XPATH,using="//Strong[contains(text(),'Thank you for rating this content!')]")
     private WebElement assertThankYouRatingTostrMsg;
 
+    @FindBy(how=How.XPATH,using="//span[contains(text(),'Fullscreen')]")
+    private WebElement fullScreen;
+
+
     public int getPDFTotalCount()
     {
 
@@ -70,5 +74,10 @@ UtilityFunctions.waitForVisibilityOfWebElement(assertRatingPopup);
         UtilityFunctions.waitForVisibilityOfWebElement(assertThankYouRatingTostrMsg);
         String getActualText = UtilityFunctions.getTextFromElement(assertThankYouRatingTostrMsg);
         return getActualText;
+    }
+    public   void fullScreen() throws InterruptedException {
+        UtilityFunctions.waitToBeClickableAndClick(fullScreen);
+        Listeners.addLogs("Clicked on fullScreen");
+
     }
 }
