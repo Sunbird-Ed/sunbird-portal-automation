@@ -1,37 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
-    <listeners>
-        <listener class-name="com.sunbird.GenericLibrary.Listeners"></listener>
-    </listeners>
-    <test thread-count="5" name="Test">
-        <classes>
-           <!--   <class name="sanity.FirstStep3"/>
-
-             <class name="sanity.Login"/>-->
-
-       <!--     <class name="sanity.WritePropetiesCheck"/>-->
-   <!--  <class name="sanity.UploadContent2"/>
-          <class name="sanity.createBookAndPublish3"/>-->
-
-        <!--    <class name="sanity.createBookAndPublish"/>-->
-           <!-- <class name="sanity.createBookAndPublish"/>-->
-
-        <!--   <class name="sanitySuite.SanitySuites2"/>-->
-<!--          clickOnAddChildLeftSectionUnitclass name="sanity.UploadContent"/>-->
-<!--            <class name="sanity.BookScenario"/>-->
-<!--            <class name="sanity.CourseScenario"/>-->
-  <class name="sanity.FirstStep5"/>
-
-<!--
-
-         <class name="sanitySuite.SanitySuites"/>
-            <class name="sanitySuite.SanitySuites2"/>
-           <class name="sanitySuite.SanitySuite3"/>
-           <class name="sanitySuite.SanitySuites4"/>
-
--->
-
-        </classes>
-    </test> <!-- Test -->
+	<listeners>
+		<listener class-name="com.sunbird.GenericLibrary.Listeners"></listener>
+	</listeners>
+	<test
+		thread-count="5"
+		name="Test"
+	>
+		<classes>
+			<!-- <class name="sanity.FirstStep3"/> <class name="sanity.Login"/> -->
+			<!-- <class name="sanity.WritePropetiesCheck"/> -->
+			<!-- <class name="sanity.UploadContent2"/> <class name="sanity.createBookAndPublish3"/> -->
+			<!-- <class name="sanity.createBookAndPublish"/> -->
+			<!-- <class name="sanity.createBookAndPublish"/> -->
+			<!-- <class name="sanitySuite.SanitySuites2"/> -->
+			<!-- clickOnAddChildLeftSectionUnitclass name="sanity.UploadContent"/> -->
+			<!-- <class name="sanity.BookScenario"/> -->
+			<!-- <class name="sanity.CourseScenario"/> -->
+			<class name="sanity.FirstStep5" />
+			<!-- <class name="sanitySuite.SanitySuites"/> <class name="sanitySuite.SanitySuites2"/> 
+				<class name="sanitySuite.SanitySuite3"/> <class name="sanitySuite.SanitySuites4"/> -->
+		</classes>
+	</test> <!-- Test -->
 </suite> <!-- Suite -->
