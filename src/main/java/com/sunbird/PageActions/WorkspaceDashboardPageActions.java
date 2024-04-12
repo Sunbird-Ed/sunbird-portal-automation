@@ -54,5 +54,10 @@ public class WorkspaceDashboardPageActions extends BaseTestConfig {
         workspacedashboardPage.questionSet();
 
     }
+    public static void clickDrafts() throws InterruptedException {
+        WorkspaceDashboardPage workspacedashboardPage=PageFactory.initElements(driver, WorkspaceDashboardPage.class);
+        workspacedashboardPage.clickDrafts();
+
+    }
 }
 	

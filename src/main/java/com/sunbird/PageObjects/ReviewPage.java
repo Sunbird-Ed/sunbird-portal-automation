@@ -56,6 +56,20 @@ public class ReviewPage extends BaseTestConfig {
 	@FindBy(how = How.XPATH, using = "//*[contains(text(),'Please confirm')]//following::button[contains(text(),'Publish')]")
 	private WebElement clickPublishBtnInResource;
 
+	@FindBy(how = How.XPATH, using = "//button[contains(text(),' Request changes ')]")
+	private WebElement requestChanges;
+
+	@FindBy(how = How.XPATH, using = "//*[contains(text(),'Request changes')]//following::input[@type='checkbox']")
+	private List<WebElement> checkBoxForResourceForReject;
+	@FindBy(how = How.XPATH, using = "//*[contains(text(),'Request changes')]//following::input[@type='checkbox']//following::button[1]")
+	private WebElement requestChangesInPopup;
+
+	@FindBy(how = How.XPATH, using = "//textarea[@rows='3']")
+	private WebElement commentBox;
+
+	@FindBy(how = How.XPATH, using = "//strong[contains(text(),'Content rejected successfully...')]")
+	private WebElement assertRejectedTostrMsg;
+
 	public void upForReviewBucket() {
 
 			UtilityFunctions.waitToBeClickableAndClick(upforreview);
@@ -160,6 +174,38 @@ for (int i = 0; i < checkBoxForResource.size(); i++) {
 		String getActualText = UtilityFunctions.getTextFromElement(assertTostrMsg);
 		return getActualText;
 	}
+	public void requestChanges() {
 
+		UtilityFunctions.waitToBeClickableAndClick(requestChanges);
+		Listeners.addLogs("Clicked on requestChanges Button");
+	}
+
+	public void selectCheckBoxesForResourceForReject() throws InterruptedException {
+
+		// Iterate through checkboxes using index values
+		Thread.sleep(5000);
+		for (int i = 0; i < checkBoxForResourceForReject.size(); i++) {
+			//UtilityFunctions.waitForElementAndClickable(checkBoxForResource.get(i));
+			checkBoxForResourceForReject.get(i).click();
+		}
+	}
+	public void requestChangesInPopup() {
+
+		UtilityFunctions.waitToBeClickableAndClick(requestChangesInPopup);
+		Listeners.addLogs("Clicked on requestChangesInPopup ");
+	}
+	public void enterCommenntInBox(String commentSuggestion) {
+UtilityFunctions.scrollInToviewUsingJavaScript(commentBox);
+		UtilityFunctions.waitToBeClickableAndSendKeys(commentBox, commentSuggestion);
+		Listeners.addLogs("Entered comment in box");
+
+	}
+
+	public String assertResourceContentRejectedMsgs() {
+		UtilityFunctions.waitForElementIsVisible(assertRejectedTostrMsg);
+		String getActualText = UtilityFunctions.getTextFromElement(assertRejectedTostrMsg);
+		UtilityFunctions.waitForElementToDisappear(assertRejectedTostrMsg);
+		return getActualText;
+	}
 	}
    

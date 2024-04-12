@@ -95,5 +95,15 @@ Thread.sleep(3000);
 
 
     }
+    public static void LocationPopupForSwitchUser() throws InterruptedException {
+        OnBoarding onboard = PageFactory.initElements(driver, OnBoarding.class);
+        Thread.sleep(2000);
+//        onboard.clickStateDropdown();
+//        onboard.selectStateValue();
+//        onboard.clickDistrictDropDown();
+//        onboard.selectDistrictValue();
+        onboard.LocationPopupSubmit();
+
+    }
 
 }

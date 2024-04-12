@@ -153,4 +153,35 @@ groupPage.assertCloseIcon();
 		GroupsPage groupPage = PageFactory.initElements(driver, GroupsPage.class);
 		groupPage.myDisussionOption();
 	}
+
+	public static void clickOnAddActivity()
+	{
+		GroupsPage groupPage = PageFactory.initElements(driver, GroupsPage.class);
+		groupPage.addActivity();
+	}
+	public static void selectCourseActivity()
+	{
+		GroupsPage groupPage = PageFactory.initElements(driver, GroupsPage.class);
+		groupPage.courseActivity();
+	}
+	public static void enterContentNameInActivity(String contentName) throws InterruptedException {
+		GroupsPage groupPage = PageFactory.initElements(driver, GroupsPage.class);
+		groupPage.enterContentActivityNameAndSearch(contentName);
+	}
+	public static void clickAddToGroup()
+	{
+		GroupsPage groupPage = PageFactory.initElements(driver, GroupsPage.class);
+		groupPage.addToGroup();
+	}
+	public static void assertActivityAddedToastrMsg()
+	{
+		GroupsPage groupPage = PageFactory.initElements(driver, GroupsPage.class);
+	String actual=groupPage.assertActivityAddedToastrMsg();
+	UtilityFunctions.stringValueComparision(actual,SunbirdConstants.activityAddedToastrMsg,"Activity added Toastrmsg not displayed");
+	}
+	public static void assertAddedActivty()
+	{
+		GroupsPage groupPage = PageFactory.initElements(driver, GroupsPage.class);
+groupPage.assertAddedActivity();
+	}
 }

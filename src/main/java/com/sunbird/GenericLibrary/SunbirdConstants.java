@@ -28,6 +28,8 @@ public static String placeholder="placeholer";
     public static String contentSavedTostrMsg = "Content is saved";
 
     public static String resourceContentPublishedToastrMsg = "Content published successfully...";
+    public static String resourceContentRejectedToastrMsg = "Content rejected successfully...";
+
     public static String batchCreationToastrMSG = "Batch created successfully...";
 
     public static String noOpenBatchAvailableToastrMSG = "This course does not have any open batches";
@@ -37,4 +39,6 @@ public static String placeholder="placeholer";
     public static String enableDisussionToastrMsg="Enabled discussion forum successfully";
 
    public static String questionCreatedToastrMsg="Question is created sucessfully";
+    public static String activityAddedToastrMsg="Activity added successfully";
+
 }

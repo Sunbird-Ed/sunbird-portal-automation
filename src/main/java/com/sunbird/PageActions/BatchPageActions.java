@@ -158,4 +158,9 @@ batchPage.waitProfileShareToastrMsgDisappear();
 		BatchPage batchPage = PageFactory.initElements(driver, BatchPage.class);
 		batchPage.selectcreatedBatch();
 	}
+	public static void assertLastUpdateDateAndTimeInViewDashboard()
+	{
+		BatchPage batchPage = PageFactory.initElements(driver, BatchPage.class);
+		batchPage.assertLastUpdatedDateAndTime();
+	}
 }

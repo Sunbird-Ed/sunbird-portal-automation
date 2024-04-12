@@ -97,4 +97,50 @@ Thread.sleep(5000);
 
 	}
 
+	/* review and publish all the content based on the type */
+	public static void reviewAndRejectContent(String contentName,String contentType) throws Exception {
+		ReviewPage reviewPage = PageFactory.initElements(driver, ReviewPage.class);
+		reviewPage.upForReviewBucket();
+		reviewPage.clickSearchBar(contentName);
+		reviewPage.clickOnSearch();
+		Thread.sleep(3000);
+		reviewPage.selectContentForReview();
+		reviewPage.assertPublichButton();
+
+		switch(contentType){
+			case "Book":
+				reviewPage.selectCheckBoxes();
+				reviewPage.clickYesButton();
+				break;
+			case "Course":
+				reviewPage.clickYesButton();
+				String actualMsg =  reviewPage.assertContentPublishedMsgs();
+				UtilityFunctions.stringValueComparision(actualMsg,SunbirdConstants.contetnPublishedToastrMsg, "Failed to publish the content");
+				break;
+			case "Collection":
+				reviewPage.selectCheckBoxes();
+				reviewPage.clickYesButton();
+				String actualMsg3 =  reviewPage.assertContentPublishedMsgs();
+				UtilityFunctions.stringValueComparision(actualMsg3,SunbirdConstants.contetnPublishedToastrMsg, "Failed to publish the content");
+				break;
+			case "Resource":
+				reviewPage.requestChanges();
+				reviewPage.selectCheckBoxesForResourceForReject();
+				reviewPage.enterCommenntInBox("Not good");
+				reviewPage.requestChangesInPopup();
+				String actualMsg2 =  reviewPage.assertResourceContentRejectedMsgs();
+				UtilityFunctions.stringValueComparision(actualMsg2,SunbirdConstants.resourceContentRejectedToastrMsg, "Failed to Reject the content");
+				break;
+			case "Upload":
+				reviewPage.selectAllCheckBoxesForUploadContent();
+				//Thread.sleep(5000);
+				reviewPage.clickOnPublishButtonInPopup();
+				String actualMsg4=reviewPage.assertResourceContentPublishedMsgs();
+				UtilityFunctions.stringValueComparision(actualMsg4,SunbirdConstants.resourceContentPublishedToastrMsg, "Failed to publish the upload content");
+				break;
+
+		}
+
+	}
+
 }

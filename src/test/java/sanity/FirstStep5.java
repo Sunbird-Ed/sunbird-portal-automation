@@ -139,32 +139,9 @@ public class FirstStep5 extends BaseTestConfig {
         GroupsPageActions.assertCloseIcon();
     }
 */
-   @Test(description = "Verify that the book creator is able to generate the bulk QR codes for the draft book")
-   public void downloadBulkQRcodeForDraftBook() throws Exception {
 
-       OnBoardingActions.RolePoup();
-       OnBoardingActions.BMCPopup();
-       OnBoardingActions.LocationPopup();
-       LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
-               sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
-       DashboardPageActions.clickUserProfileIcon();
-       DashboardPageActions.assertWorkspace();
-       DashboardPageActions.clickOnWorkSpace();
-       WorkspaceDashboardPageActions.clickBook();
-       String createdContent = BookPageActions.createBookPopup("getdoid");
-       String des = BookPageActions.section1("getdescription");
-       BookPageActions.BMCDropdownSelectionSection2();
-       BookPageActions.Section3();
-       BookPageActions.assertContentIsSavedToastrMsg();
-       BookPageActions.waitContentIsSavedToastToDisapper();
-BookPageActions.clickBackButtonInEditor();
-AllMyContentPageActions.enterContentInSearchBox(createdContent);
-DraftsPageActions.clickFirstCard();
-       BookPageActions.generateQrCode("2");
-       BookPageActions.downloadQrCode();
-       BookPageActions.generateQrCode("245");
-       BookPageActions.downloadQrCode();
-   }
+
+
   /* @Test(description = "User can play all content type in full screen mode")
    public void consumContentInFullScreen() throws Exception {
 

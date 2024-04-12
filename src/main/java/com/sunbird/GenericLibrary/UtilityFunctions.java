@@ -345,4 +345,9 @@ return value;
         wait.until(ExpectedConditions.elementToBeSelected(element));
 
     }
+    public static void mouseHoverOnElement(WebElement element) {
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element);
+        actions.click().build().perform();
+            }
 }

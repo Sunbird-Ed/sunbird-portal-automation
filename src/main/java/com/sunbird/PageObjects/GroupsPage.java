@@ -112,6 +112,31 @@ public class GroupsPage {
 	@FindBy(how=How.XPATH,using="//*[@id='downvoted-post']")
 	private WebElement downVotedPost;
 
+	@FindBy(how=How.XPATH,using="//*[contains(text(),' Add activity ')]")
+	private WebElement addActivity;
+
+	@FindBy(how=How.XPATH,using="//*[@title='Course']")
+	private WebElement courseActivity;
+
+	@FindBy(how=How.XPATH,using="//input[@id='search-for-content-group']")
+	private WebElement searchContentInActivityTextBox;
+
+	@FindBy(how=How.XPATH,using="//input[@id='search-for-content-group']//following::button[1]")
+	private WebElement searchIconInActivity;
+
+	@FindBy(how=How.XPATH,using="//span[contains(text(),'Add to group')]")
+	private WebElement addToGroup;
+
+	@FindBy(how=How.XPATH,using="//div[@class='sb--card__meta']")
+	private WebElement contentCard;
+
+	@FindBy(how=How.XPATH,using="//strong[contains(text(),'Activity added successfully')]")
+	private WebElement assertActivityAddedToastrMsg;
+
+	@FindBy(how=How.XPATH,using="//div[@class='sb--card__info']")
+	private WebElement assertAddedActivity;
+
+
 	public void createGroup() {
 		UtilityFunctions.waitForElementAndClickable(createGroup);
 		Listeners.addLogs("click on createGroup");
@@ -254,5 +279,36 @@ public void assertCloseIcon()
 	public void myDisussionOption() {
 		UtilityFunctions.waitForElementAndClickable(myDisussionOption);
 		Listeners.addLogs("click on myDisussionOption");
+	}
+
+	public void addActivity() {
+		UtilityFunctions.waitForElementAndClickable(addActivity);
+		Listeners.addLogs("click on addActivity");
+	}
+	public void courseActivity() {
+		UtilityFunctions.waitForElementAndClickable(courseActivity);
+		Listeners.addLogs("click on courseActivity");
+	}
+	public void enterContentActivityNameAndSearch(String content) throws InterruptedException {
+		UtilityFunctions.waitToBeClickableAndSendKeys(searchContentInActivityTextBox, content);
+		Listeners.addLogs("entered searchContentInActivityTextBox");
+		UtilityFunctions.waitForElementAndClickable(searchIconInActivity);
+
+	}
+	public void addToGroup() {
+		UtilityFunctions.mouseHoverOnElement(contentCard);
+		UtilityFunctions.waitForElementAndClickable(addToGroup);
+		Listeners.addLogs("click on addToGroup");
+	}
+	public String assertActivityAddedToastrMsg() {
+		UtilityFunctions.waitForVisibilityOfWebElement(assertActivityAddedToastrMsg);
+		String actualText=UtilityFunctions.getTextFromElement(assertActivityAddedToastrMsg);
+		Listeners.addLogs("assertActivityAddedToastrMsg validated");
+		UtilityFunctions.waitForElementToDisappear(assertActivityAddedToastrMsg);
+		return actualText;
+	}
+	public void assertAddedActivity() {
+		UtilityFunctions.waitForVisibilityOfWebElement(assertAddedActivity);
+	UtilityFunctions.validatIsElementPresent(assertAddedActivity,"Added activity not displayed");
 	}
 }

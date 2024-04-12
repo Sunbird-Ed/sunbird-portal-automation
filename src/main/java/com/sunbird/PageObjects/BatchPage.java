@@ -117,6 +117,12 @@ public class BatchPage {
 	@FindBy(how=How.XPATH,using="//*[contains(text(),'Batches')]//following::mat-option[@role='option']")
 	private WebElement selectCreatedBatchName;
 
+	@FindBy(how=How.XPATH,using="//*[contains(text(),' Last updated on')]")
+	private WebElement assertLastUpdatedLabel;
+
+	@FindBy(how=How.XPATH,using="//*[contains(text(),'2024')]")
+	private WebElement assertLastUpdatedDateAndTime;
+
 
 	public void createBatchClick() {
 		UtilityFunctions.waitToBeClickableAndClick(createBatchBtn);
@@ -279,6 +285,13 @@ public class BatchPage {
 		UtilityFunctions.waitForElementAndClickable(selectCreatedBatchName);
 		Listeners.addLogs("clicked on selectCreatedBatchName");
 	}
+	public void assertLastUpdatedDateAndTime()
+	{
+		UtilityFunctions.waitForElementIsVisible(assertLastUpdatedLabel);
+		UtilityFunctions.validatIsElementPresent(assertLastUpdatedLabel,"Last update label not displayed");
+		Listeners.addLogs("assertLastUpdatedLabel is validated");
+		UtilityFunctions.validatIsElementPresent(assertLastUpdatedDateAndTime,"Last update date and time not displayed");
 
+	}
 }
 
