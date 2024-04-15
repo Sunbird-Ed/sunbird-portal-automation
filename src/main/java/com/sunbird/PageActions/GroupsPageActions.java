@@ -1,15 +1,9 @@
 package com.sunbird.PageActions;
 
 import com.sunbird.GenericLibrary.BaseTestConfig;
-import com.sunbird.GenericLibrary.Listeners;
 import com.sunbird.GenericLibrary.SunbirdConstants;
 import com.sunbird.GenericLibrary.UtilityFunctions;
-import com.sunbird.PageObjects.BatchPage;
-import com.sunbird.PageObjects.BookPage;
 import com.sunbird.PageObjects.GroupsPage;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
 public class GroupsPageActions extends BaseTestConfig  {
@@ -74,6 +68,11 @@ groupPage.groupKababMenu();
 	{
 		GroupsPage groupPage = PageFactory.initElements(driver, GroupsPage.class);
 		groupPage.forumIcon();
+	}
+	public static void assertForumIconNotDisplayed()
+	{
+		GroupsPage groupPage = PageFactory.initElements(driver, GroupsPage.class);
+		groupPage.validateForumIconShouldNotDisplay();
 	}
 	public static void assertAllOptionInsideForum()
 	{
@@ -183,5 +182,27 @@ groupPage.assertCloseIcon();
 	{
 		GroupsPage groupPage = PageFactory.initElements(driver, GroupsPage.class);
 groupPage.assertAddedActivity();
+	}
+	public static void clickDisableDiscusison()
+	{
+		GroupsPage groupPage = PageFactory.initElements(driver, GroupsPage.class);
+		groupPage.disableDiscussion();
+	}
+	public static void clickDisableDiscussionInPopup()
+	{
+		GroupsPage groupPage = PageFactory.initElements(driver, GroupsPage.class);
+		groupPage.disableDiscussionsInPopup();
+	}
+	public static void assertDisableDisussionToastrMsg()
+	{
+		GroupsPage groupPage = PageFactory.initElements(driver, GroupsPage.class);
+		String actualtxt=groupPage.assertDisableDiscussionToastr();
+		UtilityFunctions.stringValueComparision(actualtxt,SunbirdConstants.disableDisussionToastrMsg,"Disabled discussion forum Msg not displayed ");
+
+	}
+	public static void assertMessagesInDisableDiscussionsPopup()
+	{
+		GroupsPage groupPage = PageFactory.initElements(driver, GroupsPage.class);
+		groupPage.assertMessagesinDisableDiscussionPopup();
 	}
 }

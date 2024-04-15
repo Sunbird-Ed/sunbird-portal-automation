@@ -162,7 +162,7 @@ public class UtilityFunctions extends BaseTestConfig {
         Assert.assertTrue(element.isDisplayed(), ErrorMsg);
     }
     public static void validatElementNotPresent(WebElement element, String ErrorMsg) {
-        Assert.assertFalse(element.isDisplayed(), ErrorMsg);
+        Assert.assertFalse(element.isDisplayed(),ErrorMsg);
     }
 
 

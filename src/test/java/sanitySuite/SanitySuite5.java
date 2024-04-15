@@ -76,7 +76,6 @@ public class SanitySuite5 extends BaseTestConfig  {
         DashboardPageActions.clickOnWorkSpace();
         ReviewPageActions.reviewAndPublishContent(createdContent, "Course");
         DashboardPageActions.logOut();
-
         LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
                 sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
         DashboardPageActions.clickCourseTab();
@@ -152,6 +151,52 @@ public class SanitySuite5 extends BaseTestConfig  {
         AllMyContentPageActions.enterContentInSearchBox(createdContent);
         DraftsPageActions.clickFirstCard();
 
+    }
+
+    @Test(description = "The user should be displayed with Disable Discussions option in the group details page and clicking on the same the group admin should be displayed with a pop-up.")
+    public void disableDiscussionForumAndItsMessageInPopup() throws Exception {
+        OnBoardingActions.RolePoup();
+        OnBoardingActions.BMCPopup();
+        OnBoardingActions.LocationPopup();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+                sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+        DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.assertWorkspace();
+        DashboardPageActions.clickOnMyGroups();
+        GroupsPageActions.clickCloseCrossIcon();
+        GroupsPageActions.clickCreateGroup();
+        String fetchGroupName = GroupsPageActions.enterGroupNameAndDesc();
+        GroupsPageActions.assertGroupCreatedToastrMessage();
+        GroupsPageActions.clickCreatedGroupCard(fetchGroupName);
+        GroupsPageActions.assertGroupKababMenuIcon();
+        GroupsPageActions.clickGroupKababMenu();
+        GroupsPageActions.clickEnableDiscusison();
+        GroupsPageActions.assertEnableDisussionToastrMsg();
+        UtilityFunctions.MoveByOffSet(50, 100);
+        GroupsPageActions.clickForumIcon();
+        GroupsPageActions.assertAllOptionInsideForum();
+        GroupsPageActions.clickCloseIcon();
+        GroupsPageActions.clickGroupKababMenu();
+        GroupsPageActions.clickDisableDiscusison();
+        GroupsPageActions.assertMessagesInDisableDiscussionsPopup();
+        GroupsPageActions.clickDisableDiscussionInPopup();
+        GroupsPageActions.assertDisableDisussionToastrMsg();
+        GroupsPageActions.assertForumIconNotDisplayed();
+    }
+
+
+    @Test(description = ".User should be able to click on the view all and close button for the My courses section")
+    public void validateDetailsInCourseCardInMyCourseSection() throws Exception {
+        OnBoardingActions.RolePoup();
+        OnBoardingActions.BMCPopup();
+        OnBoardingActions.LocationPopup();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+                sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+        DashboardPageActions.clickCourseTab();
+        CourseTabPageActions.clickViewAll();
+        CourseTabPageActions.assertAllDetailsOnCourseCard();
+        CourseTabPageActions.clickCloseBtn();
+        CourseTabPageActions.clickViewAll();
 
     }
 }

@@ -124,7 +124,6 @@ coursePage.selectSubjectCoveredvalue();
 		String keyword = UtilityFunctions.generateRandomName("autoCourseKeyword");
 		coursePage.enterCourseKeywords(keyword);
 
-
 		coursePage.clickCourseType();
 		coursePage.selectCourseK2TypeValue();
 
