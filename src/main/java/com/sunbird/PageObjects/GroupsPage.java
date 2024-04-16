@@ -226,6 +226,8 @@ public class GroupsPage {
 		UtilityFunctions.validatIsElementPresent(savedPost, "Failed for load savedPost");
 		UtilityFunctions.validatIsElementPresent(upvotedPost, "Failed for load upvotedPost");
 		UtilityFunctions.validatIsElementPresent(downVotedPost, "Failed for load downVotedPost");
+		Listeners.addLogs("Validated all the section of forum like generaldiscussion tags MyDisussonOption");
+
 	}
 
 	public void generalDisussionCard() {

@@ -58,5 +58,18 @@ public class ConsumptionPageActions extends BaseTestConfig {
         consumptionPage.fullScreen();
 
     }
+    public static void assertCourseSuccesfullYCompletedPopupMsg() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        consumptionPage.assertCourseCompleteMsg();
+            }
+    public static void clickCloseIconInCourseCompletePopup() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        consumptionPage.closeIconInCongratsPopup();
+    }
+    public static void clickSyncProgressNow() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        consumptionPage.kababMenuOption();
+        consumptionPage.syncProgressNow();
+    }
 }
 	

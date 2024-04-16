@@ -163,4 +163,15 @@ batchPage.waitProfileShareToastrMsgDisappear();
 		BatchPage batchPage = PageFactory.initElements(driver, BatchPage.class);
 		batchPage.assertLastUpdatedDateAndTime();
 	}
+	public static void clickStartLearning() throws InterruptedException {
+		BatchPage batchPage = PageFactory.initElements(driver, BatchPage.class);
+		batchPage.startLearning();
+
+	}
+	public static void assertSyncNowProgressToastrMSg()
+	{
+		BatchPage batchPage = PageFactory.initElements(driver, BatchPage.class);
+		String actualtxt=batchPage.assertSyncNowProgress();
+		UtilityFunctions.stringValueComparision(actualtxt,SunbirdConstants.syncNowProgressToastrMsg,"syncNowProgressToastrMsg didn't display ");
+	}
 }

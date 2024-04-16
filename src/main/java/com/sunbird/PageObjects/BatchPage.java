@@ -123,6 +123,11 @@ public class BatchPage {
 	@FindBy(how=How.XPATH,using="//*[contains(text(),'2024')]")
 	private WebElement assertLastUpdatedDateAndTime;
 
+	@FindBy(how=How.XPATH,using="//button[contains(text(),'Start learning')]")
+	private WebElement startLearning;
+
+	@FindBy(how=How.XPATH,using="//*[contains(text(),'You can view your updated course progress within 24 hours')]")
+	private WebElement assertSyncNowProgressToastrMsg;
 
 	public void createBatchClick() {
 		UtilityFunctions.waitToBeClickableAndClick(createBatchBtn);
@@ -292,6 +297,17 @@ public class BatchPage {
 		Listeners.addLogs("assertLastUpdatedLabel is validated");
 		UtilityFunctions.validatIsElementPresent(assertLastUpdatedDateAndTime,"Last update date and time not displayed");
 
+	}
+	public void startLearning() {
+		UtilityFunctions.waitToBeClickableAndClick(startLearning);
+		Listeners.addLogs("click on startLearning");
+	}
+	public String assertSyncNowProgress() {
+		UtilityFunctions.waitForVisibilityOfWebElement(assertSyncNowProgressToastrMsg);
+		String actualText=UtilityFunctions.getTextFromElement(assertSyncNowProgressToastrMsg);
+		Listeners.addLogs("assertSyncNowProgressToastrMsg validated");
+		UtilityFunctions.waitForElementToDisappear(assertSyncNowProgressToastrMsg);
+		return actualText;
 	}
 }
 

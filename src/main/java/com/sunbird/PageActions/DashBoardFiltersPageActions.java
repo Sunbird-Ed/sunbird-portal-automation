@@ -14,7 +14,10 @@ public class DashBoardFiltersPageActions extends BaseTestConfig {
 		filterPage.assertAllTheFilters();
 	}
 
-
+	public static void assertOrderOfMediumClassSubjectFiltres() throws Exception {
+		DashboardFilterPage filterPage = PageFactory.initElements(driver, DashboardFilterPage.class);
+		filterPage.assertOrderofFiltres();
+	}
 
 
 }
