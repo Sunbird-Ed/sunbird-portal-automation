@@ -150,12 +150,27 @@ public class BookPage {
     @FindBy(how=How.XPATH,using="//button[@aria-label='back']")
     private WebElement backButtonInEditor;
 
+    @FindBy(how=How.XPATH,using="//div[@data-title='Add collaborator']")
+    private WebElement addCollobratorIcon;
+
+    @FindBy(how=How.XPATH,using="//*[@class='icon plus']")
+    private List<WebElement> addCollobratorSelectionIcon;
+
+    @FindBy(how=How.XPATH,using="//button[contains(text(),'Done')]")
+    private WebElement doneBtnInAddCollobrator;
+
+    @FindBy(how=How.XPATH,using="//strong[contains(text(),'Collaborators updated successfully')]")
+    private WebElement assertAddedCollobratorToastrMsg;
+
+    @FindBy(how=How.XPATH,using="//*[contains(text(),'Manage Collaborators')]")
+    private WebElement manageCollobratorsTab;
+
+    @FindBy(how=How.XPATH,using="//*[contains(text(),' Remove ')]")
+    private WebElement assertRemoveAndClickRemove;
+
     public void enterBookName(String randomBookName) throws InterruptedException {
-
                       UtilityFunctions.waitToBeClickableAndSendKeys(bookname, randomBookName);
-					       
-
-    }
+					           }
     public void clickStartCreateButton() {
     	 UtilityFunctions.waitToBeClickableAndClick(startCreating);
          Listeners.addLogs("Clicked on startcreating");
@@ -436,6 +451,36 @@ Listeners.addLogs("clicked on QRCodeDropdown");
     {
         UtilityFunctions.waitForElementAndClickable(backButtonInEditor);
         Listeners.addLogs("click on backButtonInEditor");
+
+    }
+    public void addCollobratorIcon() {
+        UtilityFunctions.waitForElementUsingForLoopAndAssert(addCollobratorIcon,5);
+        UtilityFunctions.waitToBeClickableAndClick(addCollobratorIcon);
+        Listeners.addLogs("Clicked on addCollobratorIcon");
+    }
+    public void selectCollobrator() {
+        UtilityFunctions.waitForElementUsingForLoopAndAssert(addCollobratorSelectionIcon.get(2),4);
+        UtilityFunctions.waitForElementAndClickable(addCollobratorSelectionIcon.get(2));
+        Listeners.addLogs("Clicked on addCollobratorSelectionIcon");
+    }
+    public void doneBtnInAddCollobrator() {
+        UtilityFunctions.scrollInToviewUsingJavaScript(doneBtnInAddCollobrator);
+                UtilityFunctions.waitToBeClickableAndClick(doneBtnInAddCollobrator);
+        Listeners.addLogs("Clicked on doneBtnInAddCollobrator");
+    }
+    public String AddedCollobratorToastrMsg() {
+        UtilityFunctions.waitForVisibilityOfWebElement(assertAddedCollobratorToastrMsg);
+        String getActualText = UtilityFunctions.getTextFromElement(assertAddedCollobratorToastrMsg);
+        UtilityFunctions.waitForElementToDisappear(assertAddedCollobratorToastrMsg);
+        return getActualText;
+    }
+    public void manageCollobratorTab() {
+        UtilityFunctions.waitToBeClickableAndClick(manageCollobratorsTab);
+        Listeners.addLogs("Clicked on manageCollobratorsTab");
+    }
+    public void assertAddedCollobratorInManageTab() throws InterruptedException {
+        UtilityFunctions.waitForVisibilityOfWebElement(assertRemoveAndClickRemove);
+        UtilityFunctions.validatIsElementPresent(assertRemoveAndClickRemove,"Collobrator didn't add");
 
     }
 }

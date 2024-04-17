@@ -248,4 +248,30 @@ bookPage.waitGenerateQRCodeToastrToDisappear();
         BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
         bookPage.backButtonEditor();
     }
+    public static void clickCollobratorIcon() throws InterruptedException {
+        BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
+        bookPage.addCollobratorIcon();
+        UtilityFunctions.threadSleep(4000);
+    }
+    public static void selectTheCollobratorFromlist() {
+        BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
+        bookPage.selectCollobrator();
+    }
+    public static void clickDoneBtnInCollobrator() {
+        BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
+        bookPage.doneBtnInAddCollobrator();
+    }
+    public static void assertAddedCollobratorToastrMsg() {
+        BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
+    String actual=   bookPage.AddedCollobratorToastrMsg();
+        UtilityFunctions.stringValueComparision(actual,SunbirdConstants.collobratorAddedToastrmsg,"Collobrator didn't add to the editor");
+    }
+    public static void clickManageCollobratorTab() {
+        BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
+        bookPage.manageCollobratorTab();
+    }
+    public static void assertAddedCollobratorInManageTabs() throws InterruptedException {
+        BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
+        bookPage.assertAddedCollobratorInManageTab();
+    }
 }

@@ -42,5 +42,5 @@ public static String placeholder="placeholer";
    public static String questionCreatedToastrMsg="Question is created sucessfully";
     public static String activityAddedToastrMsg="Activity added successfully";
     public static String syncNowProgressToastrMsg="You can view your updated course progress within 24 hours";
-
+public static String collobratorAddedToastrmsg="Collaborators updated successfully";
 }

@@ -350,4 +350,8 @@ return value;
         actions.moveToElement(element);
         actions.click().build().perform();
             }
+
+            public static void threadSleep(int seconds) throws InterruptedException {
+                Thread.sleep(seconds);
+            }
 }

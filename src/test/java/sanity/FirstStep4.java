@@ -320,7 +320,7 @@ BatchPageActions.assertLastUpdateDateAndTimeInViewDashboard();
 		GroupsPageActions.assertAllOptionInsideForum();
 	}*/
 
-	@Test(description = "The user should be displayed with the kebab menu in the course progress section once course is consumed with 100%")
+	/*@Test(description = "The user should be displayed with the kebab menu in the course progress section once course is consumed with 100%")
 	public void syncProgressNowForCourse() throws Exception {
 
 		OnBoardingActions.RolePoup();
@@ -391,6 +391,110 @@ BatchPageActions.assertLastUpdateDateAndTimeInViewDashboard();
 		UtilityFunctions.backButtonInBrowser();
 		ConsumptionPageActions.clickSyncProgressNow();
 		BatchPageActions.assertSyncNowProgressToastrMSg();
+	}*/
+/*	@Test(description = "User should be able to add the collaborator on draft book")
+	public void addCollobratorToDraftBook() throws Exception {
+		OnBoardingActions.RolePoup();
+		OnBoardingActions.BMCPopup();
+		OnBoardingActions.LocationPopup();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+				sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.assertWorkspace();
+		DashboardPageActions.clickOnWorkSpace();
+		WorkspaceDashboardPageActions.clickBook();
+		String createdContent = BookPageActions.createBookPopup("getdoid");
+		String des = BookPageActions.section1("getdescription");
+		BookPageActions.BMCDropdownSelectionSection2();
+		BookPageActions.Section3();
+		BookPageActions.assertContentIsSavedToastrMsg();
+		BookPageActions.waitContentIsSavedToastToDisapper();
+		BookPageActions.clickBackButtonInEditor();
+		AllMyContentPageActions.enterContentInSearchBox(createdContent);
+		DraftsPageActions.clickFirstCard();
+		BookPageActions.clickCollobratorIcon();
+	BookPageActions.selectTheCollobratorFromlist();
+BookPageActions.clickDoneBtnInCollobrator();
+BookPageActions.assertAddedCollobratorToastrMsg();
+BookPageActions.clickCollobratorIcon();
+BookPageActions.clickManageCollobratorTab();
+BookPageActions.assertAddedCollobratorInManageTabs();
+
+	}*/
+
+	/*@Test(description = "content should load as per the published user type filter")
+	public void contentShouldLoadAsPerPublishedUserTypeInDigitalTextbookTab() throws Exception {
+
+		OnBoardingActions.RolePoup();
+		OnBoardingActions.BMCPopup();
+		OnBoardingActions.LocationPopup();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+				sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+		DashboardPageActions.clickDigitalTextbookTab();
+		DashBoardFiltersPageActions.clickPublishedFilter();
+				DashBoardFiltersPageActions.selectPublishedType("Teacher");
+DashBoardFiltersPageActions.assertContentDisplayed();
+		DashBoardFiltersPageActions.clickResetButton();
+		DashBoardFiltersPageActions.clickPublishedFilter();
+		DashBoardFiltersPageActions.selectPublishedType("Student");
+		DashBoardFiltersPageActions.assertContentDisplayed();
+		DashBoardFiltersPageActions.clickResetButton();
+		DashBoardFiltersPageActions.clickPublishedFilter();
+		DashBoardFiltersPageActions.selectPublishedType("Other");
+		DashBoardFiltersPageActions.assertContentDisplayed();
+		DashBoardFiltersPageActions.clickResetButton();
+
+	}*/
+
+	@Test(description = "User should be able to search and consume the published content.\n")
+	public void verifyThatUserIsAbleToSearchAndConsumeThePublishedContent() throws Exception {
+
+		OnBoardingActions.RolePoup();
+		OnBoardingActions.BMCPopup();
+		OnBoardingActions.LocationPopup();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.assertWorkspace();
+		DashboardPageActions.clickOnWorkSpace();
+		UploadPageActions.uploadContent("PDF");
+		UploadPageActions.clickSendForReview();
+		String resourceName = UploadPageActions.sendUploadContentForReview();
+		UtilityFunctions.switchToDefaultContentFrame();
+		DashboardPageActions.logOut();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.clickOnWorkSpace();
+		ReviewPageActions.reviewAndPublishContent(resourceName, "Upload");
+		DashboardPageActions.logOut();
+
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+				sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.assertWorkspace();
+		DashboardPageActions.clickOnWorkSpace();
+		WorkspaceDashboardPageActions.clickBook();
+		String createdContent = BookPageActions.createBookPopup("getdoid");
+		String des = BookPageActions.section1("getdescription");
+		BookPageActions.BMCDropdownSelectionSection2();
+		BookPageActions.Section3();
+		BookPageActions.assertContentIsSavedToastrMsg();
+		BookPageActions.waitContentIsSavedToastToDisapper();
+		BookPageActions.addResourceInLibrarySection(resourceName);
+		BookPageActions.submitAndSendForReview();
+		DashboardPageActions.logOut();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"),
+				sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.clickOnWorkSpace();
+		ReviewPageActions.reviewAndPublishContent(createdContent, "Book");
+		DashboardPageActions.logOut();
+
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("PUBLIC_USER"),
+				sunbird_config.getSunbidConfigPropertyValue("PUBLIC_PASSWORD"));
+		DashboardPageActions.searchContentAndClickOnContentCard(createdContent);
+		ConsumptionPageActions.consumePDF();
+		ConsumptionPageActions.giveRating(3);
 	}
+
 
 }

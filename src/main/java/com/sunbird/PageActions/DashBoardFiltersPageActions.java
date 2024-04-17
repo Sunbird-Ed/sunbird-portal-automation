@@ -19,5 +19,20 @@ public class DashBoardFiltersPageActions extends BaseTestConfig {
 		filterPage.assertOrderofFiltres();
 	}
 
-
+	public static void clickPublishedFilter() throws Exception {
+		DashboardFilterPage filterPage = PageFactory.initElements(driver, DashboardFilterPage.class);
+		filterPage.clickPublishedUserType();
+	}
+	public static void selectPublishedType(String type) throws Exception {
+		DashboardFilterPage filterPage = PageFactory.initElements(driver, DashboardFilterPage.class);
+		filterPage.selectPublishedType(type);
+	}
+	public static void clickResetButton() throws Exception {
+		DashboardFilterPage filterPage = PageFactory.initElements(driver, DashboardFilterPage.class);
+		filterPage.resetBtn();
+	}
+	public static void assertContentDisplayed() throws Exception {
+		DashboardFilterPage filterPage = PageFactory.initElements(driver, DashboardFilterPage.class);
+		filterPage.assertContentDisplayed();
+	}
 }
