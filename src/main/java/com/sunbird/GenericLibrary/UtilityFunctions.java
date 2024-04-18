@@ -1,5 +1,6 @@
 package com.sunbird.GenericLibrary;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.Duration;
@@ -354,4 +355,33 @@ return value;
             public static void threadSleep(int seconds) throws InterruptedException {
                 Thread.sleep(seconds);
             }
+    public static File getLatestDownloadedFile(String directoryFilePath)
+    {
+        File directory = new File(directoryFilePath);
+        File[] files = directory.listFiles(File::isFile);
+        long lastModifiedTime = Long.MIN_VALUE;
+        File chosenFile = null;
+
+        if (files != null)
+        {
+            for (File file : files)
+            {
+                if (file.lastModified() > lastModifiedTime)
+                {
+                    chosenFile = file;
+                    lastModifiedTime = file.lastModified();
+                }
+            }
+        }
+
+        return chosenFile;
+    }
+
+    public static String getSystemDownloadPath()
+    {
+        String home = System.getProperty("user.home");
+        File downloadPath = new File(home+"/Downloads/");
+        String systemDownloadPath=downloadPath.toString();
+        return systemDownloadPath;
+    }
 }

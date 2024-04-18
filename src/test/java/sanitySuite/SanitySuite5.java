@@ -5,6 +5,8 @@ import com.sunbird.GenericLibrary.UtilityFunctions;
 import com.sunbird.PageActions.*;
 import org.testng.annotations.Test;
 
+import java.io.File;
+
 public class SanitySuite5 extends BaseTestConfig  {
 
     @Test(description = "user should be able to switch to created user")
@@ -387,4 +389,35 @@ public class SanitySuite5 extends BaseTestConfig  {
         BookPageActions.assertAddedCollobratorInManageTabs();
 
     }
+    @Test(description = "The user should be able to download the csv file in published section")
+    public void downloadCourseQRCodeInPublishedSection() throws Exception {
+        OnBoardingActions.RolePoup();
+        OnBoardingActions.BMCPopup();
+        OnBoardingActions.LocationPopup();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+        DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.assertWorkspace();
+        DashboardPageActions.clickOnWorkSpace();
+        WorkspaceDashboardPageActions.clickPublishedBucket();
+        PublishedPageActions.clickDownloadCourseQrCode();
+        File file=UtilityFunctions.getLatestDownloadedFile(UtilityFunctions.getSystemDownloadPath());
+        String fileName=file.getName();
+        String splitedName = fileName.split("\\.")[1];
+        UtilityFunctions.stringValueComparision(splitedName,"csv","file not downloaded");
+
+    }
+
+    @Test(description = "User able to validate guestname,role,location and BMC details in profile")
+    public void validateGuestNameAndRoleAndBMCAndLocationDetailsInProfile() throws Exception {
+        OnBoardingActions.RolePoup();
+        OnBoardingActions.BMCPopup();
+        OnBoardingActions.LocationPopup();
+        DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.clickOnProfileOption();
+        ProfilePageActions.assertGuestName();
+        ProfilePageActions.assertRole();
+        ProfilePageActions.assertDistrictAndStateWithEditBtn();
+        ProfilePageActions.assertBMCWithEditBtn();
+    }
+
 }

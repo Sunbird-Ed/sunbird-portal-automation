@@ -31,6 +31,9 @@ public class WorkspaceDashboardPage {
     @FindBy(how=How.XPATH,using="//span[contains(text(),'QuestionSet')]")
     private WebElement questionSet;
 
+    @FindBy(how=How.XPATH,using="//*[contains(text(),' Published')]")
+    private WebElement published;
+
     public void assertDrafts() throws InterruptedException {
 
         UtilityFunctions.waitToBeClickableAndClick(drafts);
@@ -84,6 +87,13 @@ public class WorkspaceDashboardPage {
 
         UtilityFunctions.waitToBeClickableAndClick(questionSet);
         Listeners.addLogs("Clicked on QuestionSet ");
+
+    }
+    public void published()
+    {
+
+        UtilityFunctions.waitToBeClickableAndClick(published);
+        Listeners.addLogs("Clicked on published ");
 
     }
 }

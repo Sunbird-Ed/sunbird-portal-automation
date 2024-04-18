@@ -59,5 +59,10 @@ public class WorkspaceDashboardPageActions extends BaseTestConfig {
         workspacedashboardPage.clickDrafts();
 
     }
+    public static void clickPublishedBucket() throws InterruptedException {
+        WorkspaceDashboardPage workspacedashboardPage=PageFactory.initElements(driver, WorkspaceDashboardPage.class);
+        workspacedashboardPage.published();
+
+    }
 }
 	

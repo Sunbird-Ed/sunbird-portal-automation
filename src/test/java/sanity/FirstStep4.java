@@ -3,7 +3,10 @@ package sanity;
 import com.sunbird.GenericLibrary.BaseTestConfig;
 import com.sunbird.GenericLibrary.UtilityFunctions;
 import com.sunbird.PageActions.*;
+import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.io.File;
 
 public class FirstStep4 extends BaseTestConfig {
 
@@ -446,9 +449,8 @@ DashBoardFiltersPageActions.assertContentDisplayed();
 
 	}*/
 
-	@Test(description = "User should be able to search and consume the published content.\n")
-	public void verifyThatUserIsAbleToSearchAndConsumeThePublishedContent() throws Exception {
-
+	/*@Test(description = "The user should be able to download the csv file in published section")
+	public void downloadCourseQRCodeInPublishedSection() throws Exception {
 		OnBoardingActions.RolePoup();
 		OnBoardingActions.BMCPopup();
 		OnBoardingActions.LocationPopup();
@@ -456,45 +458,27 @@ DashBoardFiltersPageActions.assertContentDisplayed();
 		DashboardPageActions.clickUserProfileIcon();
 		DashboardPageActions.assertWorkspace();
 		DashboardPageActions.clickOnWorkSpace();
-		UploadPageActions.uploadContent("PDF");
-		UploadPageActions.clickSendForReview();
-		String resourceName = UploadPageActions.sendUploadContentForReview();
-		UtilityFunctions.switchToDefaultContentFrame();
-		DashboardPageActions.logOut();
-		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
-		DashboardPageActions.clickUserProfileIcon();
-		DashboardPageActions.clickOnWorkSpace();
-		ReviewPageActions.reviewAndPublishContent(resourceName, "Upload");
-		DashboardPageActions.logOut();
+	WorkspaceDashboardPageActions.clickPublishedBucket();
+PublishedPageActions.clickDownloadCourseQrCode();
+File file=UtilityFunctions.getLatestDownloadedFile(UtilityFunctions.getSystemDownloadPath());
+		String fileName=file.getName();
+		String splitedName = fileName.split("\\.")[1];
+		UtilityFunctions.stringValueComparision(splitedName,"csv","file not downloaded");
 
-		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
-				sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
-		DashboardPageActions.clickUserProfileIcon();
-		DashboardPageActions.assertWorkspace();
-		DashboardPageActions.clickOnWorkSpace();
-		WorkspaceDashboardPageActions.clickBook();
-		String createdContent = BookPageActions.createBookPopup("getdoid");
-		String des = BookPageActions.section1("getdescription");
-		BookPageActions.BMCDropdownSelectionSection2();
-		BookPageActions.Section3();
-		BookPageActions.assertContentIsSavedToastrMsg();
-		BookPageActions.waitContentIsSavedToastToDisapper();
-		BookPageActions.addResourceInLibrarySection(resourceName);
-		BookPageActions.submitAndSendForReview();
-		DashboardPageActions.logOut();
-		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"),
-				sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
-		DashboardPageActions.clickUserProfileIcon();
-		DashboardPageActions.clickOnWorkSpace();
-		ReviewPageActions.reviewAndPublishContent(createdContent, "Book");
-		DashboardPageActions.logOut();
+	}*/
 
-		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("PUBLIC_USER"),
-				sunbird_config.getSunbidConfigPropertyValue("PUBLIC_PASSWORD"));
-		DashboardPageActions.searchContentAndClickOnContentCard(createdContent);
-		ConsumptionPageActions.consumePDF();
-		ConsumptionPageActions.giveRating(3);
-	}
+/*	@Test(description = "User able to validate guestname,role,location and BMC details in profile")
+	public void validateGuestNameAndRoleAndBMCAndLocationDetailsInProfile() throws Exception {
+		OnBoardingActions.RolePoup();
+		OnBoardingActions.BMCPopup();
+		OnBoardingActions.LocationPopup();
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.clickOnProfileOption();
+ProfilePageActions.assertGuestName();
+ProfilePageActions.assertRole();
+ProfilePageActions.assertDistrictAndStateWithEditBtn();
+ProfilePageActions.assertBMCWithEditBtn();
+	}*/
 
 
 }

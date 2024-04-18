@@ -87,5 +87,9 @@ dashboardPage.homeTab();
         DashboardPage dashboardPage = PageFactory.initElements(driver, DashboardPage.class);
         dashboardPage.tvClass();
     }
+    public static void clickOnProfileOption() throws InterruptedException {
+        DashboardPage dashboardPage = PageFactory.initElements(driver, DashboardPage.class);
+        dashboardPage.profileOption();
+    }
 }
 	
