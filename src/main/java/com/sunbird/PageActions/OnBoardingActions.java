@@ -105,5 +105,10 @@ Thread.sleep(3000);
         onboard.LocationPopupSubmit();
 
     }
+    public static void submitButtonInLocationPopup() throws InterruptedException {
+        OnBoarding onboard = PageFactory.initElements(driver, OnBoarding.class);
+               onboard.LocationPopupSubmit();
+
+    }
 
 }

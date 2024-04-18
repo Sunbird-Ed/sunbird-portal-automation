@@ -91,5 +91,13 @@ dashboardPage.homeTab();
         DashboardPage dashboardPage = PageFactory.initElements(driver, DashboardPage.class);
         dashboardPage.profileOption();
     }
+    public static void clickOnProfileForLoginUser() throws InterruptedException {
+        DashboardPage dashboardPage = PageFactory.initElements(driver, DashboardPage.class);
+        dashboardPage.profileOptionForLoginUser();
+    }
+    public static void assertObservationTabNotDisplay() throws InterruptedException {
+        DashboardPage dashboardPage = PageFactory.initElements(driver, DashboardPage.class);
+        dashboardPage.observationTabShouldNotDisplay();
+    }
 }
 	

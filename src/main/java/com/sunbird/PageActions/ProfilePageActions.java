@@ -29,5 +29,34 @@ public class ProfilePageActions extends BaseTestConfig {
 		profilePage.verifyBMCDetailsWithEditBtn();
 
 	}
+	public static void clickEditButtonLocationDetails() throws Exception {
+		ProfilePage profilePage = PageFactory.initElements(driver, ProfilePage.class);
+		profilePage.locationDetailsEdit();
 
+	}
+	public static void clickRoleDropdown() throws Exception {
+		ProfilePage profilePage = PageFactory.initElements(driver, ProfilePage.class);
+		profilePage.roleDropdown();
+
+	}
+	public static void selectRoleType(String type) throws Exception {
+		ProfilePage profilePage = PageFactory.initElements(driver, ProfilePage.class);
+		profilePage.selectRoleType(type);
+
+	}
+	public static void clickBackButtonInProfilePage() throws Exception {
+		ProfilePage profilePage = PageFactory.initElements(driver, ProfilePage.class);
+		profilePage.backBtnInProfilePage();
+
+	}
+	public static void clickSubRoleDropdown() throws Exception {
+		ProfilePage profilePage = PageFactory.initElements(driver, ProfilePage.class);
+		profilePage.subRoleDropdown();
+
+	}
+	public static void selectSubRoleType(String subroletype) throws Exception {
+		ProfilePage profilePage = PageFactory.initElements(driver, ProfilePage.class);
+		profilePage.selectSubRoleType(subroletype);
+
+	}
 }

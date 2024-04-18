@@ -56,6 +56,9 @@ public class DashboardPage {
     @FindBy(how=How.XPATH,using="//*[contains(text(),'Profile')]")
     private WebElement profileOption;
 
+    @FindBy(how=How.XPATH,using="//*[@routerlink='profile']")
+    private WebElement profileOptionForLoginUser;
+
     public void userProfileIcon() throws InterruptedException {
 
         UtilityFunctions.waitToBeClickableAndClick(userProfileIcon);
@@ -154,6 +157,16 @@ UtilityFunctions.waitForVisibilityOfWebElement(firstContentCard);
     public void profileOption() {
         UtilityFunctions.waitForElementAndClickable(profileOption);
         Listeners.addLogs("Clicked on profileOption");
+
+    }
+    public void profileOptionForLoginUser() {
+        UtilityFunctions.waitForElementAndClickable(profileOptionForLoginUser);
+        Listeners.addLogs("Clicked on profileOptionForLoginUser");
+
+    }
+    public void observationTabShouldNotDisplay() {
+        UtilityFunctions.validatElementNotPresent(observationTab,"Observationtab displayed");
+        Listeners.addLogs("Observationtab not displayed");
 
     }
 }

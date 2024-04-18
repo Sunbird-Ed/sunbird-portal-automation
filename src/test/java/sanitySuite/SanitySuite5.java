@@ -419,5 +419,36 @@ public class SanitySuite5 extends BaseTestConfig  {
         ProfilePageActions.assertDistrictAndStateWithEditBtn();
         ProfilePageActions.assertBMCWithEditBtn();
     }
+    @Test(description = "observation tab should be disappears if user changes to any other role from HT & official role from profile")
+    public void ChangeToDifferentRoleInProfileFromSchoolHeadAndValidateObservationTab() throws Exception {
+        OnBoardingActions.RolePoup();
+        OnBoardingActions.BMCPopup();
+        OnBoardingActions.LocationPopup();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+        DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.clickOnProfileForLoginUser();
+        UtilityFunctions.scrollUpUsingPixelValue();
+        ProfilePageActions.clickEditButtonLocationDetails();
+        ProfilePageActions.clickRoleDropdown();
+        ProfilePageActions.selectRoleType("Teacher");
+        OnBoardingActions.submitButtonInLocationPopup();
+        UtilityFunctions.threadSleep(5000);
+        UtilityFunctions.scrollUpUsingPixelValue();
+        ProfilePageActions.clickBackButtonInProfilePage();
+        DashboardPageActions.assertObservationTabNotDisplay();
+        DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.clickOnProfileForLoginUser();
+        UtilityFunctions.scrollUpUsingPixelValue();
+        ProfilePageActions.clickEditButtonLocationDetails();
+        ProfilePageActions.clickRoleDropdown();
+        ProfilePageActions.selectRoleType("SchoolHead");
+        ProfilePageActions.clickSubRoleDropdown();
+        ProfilePageActions.selectSubRoleType("HM");
+        OnBoardingActions.submitButtonInLocationPopup();
+        UtilityFunctions.threadSleep(5000);
+        UtilityFunctions.scrollUpUsingPixelValue();
+        ProfilePageActions.clickBackButtonInProfilePage();
+        DashboardPageActions.clickOnObservationTab();
+    }
 
 }
