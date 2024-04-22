@@ -451,4 +451,31 @@ public class SanitySuite5 extends BaseTestConfig  {
         DashboardPageActions.clickOnObservationTab();
     }
 
+/*week 4*/
+    @Test(description = "User should be able to select block/cluster/school value for User during onboarding")
+    public void userAbleToSelectStateBlockClusterAndSchoolInLocationPopupForNewUser() throws Exception {
+        OnBoardingActions.RolePoup();
+        OnBoardingActions.BMCPopup();
+        OnBoardingActions.LocationPopup();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("New_User"), sunbird_config.getSunbidConfigPropertyValue("New_PWD"));
+        OnBoardingActions.BMCPopup();
+        OnBoardingActions.RolePoup();
+        OnBoardingActions.selectStateAndDistrict();
+        OnBoardingActions.blockSelection();
+        OnBoardingActions.schoolSelection();
+        OnBoardingActions.submitButtonInLocationPopup();
+
+    }
+    @Test(description = "User should be able to merge the custodian account")
+    public void mergeCustodianAccount() throws Exception {
+        OnBoardingActions.RolePoup();
+        OnBoardingActions.BMCPopup();
+        OnBoardingActions.LocationPopup();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("New_User"), sunbird_config.getSunbidConfigPropertyValue("New_PWD"));
+        DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.clickOnMergeAccount();
+        MergeAccountPageActions.clickMergeInMergePopup();
+        LoginPageActions.LoginForJoinCourse(sunbird_config.getSunbidConfigPropertyValue("Merge_New_User"), sunbird_config.getSunbidConfigPropertyValue("Merge_Pwd"));
+        MergeAccountPageActions.assertMergedAccountSuccessMsg();
+    }
 }

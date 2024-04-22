@@ -21,20 +21,24 @@ public class OnBoarding extends BaseTestConfig {
     private WebElement Cbsc;
 
 //    @FindBy(how = How.XPATH, using = "//div[@id='mat-select-value-39']")
-@FindBy(how=How.XPATH,using="//div[@id='mat-select-value-9']")
+//@FindBy(how=How.XPATH,using="//div[@id='mat-select-value-9']")
+@FindBy(how=How.XPATH,using="//div[@class='title']//following::div[contains(@id,'mat-select-value')][2]")
     private WebElement Medium;
 
-
-    @FindBy(how=How.XPATH,using="//div[@id='mat-select-value-9']//following::span[@class='mat-option-text']")
+    @FindBy(how=How.XPATH,using="//div[@class='title']//following::div[contains(@id,'mat-select-value')][2]//following::span[@class='mat-option-text']")
+    //@FindBy(how=How.XPATH,using="//div[@id='mat-select-value-9']//following::span[@class='mat-option-text']")
    // @FindBy(how = How.XPATH, using = "//div[@id='mat-select-value-39']//following::span[@class='mat-option-text']")
 
     private WebElement MediumValue;
 
   //  @FindBy(how = How.XPATH, using = "//div[@id='mat-select-value-43']")
-    @FindBy(how=How.XPATH,using="//div[@id='mat-select-value-13']")
+    //@FindBy(how=How.XPATH,using="//div[@id='mat-select-value-13']")
+    @FindBy(how=How.XPATH,using="//div[@class='title']//following::div[contains(@id,'mat-select-value')][3]")
+
     private WebElement Classs;
 
-    @FindBy(how=How.XPATH,using="//div[@id='mat-select-value-13']//following::span[@class='mat-option-text'][2]")
+    @FindBy(how=How.XPATH,using="//div[@class='title']//following::div[contains(@id,'mat-select-value')][3]//following::span[@class='mat-option-text']")
+  //  @FindBy(how=How.XPATH,using="//div[@id='mat-select-value-13']//following::span[@class='mat-option-text'][2]")
     //@FindBy(how = How.XPATH, using = "//div[@id='mat-select-value-43']//following::span[@class='mat-option-text']")
     private WebElement ClassValue;
 
@@ -85,6 +89,21 @@ public class OnBoarding extends BaseTestConfig {
 
     @FindBy(how = How.XPATH, using = "//*[@med='English']")
     private WebElement mediumValue;
+
+    @FindBy(how = How.XPATH, using = "//*[@med='English']")
+    private WebElement mediumDropDown;
+
+    @FindBy(how = How.XPATH, using = "//label[@for='block']/following::li[1]")
+    private WebElement clickBlockDropdown;
+
+    @FindBy(how = How.XPATH, using = "//label[@for='block']//following::span[1]")
+    private WebElement selectBlockDropdown;
+
+    @FindBy(how = How.XPATH, using = "//label[@for='school']//following::li[1]")
+    private WebElement clickSchoolDropdown;
+
+    @FindBy(how = How.XPATH, using = "//label[@for='school']//following::span[1]")
+    private WebElement selectSchoolDropdown;
 
 //	public WebElement TeacherClick() {
 //		
@@ -228,4 +247,28 @@ UtilityFunctions.waitForElementIsVisible(ClickStateDropDown);
 
     }
 
+    public void clickBlockDropdown() {
+
+        UtilityFunctions.waitToBeClickableAndClick(clickBlockDropdown);
+        Listeners.addLogs("clickBlockDropdown");
+
+    }
+    public void selectBlockDropdown() {
+
+        UtilityFunctions.waitToBeClickableAndClick(selectBlockDropdown);
+        Listeners.addLogs("selectBlockDropdown");
+
+    }
+    public void clickSchoolDropdown() {
+
+        UtilityFunctions.waitToBeClickableAndClick(clickSchoolDropdown);
+        Listeners.addLogs("clickSchoolDropdown");
+
+    }
+    public void schoolDropdown() {
+
+        UtilityFunctions.waitToBeClickableAndClick(selectSchoolDropdown);
+        Listeners.addLogs("selectSchoolDropdown");
+
+    }
 }

@@ -59,6 +59,9 @@ public class DashboardPage {
     @FindBy(how=How.XPATH,using="//*[@routerlink='profile']")
     private WebElement profileOptionForLoginUser;
 
+    @FindBy(how=How.XPATH,using="//*[contains(text(),'Merge Account')]")
+    private WebElement mergeAccount;
+
     public void userProfileIcon() throws InterruptedException {
 
         UtilityFunctions.waitToBeClickableAndClick(userProfileIcon);
@@ -167,6 +170,11 @@ UtilityFunctions.waitForVisibilityOfWebElement(firstContentCard);
     public void observationTabShouldNotDisplay() {
         UtilityFunctions.validatElementNotPresent(observationTab,"Observationtab displayed");
         Listeners.addLogs("Observationtab not displayed");
+
+    }
+    public void mergeAccountBtn() {
+        UtilityFunctions.waitForElementAndClickable(mergeAccount);
+        Listeners.addLogs("Clicked on mergeAccount");
 
     }
 }

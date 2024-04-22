@@ -467,7 +467,7 @@ File file=UtilityFunctions.getLatestDownloadedFile(UtilityFunctions.getSystemDow
 
 	}*/
 
-	@Test(description = "observation tab should be disappears if user changes to any other role from HT & official role from profile")
+/*	@Test(description = "observation tab should be disappears if user changes to any other role from HT & official role from profile")
 	public void ChangeToDifferentRoleInProfileFromSchoolHeadAndValidateObservationTab() throws Exception {
 		OnBoardingActions.RolePoup();
 		OnBoardingActions.BMCPopup();
@@ -498,7 +498,33 @@ ProfilePageActions.selectSubRoleType("HM");
 		ProfilePageActions.clickBackButtonInProfilePage();
 		DashboardPageActions.clickOnObservationTab();
 
+	}*/
+
+/*	@Test(description = "User should be able to select block/cluster/school value for User during onboarding")
+	public void userAbleToSelectStateBlockClusterAndSchoolInLocationPopupForNewUser() throws Exception {
+		OnBoardingActions.RolePoup();
+		OnBoardingActions.BMCPopup();
+		OnBoardingActions.LocationPopup();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("New_User"), sunbird_config.getSunbidConfigPropertyValue("New_PWD"));
+			OnBoardingActions.BMCPopup();
+		OnBoardingActions.RolePoup();
+		OnBoardingActions.selectStateAndDistrict();
+		OnBoardingActions.blockSelection();
+		OnBoardingActions.schoolSelection();
+		OnBoardingActions.submitButtonInLocationPopup();
+
+	}*/
+
+	@Test(description = "User should be able to merge the custodian account")
+	public void mergeCustodianAccount() throws Exception {
+		OnBoardingActions.RolePoup();
+		OnBoardingActions.BMCPopup();
+		OnBoardingActions.LocationPopup();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.clickOnMergeAccount();
+MergeAccountPageActions.clickMergeInMergePopup();
+		LoginPageActions.LoginForJoinCourse(sunbird_config.getSunbidConfigPropertyValue("Merge_New_User"), sunbird_config.getSunbidConfigPropertyValue("Merge_Pwd"));
+MergeAccountPageActions.assertMergedAccountSuccessMsg();
 	}
-
-
 }

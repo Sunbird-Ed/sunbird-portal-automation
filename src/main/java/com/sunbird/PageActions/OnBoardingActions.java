@@ -55,6 +55,8 @@ public class OnBoardingActions extends BaseTestConfig {
        Thread.sleep(2000);
         onboard.clickStateDropdown();
         onboard.selectStateValue();
+        Thread.sleep(2000);
+
         onboard.clickDistrictDropDown();
         onboard.selectDistrictValue();
         onboard.LocationPopupSubmit();
@@ -111,4 +113,30 @@ Thread.sleep(3000);
 
     }
 
+    public static void blockSelection()
+    {
+        OnBoarding onboard = PageFactory.initElements(driver, OnBoarding.class);
+        onboard.clickBlockDropdown();
+        onboard.selectBlockDropdown();
+
+
+    }
+    public static void schoolSelection()
+    {
+        OnBoarding onboard = PageFactory.initElements(driver, OnBoarding.class);
+        onboard.clickSchoolDropdown();
+        onboard.schoolDropdown();
+
+    }
+
+    public static void selectStateAndDistrict() throws InterruptedException {
+        OnBoarding onboard = PageFactory.initElements(driver, OnBoarding.class);
+        Thread.sleep(2000);
+        onboard.clickStateDropdown();
+        onboard.selectStateValue();
+        Thread.sleep(2000);
+
+        onboard.clickDistrictDropDown();
+        onboard.selectDistrictValue();
+           }
 }

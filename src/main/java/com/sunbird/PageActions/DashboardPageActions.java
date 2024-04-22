@@ -99,5 +99,9 @@ dashboardPage.homeTab();
         DashboardPage dashboardPage = PageFactory.initElements(driver, DashboardPage.class);
         dashboardPage.observationTabShouldNotDisplay();
     }
+    public static void clickOnMergeAccount() throws InterruptedException {
+        DashboardPage dashboardPage = PageFactory.initElements(driver, DashboardPage.class);
+        dashboardPage.mergeAccountBtn();
+    }
 }
 	

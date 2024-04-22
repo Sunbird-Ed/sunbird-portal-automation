@@ -11,9 +11,9 @@ public class BmcOnBoardingActions extends BaseTestConfig {
 
 
     /* Select BMC dropdowns */
-    public static void BMCSelection()
-    {
+    public static void BMCSelection() throws InterruptedException {
         OnBoarding onboard = PageFactory.initElements(driver, OnBoarding.class);
+        Thread.sleep(2000);
         onboard.MediumDropDown();
         onboard.MediumValueSelect();
 
