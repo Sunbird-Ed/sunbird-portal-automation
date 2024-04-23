@@ -450,8 +450,58 @@ public class SanitySuite5 extends BaseTestConfig  {
         ProfilePageActions.clickBackButtonInProfilePage();
         DashboardPageActions.clickOnObservationTab();
     }
+    @Test(description = "Verify that multiple tagged M/C book can be get displayed post searching in digital textbook tab")
+    public void verifyMultipleMediumAndClassTaggedInBook() throws Exception {
+        OnBoardingActions.RolePoup();
+        OnBoardingActions.BMCPopup();
+        OnBoardingActions.LocationPopup();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+                sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+        DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.assertWorkspace();
+        DashboardPageActions.clickOnWorkSpace();
+        WorkspaceDashboardPageActions.clickBook();
+        String createdContent = BookPageActions.createBookPopup("getdoid");
+        String des=BookPageActions.section1("getdescription");
+        BookPageActions.selectMultipleBMCDropdownSelectionSection2();
+        UtilityFunctions.scrollUpUsingPixelValue();
+        BookPageActions.Section3();
+        BookPageActions.assertContentIsSavedToastrMsg();
+        BookPageActions.waitContentIsSavedToastToDisapper();
+        BookPageActions.addResourceFromLibrary();
+        BookPageActions.submitAndSendForReview();
+        DashboardPageActions.logOut();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"),
+                sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
+        DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.clickOnWorkSpace();
+        ReviewPageActions.reviewAndPublishContent(createdContent, "Book");
+        DashboardPageActions.logOut();
 
-/*week 4*/
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+                sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+        DashboardPageActions.clickDigitalTextbookTab();
+        DashboardPageActions.searchContentAndClickOnContentCard(createdContent);
+        BookPageActions.assertMultipleTaggedMediumAndClass();
+    }
+    @Test(description = "user should be able to apply the any filters  and verify if the course is getting displayed.")
+    public void ApplyAnyFilterInCourseTabAndVerifyContentiIsDisplayed() throws Exception {
+        OnBoardingActions.RolePoup();
+        OnBoardingActions.BMCPopup();
+        OnBoardingActions.LocationPopup();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+                sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+        DashboardPageActions.clickCourseTab();
+        DashBoardFiltersPageActions.clickPublishedFilter();
+        DashBoardFiltersPageActions.selectPublishedType("Teacher");
+        DashBoardFiltersPageActions.assertContentDisplayed();
+        DashBoardFiltersPageActions.clickResetButton();
+        DashBoardFiltersPageActions.clickPublishedFilter();
+        DashBoardFiltersPageActions.selectPublishedType("Student");
+        DashBoardFiltersPageActions.assertContentDisplayed();
+        DashBoardFiltersPageActions.clickResetButton();
+    }
+
     @Test(description = "User should be able to select block/cluster/school value for User during onboarding")
     public void userAbleToSelectStateBlockClusterAndSchoolInLocationPopupForNewUser() throws Exception {
         OnBoardingActions.RolePoup();
@@ -477,5 +527,17 @@ public class SanitySuite5 extends BaseTestConfig  {
         MergeAccountPageActions.clickMergeInMergePopup();
         LoginPageActions.LoginForJoinCourse(sunbird_config.getSunbidConfigPropertyValue("Merge_New_User"), sunbird_config.getSunbidConfigPropertyValue("Merge_Pwd"));
         MergeAccountPageActions.assertMergedAccountSuccessMsg();
+    }
+
+    @Test(description = "Sunbird Logo should be displayed before login and after login")
+    public void verifySunbirdLogo() throws Exception {
+        OnBoardingActions.RolePoup();
+        OnBoardingActions.BMCPopup();
+        OnBoardingActions.LocationPopup();
+        DashboardPageActions.assertSunbirdLogo();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+                sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+        DashboardPageActions.assertSunbirdLogo();
+
     }
 }

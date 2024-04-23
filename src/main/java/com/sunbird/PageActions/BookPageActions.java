@@ -274,4 +274,24 @@ bookPage.waitGenerateQRCodeToastrToDisappear();
         BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
         bookPage.assertAddedCollobratorInManageTab();
     }
+    public static void assertMultipleTaggedMediumAndClass() throws InterruptedException {
+        BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
+        bookPage.assertMultipleTaggedMediumAndClass();
+    }
+    public static void selectMultipleBMCDropdownSelectionSection2() throws InterruptedException {
+        String frameworkName = sunbird_config.getSunbidConfigPropertyValue("FRAMEWORK");
+        switch(frameworkName){
+            case "agriculture_framework_20":
+                //  selectAgriculturePropertyDropdowns();
+                AgricultureBookPageActions.AgricultureDropdownSelectionSection2();
+                break;
+
+            default:
+                BMCBookPageActions.multipleBMCSelection();
+                //  BMCSelection();
+        }
+
+
+        Thread.sleep(5000);
+    }
 }

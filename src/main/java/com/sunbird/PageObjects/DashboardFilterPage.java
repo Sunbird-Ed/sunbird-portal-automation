@@ -42,10 +42,12 @@ public class DashboardFilterPage {
     @FindBy(how = How.XPATH, using = "//mat-option[@aria-label='other']")
     private WebElement selectOtherPublishedType;
 
-    @FindBy(how = How.XPATH, using = "//mat-option[@aria-label='student']")
+    //@FindBy(how = How.XPATH, using = "//mat-option[@aria-label='student']")
+    @FindBy(how = How.XPATH, using = "//span[contains(text(),'tudent')]")
     private WebElement selectStudentPublishedType;
 
-    @FindBy(how = How.XPATH, using = "//mat-option[@aria-label='teacher']")
+  //  @FindBy(how = How.XPATH, using = "//mat-option[@aria-label='teacher']")
+    @FindBy(how = How.XPATH, using = "//span[contains(text(),'eacher')]")
     private WebElement selectTeacherPublishedType;
 
     @FindBy(how = How.XPATH, using = "//div[@class='sb--card__info']")

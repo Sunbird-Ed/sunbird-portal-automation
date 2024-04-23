@@ -48,18 +48,26 @@ public class BookPage {
 	
 	@FindBy(how=How.XPATH,using="//li[text()='Select Medium']//following::li[2]")
 	private WebElement mediumSelected;
+
+    @FindBy(how=How.XPATH,using="//li[text()='Select Medium']//following::li[1]")
+    private WebElement mediumSelectAll;
 	
 	@FindBy(how=How.XPATH,using="//li[text()='Select Class']")
 	private WebElement clickClass;
 	
 	@FindBy(how=How.XPATH,using="//li[text()='Select Class']//following::li[3]")
 	private WebElement classSelected;
-	
+    @FindBy(how=How.XPATH,using="//li[text()='Select Class']//following::li[1]")
+    private WebElement classSelectAll;
+
 	@FindBy(how=How.XPATH,using="//li[text()='Select Subject']")
 	private WebElement clickSubject;
 	
 	@FindBy(how=How.XPATH,using="//li[text()='Select Subject']//following::li[2]")
 	private WebElement subjectSelected;
+
+    @FindBy(how=How.XPATH,using="//li[text()='Select Subject']//following::li[1]")
+    private WebElement subjectSelectAll;
 	
 	@FindBy(how=How.XPATH,using="//input[@placeholder='Copyright Year']")
 	private WebElement copyright;
@@ -168,6 +176,15 @@ public class BookPage {
     @FindBy(how=How.XPATH,using="//*[contains(text(),' Remove ')]")
     private WebElement assertRemoveAndClickRemove;
 
+    @FindBy(how=How.XPATH,using="//span[contains(text(),'English,Tamil')]")
+    private WebElement assertMultipleMedium;
+
+    @FindBy(how=How.XPATH,using="//span[contains(text(),'Class 1')]")
+    private WebElement assertMultipleClass1;
+
+    @FindBy(how=How.XPATH,using="//span[contains(text(),'Class 2')]")
+    private WebElement assertMultipleClass2;
+
     public void enterBookName(String randomBookName) throws InterruptedException {
                       UtilityFunctions.waitToBeClickableAndSendKeys(bookname, randomBookName);
 					           }
@@ -199,7 +216,10 @@ public class BookPage {
       	 UtilityFunctions.waitToBeClickableAndClick(mediumSelected);
            Listeners.addLogs("mediumSelected");
       }
-       
+    public void mediumSelectAll() {
+        UtilityFunctions.waitToBeClickableAndClick(mediumSelectAll);
+        Listeners.addLogs("mediumSelectAll");
+    }
        public void clickClassDropdown() {
         	 UtilityFunctions.waitToBeClickableAndClick(clickClass);
              Listeners.addLogs("clickClass");
@@ -208,7 +228,10 @@ public class BookPage {
         	 UtilityFunctions.waitToBeClickableAndClick(classSelected);
              Listeners.addLogs("classSelected");
         }
-         
+    public void classSelectAll() {
+        UtilityFunctions.waitToBeClickableAndClick(classSelectAll);
+        Listeners.addLogs("classSelectAll");
+    }
          public void clickSubjectDropdown() {
         	 UtilityFunctions.waitToBeClickableAndClick(clickSubject);
              Listeners.addLogs("clickSubject");
@@ -217,7 +240,10 @@ public class BookPage {
         	 UtilityFunctions.waitToBeClickableAndClick(subjectSelected);
              Listeners.addLogs("subjectSelected");
         }
-         
+    public void subjectSelectAll() {
+        UtilityFunctions.waitToBeClickableAndClick(subjectSelectAll);
+        Listeners.addLogs("subjectSelectAll");
+    }
          public void enterCopyRightYear(String yearValue) {
 
          	UtilityFunctions.scrollInToviewUsingJavaScript(copyright);
@@ -482,5 +508,12 @@ Listeners.addLogs("clicked on QRCodeDropdown");
         UtilityFunctions.waitForVisibilityOfWebElement(assertRemoveAndClickRemove);
         UtilityFunctions.validatIsElementPresent(assertRemoveAndClickRemove,"Collobrator didn't add");
 
+    }
+    public void assertMultipleTaggedMediumAndClass() throws InterruptedException {
+        UtilityFunctions.waitForVisibilityOfWebElement(assertMultipleMedium);
+        UtilityFunctions.validatIsElementPresent(assertMultipleMedium,"assertMultipleMedium not displayed");
+        UtilityFunctions.validatIsElementPresent(assertMultipleClass1,"assertMultipleClass1 not displayed");
+        UtilityFunctions.validatIsElementPresent(assertMultipleClass2,"assertMultipleClass2 not displayed");
+Listeners.addLogs("Validated multiple tagged medium and class");
     }
 }

@@ -25,7 +25,20 @@ public class BMCBookPageActions extends BaseTestConfig {
         bookPage.selectSubjectValue();
     }
 
-
+    public static void multipleBMCSelection() throws InterruptedException {
+        Thread.sleep(5000);
+        BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
+        bookPage.clickBoardDropdown();
+        bookPage.selectBoardValue();
+        bookPage.clickMediumDropdown();
+        bookPage.mediumSelectAll();
+        Thread.sleep(2000);
+        bookPage.clickClassDropdown();
+        Thread.sleep(2000);
+        bookPage.classSelectAll();
+        bookPage.clickSubjectDropdown();
+        bookPage.subjectSelectAll();
+    }
 
 
 }

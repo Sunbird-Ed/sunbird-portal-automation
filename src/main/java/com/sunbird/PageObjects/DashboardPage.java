@@ -62,6 +62,9 @@ public class DashboardPage {
     @FindBy(how=How.XPATH,using="//*[contains(text(),'Merge Account')]")
     private WebElement mergeAccount;
 
+    @FindBy(how=How.XPATH,using="//img[@alt='SUNBIRD']")
+    private WebElement sunbirdLogo;
+
     public void userProfileIcon() throws InterruptedException {
 
         UtilityFunctions.waitToBeClickableAndClick(userProfileIcon);
@@ -175,6 +178,11 @@ UtilityFunctions.waitForVisibilityOfWebElement(firstContentCard);
     public void mergeAccountBtn() {
         UtilityFunctions.waitForElementAndClickable(mergeAccount);
         Listeners.addLogs("Clicked on mergeAccount");
+
+    }
+    public void verifySunbirdLogo() {
+        UtilityFunctions.waitForElementAndClickable(sunbirdLogo);
+        Listeners.addLogs("verified sunbirdLogo ");
 
     }
 }

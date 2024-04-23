@@ -103,5 +103,10 @@ dashboardPage.homeTab();
         DashboardPage dashboardPage = PageFactory.initElements(driver, DashboardPage.class);
         dashboardPage.mergeAccountBtn();
     }
+    public static void assertSunbirdLogo()
+    {
+        DashboardPage dashboardPage = PageFactory.initElements(driver, DashboardPage.class);
+        dashboardPage.verifySunbirdLogo();
+    }
 }
 	
