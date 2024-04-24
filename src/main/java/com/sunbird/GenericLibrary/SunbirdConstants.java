@@ -43,4 +43,8 @@ public static String placeholder="placeholer";
     public static String activityAddedToastrMsg="Activity added successfully";
     public static String syncNowProgressToastrMsg="You can view your updated course progress within 24 hours";
 public static String collobratorAddedToastrmsg="Collaborators updated successfully";
+    public static String lastAttemptToastrMsg="This is the last remaining attempt";
+    public static String maximumNoOfAttemptsExceeded="You have exceeded the maximum number of attempts that can be submitted";
+
+
 }

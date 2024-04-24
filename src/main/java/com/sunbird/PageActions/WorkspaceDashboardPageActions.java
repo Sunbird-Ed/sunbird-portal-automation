@@ -64,5 +64,11 @@ public class WorkspaceDashboardPageActions extends BaseTestConfig {
         workspacedashboardPage.published();
 
     }
+    public static void clickAllTextBookOption() throws InterruptedException {
+        WorkspaceDashboardPage workspacedashboardPage=PageFactory.initElements(driver, WorkspaceDashboardPage.class);
+        workspacedashboardPage.allTextBook();
+
+    }
+
 }
 	

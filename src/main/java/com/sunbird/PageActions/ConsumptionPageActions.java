@@ -52,7 +52,14 @@ public class ConsumptionPageActions extends BaseTestConfig {
         UtilityFunctions.findElementAndClick(generatedXpath);
 
     }
-
+    public static void giveRatingAndAssertToastrMsg(int a) throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        consumptionPage.giveRatingStars(a);
+        consumptionPage.tellusMorecheckbox();
+        consumptionPage.clickSubmitRatingPopup();
+        String actual = consumptionPage.assertThankYouToastrMsg1();
+        UtilityFunctions.stringValueComparision(actual, SunbirdConstants.thankYouRatingToastrMsg, "Failed on Rating the content");
+    }
     public static void clickFullScreen() throws InterruptedException {
         ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
         consumptionPage.fullScreen();
@@ -70,6 +77,40 @@ public class ConsumptionPageActions extends BaseTestConfig {
         ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
         consumptionPage.kababMenuOption();
         consumptionPage.syncProgressNow();
+    }
+    public static void clickNextButtonInQuestionSetCon() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        consumptionPage.clickOnNextIconInQuestionSet();
+    }
+    public static void clickSubmitButtonPlayer() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        consumptionPage.submitBtnInPlayer();
+    }
+    public static void assertLastAttemptToastrMsg() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+       String actualMsg= consumptionPage.validateLastAttemptToastrMsg();
+        UtilityFunctions.stringValueComparision(actualMsg, SunbirdConstants.lastAttemptToastrMsg, "Last attempt msg didn't load");
+
+    }
+    public static void assertMaximumNoOfAttemptExcededToastrMsg() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        String actualMsg= consumptionPage.validateMaximumNoofAttemptsExceeded();
+        UtilityFunctions.stringValueComparision(actualMsg, SunbirdConstants.maximumNoOfAttemptsExceeded, "maximumNoOfAttemptsExceeded msg didn't load");
+
+    }
+    public static void clickContentInTOC() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        consumptionPage.contentInTOC();
+    }
+    public static void assertLastAttemptPopup() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        String actualMsg= consumptionPage.lastRemainingAttemptPopup();
+        UtilityFunctions.stringValueComparision(actualMsg, SunbirdConstants.lastAttemptToastrMsg, "lastAttemptToastrMsg msg didn't load");
+
+    }
+    public static void clickOnOkButtonInLastAttemptPopup() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        consumptionPage.okBtnInLastAttemptPopup();
     }
 }
 	

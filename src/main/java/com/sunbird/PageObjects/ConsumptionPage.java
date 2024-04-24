@@ -51,6 +51,27 @@ public class ConsumptionPage {
     @FindBy(how = How.XPATH, using = "//div[contains(text(),' Sync progress now')]")
     private WebElement syncProgressNow;
 
+    @FindBy(how = How.XPATH, using = "//img[@alt='Sidebar Menu Icon']//following::a[@class='nav-icon nav-next']")
+    private WebElement nextButtonQuestionSet;
+
+    @FindBy(how = How.XPATH, using = "//button[@type='submit']")
+    private WebElement submitInPlayer;
+
+    @FindBy(how = How.XPATH, using = "//strong[contains(text(),'This is the last remaining attempt')]")
+    private WebElement assertLastAttemptToastrMsg;
+
+    @FindBy(how = How.XPATH, using = "//strong[contains(text(),'You have exceeded the maximum number of attempts that can be submitted')]")
+    private WebElement maximumAttemptsExceeded;
+
+    @FindBy(how = How.XPATH, using = "//div[contains(@class,'sbchapter__item')]//following::div[2]")
+    private WebElement contentInTOC;
+
+    @FindBy(how = How.XPATH, using = "//div[contains(text(),' This is the last remaining attempt')]")
+    private WebElement lastAttemptPopup;
+
+    @FindBy(how = How.XPATH, using = "//button[contains(text(),' OK ')]")
+    private WebElement okBtnInLastAttemptPopup;
+
     public int getPDFTotalCount() {
 
         UtilityFunctions.waitForVisibilityOfWebElement(pdfPageTotalcount);
@@ -96,8 +117,13 @@ public class ConsumptionPage {
         Listeners.addLogs("Clicked on fullScreen");
 
     }
-
+    public String assertThankYouToastrMsg1() {
+        UtilityFunctions.waitForVisibilityOfWebElement(assertThankYouRatingTostrMsg);
+        String getActualText = UtilityFunctions.getTextFromElement(assertThankYouRatingTostrMsg);
+        return getActualText;
+    }
     public void assertCourseCompleteMsg() {
+        UtilityFunctions.waitForVisibilityOfWebElement(assertCongratulationsMsg);
         UtilityFunctions.waitForElementUsingForLoopAndAssert(assertCongratulationsMsg, 4);
         UtilityFunctions.validatIsElementPresent(assertCongratulationsMsg, "assertCongratulationsMsg not displayed");
         Listeners.addLogs("assertCongratulationsMsg is displayed ");
@@ -117,6 +143,47 @@ public class ConsumptionPage {
     public void syncProgressNow() throws InterruptedException {
         UtilityFunctions.waitToBeClickableAndClick(syncProgressNow);
         Listeners.addLogs("Clicked on syncProgressNow");
+
+    }
+    public void clickOnNextIconInQuestionSet() throws InterruptedException {
+        UtilityFunctions.waitToBeClickableAndClick(nextButtonQuestionSet);
+        Listeners.addLogs("Clicked on nextButtonQuestionSet");
+
+    }
+    public void submitBtnInPlayer() throws InterruptedException {
+        UtilityFunctions.waitToBeClickableAndClick(submitInPlayer);
+        Listeners.addLogs("Clicked on submitInPlayer");
+
+    }
+    public String validateLastAttemptToastrMsg() {
+        UtilityFunctions.waitForVisibilityOfWebElement(assertLastAttemptToastrMsg);
+        String actualText=UtilityFunctions.getTextFromElement(assertLastAttemptToastrMsg);
+        Listeners.addLogs("assertLastAttemptToastrMsg validated");
+        UtilityFunctions.waitForElementToDisappear(assertLastAttemptToastrMsg);
+        return actualText;
+    }
+    public String validateMaximumNoofAttemptsExceeded() {
+        UtilityFunctions.waitForVisibilityOfWebElement(maximumAttemptsExceeded);
+        String actualText=UtilityFunctions.getTextFromElement(maximumAttemptsExceeded);
+        Listeners.addLogs("maximumAttemptsExceeded validated");
+        UtilityFunctions.waitForElementToDisappear(maximumAttemptsExceeded);
+        return actualText;
+    }
+
+    public void contentInTOC() throws InterruptedException {
+        UtilityFunctions.waitToBeClickableAndClick(contentInTOC);
+        Listeners.addLogs("Clicked on contentInTOC");
+
+    }
+    public String lastRemainingAttemptPopup() {
+        UtilityFunctions.waitForVisibilityOfWebElement(lastAttemptPopup);
+        String actualText=UtilityFunctions.getTextFromElement(lastAttemptPopup);
+        Listeners.addLogs("lastAttemptPopup validated");
+        return actualText;
+    }
+    public void okBtnInLastAttemptPopup() throws InterruptedException {
+        UtilityFunctions.waitToBeClickableAndClick(okBtnInLastAttemptPopup);
+        Listeners.addLogs("Clicked on okBtnInLastAttemptPopup");
 
     }
 }

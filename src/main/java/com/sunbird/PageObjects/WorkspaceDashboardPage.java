@@ -34,6 +34,9 @@ public class WorkspaceDashboardPage {
     @FindBy(how=How.XPATH,using="//*[contains(text(),' Published')]")
     private WebElement published;
 
+    @FindBy(how=How.XPATH,using="//*[contains(text(),' All Textbooks ')]")
+    private WebElement allTextbooks;
+
     public void assertDrafts() throws InterruptedException {
 
         UtilityFunctions.waitToBeClickableAndClick(drafts);
@@ -94,6 +97,13 @@ public class WorkspaceDashboardPage {
 
         UtilityFunctions.waitToBeClickableAndClick(published);
         Listeners.addLogs("Clicked on published ");
+
+    }
+    public void allTextBook()
+    {
+
+        UtilityFunctions.waitToBeClickableAndClick(allTextbooks);
+        Listeners.addLogs("Clicked on allTextbooks ");
 
     }
 }

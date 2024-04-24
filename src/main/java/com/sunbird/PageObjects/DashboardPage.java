@@ -65,6 +65,7 @@ public class DashboardPage {
     @FindBy(how=How.XPATH,using="//img[@alt='SUNBIRD']")
     private WebElement sunbirdLogo;
 
+
     public void userProfileIcon() throws InterruptedException {
 
         UtilityFunctions.waitToBeClickableAndClick(userProfileIcon);

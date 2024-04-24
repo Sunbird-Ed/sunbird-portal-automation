@@ -242,8 +242,9 @@ catch (Exception e)
     }
 
     public static void switchFrameUsingName() throws InterruptedException {
+
         WebElement iframe = driver.findElement(By.tagName("iframe"));
-        driver.switchTo().frame(iframe);
+            driver.switchTo().frame(iframe);
     }
 
     public static void waitForElementToBeClickable(WebElement element) {
@@ -349,6 +350,8 @@ return value;
         wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(element));
 
     }
+
+
     public static void refreshPage() {
      driver.navigate().refresh();
     }

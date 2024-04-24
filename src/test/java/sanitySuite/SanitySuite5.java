@@ -540,4 +540,144 @@ public class SanitySuite5 extends BaseTestConfig  {
         DashboardPageActions.assertSunbirdLogo();
 
     }
+
+    @Test(description = "Admin should be able to do the draft book and sendForReview")
+    public void AdminCanEditTheDraftBookInAllTextbookAndSendForReview() throws Exception {
+        OnBoardingActions.RolePoup();
+        OnBoardingActions.BMCPopup();
+        OnBoardingActions.LocationPopup();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+                sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+        DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.assertWorkspace();
+        DashboardPageActions.clickOnWorkSpace();
+        WorkspaceDashboardPageActions.clickBook();
+        String createdContent = BookPageActions.createBookPopup("getdoid");
+        String des = BookPageActions.section1("getdescription");
+        BookPageActions.BMCDropdownSelectionSection2();
+        BookPageActions.Section3();
+        BookPageActions.assertContentIsSavedToastrMsg();
+        BookPageActions.waitContentIsSavedToastToDisapper();
+        BookPageActions.clickBackButtonInEditor();
+        DashboardPageActions.logOut();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("TN_ORGADMIN"),
+                sunbird_config.getSunbidConfigPropertyValue("TN_ORGADMIN_PWD"));
+        DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.clickOnWorkSpace();
+        WorkspaceDashboardPageActions.clickAllTextBookOption();
+        AllMyContentPageActions.enterContentInSearchBox(createdContent);
+        AllMyContentPageActions.clickFirstCard();
+        BookPageActions.addResourceInLibrarySection("Mp4");
+        BookPageActions.clickSaveAsDrafts();
+        BookPageActions.submitAndSendForReview();
+        DashboardPageActions.logOut();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"),
+                sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
+        DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.clickOnWorkSpace();
+        ReviewPageActions.reviewAndPublishContent(createdContent, "Book");
+
+    }
+    @Test(description = " The user should be displayed with Toast message It is the Last Attempt left when user clicks on the assessment on the Last attempt.")
+    public void verifyNumberOfMaximumAttemptsWhenCourseAssesmentAddedToCourse () throws Exception {
+
+        OnBoardingActions.RolePoup();
+        OnBoardingActions.BMCPopup();
+        OnBoardingActions.LocationPopup();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+                sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+        DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.assertWorkspace();
+        DashboardPageActions.clickOnWorkSpace();
+        WorkspaceDashboardPageActions.clickCourse();
+        String createdContent = CoursePageActions.createCourseSection1("getdoid");
+        BookPageActions.BMCDropdownSelectionSection2();
+        BookPageActions.Section3();
+        BookPageActions.assertContentIsSavedToastrMsg();
+        BookPageActions.waitContentIsSavedToastToDisapper();
+        BookPageActions.addResourceInLibrarySection(sunbird_config.getSunbidConfigPropertyValue("CourseAssessment"));
+        BookPageActions.submitAndSendForReview();
+        DashboardPageActions.logOut();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"),
+                sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
+        DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.clickOnWorkSpace();
+        ReviewPageActions.reviewAndPublishContent(createdContent, "Course");
+        DashboardPageActions.logOut();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+                sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+        DashboardPageActions.clickCourseTab();
+        DashboardPageActions.searchContentAndClickOnContentCard(createdContent);
+        BatchPageActions.clickBatchCreationBtn();
+        BatchPageActions.enterBatchNameandDescription();
+        BatchPageActions.clickIssueCertificateNo();
+        BatchPageActions.startDate(UtilityFunctions.getTodayDate("MM/dd/yyyy"));
+        BatchPageActions.endDate(2);
+        BatchPageActions.enrollmentEndDate(1);
+        BatchPageActions.clickTermsCheckBoxAndSubmit();
+        BatchPageActions.assertBatchTostrMsg();
+        DashboardPageActions.logOut();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("PUBLIC_USER"),
+                sunbird_config.getSunbidConfigPropertyValue("PUBLIC_PASSWORD"));
+        DashboardPageActions.clickCourseTab();
+        DashboardPageActions.searchContentAndClickOnContentCard(createdContent);
+        BatchPageActions.clickJoinCourse();
+        BatchPageActions.validateAttributesInConsentPopup();
+        BatchPageActions.clickTermsCheckInConsentPopup();
+        BatchPageActions.clickShareBtn();
+        BatchPageActions.assertBatchEndTimeStamp();
+        BatchPageActions.clickStartLearning();
+        UtilityFunctions.threadSleep(4000);
+        UtilityFunctions.switchFrameUsingName();
+        ConsumptionPageActions.clickNextButtonInQuestionSetCon();
+        ConsumptionPageActions.clickSubmitButtonPlayer();
+        UtilityFunctions.switchToDefaultContentFrame();
+        ConsumptionPageActions.giveRatingAndAssertToastrMsg(3);
+        ConsumptionPageActions.assertLastAttemptToastrMsg();
+        UtilityFunctions.backButtonInBrowser();
+        ConsumptionPageActions.clickContentInTOC();
+        ConsumptionPageActions.assertLastAttemptPopup();
+        ConsumptionPageActions.clickOnOkButtonInLastAttemptPopup();
+        UtilityFunctions.threadSleep(4000);
+        UtilityFunctions.switchFrameUsingName();
+        ConsumptionPageActions.clickNextButtonInQuestionSetCon();
+        ConsumptionPageActions.clickSubmitButtonPlayer();
+        UtilityFunctions.switchToDefaultContentFrame();
+        ConsumptionPageActions.giveRatingAndAssertToastrMsg(3);
+        UtilityFunctions.backButtonInBrowser();
+        ConsumptionPageActions.clickContentInTOC();
+        ConsumptionPageActions.assertMaximumNoOfAttemptExcededToastrMsg();
+    }
+
+    @Test(description = "user should be able to search for TV lesson type content")
+    public void searchTVLessonTypeContent() throws Exception {
+
+        OnBoardingActions.RolePoup();
+        OnBoardingActions.BMCPopup();
+        OnBoardingActions.LocationPopup();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+                sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+        DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.clickOnWorkSpace();
+        WorkspaceDashboardPageActions.clickResource();
+        String createdContent = ResourcePageActions.createResourcePopup("getContentName");
+        ResourcePageActions.addTriangleShape();
+        ResourcePageActions.addText();
+        ResourcePageActions.addNewSlide();
+        ResourcePageActions.saveAndCloseIcon();
+        ResourcePageActions.resourceSendForReview();
+        DashboardPageActions.logOut();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"),
+                sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
+        DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.clickOnWorkSpace();
+        ReviewPageActions.reviewAndPublishContent(createdContent, "Resource");
+        DashboardPageActions.logOut();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+                sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+        DashboardPageActions.clickOnTVClasses();
+        DashboardPageActions.searchContentAndClickOnContentCard(createdContent);
+    }
+
+
 }
