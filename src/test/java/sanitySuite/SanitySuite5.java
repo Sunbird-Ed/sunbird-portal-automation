@@ -541,43 +541,7 @@ public class SanitySuite5 extends BaseTestConfig  {
 
     }
 
-    @Test(description = "Admin should be able to do the draft book and sendForReview")
-    public void AdminCanEditTheDraftBookInAllTextbookAndSendForReview() throws Exception {
-        OnBoardingActions.RolePoup();
-        OnBoardingActions.BMCPopup();
-        OnBoardingActions.LocationPopup();
-        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
-                sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
-        DashboardPageActions.clickUserProfileIcon();
-        DashboardPageActions.assertWorkspace();
-        DashboardPageActions.clickOnWorkSpace();
-        WorkspaceDashboardPageActions.clickBook();
-        String createdContent = BookPageActions.createBookPopup("getdoid");
-        String des = BookPageActions.section1("getdescription");
-        BookPageActions.BMCDropdownSelectionSection2();
-        BookPageActions.Section3();
-        BookPageActions.assertContentIsSavedToastrMsg();
-        BookPageActions.waitContentIsSavedToastToDisapper();
-        BookPageActions.clickBackButtonInEditor();
-        DashboardPageActions.logOut();
-        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("TN_ORGADMIN"),
-                sunbird_config.getSunbidConfigPropertyValue("TN_ORGADMIN_PWD"));
-        DashboardPageActions.clickUserProfileIcon();
-        DashboardPageActions.clickOnWorkSpace();
-        WorkspaceDashboardPageActions.clickAllTextBookOption();
-        AllMyContentPageActions.enterContentInSearchBox(createdContent);
-        AllMyContentPageActions.clickFirstCard();
-        BookPageActions.addResourceInLibrarySection("Mp4");
-        BookPageActions.clickSaveAsDrafts();
-        BookPageActions.submitAndSendForReview();
-        DashboardPageActions.logOut();
-        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"),
-                sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
-        DashboardPageActions.clickUserProfileIcon();
-        DashboardPageActions.clickOnWorkSpace();
-        ReviewPageActions.reviewAndPublishContent(createdContent, "Book");
 
-    }
     @Test(description = " The user should be displayed with Toast message It is the Last Attempt left when user clicks on the assessment on the Last attempt.")
     public void verifyNumberOfMaximumAttemptsWhenCourseAssesmentAddedToCourse () throws Exception {
 
@@ -677,6 +641,123 @@ public class SanitySuite5 extends BaseTestConfig  {
                 sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
         DashboardPageActions.clickOnTVClasses();
         DashboardPageActions.searchContentAndClickOnContentCard(createdContent);
+    }
+
+    @Test(description = "Admin should be able to do the draft book and sendForReview")
+    public void AdminCanEditTheDraftBookInAllTextbookAndSendForReview() throws Exception {
+        OnBoardingActions.RolePoup();
+        OnBoardingActions.BMCPopup();
+        OnBoardingActions.LocationPopup();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+                sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+        DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.assertWorkspace();
+        DashboardPageActions.clickOnWorkSpace();
+        WorkspaceDashboardPageActions.clickBook();
+        String createdContent = BookPageActions.createBookPopup("getdoid");
+        String des = BookPageActions.section1("getdescription");
+        BookPageActions.BMCDropdownSelectionSection2();
+        BookPageActions.Section3();
+        BookPageActions.assertContentIsSavedToastrMsg();
+        BookPageActions.waitContentIsSavedToastToDisapper();
+        BookPageActions.clickBackButtonInEditor();
+        DashboardPageActions.logOut();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("TN_ORGADMIN"),
+                sunbird_config.getSunbidConfigPropertyValue("TN_ORGADMIN_PWD"));
+        DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.clickOnWorkSpace();
+        WorkspaceDashboardPageActions.clickAllTextBookOption();
+        AllMyContentPageActions.enterContentInSearchBox(createdContent);
+        AllMyContentPageActions.clickFirstCard();
+        BookPageActions.addResourceInLibrarySection("Mp4");
+        BookPageActions.clickSaveAsDrafts();
+        BookPageActions.submitAndSendForReview();
+        DashboardPageActions.logOut();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"),
+                sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
+        DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.clickOnWorkSpace();
+        ReviewPageActions.reviewAndPublishContent(createdContent, "Book");
+
+    }
+    @Test(description = "The creator should be able to create a certificate template ")
+    public void CreateCertificateTemplateAndAttachCertificateToCourse() throws Exception {
+
+        OnBoardingActions.RolePoup();
+        OnBoardingActions.BMCPopup();
+        OnBoardingActions.LocationPopup();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+                sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+        DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.assertWorkspace();
+        DashboardPageActions.clickOnWorkSpace();
+        WorkspaceDashboardPageActions.clickCourse();
+        String createdContent = CoursePageActions.createCourseSection1("getdoid");
+        BookPageActions.BMCDropdownSelectionSection2();
+        BookPageActions.Section3();
+        BookPageActions.assertContentIsSavedToastrMsg();
+        BookPageActions.waitContentIsSavedToastToDisapper();
+        BookPageActions.addResourceFromLibrary();
+        BookPageActions.submitAndSendForReview();
+        DashboardPageActions.logOut();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"),
+                sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
+        DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.clickOnWorkSpace();
+        ReviewPageActions.reviewAndPublishContent(createdContent, "Course");
+        DashboardPageActions.logOut();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+                sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+        DashboardPageActions.clickCourseTab();
+        DashboardPageActions.searchContentAndClickOnContentCard(createdContent);
+        BatchPageActions.clickBatchCreationBtn();
+        BatchPageActions.enterBatchNameandDescription();
+        BatchPageActions.clickIssueCertificateNo();
+        BatchPageActions.startDate(UtilityFunctions.getTodayDate("MM/dd/yyyy"));
+        BatchPageActions.endDate(3);
+        BatchPageActions.enrollmentEndDate(2);
+        BatchPageActions.clickTermsCheckBoxAndSubmit();
+        BatchPageActions.assertBatchTostrMsg();
+
+        CertificatePageActions.clickAddCertificate();
+        UtilityFunctions.scrollDownUsingPixelValue();
+        CertificatePageActions.clickAddCertificatePlusIcon();
+        CertificatePageActions.clickIssueCertificateDropdown();
+        CertificatePageActions.selectAllValueInIssueCertificate();
+        CertificatePageActions.clickCreateTemplate();
+        String title=CertificatePageActions.enterCertificateTitle();
+        String stateName=CertificatePageActions.enterStateName();
+        CertificatePageActions.uploadStateLogoImg();
+        CertificatePageActions.uploadSignatureImg();
+        CertificatePageActions.enterDesignations();
+        CertificatePageActions.selectLayoutTemplate();
+        CertificatePageActions.clickCheckBox();
+        CertificatePageActions.clickSaveTemplate();
+        CertificatePageActions.assertCertificateAddedTostrMsg();
+        CertificatePageActions.clickCloseDialogBox();
+        UtilityFunctions.threadSleep(4000);
+        UtilityFunctions.scrollUpUsingPixelValue();
+        UtilityFunctions.scrollUpUsingPixelValue();
+        UtilityFunctions.scrollUpUsingPixelValue();
+        CertificatePageActions.clickIssueCertificateDropdown();
+        CertificatePageActions.selectAllValueInIssueCertificate();
+        UtilityFunctions.threadSleep(2000);
+        UtilityFunctions.scrollDownUsingPixelValue();
+        CertificatePageActions.clickRefreshBtn();
+        UtilityFunctions.threadSleep(4000);
+        CertificatePageActions.chooseTemplateAndClickPreview();
+        UtilityFunctions.threadSleep(1000);
+        CertificatePageActions.selectTemplateInPreviewPopup();
+        CertificatePageActions.clickCheckBox();
+        UtilityFunctions.scrollDownUsingPixelValue();
+        UtilityFunctions.scrollDownUsingPixelValue();
+        CertificatePageActions.clickAddCertificateForCreation();
+        CertificatePageActions.assertCertificateAddedTostrMsg();
+        UtilityFunctions.scrollUpUsingPixelValue();
+        UtilityFunctions.scrollUpUsingPixelValue();
+        CertificatePageActions.assertCertificateAddedImg();
+
+
     }
 
 
