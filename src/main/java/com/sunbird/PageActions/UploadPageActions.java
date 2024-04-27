@@ -102,4 +102,21 @@ uploadPage.editDetails();
         UploadPage uploadPage = PageFactory.initElements(driver, UploadPage.class);
         uploadPage.assertEditDetails();
     }
+    /* upload the content by taking the filePath */
+    public static void uploadYoutube(String youtubeLink) throws InterruptedException {
+        UploadPage uploadPage = PageFactory.initElements(driver, UploadPage.class);
+
+        uploadPage.uploadContentInWorkspace();
+        UtilityFunctions.switchFrameOnIndex(0);
+        uploadPage.contentTypeDroddown();
+        uploadPage.selectETextbookValue();
+uploadPage.enterURLLink(youtubeLink);
+      uploadPage.uploadBtnInEditor();
+        String actualMsg = uploadPage.assertUploadContentMsgs();
+        UtilityFunctions.stringValueComparision(actualMsg, SunbirdConstants.contentUploadToastrMsg, "Failed to upload the content");
+        uploadPage.waitForContentUploadToastrMsgDisAppear();
+        uploadPage.clickSave();
+        uploadPage.clickClose();
+
+    }
 }

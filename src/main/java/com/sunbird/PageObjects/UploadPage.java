@@ -88,6 +88,12 @@ public class UploadPage {
     @FindBy(how = How.XPATH, using = "//div[@id='closeButton']")
     private WebElement crossCloseEditorIcon;
 
+    @FindBy(how = How.XPATH, using = "//Input[@placeholder='https://']")
+    private WebElement enterURLLink;
+
+    @FindBy(how = How.XPATH, using = "//button[contains(text(),'Upload')]")
+    private WebElement uploadBtnInUploadEditor;
+
 
     public void uploadContentInWorkspace() {
 
@@ -278,5 +284,17 @@ public class UploadPage {
     public void waitForContentUploadToastrMsgDisAppear()
     {
         UtilityFunctions.waitForElementToDisappear(contentUploadToastrMsg);
+    }
+
+    public void enterURLLink(String link) {
+        UtilityFunctions.waitToBeClickableAndSendKeys(enterURLLink,link);
+        Listeners.addLogs("entered URL Link");
+
+    }
+    public void uploadBtnInEditor() {
+
+        UtilityFunctions.waitForElementAndClickable(uploadBtnInUploadEditor);
+        Listeners.addLogs("clicked on uploadBtnInUploadEditor");
+
     }
 }

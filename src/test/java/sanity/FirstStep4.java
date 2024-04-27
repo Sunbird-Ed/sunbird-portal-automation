@@ -733,84 +733,105 @@ BookPageActions.clickSaveAsDrafts();
 
 	}*/
 
-	@Test(description = "The creator should be able to create a certificate template ")
-	public void CreateCertificateTemplateAndAttachCertificateToCourse() throws Exception {
+	/*	@Test(description = "The creator should be able to create a certificate template ")
+		public void CreateCertificateTemplateAndAttachCertificateToCourse() throws Exception {
 
+			OnBoardingActions.RolePoup();
+			OnBoardingActions.BMCPopup();
+			OnBoardingActions.LocationPopup();
+			LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+					sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+			DashboardPageActions.clickUserProfileIcon();
+			DashboardPageActions.assertWorkspace();
+			DashboardPageActions.clickOnWorkSpace();
+			WorkspaceDashboardPageActions.clickCourse();
+			String createdContent = CoursePageActions.createCourseSection1("getdoid");
+			BookPageActions.BMCDropdownSelectionSection2();
+			BookPageActions.Section3();
+			BookPageActions.assertContentIsSavedToastrMsg();
+			BookPageActions.waitContentIsSavedToastToDisapper();
+			BookPageActions.addResourceFromLibrary();
+			BookPageActions.submitAndSendForReview();
+			DashboardPageActions.logOut();
+			LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"),
+					sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
+			DashboardPageActions.clickUserProfileIcon();
+			DashboardPageActions.clickOnWorkSpace();
+			ReviewPageActions.reviewAndPublishContent(createdContent, "Course");
+			DashboardPageActions.logOut();
+			LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+					sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+			DashboardPageActions.clickCourseTab();
+			DashboardPageActions.searchContentAndClickOnContentCard(createdContent);
+			BatchPageActions.clickBatchCreationBtn();
+			BatchPageActions.enterBatchNameandDescription();
+			BatchPageActions.clickIssueCertificateNo();
+			BatchPageActions.startDate(UtilityFunctions.getTodayDate("MM/dd/yyyy"));
+			BatchPageActions.endDate(3);
+			BatchPageActions.enrollmentEndDate(2);
+			BatchPageActions.clickTermsCheckBoxAndSubmit();
+			BatchPageActions.assertBatchTostrMsg();
+
+	CertificatePageActions.clickAddCertificate();
+	UtilityFunctions.scrollDownUsingPixelValue();
+	CertificatePageActions.clickAddCertificatePlusIcon();
+	CertificatePageActions.clickIssueCertificateDropdown();
+	CertificatePageActions.selectAllValueInIssueCertificate();
+	CertificatePageActions.clickCreateTemplate();
+	String title=CertificatePageActions.enterCertificateTitle();
+	String stateName=CertificatePageActions.enterStateName();
+	CertificatePageActions.uploadStateLogoImg();
+	CertificatePageActions.uploadSignatureImg();
+	CertificatePageActions.enterDesignations();
+	CertificatePageActions.selectLayoutTemplate();
+	CertificatePageActions.clickCheckBox();
+	CertificatePageActions.clickSaveTemplate();
+	CertificatePageActions.assertCertificateAddedTostrMsg();
+	CertificatePageActions.clickCloseDialogBox();
+	UtilityFunctions.threadSleep(4000);
+	UtilityFunctions.scrollUpUsingPixelValue();
+	UtilityFunctions.scrollUpUsingPixelValue();
+	UtilityFunctions.scrollUpUsingPixelValue();
+	CertificatePageActions.clickIssueCertificateDropdown();
+	CertificatePageActions.selectAllValueInIssueCertificate();
+	UtilityFunctions.threadSleep(2000);
+	UtilityFunctions.scrollDownUsingPixelValue();
+	CertificatePageActions.clickRefreshBtn();
+	UtilityFunctions.threadSleep(4000);
+	CertificatePageActions.chooseTemplateAndClickPreview();
+	UtilityFunctions.threadSleep(1000);
+	CertificatePageActions.selectTemplateInPreviewPopup();
+	CertificatePageActions.clickCheckBox();
+	UtilityFunctions.scrollDownUsingPixelValue();
+	UtilityFunctions.scrollDownUsingPixelValue();
+	CertificatePageActions.clickAddCertificateForCreation();
+	CertificatePageActions.assertCertificateAddedTostrMsg();
+	UtilityFunctions.scrollUpUsingPixelValue();
+	UtilityFunctions.scrollUpUsingPixelValue();
+	CertificatePageActions.assertCertificateAddedImg();
+
+
+		}*/
+	@Test(description = "upload Youtube")
+	public void UploadYouTubecontent() throws Exception {
 		OnBoardingActions.RolePoup();
 		OnBoardingActions.BMCPopup();
 		OnBoardingActions.LocationPopup();
-		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
-				sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
 		DashboardPageActions.clickUserProfileIcon();
 		DashboardPageActions.assertWorkspace();
 		DashboardPageActions.clickOnWorkSpace();
-		WorkspaceDashboardPageActions.clickCourse();
-		String createdContent = CoursePageActions.createCourseSection1("getdoid");
-		BookPageActions.BMCDropdownSelectionSection2();
-		BookPageActions.Section3();
-		BookPageActions.assertContentIsSavedToastrMsg();
-		BookPageActions.waitContentIsSavedToastToDisapper();
-		BookPageActions.addResourceFromLibrary();
-		BookPageActions.submitAndSendForReview();
+		String link=sunbird_config.getSunbidConfigPropertyValue("YOUTUBE");
+		UploadPageActions.uploadYoutube(link);
+		UploadPageActions.clickSendForReview();
+		String resourceName = UploadPageActions.sendUploadContentForReview();
+		UtilityFunctions.switchToDefaultContentFrame();
 		DashboardPageActions.logOut();
-		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"),
-				sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
 		DashboardPageActions.clickUserProfileIcon();
 		DashboardPageActions.clickOnWorkSpace();
-		ReviewPageActions.reviewAndPublishContent(createdContent, "Course");
+		ReviewPageActions.reviewAndPublishContent(resourceName, "Upload");
 		DashboardPageActions.logOut();
-		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
-				sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
-		DashboardPageActions.clickCourseTab();
-		DashboardPageActions.searchContentAndClickOnContentCard(createdContent);
-		BatchPageActions.clickBatchCreationBtn();
-		BatchPageActions.enterBatchNameandDescription();
-		BatchPageActions.clickIssueCertificateNo();
-		BatchPageActions.startDate(UtilityFunctions.getTodayDate("MM/dd/yyyy"));
-		BatchPageActions.endDate(3);
-		BatchPageActions.enrollmentEndDate(2);
-		BatchPageActions.clickTermsCheckBoxAndSubmit();
-		BatchPageActions.assertBatchTostrMsg();
-
-CertificatePageActions.clickAddCertificate();
-UtilityFunctions.scrollDownUsingPixelValue();
-CertificatePageActions.clickAddCertificatePlusIcon();
-CertificatePageActions.clickIssueCertificateDropdown();
-CertificatePageActions.selectAllValueInIssueCertificate();
-CertificatePageActions.clickCreateTemplate();
-String title=CertificatePageActions.enterCertificateTitle();
-String stateName=CertificatePageActions.enterStateName();
-CertificatePageActions.uploadStateLogoImg();
-CertificatePageActions.uploadSignatureImg();
-CertificatePageActions.enterDesignations();
-CertificatePageActions.selectLayoutTemplate();
-CertificatePageActions.clickCheckBox();
-CertificatePageActions.clickSaveTemplate();
-CertificatePageActions.assertCertificateAddedTostrMsg();
-CertificatePageActions.clickCloseDialogBox();
-UtilityFunctions.threadSleep(4000);
-UtilityFunctions.scrollUpUsingPixelValue();
-UtilityFunctions.scrollUpUsingPixelValue();
-UtilityFunctions.scrollUpUsingPixelValue();
-CertificatePageActions.clickIssueCertificateDropdown();
-CertificatePageActions.selectAllValueInIssueCertificate();
-UtilityFunctions.threadSleep(2000);
-UtilityFunctions.scrollDownUsingPixelValue();
-CertificatePageActions.clickRefreshBtn();
-UtilityFunctions.threadSleep(4000);
-CertificatePageActions.chooseTemplateAndClickPreview();
-UtilityFunctions.threadSleep(1000);
-CertificatePageActions.selectTemplateInPreviewPopup();
-CertificatePageActions.clickCheckBox();
-UtilityFunctions.scrollDownUsingPixelValue();
-UtilityFunctions.scrollDownUsingPixelValue();
-CertificatePageActions.clickAddCertificateForCreation();
-CertificatePageActions.assertCertificateAddedTostrMsg();
-UtilityFunctions.scrollUpUsingPixelValue();
-UtilityFunctions.scrollUpUsingPixelValue();
-CertificatePageActions.assertCertificateAddedImg();
-
-
 	}
 
 }
