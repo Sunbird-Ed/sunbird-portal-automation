@@ -2,11 +2,14 @@ package com.sunbird.PageActions;
 
 import com.sunbird.PageActions.Agriculture.AgricultureOnBoardingActions;
 import com.sunbird.PageActions.BMC.BmcOnBoardingActions;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 import com.sunbird.GenericLibrary.BaseTestConfig;
 import com.sunbird.GenericLibrary.UtilityFunctions;
 import com.sunbird.PageObjects.OnBoarding;
+import java.util.List;
 
 
 public class OnBoardingActions extends BaseTestConfig {
@@ -29,10 +32,10 @@ public class OnBoardingActions extends BaseTestConfig {
 
         OnBoarding onboard = PageFactory.initElements(driver, OnBoarding.class);
 
-        onboard.BoardDropdown();
+
+    onboard.BoardDropdown();
         Thread.sleep(2000);
 
-      //  String frameworkName = sunbird_config.getSunbidConfigPropertyValue("TAMILNADU_Framework");
         String frameworkName = sunbird_config.getSunbidConfigPropertyValue("FRAMEWORK");
         onboard.BoardValueSelect(frameworkName);
         switch(frameworkName){
@@ -139,4 +142,41 @@ Thread.sleep(3000);
         onboard.clickDistrictDropDown();
         onboard.selectDistrictValue();
            }
+
+    /* This method will handle the BMC popup in onboarding flow */
+    public static void  dynamicHandling() throws InterruptedException {
+
+        Thread.sleep(5000);
+
+//List<WebElement> el=driver.findElements(By.xpath("(//mat-select)"));
+     // List<WebElement> el=driver.findElements(By.tagName("mat-select"));
+
+        List<WebElement> el=driver.findElements(By.xpath("//*[contains(text(),'To discover relevant content update the following details:')]//following::mat-select"));
+
+        System.out.println("element found"+el.size());
+
+        for(int i=1;i<=el.size();i++)
+        {
+          //  String xp="(//mat-select)[";
+            String xp="//*[contains(text(),'To discover relevant content update the following details:')]//following::mat-select[";
+          //  String xp="(//mat-select)[";
+            int val=i;
+            String xp2="]";
+
+            String valueSlt="//following::mat-option";
+         //   String valueSlt="//following::*[@class='mat-option-text']";
+            Thread.sleep(3000);
+           driver.findElement(By.xpath(xp+val+xp2)).click();
+            Thread.sleep(5000);
+            driver.findElement(By.xpath(xp+val+xp2+valueSlt)).click();
+            UtilityFunctions.MoveByOffSet(50, 100);
+
+
+        }
+        Thread.sleep(2000);
+
+
+
+
+    }
 }

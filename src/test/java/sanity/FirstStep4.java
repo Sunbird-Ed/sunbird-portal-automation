@@ -812,26 +812,14 @@ BookPageActions.clickSaveAsDrafts();
 
 
 		}*/
-	@Test(description = "upload Youtube")
-	public void UploadYouTubecontent() throws Exception {
-		OnBoardingActions.RolePoup();
-		OnBoardingActions.BMCPopup();
-		OnBoardingActions.LocationPopup();
-		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
-		DashboardPageActions.clickUserProfileIcon();
-		DashboardPageActions.assertWorkspace();
-		DashboardPageActions.clickOnWorkSpace();
-		String link=sunbird_config.getSunbidConfigPropertyValue("YOUTUBE");
-		UploadPageActions.uploadYoutube(link);
-		UploadPageActions.clickSendForReview();
-		String resourceName = UploadPageActions.sendUploadContentForReview();
-		UtilityFunctions.switchToDefaultContentFrame();
-		DashboardPageActions.logOut();
-		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
-		DashboardPageActions.clickUserProfileIcon();
-		DashboardPageActions.clickOnWorkSpace();
-		ReviewPageActions.reviewAndPublishContent(resourceName, "Upload");
-		DashboardPageActions.logOut();
-	}
+
+    @Test(description = "User should be able to select block/cluster/school value for User during onboarding")
+    public void userAbleToSelectStateBlockClusterAndSchoolInLocationPopupForNewUser() throws Exception {
+        OnBoardingActions.RolePoup();
+        OnBoardingActions.dynamicHandling();
+
+
+    }
+
 
 }
