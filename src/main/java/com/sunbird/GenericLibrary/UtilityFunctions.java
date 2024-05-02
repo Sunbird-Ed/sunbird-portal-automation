@@ -13,12 +13,11 @@ import java.util.List;
 import java.util.Properties;
 
 import com.github.javafaker.Faker;
+import com.sunbird.PageObjects.OnBoarding;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.*;
 import org.testng.Assert;
 
 
@@ -399,4 +398,47 @@ return value;
         String systemDownloadPath=downloadPath.toString();
         return systemDownloadPath;
     }
+
+    /* This method will handle the BMC popup in onboarding flow */
+    public static void  dynamicElementHandlingForMatSelectTagname() throws InterruptedException {
+        OnBoarding onboard = PageFactory.initElements(driver, OnBoarding.class);
+       Thread.sleep(5000);
+
+      //  UtilityFunctions.waitJAv();
+        List<WebElement> elements=onboard.ckDropdownmain();
+
+        System.out.println("element found"+elements.size());
+        int  totalCount=elements.size();
+        for(int i=0;i<totalCount;i++)
+        {
+            String dropdownXpath="//*[contains(text(),'To discover relevant content update the following details:')]//following::mat-select[";
+            int val=i;
+            String xpathClose="]";
+            String dropdownValueXpath="//following::mat-option";
+        //    Thread.sleep(3000);
+
+            onboard.ckDropdown(val);
+            // elements.get(i).click();
+            //    driver.findElement(By.xpath(dropdownXpath+val+xpathClose)).click();
+            Thread.sleep(1000);
+            int val2=val+1;
+            WebElement d= driver.findElement(By.xpath(dropdownXpath+val2+xpathClose+dropdownValueXpath));
+            UtilityFunctions.waitForElementAndClickable(d);
+            //   driver.findElement(By.xpath(dropdownXpath+val2+xpathClose+dropdownValueXpath)).click();
+            UtilityFunctions.MoveByOffSet(50, 100);
+            int totalCount2=elements.size();
+            totalCount=totalCount2;
+
+        }
+        Thread.sleep(2000);
+
+
+    }
+
+
+    public static void waitJAv() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("return document.readyState").equals("complete");
+    }
+
 }

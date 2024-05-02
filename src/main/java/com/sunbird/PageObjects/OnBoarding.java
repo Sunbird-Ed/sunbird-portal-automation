@@ -9,6 +9,8 @@ import org.openqa.selenium.support.How;
 import com.sunbird.GenericLibrary.BaseTestConfig;
 import com.sunbird.GenericLibrary.UtilityFunctions;
 
+import java.util.List;
+
 public class OnBoarding extends BaseTestConfig {
 
     @FindBy(how = How.XPATH, using = "//a[@data-translate='btnExploreDiksha']")
@@ -104,6 +106,9 @@ public class OnBoarding extends BaseTestConfig {
 
     @FindBy(how = How.XPATH, using = "//label[@for='school']//following::span[1]")
     private WebElement selectSchoolDropdown;
+
+    @FindBy(how = How.XPATH, using = "//*[contains(text(),'To discover relevant content update the following details:')]//following::mat-select")
+    private List<WebElement> ckBoard;
 
 //	public WebElement TeacherClick() {
 //		
@@ -270,5 +275,13 @@ UtilityFunctions.waitForElementIsVisible(ClickStateDropDown);
         UtilityFunctions.waitToBeClickableAndClick(selectSchoolDropdown);
         Listeners.addLogs("selectSchoolDropdown");
 
+    }
+    public void ckDropdown(int i) {
+
+        UtilityFunctions.waitToBeClickableAndClick(ckBoard.get(i));
+//ckBoard.get(i).click();
+    }
+    public List<WebElement>  ckDropdownmain() {
+        return ckBoard;
     }
 }

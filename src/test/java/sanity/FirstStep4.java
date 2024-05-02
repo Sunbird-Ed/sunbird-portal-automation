@@ -816,7 +816,7 @@ BookPageActions.clickSaveAsDrafts();
     @Test(description = "User should be able to select block/cluster/school value for User during onboarding")
     public void userAbleToSelectStateBlockClusterAndSchoolInLocationPopupForNewUser() throws Exception {
         OnBoardingActions.RolePoup();
-        OnBoardingActions.dynamicHandling();
+       UtilityFunctions.dynamicElementHandlingForMatSelectTagname();
 
 
     }

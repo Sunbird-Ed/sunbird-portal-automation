@@ -151,31 +151,61 @@ Thread.sleep(3000);
 //List<WebElement> el=driver.findElements(By.xpath("(//mat-select)"));
      // List<WebElement> el=driver.findElements(By.tagName("mat-select"));
 
-        List<WebElement> el=driver.findElements(By.xpath("//*[contains(text(),'To discover relevant content update the following details:')]//following::mat-select"));
+        List<WebElement> elements=driver.findElements(By.xpath("//*[contains(text(),'To discover relevant content update the following details:')]//following::mat-select"));
+        System.out.println("element found"+elements.size());
 
-        System.out.println("element found"+el.size());
-
-        for(int i=1;i<=el.size();i++)
+        for(int i=1;i<=elements.size();i++)
         {
           //  String xp="(//mat-select)[";
-            String xp="//*[contains(text(),'To discover relevant content update the following details:')]//following::mat-select[";
+            String dropdownXpath="//*[contains(text(),'To discover relevant content update the following details:')]//following::mat-select[";
           //  String xp="(//mat-select)[";
             int val=i;
-            String xp2="]";
+            String xpathClose="]";
 
-            String valueSlt="//following::mat-option";
+            String dropdownValueXpath="//following::mat-option";
          //   String valueSlt="//following::*[@class='mat-option-text']";
             Thread.sleep(3000);
-           driver.findElement(By.xpath(xp+val+xp2)).click();
+           driver.findElement(By.xpath(dropdownXpath+val+xpathClose)).click();
             Thread.sleep(5000);
-            driver.findElement(By.xpath(xp+val+xp2+valueSlt)).click();
+            driver.findElement(By.xpath(dropdownXpath+val+xpathClose+dropdownValueXpath)).click();
             UtilityFunctions.MoveByOffSet(50, 100);
 
 
         }
         Thread.sleep(2000);
 
+    }
 
+    /* This method will handle the BMC popup in onboarding flow */
+    public static void  dynamicHandling2() throws InterruptedException {
+        OnBoarding onboard = PageFactory.initElements(driver, OnBoarding.class);
+        Thread.sleep(5000);
+        List<WebElement> elements=onboard.ckDropdownmain();
+
+        System.out.println("element found"+elements.size());
+    int  totalCount=elements.size();
+        for(int i=0;i<totalCount;i++)
+        {
+            String dropdownXpath="//*[contains(text(),'To discover relevant content update the following details:')]//following::mat-select[";
+            int val=i;
+            String xpathClose="]";
+            String dropdownValueXpath="//following::mat-option";
+            Thread.sleep(3000);
+
+                   onboard.ckDropdown(val);
+           // elements.get(i).click();
+      //    driver.findElement(By.xpath(dropdownXpath+val+xpathClose)).click();
+                     Thread.sleep(1000);
+            int val2=val+1;
+          WebElement d= driver.findElement(By.xpath(dropdownXpath+val2+xpathClose+dropdownValueXpath));
+          UtilityFunctions.waitForElementAndClickable(d);
+         //   driver.findElement(By.xpath(dropdownXpath+val2+xpathClose+dropdownValueXpath)).click();
+            UtilityFunctions.MoveByOffSet(50, 100);
+int totalCount2=elements.size();
+totalCount=totalCount2;
+
+        }
+        Thread.sleep(2000);
 
 
     }
