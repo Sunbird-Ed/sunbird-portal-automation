@@ -812,14 +812,97 @@ BookPageActions.clickSaveAsDrafts();
 
 
 		}*/
-
+/*
     @Test(description = "User should be able to select block/cluster/school value for User during onboarding")
     public void userAbleToSelectStateBlockClusterAndSchoolInLocationPopupForNewUser() throws Exception {
         OnBoardingActions.RolePoup();
-       UtilityFunctions.dynamicElementHandlingForMatSelectTagname();
+       UtilityFunctions.dynamicElementHandlingForMatSelectTagname3();
+        OnBoardingActions.su();
+        OnBoardingActions.LocationPopup();
+    }*/
 
+//    @Test(description = "The Course mentor who has content creator and course mentor role  should be able to create the open batch for the courses ")
+//    public void createOpenBatchesForCourse() throws Exception {
+//
+//        OnBoardingActions.RolePoup();
+//        //OnBoardingActions.BMCPopup();
+//        UtilityFunctions.dynamicElementHandlingForMatSelectTagname3();
+//        OnBoardingActions.su();
+//        OnBoardingActions.LocationPopup();
+//
+//        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+//                sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+//        DashboardPageActions.clickUserProfileIcon();
+//        DashboardPageActions.assertWorkspace();
+//        DashboardPageActions.clickOnWorkSpace();
+//        WorkspaceDashboardPageActions.clickCourse();
+//        String createdContent = CoursePageActions.createCourseSection1("getdoid");
+//        UtilityFunctions.scrollDownUsingPixelValue();
+//        Thread.sleep(3000);
+//      UtilityFunctions.dynamicElementHandlingForSelectTagname3();
+//
+//}
 
-    }
+   /* @Test(description = "Create Book with DifferentResourceType")
+    public void createBookwithDifferentResourceType() throws Exception {
 
+        OnBoardingActions.RolePoup();
+        UtilityFunctions.dynamicElementHandlingForMatSelectTagname3();
+        OnBoardingActions.su();
+        OnBoardingActions.LocationPopup();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+                sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+        DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.assertWorkspace();
+        DashboardPageActions.clickOnWorkSpace();
+        WorkspaceDashboardPageActions.clickBook();
+        String createdContent = BookPageActions.createBookPopup("getdoid");
+        String des = BookPageActions.section1("getdescription");
+        UtilityFunctions.scrollDownUsingPixelValue();
+        UtilityFunctions.dynamicElementHandlingForSelectTagname3();
+        Thread.sleep(2000);
+        BookPageActions.Section3();
+
+    }*/
+   @Test(description = "The Course mentor who has content creator and course mentor role  should be able to create the open batch for the courses ")
+   public void createOpenBatchesForCourse() throws Exception {
+
+       OnBoardingActions.RolePoup();
+       OnBoardingActions.BMCPopup();
+       OnBoardingActions.LocationPopup();
+
+       LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+               sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+       DashboardPageActions.clickUserProfileIcon();
+       DashboardPageActions.assertWorkspace();
+       DashboardPageActions.clickOnWorkSpace();
+       WorkspaceDashboardPageActions.clickCourse();
+       String createdContent = CoursePageActions.createCourseSection1("getdoid");
+       BookPageActions.BMCDropdownSelectionSection2();
+       BookPageActions.Section3();
+       BookPageActions.assertContentIsSavedToastrMsg();
+       BookPageActions.waitContentIsSavedToastToDisapper();
+       BookPageActions.addResourceFromLibrary();
+       BookPageActions.submitAndSendForReview();
+       DashboardPageActions.logOut();
+       LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"),
+               sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
+       DashboardPageActions.clickUserProfileIcon();
+       DashboardPageActions.clickOnWorkSpace();
+       ReviewPageActions.reviewAndPublishContent(createdContent, "Course");
+       DashboardPageActions.logOut();
+       LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+               sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+       DashboardPageActions.clickCourseTab();
+       DashboardPageActions.searchContentAndClickOnContentCard(createdContent);
+       BatchPageActions.clickBatchCreationBtn();
+       BatchPageActions.enterBatchNameandDescription();
+       BatchPageActions.clickIssueCertificateNo();
+       BatchPageActions.startDate(UtilityFunctions.getTodayDate("MM/dd/yyyy"));
+       BatchPageActions.endDate(3);
+       BatchPageActions.enrollmentEndDate(2);
+       BatchPageActions.clickTermsCheckBoxAndSubmit();
+       BatchPageActions.assertBatchTostrMsg();
+   }
 
 }

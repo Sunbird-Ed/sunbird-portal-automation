@@ -8,7 +8,6 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Month;
 import java.time.format.DateTimeFormatter;
-import java.util.Calendar;
 import java.util.List;
 import java.util.Properties;
 
@@ -402,9 +401,104 @@ return value;
     /* This method will handle the BMC popup in onboarding flow */
     public static void  dynamicElementHandlingForMatSelectTagname() throws InterruptedException {
         OnBoarding onboard = PageFactory.initElements(driver, OnBoarding.class);
-       Thread.sleep(5000);
+       // driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
 
-      //  UtilityFunctions.waitJAv();
+//        if (document. readyState === 'complete') { d }
+
+   // Thread.sleep(5000);
+//onboard.matOp();
+
+    /*    try {
+            UtilityFunctions.waitForVisibilityOfWebElement(onboard.matOp());
+        }
+        catch(Exception e)
+        {
+            System.out.println("Handled");
+
+        }*/
+       UtilityFunctions.waitDocumentToLoad();
+        List<WebElement> elements=onboard.ckDropdownmain();
+
+        System.out.println("element found"+elements.size());
+        int  totalCount=elements.size();
+
+
+        for(int i=0;i<totalCount;i++)
+        {
+
+            String dropdownXpath="//*[contains(text(),'To discover relevant content update the following details:')]//following::mat-select[";
+            int val=i;
+            String xpathClose="]";
+            String dropdownValueXpath="//following::mat-option";
+        //    Thread.sleep(3000);
+            UtilityFunctions.waitDocumentToLoad();
+            onboard.ckDropdown(val);
+            UtilityFunctions.waitDocumentToLoad();
+
+            // elements.get(i).click();
+            //    driver.findElement(By.xpath(dropdownXpath+val+xpathClose)).click();
+           // Thread.sleep(1000);
+            int val2=val+1;
+            WebElement d= driver.findElement(By.xpath(dropdownXpath+val2+xpathClose+dropdownValueXpath));
+          //  UtilityFunctions.waitForElementAndClickable(d);
+            UtilityFunctions.waitForElementUsingForLoopAndAssert(d,5);
+            UtilityFunctions.waitForElementAndClickable(d);
+            //   driver.findElement(By.xpath(dropdownXpath+val2+xpathClose+dropdownValueXpath)).click();
+            UtilityFunctions.MoveByOffSet(50, 100);
+            int totalCount2=elements.size();
+            totalCount=totalCount2;
+System.out.println(totalCount);
+        }
+       // Thread.sleep(2000);
+
+
+    }
+
+
+    public static void waitDocumentToLoad() {
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
+        wait.until((ExpectedCondition<Boolean>) wd ->
+                ((JavascriptExecutor) wd).executeScript("return document.readyState").equals("complete"));
+
+        }
+
+
+    /* This method will handle the BMC popup in onboarding flow */
+    public static void  dynamicElementHandlingForMatSelectTagname2() throws InterruptedException {
+        OnBoarding onboard = PageFactory.initElements(driver, OnBoarding.class);
+
+        UtilityFunctions.waitDocumentToLoad();
+        List<WebElement> elements=onboard.ckDropdownmain();
+        System.out.println("element found"+elements.size());
+        int  totalCount=elements.size();
+        for(int i=0;i<totalCount;i++)
+        {
+            String dropdownXpath="//*[contains(text(),'To discover relevant content update the following details:')]//following::mat-select[";
+            int val=i;
+            String xpathClose="]";
+            String dropdownValueXpath="//following::mat-option";
+            UtilityFunctions.waitDocumentToLoad();
+            onboard.ckDropdown(val);
+            UtilityFunctions.waitDocumentToLoad();
+            int val2=val+1;
+            WebElement d= driver.findElement(By.xpath(dropdownXpath+val2+xpathClose+dropdownValueXpath));
+            UtilityFunctions.waitForElementUsingForLoopAndAssert(d,5);
+            UtilityFunctions.waitForElementAndClickable(d);
+            UtilityFunctions.MoveByOffSet(50, 100);
+            int totalCount2=elements.size();
+            totalCount=totalCount2;
+            System.out.println(totalCount);
+        }
+    }
+
+
+    /* This method will handle the BMC popup in onboarding flow */
+    public static void  dynamicElementHandlingForMatSelectTagname3() throws InterruptedException {
+        OnBoarding onboard = PageFactory.initElements(driver, OnBoarding.class);
+        Thread.sleep(5000);
+
+        //  UtilityFunctions.waitJAv();
         List<WebElement> elements=onboard.ckDropdownmain();
 
         System.out.println("element found"+elements.size());
@@ -415,8 +509,7 @@ return value;
             int val=i;
             String xpathClose="]";
             String dropdownValueXpath="//following::mat-option";
-        //    Thread.sleep(3000);
-
+            Thread.sleep(1000);
             onboard.ckDropdown(val);
             // elements.get(i).click();
             //    driver.findElement(By.xpath(dropdownXpath+val+xpathClose)).click();
@@ -431,14 +524,39 @@ return value;
 
         }
         Thread.sleep(2000);
-
-
     }
 
 
-    public static void waitJAv() {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("return document.readyState").equals("complete");
-    }
+    /* This method will handle the BMC popup in onboarding flow */
+    public static void  dynamicElementHandlingForSelectTagname3() throws InterruptedException {
+        OnBoarding onboard = PageFactory.initElements(driver, OnBoarding.class);
+        Thread.sleep(5000);
 
+        //  UtilityFunctions.waitJAv();
+        List<WebElement> elements=onboard.selectDropdowns();
+
+        System.out.println("element in editor"+elements.size());
+        int  totalCount=elements.size();
+        for(int i=1;i<totalCount;i++)
+        {
+
+            String dropdownXpath="(//select)[";
+            int val=i;
+            String xpathClose="]";
+            String dropdownValueXpath="//following::option";
+            Thread.sleep(2000);
+            onboard.clkSelectDropdown(val);
+            // elements.get(i).click();
+            //    driver.findElement(By.xpath(dropdownXpath+val+xpathClose)).click();
+            Thread.sleep(2000);
+            int val2=val+1;
+            WebElement d= driver.findElement(By.xpath(dropdownXpath+val2+xpathClose+dropdownValueXpath));
+            UtilityFunctions.waitForElementAndClickable(d);
+            //   driver.findElement(By.xpath(dropdownXpath+val2+xpathClose+dropdownValueXpath)).click();
+                  //  int totalCount2=elements.size();
+         //   totalCount=totalCount2;
+
+        }
+        Thread.sleep(2000);
+    }
 }

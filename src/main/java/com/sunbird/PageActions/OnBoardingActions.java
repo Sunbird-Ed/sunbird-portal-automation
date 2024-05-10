@@ -209,4 +209,12 @@ totalCount=totalCount2;
 
 
     }
+
+
+    public static void su()
+    {
+        OnBoarding onboard = PageFactory.initElements(driver, OnBoarding.class);
+        onboard.BMCSubmit();
+
+    }
 }

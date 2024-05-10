@@ -110,6 +110,12 @@ public class OnBoarding extends BaseTestConfig {
     @FindBy(how = How.XPATH, using = "//*[contains(text(),'To discover relevant content update the following details:')]//following::mat-select")
     private List<WebElement> ckBoard;
 
+    @FindBy(how = How.XPATH, using = "//mat-option")
+    private WebElement matOption;
+
+    @FindBy(how = How.XPATH, using = "//select")
+    private List<WebElement> selectOption;
+
 //	public WebElement TeacherClick() {
 //		
 //		return Teacher;
@@ -277,11 +283,23 @@ UtilityFunctions.waitForElementIsVisible(ClickStateDropDown);
 
     }
     public void ckDropdown(int i) {
-
-        UtilityFunctions.waitToBeClickableAndClick(ckBoard.get(i));
+UtilityFunctions.waitForElementUsingForLoopAndAssert(ckBoard.get(i),5);
+        UtilityFunctions.waitForElementAndClickable(ckBoard.get(i));
 //ckBoard.get(i).click();
     }
     public List<WebElement>  ckDropdownmain() {
         return ckBoard;
+    }
+    public WebElement  matOp() {
+        return matOption;
+    }
+    public List<WebElement>  selectDropdowns() {
+        return selectOption;
+    }
+    public void clkSelectDropdown(int i) {
+        UtilityFunctions.waitForElementUsingForLoopAndAssert(selectOption.get(i),5);
+      UtilityFunctions.scrollInToviewUsingJavaScript(selectOption.get(i));
+        UtilityFunctions.waitForElementAndClickable(selectOption.get(i));
+//ckBoard.get(i).click();
     }
 }
