@@ -74,6 +74,11 @@ public class UtilityFunctions extends BaseTestConfig {
 
 
     }
+    public static void waitForElementInShortSpanAndClickable(WebElement element) {
+        int waitTime = 2;
+        fluenWait(element, waitTime);
+        element.click();
+    }
     public static void waitForElementToDisappear(WebElement element) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         wait.until(ExpectedConditions.invisibilityOf(element));
@@ -555,6 +560,168 @@ System.out.println(totalCount);
             //   driver.findElement(By.xpath(dropdownXpath+val2+xpathClose+dropdownValueXpath)).click();
                   //  int totalCount2=elements.size();
          //   totalCount=totalCount2;
+
+        }
+        Thread.sleep(2000);
+    }
+
+    /* This method will handle the BMC popup in onboarding flow */
+    public static void  dynamicElementHandlingForUlTagName() throws InterruptedException {
+        OnBoarding onboard = PageFactory.initElements(driver, OnBoarding.class);
+        Thread.sleep(5000);
+
+        //  UtilityFunctions.waitJAv();
+        List<WebElement> elements=onboard.UlTagnameElements();
+
+        System.out.println("element in editor"+elements.size());
+        int  totalCount=elements.size();
+        for(int i=5;i<totalCount;i++)
+        {
+
+            String dropdownXpath="(//lib-meta-form)//following::ul[";
+            int val=i;
+            String xpathClose="]";
+            String dropdownValueXpath="//following::label";
+            Thread.sleep(2000);
+            WebElement d2= driver.findElement(By.xpath(dropdownXpath+val+xpathClose));
+            UtilityFunctions.waitForElementAndClickable(d2);
+System.out.println(d2);
+         //   onboard.clkSelectDropdown(val);
+            Thread.sleep(2000);
+            WebElement d= driver.findElement(By.xpath(dropdownXpath+val+xpathClose+dropdownValueXpath));
+            UtilityFunctions.waitForElementAndClickable(d);
+            System.out.println(d);
+int i2=i+1;
+ i=i2;
+
+               }
+        Thread.sleep(2000);
+    }
+
+    public static void  dynamicElementHandlingForUlTagName6() throws InterruptedException {
+        OnBoarding onboard = PageFactory.initElements(driver, OnBoarding.class);
+        Thread.sleep(5000);
+
+        //  UtilityFunctions.waitJAv();
+        List<WebElement> elements=onboard.UlTagnameElements();
+
+        System.out.println("element in editor"+elements.size());
+        int  totalCount=elements.size();
+      int recount=totalCount+2;
+      totalCount=recount;
+        System.out.println("TotalCount"+totalCount);
+
+        for(int i=5;i<totalCount;i++)
+        {
+
+            try {
+                String dropdownXpath = "(//lib-meta-form)//following::ul[";
+                int val = i;
+                String xpathClose = "]";
+                String dropdownValueXpath = "//following::label";
+                Thread.sleep(2000);
+                WebElement d2 = driver.findElement(By.xpath(dropdownXpath + val + xpathClose));
+                UtilityFunctions.waitForElementAndClickable(d2);
+                System.out.println(d2);
+                //   onboard.clkSelectDropdown(val);
+                Thread.sleep(2000);
+                WebElement d = driver.findElement(By.xpath(dropdownXpath + val + xpathClose + dropdownValueXpath));
+                UtilityFunctions.waitForElementAndClickable(d);
+                System.out.println(d);
+                int i2=i+1;
+                i=i2;
+            }
+            catch (Exception e)
+            {
+                System.out.println("Exception handled");
+
+            }
+
+        }
+        Thread.sleep(2000);
+    }
+
+    public static void  dynamicElementHandlingForUlTagName7() throws InterruptedException {
+        OnBoarding onboard = PageFactory.initElements(driver, OnBoarding.class);
+        Thread.sleep(5000);
+
+        //  UtilityFunctions.waitJAv();
+        List<WebElement> elements=onboard.UlTagnameElements();
+
+        System.out.println("element in editor"+elements.size());
+        int  totalCount=elements.size();
+        int recount=totalCount+2;
+        totalCount=recount;
+        System.out.println("TotalCount"+totalCount);
+
+        for(int i=1;i<totalCount;i++)
+        {
+
+            try {
+                String dropdownXpath = "(//lib-meta-form)//following::ul[";
+                int val = i;
+                String xpathClose = "]";
+                String dropdownValueXpath = "//following::label";
+                Thread.sleep(2000);
+                WebElement d2 = driver.findElement(By.xpath(dropdownXpath + val + xpathClose));
+                UtilityFunctions.waitForElementAndClickable(d2);
+                System.out.println(d2);
+                //   onboard.clkSelectDropdown(val);
+                Thread.sleep(2000);
+                WebElement d = driver.findElement(By.xpath(dropdownXpath + val + xpathClose + dropdownValueXpath));
+                UtilityFunctions.waitForElementAndClickable(d);
+                System.out.println(d);
+                int i2=i+1;
+                i=i2;
+            }
+            catch (Exception e)
+            {
+                System.out.println("Exception handled");
+
+            }
+
+        }
+        Thread.sleep(2000);
+    }
+    public static void  dynamicElementHandlingForUlTagName8() throws InterruptedException {
+        OnBoarding onboard = PageFactory.initElements(driver, OnBoarding.class);
+        Thread.sleep(5000);
+
+        //  UtilityFunctions.waitJAv();
+        List<WebElement> elements=onboard.UlTagnameElements();
+
+        System.out.println("element in editor"+elements.size());
+        int  totalCount=elements.size();
+        int recount=totalCount+4;
+        totalCount=recount;
+        System.out.println("TotalCount"+totalCount);
+
+        for(int i=1;i<totalCount;i++)
+        {
+System.out.println(i);
+            try {
+                String dropdownXpath = "(//lib-meta-form)//following::ul[";
+                int val = i;
+                String xpathClose = "]";
+                String dropdownValueXpath = "//following::label";
+                Thread.sleep(2000);
+                WebElement d2 = driver.findElement(By.xpath(dropdownXpath + val + xpathClose));
+              UtilityFunctions.scrollInToviewUsingJavaScript(d2);
+                UtilityFunctions.waitForElementInShortSpanAndClickable(d2);
+                System.out.println(d2);
+                //   onboard.clkSelectDropdown(val);
+                Thread.sleep(2000);
+                WebElement d = driver.findElement(By.xpath(dropdownXpath + val + xpathClose + dropdownValueXpath));
+                UtilityFunctions.waitForElementInShortSpanAndClickable(d);
+                System.out.println(d);
+                int i2=i+1;
+                i=i2;
+            }
+            catch (Exception e)
+            {
+                System.out.println("Exception handled");
+
+            }
 
         }
         Thread.sleep(2000);

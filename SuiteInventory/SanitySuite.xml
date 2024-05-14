@@ -32,4 +32,4 @@
 		<class name="sanity.FirstStep4" />
 	</classes>
 </test> <!-- Test -->
-</suite> <!-- Suite -->
+		</suite> <!-- Suite -->

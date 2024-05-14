@@ -116,6 +116,9 @@ public class OnBoarding extends BaseTestConfig {
     @FindBy(how = How.XPATH, using = "//select")
     private List<WebElement> selectOption;
 
+    @FindBy(how = How.XPATH, using = "(//lib-meta-form)//following::ul")
+    private List<WebElement> UlTagnameForEditor;
+
 //	public WebElement TeacherClick() {
 //		
 //		return Teacher;
@@ -296,10 +299,22 @@ UtilityFunctions.waitForElementUsingForLoopAndAssert(ckBoard.get(i),5);
     public List<WebElement>  selectDropdowns() {
         return selectOption;
     }
+    public List<WebElement>  UlTagnameElements() {
+        return UlTagnameForEditor;
+    }
+
     public void clkSelectDropdown(int i) {
         UtilityFunctions.waitForElementUsingForLoopAndAssert(selectOption.get(i),5);
       UtilityFunctions.scrollInToviewUsingJavaScript(selectOption.get(i));
         UtilityFunctions.waitForElementAndClickable(selectOption.get(i));
+//ckBoard.get(i).click();
+    }
+
+    public void clkUlTagnameDropdown(int i) {
+        UtilityFunctions.waitForElementUsingForLoopAndAssert(UlTagnameForEditor.get(i),5);
+      UtilityFunctions.scrollUpUsingPixelValue();
+     //   UtilityFunctions.scrollInToviewUsingJavaScript(UlTagnameForEditor.get(i));
+        UtilityFunctions.waitForElementAndClickable(UlTagnameForEditor.get(i));
 //ckBoard.get(i).click();
     }
 }

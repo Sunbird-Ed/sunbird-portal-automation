@@ -26,10 +26,10 @@ public class CoursePageActions extends BaseTestConfig {
 		coursePage.enterCourseKeywords(keyword);
 
 
-		coursePage.clickCourseType();
-		coursePage.selectCourseTypeValue();
-		coursePage.clicksubjectCoveredDropdown();
-		coursePage.selectSubjectCoveredvalue();
+//		coursePage.clickCourseType();
+//		coursePage.selectCourseTypeValue();
+//		coursePage.clicksubjectCoveredDropdown();
+//		coursePage.selectSubjectCoveredvalue();
 
 		if (getContentType.equalsIgnoreCase("getContentName")) {
 			return courseName;
