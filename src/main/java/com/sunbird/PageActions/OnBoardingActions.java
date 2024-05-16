@@ -59,7 +59,6 @@ public class OnBoardingActions extends BaseTestConfig {
         onboard.clickStateDropdown();
         onboard.selectStateValue();
         Thread.sleep(2000);
-
         onboard.clickDistrictDropDown();
         onboard.selectDistrictValue();
         onboard.LocationPopupSubmit();

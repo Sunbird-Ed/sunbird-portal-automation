@@ -38,6 +38,7 @@ public class CollectionPageActions extends BaseTestConfig {
 		}
 		bookPage.clickStartCreateButton();
 
+UtilityFunctions.scrollDownUsingPixelValue();
 		String keyword = UtilityFunctions.generateRandomName("autoCollectionKeyword");
 		collectionPage.KeywordInCollection(keyword);
 

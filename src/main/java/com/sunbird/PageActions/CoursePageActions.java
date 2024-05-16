@@ -22,14 +22,15 @@ public class CoursePageActions extends BaseTestConfig {
 		String description = UtilityFunctions.generateRandomName("autoDescription");
 		bookPage.enterDesciption(description);
 
+		UtilityFunctions.scrollDownUsingPixelValue();
 		String keyword = UtilityFunctions.generateRandomName("autoCourseKeyword");
 		coursePage.enterCourseKeywords(keyword);
 
 
-//		coursePage.clickCourseType();
-//		coursePage.selectCourseTypeValue();
-//		coursePage.clicksubjectCoveredDropdown();
-//		coursePage.selectSubjectCoveredvalue();
+		coursePage.clickCourseType();
+		coursePage.selectCourseTypeValue();
+		coursePage.clicksubjectCoveredDropdown();
+		coursePage.selectSubjectCoveredvalue();
 
 		if (getContentType.equalsIgnoreCase("getContentName")) {
 			return courseName;

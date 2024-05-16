@@ -39,6 +39,7 @@ public class BookPageActions extends BaseTestConfig {
         BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
         String description = UtilityFunctions.generateRandomName("autoDescription");
         bookPage.enterDesciption(description);
+        UtilityFunctions.scrollDownUsingPixelValue();
         String keyword = UtilityFunctions.generateRandomName("autoBookKeyword");
         bookPage.enterKeywords(keyword);
 
@@ -109,7 +110,8 @@ public class BookPageActions extends BaseTestConfig {
         String actualMsg = bookPage.assertContentAddedFolderToastrMsg();
         UtilityFunctions.stringValueComparision(actualMsg, SunbirdConstants.contentAddedToFolderToastrMsg, "Failed to add content into folder");
         bookPage.waitContentAddedToFolderToastrToDisappear();
-
+UtilityFunctions.scrollUpUsingPixelValue();
+UtilityFunctions.threadSleep(2000);
         bookPage.clickBackBtnFromLibrarysection();
     }
 
@@ -180,6 +182,8 @@ bookPage.waitGenerateQRCodeToastrToDisappear();
         String actualMsg = bookPage.assertContentAddedFolderToastrMsg();
         UtilityFunctions.stringValueComparision(actualMsg, SunbirdConstants.contentAddedToFolderToastrMsg, "Failed to add content into folder");
         bookPage.waitContentAddedToFolderToastrToDisappear();
+        UtilityFunctions.scrollUpUsingPixelValue();
+        UtilityFunctions.threadSleep(2000);
           bookPage.clickBackBtnFromLibrarysection();
     }
 
@@ -241,7 +245,8 @@ bookPage.waitGenerateQRCodeToastrToDisappear();
         String actualMsg = bookPage.assertContentAddedFolderToastrMsg();
         UtilityFunctions.stringValueComparision(actualMsg, SunbirdConstants.contentAddedToFolderToastrMsg, "Failed to add content into folder");
         bookPage.waitContentAddedToFolderToastrToDisappear();
-
+        UtilityFunctions.scrollUpUsingPixelValue();
+        UtilityFunctions.threadSleep(2000);
         bookPage.clickBackBtnFromLibrarysection();
     }
     public static void clickBackButtonInEditor() {

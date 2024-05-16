@@ -683,6 +683,7 @@ int i2=i+1;
         }
         Thread.sleep(2000);
     }
+
     public static void  dynamicElementHandlingForUlTagName8() throws InterruptedException {
         OnBoarding onboard = PageFactory.initElements(driver, OnBoarding.class);
         Thread.sleep(5000);
