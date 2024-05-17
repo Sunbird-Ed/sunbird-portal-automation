@@ -30,29 +30,26 @@ public class FirstStep3 extends BaseTestConfig {
 
 
 }*/
-	@Test(description = "The Course mentor who has content creator and course mentor role  should be able to create the open batch for the courses ")
-	public void createOpenBatchesForCourse() throws Exception {
+	@Test(description = "Create Book with unit")
+	public void createBookWithMoreUnit() throws Exception {
 
 		OnBoardingActions.RolePoup();
 		OnBoardingActions.BMCPopup();
 		OnBoardingActions.LocationPopup();
-
 		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
 				sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
 		DashboardPageActions.clickUserProfileIcon();
 		DashboardPageActions.assertWorkspace();
 		DashboardPageActions.clickOnWorkSpace();
-		WorkspaceDashboardPageActions.clickCourse();
-		String createdContent = CoursePageActions.createCourseSection1("getdoid");
+		WorkspaceDashboardPageActions.clickBook();
+		String createdContent = BookPageActions.createBookPopup("getdoid");
+		String des=BookPageActions.section1("getdescription");
 		BookPageActions.BMCDropdownSelectionSection2();
 		BookPageActions.Section3();
 		BookPageActions.assertContentIsSavedToastrMsg();
 		BookPageActions.waitContentIsSavedToastToDisapper();
 		BookPageActions.addResourceFromLibrary();
 		BookPageActions.submitAndSendForReview();
-		DashboardPageActions.logOut();
-
 	}
-
 
 }

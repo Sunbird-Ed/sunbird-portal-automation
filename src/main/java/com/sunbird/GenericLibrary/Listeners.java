@@ -33,7 +33,7 @@ public class Listeners extends BaseTestConfig implements ITestListener {
 
     public void onTestStart(ITestResult result) {
 
-        Library.test = extent.createTest("Test Script ame = " + result.getMethod().getMethodName());
+        Library.test = extent.createTest("" + result.getMethod().getMethodName());
         extenttest.set(Library.test);
 
 

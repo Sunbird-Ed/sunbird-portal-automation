@@ -159,28 +159,28 @@ public class OnBoarding extends BaseTestConfig {
     }
 
     public void MediumDropDown() {
-
+        UtilityFunctions.waitForElementUsingForLoopCondition(Medium,8);
         UtilityFunctions.waitForElementAndClickable(Medium);
         Listeners.addLogs("Clicked on MediumDropDown");
 
     }
 
     public void MediumValueSelect() {
-
+        UtilityFunctions.waitForElementUsingForLoopCondition(MediumValue,8);
         UtilityFunctions.waitForElementAndClickable(MediumValue);
         Listeners.addLogs("Selected Medium Value");
 
     }
 
     public void ClassDropDown() {
-
+UtilityFunctions.waitForElementUsingForLoopCondition(Classs,8);
         UtilityFunctions.waitForElementAndClickable(Classs);
         Listeners.addLogs("Clicked on Class DropDown");
 
     }
 
     public void ClassValueSelect() {
-
+        UtilityFunctions.waitForElementUsingForLoopCondition(ClassValue,8);
         UtilityFunctions.waitForElementAndClickable(ClassValue);
         Listeners.addLogs("Selected class value");
 

@@ -20,7 +20,7 @@ public class SunbirdConfigProvider extends BaseTestConfig {
 //        String Env = pro.getProperty("EnvironmentSetup");
 //        String path2="";
 //                       if (Env.equalsIgnoreCase("STAGING")) {
-//            path2 = System.getProperty("user.dir") + "//Config//Sunbird.Properties";
+//            path2 = System.getProperty("user.dir") + "//Config//SunbirdStaging.Properties";
 //
 //        } else if (Env.equalsIgnoreCase("PREPROD")) {
 //
@@ -45,6 +45,6 @@ public class SunbirdConfigProvider extends BaseTestConfig {
   /*  public void writeDataIntoPropertyFile(String keyName, String keyValue) throws IOException {
         sunbirdConfigPro.setProperty(keyName,keyValue);
 
-        sunbirdConfigPro.store(new FileWriter(System.getProperty("user.dir") + "//Config//Sunbird.Properties"),"Javatpoint Properties Example");
+        sunbirdConfigPro.store(new FileWriter(System.getProperty("user.dir") + "//Config//SunbirdStaging.Properties"),"Javatpoint Properties Example");
     }*/
 }

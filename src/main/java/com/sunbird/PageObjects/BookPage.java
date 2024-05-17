@@ -292,7 +292,9 @@ Thread.sleep(3000);
         }
          
          public void clickBackBtnFromLibrarysection() {
-             UtilityFunctions.waitForElementAndClickable(contentFromLibrayBackButton);
+           //  UtilityFunctions.waitForElementAndClickable(contentFromLibrayBackButton);
+UtilityFunctions.waitForVisibilityOfWebElement(contentFromLibrayBackButton);
+             UtilityFunctions.clickUsingJavaScriptExecutor(contentFromLibrayBackButton);
              Listeners.addLogs("contentFromLibrayBackButton");
         }
          

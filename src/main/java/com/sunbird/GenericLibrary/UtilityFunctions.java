@@ -217,7 +217,7 @@ catch (Exception e)
         String Env = pro.getProperty("EnvironmentSetup");
         String path2 = "";
         if (Env.equalsIgnoreCase("STAGING")) {
-            return path2 = System.getProperty("user.dir") + "//Config//Sunbird.Properties";
+            return path2 = System.getProperty("user.dir") + "//Config//SunbirdStaging.Properties";
 
         } else if (Env.equalsIgnoreCase("PREPROD")) {
 
@@ -225,6 +225,10 @@ catch (Exception e)
 
         } else if (Env.equalsIgnoreCase("Prod")) {
             return path2 = System.getProperty("user.dir") + "//Config//SunbirdProd.Properties";
+
+        }
+        else if (Env.equalsIgnoreCase("OCI")) {
+            return path2 = System.getProperty("user.dir") + "//Config//SunbirdOCI.Properties";
 
         }
         return path2;
@@ -277,6 +281,19 @@ catch (Exception e)
             {
 
                  }
+        }
+    }
+
+    public static void waitForElementUsingForLoopCondition(WebElement element,int maxAttempt)
+    {
+        for(int i=0;i<maxAttempt;i++) {
+            try {
+                waitForElementIsVisible(element);
+                break;
+            } catch (StaleElementReferenceException e)
+            {
+
+            }
         }
     }
     public static void switchToFrameUsingXpath(WebElement element) throws InterruptedException {

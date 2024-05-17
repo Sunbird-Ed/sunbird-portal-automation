@@ -85,6 +85,10 @@ public class BaseTestConfig {
 
             driver.get(pro.getProperty("ProdURL"));
         }
+        else if (Env.equalsIgnoreCase("OCI")) {
+
+            driver.get(pro.getProperty("OCIURL"));
+        }
 
 
     }
@@ -94,7 +98,7 @@ public class BaseTestConfig {
 //        String Env = pro.getProperty("EnvironmentSetup");
 //        if (Env.equalsIgnoreCase("STAGING")) {
 //
-//            String path = System.getProperty("user.dir") + "//Config//Sunbird.Properties";
+//            String path = System.getProperty("user.dir") + "//Config//SunbirdStaging.Properties";
 //
 //            return path;
 //
