@@ -15,13 +15,13 @@ public class BmcOnBoardingActions extends BaseTestConfig {
         OnBoarding onboard = PageFactory.initElements(driver, OnBoarding.class);
         Thread.sleep(2000);
         onboard.MediumDropDown();
+        Thread.sleep(1000);
         onboard.MediumValueSelect();
-
         UtilityFunctions.MoveByOffSet(50, 100);
-
+        Thread.sleep(2000);
         onboard.ClassDropDown();
+        Thread.sleep(2000);
         onboard.ClassValueSelect();
-
         UtilityFunctions.MoveByOffSet(50, 100);
 
     }

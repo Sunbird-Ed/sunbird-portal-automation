@@ -32,7 +32,9 @@
 	<!--	<class name="sanity.FirstStep4" />-->
 	<!--	<class name="sanitySuite.SanitySuite3"/>-->
 
-		<class name="sanitySuite.SanitySuites"/>
+		<!--<class name="sanitySuite.SanitySuites"/>-->
+
+		<class name="sanity.FirstStep3" />
 	</classes>
 </test> <!-- Test -->
 		</suite> <!-- Suite -->

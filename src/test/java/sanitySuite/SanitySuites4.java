@@ -55,10 +55,9 @@ public class SanitySuites4 extends BaseTestConfig {
 		OnBoardingActions.RolePoup();
 		OnBoardingActions.BMCPopup();
 		OnBoardingActions.LocationPopup();
-		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
-				sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("PUBLIC_USER"),
+				sunbird_config.getSunbidConfigPropertyValue("PUBLIC_PASSWORD"));
 		DashboardPageActions.clickUserProfileIcon();
-		DashboardPageActions.assertWorkspace();
 		DashboardPageActions.clickOnMyGroups();
 		GroupsPageActions.clickCloseCrossIcon();
 		GroupsPageActions.clickCreateGroup();

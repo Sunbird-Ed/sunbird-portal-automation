@@ -187,8 +187,9 @@ public class GroupsPage {
 	}
 
 	public void closeIconInMyGroupClick() {
-		UtilityFunctions.waitForElementIsVisible(closeIconInMyGroupsClick);
-		UtilityFunctions.waitForElementAndClickable(closeIconInMyGroupsClick);
+		UtilityFunctions.waitForVisibilityOfWebElement(closeIconInMyGroupsClick);
+		UtilityFunctions.clickUsingJavaScriptExecutor(closeIconInMyGroupsClick);
+		Listeners.addLogs("clicked on closeIconInMyGroupsClick");
 	}
 
 	public void enableDiscussion() {

@@ -7,6 +7,8 @@ import org.testng.annotations.Test;
 import com.sunbird.GenericLibrary.BaseTestConfig;
 import com.sunbird.PageActions.OnBoardingActions;
 
+import java.io.File;
+
 public class FirstStep3 extends BaseTestConfig {
 
 
@@ -30,26 +32,22 @@ public class FirstStep3 extends BaseTestConfig {
 
 
 }*/
-	@Test(description = "Create Book with unit")
-	public void createBookWithMoreUnit() throws Exception {
-
+	@Test(description = "The user should be able to download the csv file in published section")
+	public void downloadCourseQRCodeInPublishedSection() throws Exception {
 		OnBoardingActions.RolePoup();
 		OnBoardingActions.BMCPopup();
 		OnBoardingActions.LocationPopup();
-		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
-				sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
 		DashboardPageActions.clickUserProfileIcon();
 		DashboardPageActions.assertWorkspace();
 		DashboardPageActions.clickOnWorkSpace();
-		WorkspaceDashboardPageActions.clickBook();
-		String createdContent = BookPageActions.createBookPopup("getdoid");
-		String des=BookPageActions.section1("getdescription");
-		BookPageActions.BMCDropdownSelectionSection2();
-		BookPageActions.Section3();
-		BookPageActions.assertContentIsSavedToastrMsg();
-		BookPageActions.waitContentIsSavedToastToDisapper();
-		BookPageActions.addResourceFromLibrary();
-		BookPageActions.submitAndSendForReview();
+		WorkspaceDashboardPageActions.clickPublishedBucket();
+		PublishedPageActions.clickDownloadCourseQrCode();
+			File file=UtilityFunctions.getLatestDownloadedFile(UtilityFunctions.getSystemDownloadPath());
+		String fileName=file.getName();
+		String splitedName = fileName.split("\\.")[1];
+		UtilityFunctions.stringValueComparision(splitedName,"csv","file not downloaded");
+
 	}
 
 }
