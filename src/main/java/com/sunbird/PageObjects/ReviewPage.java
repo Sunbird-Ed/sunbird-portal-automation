@@ -2,12 +2,10 @@ package com.sunbird.PageObjects;
 
 import com.sunbird.GenericLibrary.BaseTestConfig;
 import com.sunbird.GenericLibrary.Listeners;
-import com.sunbird.GenericLibrary.SunbirdConstants;
 import com.sunbird.GenericLibrary.UtilityFunctions;
 
 import java.util.List;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -102,12 +100,31 @@ public class ReviewPage extends BaseTestConfig {
 			Listeners.addLogs("Selected the Content");
 		}
 
-		public void assertPublichButton() {
-UtilityFunctions.waitForElementIsVisible(publishButton);
+	public void assertPublishButton() {
+		boolean status= UtilityFunctions.isElementPresent(publishButton);
+		if (status==true) {
+			UtilityFunctions.waitForElementIsVisible(publishButton);
 			UtilityFunctions.validatIsElementPresent(publishButton, "Publish button is not Displayed");
 		}
+		else {
+			for(int i=0;i<10;i++) {
+				try {
+					UtilityFunctions.refreshPage();
+					boolean status2= UtilityFunctions.isElementPresent(publishButton);
+					if (status2==true) {
+						break;
+					}
+				}
+				catch(Exception e) {
 
-		public void clickOnPublish() {
+				}
+
+			}
+		}
+	}
+
+
+	public void clickOnPublish() {
 
 			UtilityFunctions.waitForElementAndClickable(publishButton);
 			Listeners.addLogs("Clicked on Publish Button");

@@ -241,7 +241,8 @@ public class BatchPage {
 	}
 	public void leaveCourseInUnenrollPopup() {
 		UtilityFunctions.waitForElementIsVisible(leaveCourseInUnEnrollPopup);
-		UtilityFunctions.waitForElementAndClickable(leaveCourseInUnEnrollPopup);
+		UtilityFunctions.clickUsingJavaScriptExecutor(leaveCourseInUnEnrollPopup);
+		//UtilityFunctions.waitForElementAndClickable(leaveCourseInUnEnrollPopup);
 		Listeners.addLogs("clicked on leaveCourseInUnEnrollPopup");
 	}
 	public void assertJoinCourse()

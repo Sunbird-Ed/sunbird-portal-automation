@@ -27,10 +27,10 @@ public class CourseTabPage extends BaseTestConfig {
 		@FindBy(how = How.XPATH, using = "//*[contains(@class,'sb--card__type')]//following::span[1]")
 		private WebElement assertCategory2InCard;
 
-		@FindBy(how = How.XPATH, using = "//*[contains(@class,'sb--card__type')]//following::span[contains(text(),'Subject:')]")
+		@FindBy(how = How.XPATH, using = "//*[contains(@class,'sb--card__type')]//following::span[contains(text(),'Subject')]")
 		private WebElement assertSubjectInCard;
 
-		@FindBy(how = How.XPATH, using = "//*[contains(@class,'sb--card__type')]//following::span[contains(text(),'Publisher:')]")
+		@FindBy(how = How.XPATH, using = "//*[contains(@class,'sb--card__type')]//following::span[contains(text(),'Publisher')]")
 		private WebElement assertPublisherInCard;
 
 

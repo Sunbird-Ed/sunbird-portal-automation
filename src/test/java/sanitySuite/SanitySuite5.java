@@ -521,7 +521,7 @@ public class SanitySuite5 extends BaseTestConfig  {
         OnBoardingActions.RolePoup();
         OnBoardingActions.BMCPopup();
         OnBoardingActions.LocationPopup();
-        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("New_User"), sunbird_config.getSunbidConfigPropertyValue("New_PWD"));
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
         DashboardPageActions.clickUserProfileIcon();
         DashboardPageActions.clickOnMergeAccount();
         MergeAccountPageActions.clickMergeInMergePopup();

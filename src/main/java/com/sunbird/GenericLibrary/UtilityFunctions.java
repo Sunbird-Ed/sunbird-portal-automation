@@ -95,7 +95,17 @@ public class UtilityFunctions extends BaseTestConfig {
         driver.findElement(By.xpath(xpathValue)).click();
 
     }
-
+    public static boolean isElementPresent(WebElement locator) {
+        try {
+            waitForVisibilityOfWebElement(locator);
+            if (locator.isDisplayed())
+                System.out.println("Element present on screen ***********" + locator);
+            return true;
+        } catch (Exception e) {
+            System.out.println("Element not present on screen **************" + locator);
+            return false;
+        }
+    }
     /* Method will get the current url and do the substring and returning the with extracted do_Id */
     public static String generate_Do_id() {
         String currentUrl = driver.getCurrentUrl();

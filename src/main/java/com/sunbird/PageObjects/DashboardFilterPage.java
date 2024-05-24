@@ -73,7 +73,8 @@ public class DashboardFilterPage {
     }
 
     public void assertOrderofFiltres() {
-        UtilityFunctions.waitForElementUsingForLoopAndAssert(assertMediumOrder, 4);
+UtilityFunctions.waitForVisibilityOfWebElement(assertMediumOrder);
+       // UtilityFunctions.waitForElementUsingForLoopAndAssert(assertMediumOrder, 4);
         UtilityFunctions.validatIsElementPresent(assertMediumOrder, "assertMediumOrder not displayed");
         Listeners.addLogs("assertMediumOrder is displayed ");
         UtilityFunctions.waitForElementIsVisible(assertClassOrder);
@@ -95,7 +96,8 @@ public class DashboardFilterPage {
 
     public void resetBtn() {
         UtilityFunctions.scrollUpUsingPixelValue();
-        UtilityFunctions.waitForElementAndClickable(resetButton);
+        UtilityFunctions.clickUsingJavaScriptExecutor(resetButton);
+      //  UtilityFunctions.waitForElementAndClickable(resetButton);
         Listeners.addLogs("clicked on resetButton");
 
     }

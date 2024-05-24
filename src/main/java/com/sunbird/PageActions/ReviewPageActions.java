@@ -24,7 +24,7 @@ public class ReviewPageActions extends BaseTestConfig {
 			reviewPage.selectContentForReview();
 			Thread.sleep(1000);
 
-			reviewPage.assertPublichButton();
+			reviewPage.assertPublishButton();
 			reviewPage.clickOnPublish();
 			reviewPage.selectCheckBoxes();
 		reviewPage.clickYesButton();
@@ -61,7 +61,7 @@ Thread.sleep(5000);
 		Thread.sleep(3000);
 		reviewPage.selectContentForReview();
 	//	Thread.sleep(7000);
-		reviewPage.assertPublichButton();
+		reviewPage.assertPublishButton();
 		reviewPage.clickOnPublish();
 		switch(contentType){
 			case "Book":
@@ -105,7 +105,7 @@ Thread.sleep(5000);
 		reviewPage.clickOnSearch();
 		Thread.sleep(3000);
 		reviewPage.selectContentForReview();
-		reviewPage.assertPublichButton();
+		reviewPage.assertPublishButton();
 
 		switch(contentType){
 			case "Book":

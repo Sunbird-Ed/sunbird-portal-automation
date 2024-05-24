@@ -23,16 +23,16 @@ public class ProfilePage {
 	@FindBy(how = How.XPATH, using = "//div[contains(text(),'State :')]//following::div[1]//following::button[1]")
 	private WebElement assertEditBtnForLocation;
 
-	@FindBy(how = How.XPATH, using = "//span[contains(text(),'Board :')]//following::span[1]")
+	@FindBy(how = How.XPATH, using = "//span[contains(text(),'Board')]//following::span[1]")
 	private WebElement assertBoard;
 
-	@FindBy(how = How.XPATH, using = "//span[contains(text(),'Medium :')]//following::span[1]")
+	@FindBy(how = How.XPATH, using = "//span[contains(text(),'Medium')]//following::span[1]")
 	private WebElement assertMedium;
 
-	@FindBy(how = How.XPATH, using = "//span[contains(text(),'Grade :')]//following::span[1]")
+	@FindBy(how = How.XPATH, using = "//span[contains(text(),'Grade')]//following::span[1]")
 	private WebElement assertClass;
 
-	@FindBy(how = How.XPATH, using = "//span[contains(text(),'Medium :')]//following::span[1]//following::button[1]")
+	@FindBy(how = How.XPATH, using = "//span[contains(text(),'Medium')]//following::span[1]//following::button[1]")
 	private WebElement assertEditBtnForBMC;
 
 	@FindBy(how = How.XPATH, using = "//span[contains(text(),'Role')]//following::span[2]")
