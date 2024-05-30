@@ -119,4 +119,28 @@ uploadPage.enterURLLink(youtubeLink);
         uploadPage.clickClose();
 
     }
+
+    public static void clickReplaceAndUpload() throws InterruptedException
+    {
+        UploadPage uploadPage = PageFactory.initElements(driver, UploadPage.class);
+        uploadPage.clickReplaceandUpload();
+    }
+    public static void reUploadContent(String uploadFileType) throws InterruptedException {
+
+        UploadPage uploadPage = PageFactory.initElements(driver, UploadPage.class);
+        uploadPage.recontentTypeDroddown();
+        uploadPage.selectETextbookValue();
+        String filepath = System.getProperty("user.dir") + sunbird_config.getSunbidConfigPropertyValue(uploadFileType);
+        uploadPage.clickBrowseButton(filepath);
+        String actualMsg = uploadPage.assertUploadContentMsgs();
+        UtilityFunctions.stringValueComparision(actualMsg, SunbirdConstants.contentUploadToastrMsg, "Failed to upload the content");
+        uploadPage.waitForContentUploadToastrMsgDisAppear();
+        uploadPage.clickSave();
+        uploadPage.clickClose();
+    }
+    public static void clickCopyButton() {
+        UploadPage uploadPage = PageFactory.initElements(driver, UploadPage.class);
+        uploadPage.clickcopy();
+    }
+
 }

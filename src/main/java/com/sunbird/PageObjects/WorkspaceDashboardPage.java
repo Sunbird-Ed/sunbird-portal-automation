@@ -10,100 +10,183 @@ import java.util.List;
 
 public class WorkspaceDashboardPage {
 
-	@FindBy(how=How.XPATH,using="//a[contains(text(),'Drafts')]")
-	private WebElement drafts;
-	
-	@FindBy(how=How.XPATH,using="//span[contains(text(),'Book')]")
-	private WebElement book;
+    @FindBy(how = How.XPATH, using = "//a[contains(text(),'Drafts')]")
+    private WebElement drafts;
 
-    @FindBy(how=How.XPATH,using="//span[contains(text(),'Course')]")
+    @FindBy(how = How.XPATH, using = "//span[contains(text(),'Book')]")
+    private WebElement book;
+
+    @FindBy(how = How.XPATH, using = "//span[contains(text(),'Course')]")
     private WebElement course;
 
-    @FindBy(how=How.XPATH,using="//span[text()='Resource']")
+    @FindBy(how = How.XPATH, using = "//span[text()='Resource']")
     private WebElement resource;
 
-    @FindBy(how=How.XPATH,using="//span[text()='Collection']")
+    @FindBy(how = How.XPATH, using = "//span[text()='Collection']")
     private WebElement collection;
 
-    @FindBy(how=How.XPATH,using="//*[contains(text(),' All My Content ')]")
+    @FindBy(how = How.XPATH, using = "//*[contains(text(),' All My Content ')]")
     private WebElement allMyContent;
 
-    @FindBy(how=How.XPATH,using="//span[contains(text(),'QuestionSet')]")
+    @FindBy(how = How.XPATH, using = "//span[contains(text(),'QuestionSet')]")
     private WebElement questionSet;
 
-    @FindBy(how=How.XPATH,using="//*[contains(text(),' Published')]")
+    @FindBy(how = How.XPATH, using = "//*[contains(text(),' Published')]")
     private WebElement published;
 
-    @FindBy(how=How.XPATH,using="//*[contains(text(),' All Textbooks ')]")
+    @FindBy(how = How.XPATH, using = "//*[contains(text(),' All Textbooks ')]")
     private WebElement allTextbooks;
+
+    @FindBy(how = How.XPATH, using = "//a[contains(text(),'Create')]")
+    private WebElement create;
+
+    @FindBy(how = How.XPATH, using = "//a[contains(text(),'Submitted')]")
+    private WebElement submit;
+
+    @FindBy(how = How.XPATH, using = "//a[contains(text(),'Course Batches')]")
+    private WebElement coursebatches;
+
+    @FindBy(how = How.XPATH, using = "//a[contains(text(),'Created by me')]")
+    private WebElement createdbyme;
+
+    @FindBy(how = How.XPATH, using = "//a[contains(text(),'Assigned to me')]")
+    private WebElement assignedtome;
+
+    @FindBy(how = How.XPATH, using = "//a[contains(text(),'Shared')]")
+    private WebElement sharedvialink;
+
+    @FindBy(how = How.XPATH, using = "//a[contains(text(),'Collaborations')]")
+    private WebElement collaborations;
+
+    @FindBy(how = How.XPATH, using = "//a[contains(text(),'All Uploads')]")
+    private WebElement alluploads;
 
     public void assertDrafts() throws InterruptedException {
 
         UtilityFunctions.waitToBeClickableAndClick(drafts);
         UtilityFunctions.validatIsElementPresent(drafts, "Draft Section not displayed");
-    	
-    }
-    public void clickDrafts()
-     {
-    	
-    	 UtilityFunctions.waitToBeClickableAndClick(drafts);
-         Listeners.addLogs("Clicked on drafts ");
 
     }
-    public void clickBook()
-    {
-   	
-   	 UtilityFunctions.waitToBeClickableAndClick(book);
+
+    public void clickDrafts() {
+
+        UtilityFunctions.waitToBeClickableAndClick(drafts);
+        Listeners.addLogs("Clicked on drafts ");
+
+    }
+
+    public void clickBook() {
+
+        UtilityFunctions.waitToBeClickableAndClick(book);
         Listeners.addLogs("Clicked on book ");
 
-   }
-    public void clickCourse()
-    {
+    }
+
+    public void clickCourse() {
 
         UtilityFunctions.waitToBeClickableAndClick(course);
         Listeners.addLogs("Clicked on course ");
 
     }
-    public void clickResource()
-    {
+
+    public void clickResource() {
 
         UtilityFunctions.waitToBeClickableAndClick(resource);
         Listeners.addLogs("Clicked on resource ");
 
     }
-    public void clickCollection()
-    {
+
+    public void clickCollection() {
 
         UtilityFunctions.waitToBeClickableAndClick(collection);
         Listeners.addLogs("Clicked on collection ");
 
     }
-    public void allMyContent()
-    {
+
+    public void allMyContent() {
 
         UtilityFunctions.waitToBeClickableAndClick(allMyContent);
         Listeners.addLogs("Clicked on allMyContent ");
 
     }
-    public void questionSet()
-    {
+
+    public void questionSet() {
 
         UtilityFunctions.waitToBeClickableAndClick(questionSet);
         Listeners.addLogs("Clicked on QuestionSet ");
 
     }
-    public void published()
-    {
+
+    public void published() {
 
         UtilityFunctions.waitToBeClickableAndClick(published);
         Listeners.addLogs("Clicked on published ");
 
     }
-    public void allTextBook()
-    {
+
+    public void allTextBook() {
 
         UtilityFunctions.waitToBeClickableAndClick(allTextbooks);
         Listeners.addLogs("Clicked on allTextbooks ");
 
+    }
+
+    public void assertCreateButton() throws InterruptedException {
+
+        UtilityFunctions.waitToBeClickableAndClick(create);
+        UtilityFunctions.validatIsElementPresent(create, "Create button is not displayed");
+
+    }
+
+    public void assertsubmittedForReview() {
+
+        UtilityFunctions.waitToBeClickableAndClick(submit);
+        UtilityFunctions.validatIsElementPresent(submit, "Submit for Review button is not displayed");
+    }
+
+    public void assertCourseBatchesbutton() throws InterruptedException {
+
+        UtilityFunctions.waitToBeClickableAndClick(coursebatches);
+        UtilityFunctions.validatIsElementPresent(coursebatches, "Course Batches button is not displayed");
+
+    }
+
+    public void assertCreatedByMe() throws InterruptedException {
+
+        UtilityFunctions.waitToBeClickableAndClick(createdbyme);
+        UtilityFunctions.validatIsElementPresent(createdbyme, "Created By Me button is not displayed");
+
+    }
+
+    public void assertAssignedToMe() throws InterruptedException {
+
+        UtilityFunctions.waitToBeClickableAndClick(assignedtome);
+        UtilityFunctions.validatIsElementPresent(assignedtome, "Assigned to Me button is not displayed");
+
+    }
+
+    public void assertSharedViaLink() throws InterruptedException {
+
+        UtilityFunctions.waitToBeClickableAndClick(sharedvialink);
+        UtilityFunctions.validatIsElementPresent(sharedvialink, "Shared Via link button is not displayed");
+
+    }
+
+    public void assertCollaborations() throws InterruptedException {
+
+        UtilityFunctions.waitToBeClickableAndClick(collaborations);
+        UtilityFunctions.validatIsElementPresent(collaborations, "Collaborations button is not displayed");
+
+    }
+
+    public void clickAllUploads() throws InterruptedException {
+
+        UtilityFunctions.waitToBeClickableAndClick(alluploads);
+
+    }
+    public void assertAllUpload() {
+
+        UtilityFunctions.waitToBeClickableAndClick(alluploads);
+        UtilityFunctions.validatIsElementPresent(alluploads, "All Uploads Section not displayed");
     }
 }

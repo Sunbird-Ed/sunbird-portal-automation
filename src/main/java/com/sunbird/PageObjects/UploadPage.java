@@ -94,6 +94,11 @@ public class UploadPage {
     @FindBy(how = How.XPATH, using = "//button[contains(text(),'Upload')]")
     private WebElement uploadBtnInUploadEditor;
 
+    @FindBy(how = How.XPATH, using = "//div[@class='icon-box popup-item']//following::i[@class='upload icon custom-icon']")
+    private WebElement replaceAndUpload;
+
+    @FindBy(how = How.XPATH, using = "//button[contains(text(),'Copy')]")
+    private WebElement clickcopy;
 
     public void uploadContentInWorkspace() {
 
@@ -254,6 +259,7 @@ public class UploadPage {
     public void enterCopyRight(String yearValue) {
 
     	UtilityFunctions.scrollInToviewUsingJavaScript(copyright);
+        copyright.clear();
         UtilityFunctions.waitToBeClickableAndSendKeys(copyright, yearValue);
         Listeners.addLogs("entered copywright");
 
@@ -296,5 +302,22 @@ public class UploadPage {
         UtilityFunctions.waitForElementAndClickable(uploadBtnInUploadEditor);
         Listeners.addLogs("clicked on uploadBtnInUploadEditor");
 
+    }
+    public void recontentTypeDroddown() {
+        UtilityFunctions.fluenWait(contentTypeDropDown, 10);
+        UtilityFunctions.waitForElementIsVisible(contentTypeDropDown);
+        UtilityFunctions.clickUsingJavaScriptExecutor(contentTypeDropDown);
+        //    UtilityFunctions.waitToBeClickableAndClick(contentTypeDropDown);
+        Listeners.addLogs("Clicked contentType");
+
+    }
+    public void clickReplaceandUpload() {
+        UtilityFunctions.waitForElementIsVisible(replaceAndUpload);
+        UtilityFunctions.clickUsingJavaScriptExecutor(replaceAndUpload);
+        Listeners.addLogs("clicked on uploadBtnInUploadEditor");
+    }
+    public void clickcopy() {
+        UtilityFunctions.waitForElementAndClickable(clickcopy);
+        Listeners.addLogs("clicked on copy button");
     }
 }

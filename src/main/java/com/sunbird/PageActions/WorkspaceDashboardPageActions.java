@@ -69,6 +69,51 @@ public class WorkspaceDashboardPageActions extends BaseTestConfig {
         workspacedashboardPage.allTextBook();
 
     }
+    public static void assertCreate() throws InterruptedException {
+        WorkspaceDashboardPage workspacedashboardPage=PageFactory.initElements(driver, WorkspaceDashboardPage.class);
+        workspacedashboardPage.assertCreateButton();
+    }
+    /* validate Submit for review button on workspace */
+    public static void submittedForReview() {
+        WorkspaceDashboardPage workspacedashboardPage=PageFactory.initElements(driver, WorkspaceDashboardPage.class);
+        workspacedashboardPage.assertsubmittedForReview();
+    }
+
+    /* validate All Uploads sections is available */
+    public static void assertAllUploads() throws InterruptedException {
+        WorkspaceDashboardPage workspacedashboardPage=PageFactory.initElements(driver, WorkspaceDashboardPage.class);
+        workspacedashboardPage.assertAllUpload();
+    }
+
+    public static void assertCourseBatches() throws InterruptedException {
+        WorkspaceDashboardPage workspacedashboardPage=PageFactory.initElements(driver, WorkspaceDashboardPage.class);
+        workspacedashboardPage.assertCourseBatchesbutton();
+
+    }
+
+    public static void assertCreatedByme() throws InterruptedException {
+        WorkspaceDashboardPage workspacedashboardPage=PageFactory.initElements(driver, WorkspaceDashboardPage.class);
+        workspacedashboardPage.assertCreatedByMe();
+
+    }
+
+    public static void assertAssignedToMe() throws InterruptedException {
+        WorkspaceDashboardPage workspacedashboardPage=PageFactory.initElements(driver, WorkspaceDashboardPage.class);
+        workspacedashboardPage.assertAssignedToMe();
+
+    }
+
+    public static void assertSharedViaLink() throws InterruptedException {
+        WorkspaceDashboardPage workspacedashboardPage=PageFactory.initElements(driver, WorkspaceDashboardPage.class);
+        workspacedashboardPage.assertSharedViaLink();
+
+    }
+
+    public static void assertCollaborations() throws InterruptedException {
+        WorkspaceDashboardPage workspacedashboardPage=PageFactory.initElements(driver, WorkspaceDashboardPage.class);
+        workspacedashboardPage.assertCollaborations();
+
+    }
 
 }
 	
