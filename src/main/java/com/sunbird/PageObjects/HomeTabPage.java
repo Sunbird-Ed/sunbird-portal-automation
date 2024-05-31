@@ -36,6 +36,17 @@ public class HomeTabPage extends BaseTestConfig {
 		@FindBy(how = How.XPATH, using = "//div[contains(text(),' Recently published courses ')]//following::h4[1]")
 		private WebElement assertRecentlyPublishedCourseContent;
 
+	@FindBy(how = How.XPATH, using = "//span[contains(text(),'Board')]//following::span[1]")
+	private WebElement guestUserBoardValue;
+
+	@FindBy(how = How.XPATH, using = "//span[contains(text(),'Medium')]//following::span[1]")
+	private WebElement guestUserMediumValue;
+
+	@FindBy(how = How.XPATH, using = "//span[contains(text(),'Grade')]//following::span[1]")
+	private WebElement guestUserGradeValue;
+
+	@FindBy(how = How.XPATH, using = "//span[contains(text(),'Class:')]//following::span[1]")
+	private WebElement loginUserGradeValue;
 
 	public void validateContinueLearningSection() {
 		UtilityFunctions.waitForVisibilityOfWebElement(continueLearningSection);
@@ -85,5 +96,38 @@ UtilityFunctions.waitForElementIsVisible(assertContent);
 
 	}
 
+	public String guestUserBoardValue() {
+		UtilityFunctions.waitForVisibilityOfWebElement(guestUserBoardValue);
+		String getActualText = UtilityFunctions.getTextFromElement(guestUserBoardValue);
+		return getActualText;
+
+	}
+
+	public String loginUserBoardValue() {
+		UtilityFunctions.waitForVisibilityOfWebElement(guestUserBoardValue);
+		String getActualText = UtilityFunctions.getTextFromElement(guestUserBoardValue);
+		return getActualText;
+
+	}
+
+	public String guestUserMediumValue() {
+		UtilityFunctions.waitForVisibilityOfWebElement(guestUserMediumValue);
+		String getActualText = UtilityFunctions.getTextFromElement(guestUserMediumValue);
+		return getActualText;
+	}
+
+	public String guestUserGradeValue() {
+		UtilityFunctions.waitForVisibilityOfWebElement(guestUserGradeValue);
+		String getActualText = UtilityFunctions.getTextFromElement(guestUserGradeValue);
+		return getActualText;
+
+	}
+
+	public String loginUserGradeValue() {
+		UtilityFunctions.waitForVisibilityOfWebElement(loginUserGradeValue);
+		String getActualText = UtilityFunctions.getTextFromElement(loginUserGradeValue);
+		return getActualText;
+
+	}
 	}
    

@@ -72,6 +72,49 @@ public class ConsumptionPage {
     @FindBy(how = How.XPATH, using = "//button[contains(text(),' OK ')]")
     private WebElement okBtnInLastAttemptPopup;
 
+    @FindBy(how = How.XPATH, using = "//button[@title='zoom in']")
+    private WebElement zoominpdf;
+    @FindBy(how = How.XPATH, using = "//button[@title='zoom out']")
+    private WebElement zoomoutpdf;
+    @FindBy(how = How.XPATH, using = "//img[@class='rotate-icon']")
+    private WebElement rotatepdf;
+    @FindBy(how = How.XPATH, using = "//button[@class='navigation-arrows player-nextIcon paginate right ml-4']//preceding::div[@class='d-flex player-slides ml-8']")
+    private WebElement nextbtnpdf;
+    @FindBy(how = How.XPATH, using = "//span[@class='pageNumberFullcount']//following::button[1]")
+    private WebElement previousicon;
+
+    @FindBy(how = How.XPATH, using = "//div[text()='You just completed']")
+    private WebElement assertCompletionMsg;
+
+    @FindBy(how = How.XPATH, using = "//em[@id='ariaLabelValue']")
+    private WebElement assertHamburgerMenu;
+
+    @FindBy(how = How.XPATH, using = "//span[text()='Minimize']")
+    private WebElement assertMinimizeScreen;
+
+    @FindBy(how = How.XPATH, using = "//button[@title='Mute']")
+    private WebElement mute;
+    @FindBy(how = How.XPATH, using = "//button[@title='Unmute']")
+    private WebElement assertmute;
+    @FindBy(how = How.XPATH, using = "//button[@title='Mute']")
+    private WebElement assertunmute;
+    @FindBy(how = How.XPATH, using = "//button[@title='Unmute']")
+    private WebElement unmute;
+
+    @FindBy(how = How.XPATH, using = "//ul[@id='sidebar-list']//following::li[contains(text(),'Download')]")
+    private WebElement assertDownload;
+
+    @FindBy(how = How.XPATH, using = "//div[contains(@class,'pdf-reading-')]")
+    private WebElement PageLocationAndPercentagepdf;
+    @FindBy(how = How.XPATH, using = "//span[text()='Minimize']")
+    private WebElement minimizeScreen;
+    @FindBy(how = How.XPATH, using = "//em[text()='Player Menu Close']")
+    private WebElement closebtn;
+
+    @FindBy(how = How.XPATH, using = "//span[contains(@class,'share')]//following::*[contains(text(),'Download')]")
+    private WebElement assertDownloadButton;
+
+
     public int getPDFTotalCount() {
 
         UtilityFunctions.waitForVisibilityOfWebElement(pdfPageTotalcount);
@@ -186,4 +229,87 @@ public class ConsumptionPage {
         Listeners.addLogs("Clicked on okBtnInLastAttemptPopup");
 
     }
+
+    public void clickZoomInPDF() throws InterruptedException {
+        UtilityFunctions.waitToBeClickableAndClick(zoominpdf);
+        Listeners.addLogs("Clicked on Zoom In");
+    }
+    public void clickZoomOutPDF() throws InterruptedException {
+        UtilityFunctions.waitToBeClickableAndClick(zoomoutpdf);
+        Listeners.addLogs("Clicked on Zoom Out");
+    }
+    public void clickRotatePDF() throws InterruptedException {
+        UtilityFunctions.waitToBeClickableAndClick(rotatepdf);
+        Listeners.addLogs("Clicked on Zoom Out");
+    }
+    public void clicknextPDF() throws InterruptedException {
+        UtilityFunctions.waitToBeClickableAndClick(nextIcon);
+        Listeners.addLogs("Clicked on Next button");
+    }
+    public void clickOnPreviousIcon() throws InterruptedException {
+        UtilityFunctions.waitToBeClickableAndClick(previousicon);
+        Listeners.addLogs("Clicked on Previous button");
+    }
+    public void clickNextButton() throws InterruptedException {
+        UtilityFunctions.waitToBeClickableAndClick(nextIcon);
+        Listeners.addLogs("Verified on Next Button");
+    }
+    public void assertCompleteMsg() throws InterruptedException {
+        UtilityFunctions.waitForVisibilityOfWebElement(assertCompletionMsg);
+        UtilityFunctions.validatIsElementPresent(assertCompletionMsg, "assert You just completed not displayed");
+        Listeners.addLogs("assert You just completed Msg is displayed ");
+    }
+    public void clickonHamburger() throws InterruptedException {
+        UtilityFunctions.waitForElementAndClickable(assertHamburgerMenu);
+        Listeners.addLogs("Clicked on Hamburgermenu");
+    }
+    public void assertminiScreen() throws InterruptedException {
+        UtilityFunctions.waitForVisibilityOfWebElement(assertMinimizeScreen);
+        Listeners.addLogs("Clicked on MinimizeScreen");
+    }
+    public void clickMute() throws InterruptedException {
+        UtilityFunctions.waitToBeClickableAndClick(mute);
+        Listeners.addLogs("click on mute");
+    }
+    public void assertClickMute() throws InterruptedException {
+        UtilityFunctions.waitForVisibilityOfWebElement(assertmute);
+        UtilityFunctions.validatIsElementPresent(assertmute, "assertmute not displayed");
+        Listeners.addLogs("Verify on mute");
+    }
+
+    public void clickUnMute() throws InterruptedException {
+        UtilityFunctions.waitToBeClickableAndClick(unmute);
+        Listeners.addLogs("click on mute");
+    }
+
+
+    public void assertClickUnMute() throws InterruptedException {
+        UtilityFunctions.waitForVisibilityOfWebElement(assertunmute);
+        UtilityFunctions.validatIsElementPresent(assertunmute, "assertunmute not displayed");
+        Listeners.addLogs("Verify on unmute");
+    }
+    public void assertClickonDownload() throws InterruptedException {
+        UtilityFunctions.waitForVisibilityOfWebElement(assertDownload);
+        UtilityFunctions.validatIsElementPresent(assertDownload, "assertDownload not displayed");
+        Listeners.addLogs("Verified Download Link");
+    }
+    public void clickPageLocationAndPercentage() throws InterruptedException {
+        UtilityFunctions.waitForVisibilityOfWebElement(PageLocationAndPercentagepdf);
+        UtilityFunctions.validatIsElementPresent(PageLocationAndPercentagepdf,"Percentage not displayed");
+        Listeners.addLogs("Verified on Location");
+    }
+    public void minimizeScreen() throws InterruptedException {
+        UtilityFunctions.waitToBeClickableAndClick(minimizeScreen);
+        Listeners.addLogs("Clicked on MinimizeScreen");
+    }
+    public void clickCloseBtn() throws InterruptedException {
+        UtilityFunctions.clickUsingJavaScriptExecutor(closebtn);
+        //    UtilityFunctions.waitToBeClickableAndClick(closebtn);
+        Listeners.addLogs("Clicked on Close Button");
+    }
+    public void clickonDownloadButton() throws InterruptedException {
+        UtilityFunctions.waitForElementAndClickable(assertDownloadButton);
+        Listeners.addLogs("Clicked on Download Button");
+    }
+
 }

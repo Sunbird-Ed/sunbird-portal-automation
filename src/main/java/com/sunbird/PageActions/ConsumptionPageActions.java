@@ -112,5 +112,89 @@ public class ConsumptionPageActions extends BaseTestConfig {
         ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
         consumptionPage.okBtnInLastAttemptPopup();
     }
+
+    public static void clickRotatePDF(int RotateCount) throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        for (int i = 0; i <= RotateCount; i++) {
+            consumptionPage.clickRotatePDF();
+        }
+    }
+    public static void clicknextPDF() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        int totalPage = consumptionPage.getPDFTotalCount();
+        for (int i = 0; i < totalPage-1; i++) {
+            consumptionPage.clickOnNextIcon();
+        }
+
+    }
+    public static void clickpreviousPDF() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        int totalPage = consumptionPage.getPDFTotalCount();
+        for (int i = 0; i < totalPage; i++) {
+            consumptionPage.clickOnPreviousIcon();
+        }
+    }
+
+    public static void clickZoomInPDF(int ZoomInCount) throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        for (int i = 0; i <= ZoomInCount; i++) {
+            consumptionPage.clickZoomInPDF();
+        }
+    }
+    public static void clickZoomOutPDF(int ZoomOutCount) throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        for (int i = 0; i <= ZoomOutCount; i++) {
+            consumptionPage.clickZoomOutPDF();
+        }
+    }
+        public static void clickNextButton() throws InterruptedException {
+            ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+            consumptionPage.clickNextButton();
+        }
+    public static void assertcompletionmessage() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        consumptionPage.assertCompleteMsg();
+    }
+    public static void clickonHamburger() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+           consumptionPage.clickonHamburger();
+    }
+    public static void assertminiScreen() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        consumptionPage.assertminiScreen();
+    }
+    public static void clickMute() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        consumptionPage.clickMute();
+        consumptionPage.assertClickMute();
+    }
+    public static void clickUnMute() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        consumptionPage.clickUnMute();
+        consumptionPage.assertClickUnMute();
+    }
+
+    public static void clickPageLocationAndPercentage() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        consumptionPage.clickPageLocationAndPercentage();
+    }
+    public static void assertClickonDownload() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        consumptionPage.assertClickonDownload();
+
+
+    }
+    public static void clickCloseBtn() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        consumptionPage.clickCloseBtn();
+    }
+    public static void clickMinimizeScreen() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        consumptionPage.minimizeScreen();
+    }
+
+
 }
-	
+
+
+

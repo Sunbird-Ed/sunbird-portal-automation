@@ -190,7 +190,16 @@ catch (Exception e)
 
         }
     }
-
+    public static void validatIsElementNotPresent(WebElement element) {
+        boolean status = isElementPresent(element);
+        if (status == false) {
+            Assert.assertFalse(status, "Element not displayed");
+        } else {
+//            Assert.assertTrue(status, "Element is displayed");
+//            Assert.fail();
+            Assert.assertFalse(status, "Element is displayed");
+        }
+    }
 
     public static void scrollDownUsingPixelValue() {
         JavascriptExecutor js = (JavascriptExecutor) driver;

@@ -87,10 +87,12 @@ public class CreateQuestionSetPageActions extends BaseTestConfig {
 		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
 		createQuestSetPage.mcqTemplate();
 	}
+
 	public static void clickSubjectiveTemplate() {
 		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
 		createQuestSetPage.subjectiveTemplate();
 	}
+
 	public static void clickNextBtn() {
 		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
 		createQuestSetPage.nextButton();
@@ -115,34 +117,37 @@ public class CreateQuestionSetPageActions extends BaseTestConfig {
 		createQuestSetPage.optionsParagraph2(randomParagraph);
 
 	}
-	public static void clickCorrectAnswers()
-	{
+
+	public static void clickCorrectAnswers() {
 		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
 		createQuestSetPage.chooseCorrectAnswer();
 	}
+
 	public static String questionTitle() {
 		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
 		String name = UtilityFunctions.generateRandomName("automationQuesTitle");
 		createQuestSetPage.enterQuestionDetailsTitleName(name);
 		return name;
 	}
+
 	public static void questionMarks(String marks) {
 		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
 		createQuestSetPage.enterMarks(marks);
 
 	}
-	public static void clickSave()
-	{
+
+	public static void clickSave() {
 		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
 		createQuestSetPage.saveButton();
 	}
-	public static void assertQuestionCreatedToastrMsg()
-	{
+
+	public static void assertQuestionCreatedToastrMsg() {
 		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
-		String actualMsg=createQuestSetPage.assertQuestionCreatedToastr();
+		String actualMsg = createQuestSetPage.assertQuestionCreatedToastr();
 		UtilityFunctions.stringValueComparision(actualMsg, SunbirdConstants.questionCreatedToastrMsg, "Failed to create QuestionSet");
 		createQuestSetPage.waitQuestionCreatedToastrToDisappear();
 	}
+
 	public static void BMCDropdownSelectionSection2() throws InterruptedException {
 
 		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
@@ -158,5 +163,119 @@ public class CreateQuestionSetPageActions extends BaseTestConfig {
 		createQuestSetPage.selectSubjectValue();
 	}
 
+	public static void selectSummaryType() throws InterruptedException {
+		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
+		createQuestSetPage.summaryDropDown();
+	}
+
+	public static void validateDropDownValuesOfDurationSummaryType() {
+		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
+		createQuestSetPage.assertDurationSummaryType();
+	}
+
+	public static void validateDropDownValuesOfScoreSummaryType() {
+		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
+		createQuestSetPage.assertScoreSummaryType();
+	}
+
+	public static void validateDropDownValuesOfScoreAndDurationSummaryType() {
+		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
+		createQuestSetPage.assertScoreAndDurationSummaryType();
+	}
+
+	public static void validateDropDownValuesOfCompleteSummaryType() {
+		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
+		createQuestSetPage.assertCompleteSummaryType();
+
+	}
+
+	public static void assertAddChildButtonDisabled() {
+		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
+		createQuestSetPage.addChildButtonDisabled();
+	}
+
+	public static void addImageToQuestionField() throws InterruptedException {
+		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
+		createQuestSetPage.addImageInQuestionField();
+	}
+
+	public static void uploadImageInQuestion() throws InterruptedException {
+		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
+		createQuestSetPage.clickOnUploadButton();
+		String filepath = System.getProperty("user.dir") + sunbird_config.getSunbidConfigPropertyValue("QSImage");
+		createQuestSetPage.uploadImageFile(filepath);
+		createQuestSetPage.clickOnUploadbutton2();
+
+	}
+
+	public static void addImageToAnswerField() throws InterruptedException {
+		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
+		createQuestSetPage.addImageInAnswerField();
+	}
+
+	public static void selectVideoTypeInSolutionField() {
+		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
+		createQuestSetPage.selectVideoType();
+
+	}
+
+
+	public static void selectTextAndImageType() {
+		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
+		createQuestSetPage.selectTextAndImageType();
+	}
+
+	public static void addImageToSolutionField() throws InterruptedException {
+		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
+		createQuestSetPage.AddImageInSolutionField();
+	}
+
+	public static void clickOnChooseTypeDropDownInSolutionField() {
+		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
+		createQuestSetPage.clickOnChooseTypeDropDown();
+
+	}
+
+	public static void addImageToOptionField1() throws InterruptedException {
+		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
+		createQuestSetPage.AddImageInOptionField1();
+	}
+
+	public static void uploadImageInOptionField1() throws InterruptedException {
+		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
+		createQuestSetPage.clickOnUploadButton();
+		String filepath = System.getProperty("user.dir") + sunbird_config.getSunbidConfigPropertyValue("QSImage");
+		createQuestSetPage.uploadImageFile(filepath);
+		createQuestSetPage.clickOnUploadbutton2();
+		UtilityFunctions.scrollDownUsingPixelValue();
+
+	}
+
+	public static void addImageToOptionField2() {
+		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
+		createQuestSetPage.AddImageInOptionField2();
+
+	}
+
+	public static void uploadImageInOptionField2() throws InterruptedException {
+		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
+		createQuestSetPage.clickOnUploadButton();
+		String filepath = System.getProperty("user.dir") + sunbird_config.getSunbidConfigPropertyValue("QSImage");
+		createQuestSetPage.uploadImageFile(filepath);
+		createQuestSetPage.clickOnUploadbutton2();
+		UtilityFunctions.scrollDownUsingPixelValue();
+
+	}
+
+	public static void uploadVideoToSolutionField() throws InterruptedException {
+		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
+		createQuestSetPage.clickOnUploadButton();
+		String filepath = System.getProperty("user.dir") + sunbird_config.getSunbidConfigPropertyValue("MP4");
+		createQuestSetPage.uploadImageFile(filepath);
+		createQuestSetPage.clickOnUploadbutton2();
+		String actualMsg = createQuestSetPage.assertVideoUploadInSolutionToastrMsg();
+		UtilityFunctions.stringValueComparision(actualMsg, SunbirdConstants.uploadedVideoInSolutionMsg, "Video is not uploaded in solution field");
+		Thread.sleep(3000);
+	}
 
 }

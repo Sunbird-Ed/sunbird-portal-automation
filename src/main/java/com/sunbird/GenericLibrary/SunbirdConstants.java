@@ -46,6 +46,17 @@ public static String collobratorAddedToastrmsg="Collaborators updated successful
     public static String lastAttemptToastrMsg="This is the last remaining attempt";
     public static String maximumNoOfAttemptsExceeded="You have exceeded the maximum number of attempts that can be submitted";
     public static String certificateAddedMsg="Certificate added successfully";
-
+    public static String checkDontYouHaveAccount="Don't have an account? Register here";
+    public static String checkRegisterHere="Register here";
+    public static String checkSignInWithGoogle="Sign in with Google";
+    public static String colorOfSignInWithGoogle="#ffffff";
+    public static String colorOfLoginWithStateSystem="#024f9d";
+    public static String checkLoginWithStateSystem="Login with State System";
+    public static String loginUserBoardValue="State (Tamil Nadu)";
+    public static String guestUserBoardValue="State (Andhra Pradesh)";
+    public static String guestUserMediumValue="English";
+    public static String guestUserGradeValue="Class 1";
+    public static String expectedTextInloginSearch="Textbook";
+    public static String uploadedVideoInSolutionMsg="Asset Successfully Uploaded...";
 
 }

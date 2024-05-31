@@ -65,6 +65,8 @@ public class DashboardPage {
     @FindBy(how=How.XPATH,using="//img[@alt='SUNBIRD']")
     private WebElement sunbirdLogo;
 
+    @FindBy(how = How.XPATH, using = "//h4[contains(text(),'Showing results')]//following::span[2]")
+    private WebElement displayedTextInloginSearch;
 
     public void userProfileIcon() throws InterruptedException {
 
@@ -184,6 +186,13 @@ UtilityFunctions.waitForVisibilityOfWebElement(firstContentCard);
     public void verifySunbirdLogo() {
         UtilityFunctions.waitForElementAndClickable(sunbirdLogo);
         Listeners.addLogs("verified sunbirdLogo ");
+
+    }
+    public String displayedTextInloginSearch() {
+
+        UtilityFunctions.waitForVisibilityOfWebElement(displayedTextInloginSearch);
+        String getActualText = UtilityFunctions.getTextFromElement(displayedTextInloginSearch);
+        return getActualText;
 
     }
 }

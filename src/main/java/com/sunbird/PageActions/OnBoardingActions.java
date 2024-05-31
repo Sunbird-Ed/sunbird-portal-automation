@@ -64,7 +64,11 @@ public class OnBoardingActions extends BaseTestConfig {
         onboard.LocationPopupSubmit();
 
     }
-
+    public static void StudentRolePoup() throws InterruptedException {
+        OnBoarding onboard = PageFactory.initElements(driver, OnBoarding.class);
+        onboard.StudentClick();
+        onboard.ContinueButtonClick();
+    }
     /* Select BMC dropdowns */
     public static void BMCSelection()
     {
@@ -130,7 +134,17 @@ Thread.sleep(3000);
         onboard.schoolDropdown();
 
     }
+    public static void ValidateRolePoup() throws InterruptedException {
+        OnBoarding onboard = PageFactory.initElements(driver, OnBoarding.class);
 
+        onboard.assertStudentRole();
+        onboard.assertTeacherRole();
+        onboard.assertSchoolHeadOrOfficials();
+        onboard.assertParent();
+        onboard.assertOtherRole();
+
+
+    }
     public static void selectStateAndDistrict() throws InterruptedException {
         OnBoarding onboard = PageFactory.initElements(driver, OnBoarding.class);
         Thread.sleep(2000);

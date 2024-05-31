@@ -50,6 +50,18 @@ public class OnBoarding extends BaseTestConfig {
     @FindBy(how = How.XPATH, using = "//img[@alt='Teacher']")
     private WebElement Teacher;
 
+    @FindBy(how = How.XPATH, using = "//img[@alt='Student']")
+    private WebElement Student;
+
+    @FindBy(how = How.XPATH, using = "//img[@alt='Parent']")
+    private WebElement Parent;
+
+    @FindBy(how = How.XPATH, using = "//img[@alt='School head OR Officials']")
+    private WebElement SchoolHeadOrOfficials;
+
+    @FindBy(how = How.XPATH, using = "//img[@alt='Other']")
+    private WebElement OtherRole;
+
     @FindBy(how = How.XPATH, using = "//button[@type='submit']")
     private WebElement ContinueButton;
 
@@ -61,8 +73,10 @@ public class OnBoarding extends BaseTestConfig {
     private WebElement SelectStateValue;
 
     @FindBy(how = How.XPATH, using = "//span[contains(text(),'District')]//following::li[1]")
+    //@FindBy(how = How.XPATH, using = "//span[contains(text(),'District')]//following::span[2]")
     private WebElement clickDistrictDropdown;
 
+    //@FindBy(how = How.XPATH, using = "//span[contains(text(),'District')]//following::mat-option[3]")
     @FindBy(how = How.XPATH, using = "//span[contains(text(),'District')]//following::li[1]//following::span[2]")
     private WebElement SelectDistrictvalue;
 
@@ -132,7 +146,12 @@ public class OnBoarding extends BaseTestConfig {
 
     }
 
+    public void StudentClick() {
 
+        UtilityFunctions.waitForElementAndClickable(Student);
+        Listeners.addLogs("Clicked on Student role");
+
+    }
     public void ContinueButtonClick() {
 
         UtilityFunctions.waitToBeClickableAndClick(ContinueButton);
@@ -317,4 +336,35 @@ UtilityFunctions.waitForElementUsingForLoopAndAssert(ckBoard.get(i),5);
         UtilityFunctions.waitForElementAndClickable(UlTagnameForEditor.get(i));
 //ckBoard.get(i).click();
     }
+
+    public void assertStudentRole() {
+        UtilityFunctions.waitForElementIsVisible(Student);
+        UtilityFunctions.validatIsElementPresent(Student, "Student role not displayed");
+        Listeners.addLogs("Student role is displayed ");
+    }
+    public void assertParent() {
+
+        UtilityFunctions.validatIsElementPresent(Parent, "Parent role not displayed");
+        Listeners.addLogs("Parent role is displayed ");
+    }
+    public void assertSchoolHeadOrOfficials() {
+
+        UtilityFunctions.validatIsElementPresent(SchoolHeadOrOfficials, "SchoolHeadOrOfficials role not displayed");
+        Listeners.addLogs("SchoolHeadOrOfficials role is displayed ");
+    }
+    public void assertOtherRole() {
+
+        UtilityFunctions.validatIsElementPresent(OtherRole, "Other role not displayed");
+        Listeners.addLogs("Other role is displayed ");
+    }
+    public void assertTeacherRole() {
+
+        UtilityFunctions.validatIsElementPresent(Teacher, "Teacher role not displayed");
+        Listeners.addLogs("Teacher role is displayed ");
+    }
+
+
+
+
+
 }
