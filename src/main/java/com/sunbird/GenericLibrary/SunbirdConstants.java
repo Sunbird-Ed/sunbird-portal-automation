@@ -58,5 +58,7 @@ public static String collobratorAddedToastrmsg="Collaborators updated successful
     public static String guestUserGradeValue="Class 1";
     public static String expectedTextInloginSearch="Textbook";
     public static String uploadedVideoInSolutionMsg="Asset Successfully Uploaded...";
-
+    public static String contentDeletedToastrMsg = "Content deleted successfully...";
+    public static final String contentDownloadStartedMsg = "Content download started!";
+    public static String XPATH_LS_CONTAINS = "//span[contains(text(),'";
 }

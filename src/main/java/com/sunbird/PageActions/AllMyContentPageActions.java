@@ -24,6 +24,9 @@ allMyContentPage.searchIcon();
 	}
 
 
-
+	public static void assertNoResultFoungMsg() {
+		AllMyContentPage allMyContentPage = PageFactory.initElements(driver, AllMyContentPage.class);
+		allMyContentPage.assertNoResultFound();
+	}
 
 }

@@ -142,5 +142,21 @@ uploadPage.enterURLLink(youtubeLink);
         UploadPage uploadPage = PageFactory.initElements(driver, UploadPage.class);
         uploadPage.clickcopy();
     }
+    public static void closeEditor() {
+        UploadPage uploadPage = PageFactory.initElements(driver, UploadPage.class);
+        uploadPage.clickCloseEditorIcon();
 
+    }
+    public static void clickDownloadButtonInPrveiewPage() throws InterruptedException {
+        UploadPage uploadPage = PageFactory.initElements(driver, UploadPage.class);
+        uploadPage.clickDownloadPreview();
+        UtilityFunctions.threadSleep(2000);
+        uploadPage.assertContentDowloadedMsg();
+        //    uploadPage.waitForDownloadedMsgDisAppear();
+    }
+    public static void clickLimitedSharing() {
+        UploadPage uploadPage = PageFactory.initElements(driver, UploadPage.class);
+        uploadPage.clickLimitedSharingDropDown();
+        uploadPage.clickLimitedSharing();
+    }
 }

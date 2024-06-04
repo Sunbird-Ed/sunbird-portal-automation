@@ -1,10 +1,8 @@
 package com.sunbird.PageActions;
 
 import com.sunbird.GenericLibrary.BaseTestConfig;
-import com.sunbird.GenericLibrary.Listeners;
 import com.sunbird.GenericLibrary.SunbirdConstants;
 import com.sunbird.GenericLibrary.UtilityFunctions;
-import com.sunbird.PageObjects.DashboardPage;
 import com.sunbird.PageObjects.WorkspaceDashboardPage;
 import org.openqa.selenium.support.PageFactory;
 
@@ -103,7 +101,7 @@ public class WorkspaceDashboardPageActions extends BaseTestConfig {
 
     }
 
-    public static void assertSharedViaLink() throws InterruptedException {
+    public static void assertAndClickSharedViaLink() throws InterruptedException {
         WorkspaceDashboardPage workspacedashboardPage=PageFactory.initElements(driver, WorkspaceDashboardPage.class);
         workspacedashboardPage.assertSharedViaLink();
 
@@ -114,6 +112,30 @@ public class WorkspaceDashboardPageActions extends BaseTestConfig {
         workspacedashboardPage.assertCollaborations();
 
     }
+    /* validate Submit for review button on workspace */
+    public static void submitForReview() {
+        WorkspaceDashboardPage workspacedashboardPage=PageFactory.initElements(driver, WorkspaceDashboardPage.class);
+        workspacedashboardPage.assertsubmittedForReview();
+    }
 
+    public static void assertAssignedTome() throws InterruptedException {
+        WorkspaceDashboardPage workspacedashboardPage=PageFactory.initElements(driver, WorkspaceDashboardPage.class);
+        workspacedashboardPage.assertAssignedToMe();
+
+    }
+    /* validate Create button is available */
+    public static void clickCreate() throws InterruptedException {
+        WorkspaceDashboardPage workspacedashboardPage=PageFactory.initElements(driver, WorkspaceDashboardPage.class);
+        workspacedashboardPage.assertCreateButton();
+    }
+    public static void clickAllUploads() throws InterruptedException {
+        WorkspaceDashboardPage workspacedashboardPage=PageFactory.initElements(driver, WorkspaceDashboardPage.class);
+        workspacedashboardPage.clickAllUploads();
+    }
+    public static void assertContentAvailable(String contentname) throws Exception {
+        String limitedSharingContent = SunbirdConstants.XPATH_LS_CONTAINS + contentname + SunbirdConstants.XPATH_CONAINSCLOSEBRACKET;
+        UtilityFunctions.threadSleep(2000);
+        UtilityFunctions.findElementAndClick(limitedSharingContent);
+    }
 }
 	

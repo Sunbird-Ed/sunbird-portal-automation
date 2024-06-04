@@ -132,13 +132,13 @@ Thread.sleep(5000);
 				UtilityFunctions.stringValueComparision(actualMsg2,SunbirdConstants.resourceContentRejectedToastrMsg, "Failed to Reject the content");
 				break;
 			case "Upload":
-				reviewPage.selectAllCheckBoxesForUploadContent();
-				//Thread.sleep(5000);
-				reviewPage.clickOnPublishButtonInPopup();
-				String actualMsg4=reviewPage.assertResourceContentPublishedMsgs();
-				UtilityFunctions.stringValueComparision(actualMsg4,SunbirdConstants.resourceContentPublishedToastrMsg, "Failed to publish the upload content");
+				reviewPage.requestChanges();
+				reviewPage.selectCheckBoxesForResourceForReject();
+				reviewPage.enterCommenntInBox("Not good");
+				reviewPage.requestChangesInPopup();
+				String actualMsg4 =  reviewPage.assertResourceContentRejectedMsgs();
+				UtilityFunctions.stringValueComparision(actualMsg4,SunbirdConstants.resourceContentRejectedToastrMsg, "Failed to Reject the content");
 				break;
-
 		}
 
 	}

@@ -17,6 +17,9 @@ public class AllMyContentPage {
 	@FindBy(how=How.XPATH,using="//div[@class='UpReviewHeader']")
 	private WebElement clickFirstContent;
 
+	@FindBy(how=How.XPATH,using="//div[contains(text(),'No results found')]")
+	private WebElement assertNoResultFound;
+
 	public void searchIcon() {
 		UtilityFunctions.waitToBeClickableAndClick(searchIcon);
 		Listeners.addLogs("clicked on searchIcon");
@@ -33,5 +36,8 @@ UtilityFunctions.waitForVisibilityOfWebElement(searchTextbox);
 		Listeners.addLogs("clicked on clickFirstContent");
 	}
 
-
+	public void assertNoResultFound() {
+		UtilityFunctions.waitForVisibilityOfWebElement(assertNoResultFound);
+		Listeners.addLogs("No Result found in All my content bucket");
+	}
 }

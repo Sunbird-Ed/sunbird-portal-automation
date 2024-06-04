@@ -100,6 +100,20 @@ public class UploadPage {
     @FindBy(how = How.XPATH, using = "//button[contains(text(),'Copy')]")
     private WebElement clickcopy;
 
+    @FindBy(how = How.XPATH, using = "//div[@id='closeButton']")
+    private WebElement editorCloseIcon;
+
+    @FindBy(how = How.XPATH, using = "//div[@class='icon-box popup-item']//following::i[@class='download icon custom-icon']")
+    private WebElement clickDownloadPreview;
+    @FindBy(how = How.XPATH, using = "//strong[contains(text(),'Content download started!')]")
+    private WebElement contentDownloadStartedMsg;
+
+    @FindBy(how = How.XPATH, using = "//div[@id='reviewButton']//following::i[@class='dropdown icon']")
+    private WebElement limitedSharingDropDown;
+
+    @FindBy(how = How.XPATH, using = "//div[contains(text(),'Limited sharing')]")
+    private WebElement limitedSharing;
+
     public void uploadContentInWorkspace() {
 
         UtilityFunctions.waitToBeClickableAndClick(uploadcontent);
@@ -319,5 +333,34 @@ public class UploadPage {
     public void clickcopy() {
         UtilityFunctions.waitForElementAndClickable(clickcopy);
         Listeners.addLogs("clicked on copy button");
+    }
+    public void clickCloseEditorIcon() {
+
+        UtilityFunctions.waitForElementAndClickable(editorCloseIcon);
+        Listeners.addLogs("editor closed");
+
+    }
+    public void clickDownloadPreview() {
+        UtilityFunctions.waitForElementAndClickable(clickDownloadPreview);
+        Listeners.addLogs("clicked on download button");
+    }
+    public void assertContentDowloadedMsg() {
+        UtilityFunctions.getTextFromElement(contentDownloadStartedMsg);
+        UtilityFunctions.fluenWait(contentDownloadStartedMsg, 2);
+        UtilityFunctions.waitForVisibilityOfWebElement(contentDownloadStartedMsg);
+        String actual = UtilityFunctions.getTextFromElement(contentDownloadStartedMsg);
+        System.out.println(actual);
+        UtilityFunctions.stringValueComparision(actual, SunbirdConstants.contentDownloadStartedMsg, "Content not downloaded");
+
+    }
+    public void clickLimitedSharing() {
+        UtilityFunctions.waitForElementAndClickable(limitedSharing);
+        Listeners.addLogs("Clicked Limited Sahring");
+
+    }
+    public void clickLimitedSharingDropDown() {
+        UtilityFunctions.waitForElementAndClickable(limitedSharingDropDown);
+        Listeners.addLogs("Clicked Limited Sharing");
+
     }
 }
