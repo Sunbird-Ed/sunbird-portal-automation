@@ -61,4 +61,13 @@ public static String collobratorAddedToastrmsg="Collaborators updated successful
     public static String contentDeletedToastrMsg = "Content deleted successfully...";
     public static final String contentDownloadStartedMsg = "Content download started!";
     public static String XPATH_LS_CONTAINS = "//span[contains(text(),'";
+    public static String automationInstruction="A group of words containing a subject and a verb, that expresses a statement, a question, etc. When a sentence is written it begins with a big (capital) letter and ends with a full stop.";
+    public static String questionsetContentRejectedToastrMsg = "Content is sent back for corrections";
+    public static String verticalLayoutattribute="mcq-vertical";
+    public static String horizontalLayoutattribute="mcq-horizontal";
+
+
+
+
+
 }

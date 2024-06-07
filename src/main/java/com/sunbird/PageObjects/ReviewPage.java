@@ -68,6 +68,18 @@ public class ReviewPage extends BaseTestConfig {
 	@FindBy(how = How.XPATH, using = "//strong[contains(text(),'Content rejected successfully...')]")
 	private WebElement assertRejectedTostrMsg;
 
+	@FindBy(how = How.XPATH, using = "//button[contains(text(),' Reject ')]")
+	private WebElement rejectButton;
+
+	@FindBy(how = How.XPATH, using = "//textarea[@placeholder='Add comment']")
+	private WebElement enterCommentForReject;
+
+	@FindBy(how = How.XPATH, using = "//button[contains(text(),' Submit Review ')]")
+	private WebElement clickOnSubmitreviewInPopup;
+
+	@FindBy(how = How.XPATH, using = "//strong[contains(text(),'Content is sent back for corrections')]")
+	private WebElement assertQuestionsetRejectedTostrMsg;
+
 	public void upForReviewBucket() {
 
 			UtilityFunctions.waitToBeClickableAndClick(upforreview);
@@ -222,6 +234,25 @@ UtilityFunctions.scrollInToviewUsingJavaScript(commentBox);
 		UtilityFunctions.waitForElementIsVisible(assertRejectedTostrMsg);
 		String getActualText = UtilityFunctions.getTextFromElement(assertRejectedTostrMsg);
 		UtilityFunctions.waitForElementToDisappear(assertRejectedTostrMsg);
+		return getActualText;
+	}
+	public void clickOnReject() {
+		UtilityFunctions.waitToBeClickableAndClick(rejectButton);
+		Listeners.addLogs("Clicked on reject Button");
+	}
+	public void enterCommentForRejection(String commentSuggestion) {
+		UtilityFunctions.scrollInToviewUsingJavaScript(enterCommentForReject);
+		UtilityFunctions.waitToBeClickableAndSendKeys(enterCommentForReject, commentSuggestion);
+		Listeners.addLogs("Entered comment in box");
+	}
+	public void clickOnSubmitReviewInPopup() {
+		UtilityFunctions.waitToBeClickableAndClick(clickOnSubmitreviewInPopup);
+		Listeners.addLogs("Clicked on SubmitreviewInPopup ");
+	}
+	public String assertQuestionsetContentRejectedMsgs() {
+		UtilityFunctions.waitForElementIsVisible(assertQuestionsetRejectedTostrMsg);
+		String getActualText = UtilityFunctions.getTextFromElement(assertQuestionsetRejectedTostrMsg);
+		UtilityFunctions.waitForElementToDisappear(assertQuestionsetRejectedTostrMsg);
 		return getActualText;
 	}
 	}

@@ -3,6 +3,7 @@ package com.sunbird.PageActions;
 import com.sunbird.GenericLibrary.BaseTestConfig;
 import com.sunbird.GenericLibrary.SunbirdConstants;
 import com.sunbird.GenericLibrary.UtilityFunctions;
+import com.sunbird.PageObjects.ReviewPage;
 import com.sunbird.PageObjects.WorkspaceDashboardPage;
 import org.openqa.selenium.support.PageFactory;
 
@@ -136,6 +137,11 @@ public class WorkspaceDashboardPageActions extends BaseTestConfig {
         String limitedSharingContent = SunbirdConstants.XPATH_LS_CONTAINS + contentname + SunbirdConstants.XPATH_CONAINSCLOSEBRACKET;
         UtilityFunctions.threadSleep(2000);
         UtilityFunctions.findElementAndClick(limitedSharingContent);
+    }
+
+    public static void upForReviewSelection() {
+        ReviewPage reviewPage = PageFactory.initElements(driver, ReviewPage.class);
+        reviewPage.upForReviewBucket();
     }
 }
 	

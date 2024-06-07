@@ -215,7 +215,12 @@ catch (Exception e)
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].click();", element);
     }
-
+    public static void assertWebElementAsString(String xpathValue) throws InterruptedException {
+        UtilityFunctions.threadSleep(8000);
+        WebElement element = driver.findElement(By.xpath(xpathValue));
+        UtilityFunctions.validatIsElementPresent(element,"Element not disalyed");
+        Listeners.addLogs("Element verified" +xpathValue);
+    }
     public static void scrollUpUsingPixelValue() {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,-350)", "");
@@ -383,7 +388,10 @@ return value;
 
         driver.switchTo().defaultContent();
     }
-
+    public static String getAttributeValue(WebElement element,String attributeName) {
+        String attributeValue = element.getAttribute(attributeName);
+        return attributeValue;
+    }
     public static void waitForFrameToBeAvailable(WebElement element) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(element));

@@ -35,9 +35,9 @@ public class UploadPage {
 
 	@FindBy(how=How.XPATH,using="//i[@class='send icon']")
 	private WebElement sendforreview;
-	
-	@FindBy(how=How.XPATH,using="//div[text()='Add an image']")
-	private WebElement clickOnAddImage;
+
+    @FindBy(how=How.XPATH,using="//div[contains(@id,'app-icon')]")
+    private WebElement clickOnAddImage;
 	
 	@FindBy(how=How.XPATH,using="//a[text()='All image']")
 	private WebElement clickOnAllImage;

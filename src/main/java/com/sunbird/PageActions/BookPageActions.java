@@ -299,4 +299,11 @@ bookPage.waitGenerateQRCodeToastrToDisappear();
 
         Thread.sleep(5000);
     }
+
+    public static void clickAddFromLibraryBtn() throws InterruptedException {
+        BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
+        bookPage.clickAddFromLibraryBtn();
+
+    }
+
 }

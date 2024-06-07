@@ -92,7 +92,11 @@ Thread.sleep(5000);
 				String actualMsg4=reviewPage.assertResourceContentPublishedMsgs();
 				UtilityFunctions.stringValueComparision(actualMsg4,SunbirdConstants.resourceContentPublishedToastrMsg, "Failed to publish the upload content");
 				break;
-
+			case "Questionset":
+				reviewPage.clickYesButton();
+				String actualMsg5 =  reviewPage.assertContentPublishedMsgs();
+				UtilityFunctions.stringValueComparision(actualMsg5,SunbirdConstants.contetnPublishedToastrMsg, "Failed to publish the content");
+				break;
 		}
 
 	}
@@ -139,6 +143,14 @@ Thread.sleep(5000);
 				String actualMsg4 =  reviewPage.assertResourceContentRejectedMsgs();
 				UtilityFunctions.stringValueComparision(actualMsg4,SunbirdConstants.resourceContentRejectedToastrMsg, "Failed to Reject the content");
 				break;
+			case "Questionset":
+				reviewPage.clickOnReject();
+				reviewPage.enterCommentForRejection("Not good");
+				reviewPage.clickOnSubmitReviewInPopup();
+				String actualMsg5 =  reviewPage.assertQuestionsetContentRejectedMsgs();
+				UtilityFunctions.stringValueComparision(actualMsg5,SunbirdConstants.questionsetContentRejectedToastrMsg, "Failed to Reject the content");
+				break;
+
 		}
 
 	}

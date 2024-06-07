@@ -1,6 +1,7 @@
 package com.sunbird.PageObjects;
 
 import com.sunbird.GenericLibrary.Listeners;
+import com.sunbird.GenericLibrary.SunbirdConstants;
 import com.sunbird.GenericLibrary.UtilityFunctions;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -140,6 +141,110 @@ public class CreateQuestionSetPage {
 
 	@FindBy(how=How.XPATH,using="//strong[contains(text(),'Asset Successfully Uploaded...')]")
 	private WebElement assertUploadVideoToastrMsg;
+
+	@FindBy(how=How.XPATH,using="//p[@data-placeholder='Enter Instructions']")
+	private WebElement instructionField;
+
+	@FindBy(how=How.XPATH,using="//button[contains(text(),' Preview ')]")
+	private WebElement previewButton;
+
+	@FindBy(how=How.XPATH,using="//div[@title='next slide']")
+	private WebElement clickOnnextButton;
+
+	@FindBy(how=How.XPATH,using="//div[@class='replay-section']")
+	private WebElement clickOnReplyButton;
+
+	@FindBy(how=How.XPATH,using="(//p[contains(text(),'A group of words containing a subject and a verb')])[2]")
+	private WebElement instructionText;
+
+	@FindBy(how=How.XPATH,using="//label[contains(text(),'Title')]")
+	private WebElement Titletext;
+
+	@FindBy(how=How.XPATH,using="//label[contains(text(),'Title')]//following::input[1]")
+	private WebElement Titlefield;
+
+	@FindBy(how=How.XPATH,using="//label[contains(text(),'Description')]")
+	private WebElement Descriptiontext;
+
+	@FindBy(how=How.XPATH,using="//label[contains(text(),'Description')]//following::textarea[1]")
+	private WebElement DescriptionField;
+
+	@FindBy(how=How.XPATH,using="//label[contains(text(),'Instructions')]")
+	private WebElement Instructiontext;
+
+	@FindBy(how=How.XPATH,using="//label[contains(text(),'Instructions')]//following::p[1]")
+	private WebElement InstructionField;
+
+	@FindBy(how=How.XPATH,using="//label[contains(text(),'Count of questions to be displayed in this section  ')]")
+	private WebElement Countofquestiontext;
+
+	@FindBy(how=How.XPATH,using="//label[contains(text(),'Count of questions to be displayed in this section ')]//following::select")
+	private WebElement CountofquestionField;
+
+	@FindBy(how=How.XPATH,using="//label[contains(text(),'Shuffle Questions ')]")
+	private WebElement ShuffleQuestiontext;
+
+	@FindBy(how=How.XPATH,using="//label[contains(text(),'Count of questions to be displayed in this section  ')]//following::input[1]")
+	private WebElement ShuffleQuestiontField;
+
+	@FindBy(how=How.XPATH,using="//label[contains(text(),'Show Question Feedback ')]")
+	private WebElement showquestionfeedbacktext;
+
+	@FindBy(how=How.XPATH,using="//input[@id='show-feedback']")
+	private WebElement showquestionfeedbackField;
+
+	@FindBy(how=How.XPATH,using="//label[contains(text(),'Show Solution ')]")
+	private WebElement showsolutiontext;
+	@FindBy(how=How.XPATH,using="//input[@id='show-solution']")
+	private WebElement showsolutionField;
+
+	@FindBy(how=How.XPATH,using="//button[contains(text(),'Reset')]")
+	private WebElement clickOnResetButton;
+
+	@FindBy(how=How.XPATH,using="//div[contains(text(),'most relevant question')]//following::input[2]")
+	private WebElement selectQuestionFromList;
+
+	@FindBy(how=How.XPATH,using="//a[contains(text(),'Change filters')]//following::div[3]")
+	private WebElement nameOfTheQuestion;
+
+	@FindBy(how=How.XPATH,using="//button[contains(text(),' Add question ')]")
+	private WebElement addQuestionButton;
+
+	@FindBy(how=How.XPATH,using="(//span[@role='button'])[2]")
+	private WebElement clickOnSection;
+
+	@FindBy(how=How.XPATH,using="//div[@class='UpReviewHeader']")
+	private WebElement questionsetName;
+
+	@FindBy(how=How.XPATH,using="//button[contains(text(),'Grid')]")
+	private WebElement gridLayout;
+
+	@FindBy(how=How.XPATH,using="//span[contains(text(),'Add option')]")
+	private WebElement addOption;
+
+	@FindBy(how=How.XPATH,using="//label[contains(text(),'Question')]//following::div[@role='textbox'][4]")
+	private WebElement enterOptionParagraph3;
+
+	@FindBy(how=How.XPATH,using="//label[contains(text(),'Question')]//following::div[@role='textbox'][5]")
+	private WebElement enterOptionParagraph4;
+
+	@FindBy(how=How.XPATH,using="//div[contains(@class,'layoutImageQAGridMCQ')]")
+	private WebElement assertGridLayout;
+
+	@FindBy(how=How.XPATH,using="//button[contains(text(),'Edit')]")
+	private WebElement editButton;
+
+	@FindBy(how=How.XPATH,using="//button[contains(text(),'Vertical')]")
+	private WebElement verticalLayout;
+
+	@FindBy(how=How.XPATH,using="//button[contains(text(),'Horizontal')]")
+	private WebElement horizontalLayout;
+
+	@FindBy(how=How.XPATH,using="//div[@class='mcq-horizontal']")
+	private WebElement assertHorizontalLayout;
+
+	@FindBy(how=How.XPATH,using="//div[@class='mcq-vertical']")
+	private WebElement assertVerticalLayout;
 
 	public void enterQuestionSetName(String name) {
 		UtilityFunctions.waitForVisibilityOfWebElement(questionSetName);
@@ -407,5 +512,177 @@ public class CreateQuestionSetPage {
 		String actualText=UtilityFunctions.getTextFromElement(assertUploadVideoToastrMsg);
 		Listeners.addLogs("assertUploadVideoToastrMsg validated");
 		return actualText;
+	}
+	public void enterInstruction(String contentName) {
+		UtilityFunctions.waitForVisibilityOfWebElement(instructionField);
+		UtilityFunctions.waitToBeClickableAndSendKeys(instructionField,contentName);
+		Listeners.addLogs("Enter text in instruction");
+
+	}
+	public void ClickOnPreviewButton() {
+		UtilityFunctions.waitToBeClickableAndClick(previewButton);
+		Listeners.addLogs("Click on Preview button");
+
+	}
+	public void clickOnNextIcon() {
+		UtilityFunctions.waitToBeClickableAndClick(clickOnnextButton);
+		Listeners.addLogs("Click on Next button");
+
+	}
+	public void ClickOnReplyButton() {
+		UtilityFunctions.waitToBeClickableAndClick(clickOnReplyButton);
+		Listeners.addLogs("Click on Replay button");
+
+	}
+	public String verifyIntructionText() {
+		UtilityFunctions.waitForVisibilityOfWebElement(instructionText);
+		String actualText=UtilityFunctions.getTextFromElement(instructionText);
+		Listeners.addLogs("validated entered text in intruction");
+		return actualText;
+	}
+	public void assertTitleText() {
+		UtilityFunctions.waitForElementIsVisible(Titletext);
+		UtilityFunctions.validatIsElementPresent(Titletext,"Title text is not displayed");
+		Listeners.addLogs("Title text is displayed");
+		UtilityFunctions.waitForElementIsVisible(Titlefield);
+		UtilityFunctions.validatIsElementPresent(Titlefield,"Title Field is not displayed");
+		Listeners.addLogs("Title field is displayed");
+	}
+	public void assertDiscriptionText() {
+		UtilityFunctions.waitForElementIsVisible(Descriptiontext);
+		UtilityFunctions.validatIsElementPresent(Descriptiontext,"Description text is not displayed");
+		Listeners.addLogs("Description text is displayed");
+		UtilityFunctions.waitForElementIsVisible(DescriptionField);
+		UtilityFunctions.validatIsElementPresent(DescriptionField,"Description field is not displayed");
+		Listeners.addLogs("Description field is displayed");
+
+	}
+	public void assertInstructionText() {
+		UtilityFunctions.waitForElementIsVisible(Instructiontext);
+		UtilityFunctions.validatIsElementPresent(Instructiontext,"Instruction text is not displayed");
+		Listeners.addLogs("Instruction text is displayed");
+		UtilityFunctions.waitForElementIsVisible(InstructionField);
+		UtilityFunctions.validatIsElementPresent(InstructionField,"Instruction Field is not displayed");
+		Listeners.addLogs("Instruction field is displayed");
+	}
+	public void assertCountOfQuestionText() {
+		UtilityFunctions.waitForElementIsVisible(Countofquestiontext);
+		UtilityFunctions.validatIsElementPresent(Countofquestiontext,"Countofquestion text is not displayed");
+		Listeners.addLogs("Countofquestion text is displayed");
+		UtilityFunctions.waitForElementIsVisible(CountofquestionField);
+		UtilityFunctions.validatIsElementPresent(CountofquestionField,"Countofquestion Field is not displayed");
+		Listeners.addLogs("Countofquestion field is displayed");
+
+	}
+	public void assertShuffleQuestionText() {
+		UtilityFunctions.waitForElementIsVisible(ShuffleQuestiontext);
+		UtilityFunctions.validatIsElementPresent(ShuffleQuestiontext,"ShuffleQuestion text is not displayed");
+		Listeners.addLogs("ShuffleQuestion text is displayed");
+		UtilityFunctions.waitForElementIsVisible(ShuffleQuestiontField);
+		UtilityFunctions.waitForElementAndClickable(ShuffleQuestiontField);
+		Listeners.addLogs("ShuffleQuestion field is displayed");
+
+	}
+	public void assertShowQuestionFeedbackText() {
+		UtilityFunctions.waitForElementIsVisible(showquestionfeedbacktext);
+		UtilityFunctions.validatIsElementPresent(showquestionfeedbacktext,"showquestionfeedback text is not displayed");
+		Listeners.addLogs("showquestionfeedback text is displayed");
+		UtilityFunctions.waitForElementIsVisible(showquestionfeedbackField);
+		UtilityFunctions.waitForElementAndClickable(showquestionfeedbackField);
+		Listeners.addLogs("showquestionfeedback field is displayed");
+
+	}
+	public void assertShowSolutionText() {
+		UtilityFunctions.waitForElementIsVisible(showsolutiontext);
+		UtilityFunctions.validatIsElementPresent(showsolutiontext,"showsolution text is not displayed");
+		Listeners.addLogs("showsolution text is displayed");
+		UtilityFunctions.waitForElementIsVisible(showsolutionField);
+		UtilityFunctions.waitForElementAndClickable(showsolutionField);
+		Listeners.addLogs("showsolution field is displayed");
+
+	}
+
+	public void clickOnResetButton() throws InterruptedException {
+		UtilityFunctions.waitToBeClickableAndClick(clickOnResetButton);
+		Listeners.addLogs("resetButton");
+	}
+	public void selectQuestionFromList() {
+		UtilityFunctions.clickUsingJavaScriptExecutor(selectQuestionFromList);
+		Listeners.addLogs("selectQuestionFromList");
+	}
+	public String getQuestionName() {
+		String questionname=UtilityFunctions.getTextFromElement(nameOfTheQuestion);
+		return questionname;
+	}
+	public void addQuestionInLibrary() {
+		UtilityFunctions.waitToBeClickableAndClick(addQuestionButton);
+		Listeners.addLogs("addQuestion");
+	}
+	public void clickOnSection() {
+		UtilityFunctions.waitToBeClickableAndClick(clickOnSection);
+		Listeners.addLogs("Click on section");
+
+	}
+	public String fetchQuestionNameXpath(String expectedQuestionName) {
+
+		String questionXpath=SunbirdConstants.XPATH_CONTAINS+expectedQuestionName+ SunbirdConstants.XPATH_CONAINSCLOSEBRACKET;
+		return questionXpath;
+	}
+	public String assertCreatedQuestionsetname() {
+		UtilityFunctions.waitForVisibilityOfWebElement(questionsetName);
+		String actualText=UtilityFunctions.getTextFromElement(questionsetName);
+		Listeners.addLogs("validated questionset name ");
+		return actualText;
+	}
+	public void selectGridLayout() {
+		UtilityFunctions.waitToBeClickableAndClick(gridLayout);
+		Listeners.addLogs("Click on Grid layout");
+
+	}
+	public void clickOnAddOption() {
+		UtilityFunctions.waitToBeClickableAndClick(addOption);
+		Listeners.addLogs("Click on Add option button");
+
+	}
+	public void optionsParagraph3(String paragraph) {
+		UtilityFunctions.waitForVisibilityOfWebElement(enterOptionParagraph3);
+		UtilityFunctions.waitToBeClickableAndSendKeys(enterOptionParagraph3, paragraph);
+		Listeners.addLogs("enterOptionParagraph3");
+	}
+	public void optionsParagraph4(String paragraph) {
+		UtilityFunctions.waitForVisibilityOfWebElement(enterOptionParagraph4);
+		UtilityFunctions.waitToBeClickableAndSendKeys(enterOptionParagraph4, paragraph);
+		Listeners.addLogs("enterOptionParagraph4");
+
+	}
+	public void assertGridlayout() {
+		UtilityFunctions.waitForElementIsVisible(assertGridLayout);
+		UtilityFunctions.validatIsElementPresent(assertGridLayout, "Grid layout is not displayed");
+		Listeners.addLogs("Grid layout is displayed");
+
+
+	}
+	public void clickOnEditButton() {
+		UtilityFunctions.waitToBeClickableAndClick(editButton);
+		Listeners.addLogs("Click on edit button");
+
+	}
+	public void selectVerticalLayout() {
+		UtilityFunctions.waitToBeClickableAndClick(verticalLayout);
+		Listeners.addLogs("Click on vertical button");
+
+	}
+	public String getVerticalClassValue() {
+		String attributeValue=UtilityFunctions.getAttributeValue(assertVerticalLayout, "class");
+		return attributeValue;
+	}
+	public void selectHorizontalLayout() {
+		UtilityFunctions.waitToBeClickableAndClick(horizontalLayout);
+		Listeners.addLogs("Click on horizontal button");
+
+	}
+	public String getHorizontalClassValue() {
+		String attributeValue=UtilityFunctions.getAttributeValue(assertHorizontalLayout, "class");
+		return attributeValue;
 	}
 }
