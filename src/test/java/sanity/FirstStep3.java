@@ -33,17 +33,27 @@ public class FirstStep3 extends BaseTestConfig {
 
 
 }*/
-	@Test(description = "Verify when user is viewing the pdf then User should open it up in full screen mode while consuming from portal")
-	public void UserAndCreatorAbleToSearchAndConsumeContent() throws Exception {
+	@Test(description = "Verify user is able to add textbook to the course ")
+	public void UserAbleToAddTextBookToCouse() throws Exception {
 
 		OnBoardingActions.RolePoup();
 		OnBoardingActions.BMCPopup();
 		OnBoardingActions.LocationPopup();
 		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
 				sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
-		DashboardPageActions.searchContentAndClickOnContentCard(sunbird_config.getSunbidConfigPropertyValue("PDF_Consume"));
-		ConsumptionPageActions.clickFullScreen();
-		ConsumptionPageActions.assertminiScreen();
-		ConsumptionPageActions.consumePDF();
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.assertWorkspace();
+		DashboardPageActions.clickOnWorkSpace();
+		WorkspaceDashboardPageActions.clickCourse();
+		String createdContent = CoursePageActions.createCourseSection1("getdoid");
+		BookPageActions.BMCDropdownSelectionSection2();
+		BookPageActions.Section3();
+		BookPageActions.assertContentIsSavedToastrMsg();
+		BookPageActions.waitContentIsSavedToastToDisapper();
+		BookPageActions.addResourceInLibrarySection(sunbird_config.getSunbidConfigPropertyValue("Textbook"));
+		BookPageActions.submitAndSendForReview();
+		DashboardPageActions.logOut();
+
 	}
+
 }

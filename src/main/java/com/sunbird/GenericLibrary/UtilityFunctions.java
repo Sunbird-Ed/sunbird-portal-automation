@@ -36,6 +36,7 @@ public class UtilityFunctions extends BaseTestConfig {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         wait.until(ExpectedConditions.elementToBeClickable(element));
         element.click();
+        element.clear();
         element.sendKeys(Value);
     }
 

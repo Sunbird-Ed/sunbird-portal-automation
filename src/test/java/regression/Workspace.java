@@ -587,5 +587,97 @@ public class Workspace extends BaseTestConfig {
 	     DraftsPageActions.clickFirstCard();
 	     
 	}
-	
+
+	@Test(description = "Verify user is able to edit the published course")
+	public void userAbleToEditPublishedCourseAndRePublishCourse() throws Exception {
+
+		OnBoardingActions.RolePoup();
+		OnBoardingActions.BMCPopup();
+		OnBoardingActions.LocationPopup();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+				sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.assertWorkspace();
+		DashboardPageActions.clickOnWorkSpace();
+		WorkspaceDashboardPageActions.clickCourse();
+		String createdContent = CoursePageActions.createCourseSection1("getdoid");
+		BookPageActions.BMCDropdownSelectionSection2();
+		BookPageActions.Section3();
+		BookPageActions.assertContentIsSavedToastrMsg();
+		BookPageActions.waitContentIsSavedToastToDisapper();
+		BookPageActions.addResourceFromLibrary();
+		BookPageActions.submitAndSendForReview();
+		DashboardPageActions.logOut();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"),
+				sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.clickOnWorkSpace();
+		ReviewPageActions.reviewAndPublishContent(createdContent, "Course");
+		DashboardPageActions.logOut();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+				sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.assertWorkspace();
+		DashboardPageActions.clickOnWorkSpace();
+		WorkspaceDashboardPageActions.clickPublishedBucket();
+		AllMyContentPageActions.enterContentInSearchBox(createdContent);
+		PublishedPageActions.clickFirstCard();
+		UtilityFunctions.scrollDownUsingPixelValue();
+		UtilityFunctions.scrollDownUsingPixelValue();
+		BookPageActions.selectMultipleBMCDropdownSelectionSection2();
+		BookPageActions.Section3();
+		BookPageActions.assertContentIsSavedToastrMsg();
+		BookPageActions.waitContentIsSavedToastToDisapper();
+		BookPageActions.submitAndSendForReview();
+		DashboardPageActions.logOut();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"),
+				sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.clickOnWorkSpace();
+		ReviewPageActions.reviewAndPublishContent(createdContent, "Course");
+		DashboardPageActions.logOut();
+
+	}
+
+	@Test(description = "Verify user is able to copy the course to a new course")
+	public void UserAbleToCopyTheCourse() throws Exception {
+
+		OnBoardingActions.RolePoup();
+		OnBoardingActions.BMCPopup();
+		OnBoardingActions.LocationPopup();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+				sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+		DashboardPageActions.clickCourseTab();
+		DashboardPageActions.searchContentAndClickOnContentCard(sunbird_config.getSunbidConfigPropertyValue("Course"));
+		BookPageActions.clickCopyButton();
+		BookPageActions.assertCopyToastrMsg();
+		BookPageActions.waitCopyToastrMsgDisAppear();
+		CoursePageActions.subjectCoveredDropdown();
+		BookPageActions.BMCDropdownSelectionSection2();
+		BookPageActions.clickSaveAsDrafts();
+
+	}
+	@Test(description = "Verify user is able to add textbook to the course ")
+	public void UserAbleToAddTextBookToCouseInAddFromLibrarySection() throws Exception {
+
+		OnBoardingActions.RolePoup();
+		OnBoardingActions.BMCPopup();
+		OnBoardingActions.LocationPopup();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+				sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.assertWorkspace();
+		DashboardPageActions.clickOnWorkSpace();
+		WorkspaceDashboardPageActions.clickCourse();
+		String createdContent = CoursePageActions.createCourseSection1("getdoid");
+		BookPageActions.BMCDropdownSelectionSection2();
+		BookPageActions.Section3();
+		BookPageActions.assertContentIsSavedToastrMsg();
+		BookPageActions.waitContentIsSavedToastToDisapper();
+		BookPageActions.addResourceInLibrarySection(sunbird_config.getSunbidConfigPropertyValue("Textbook"));
+		BookPageActions.submitAndSendForReview();
+		DashboardPageActions.logOut();
+
+	}
+
 }

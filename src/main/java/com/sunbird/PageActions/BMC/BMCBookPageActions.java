@@ -30,7 +30,8 @@ public class BMCBookPageActions extends BaseTestConfig {
         BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
         bookPage.clickBoardDropdown();
         bookPage.selectBoardValue();
-        bookPage.clickMediumDropdown();
+        Thread.sleep(2000);
+        bookPage.clickMediumDropdown2();
         bookPage.mediumSelectAll();
         Thread.sleep(2000);
         bookPage.clickClassDropdown();
