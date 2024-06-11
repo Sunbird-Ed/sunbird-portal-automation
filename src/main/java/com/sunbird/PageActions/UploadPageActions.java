@@ -159,4 +159,19 @@ uploadPage.enterURLLink(youtubeLink);
         uploadPage.clickLimitedSharingDropDown();
         uploadPage.clickLimitedSharing();
     }
+    public static void reUploadYoutubeContent(String youtubeLink) throws InterruptedException {
+
+        UploadPage uploadPage = PageFactory.initElements(driver, UploadPage.class);
+        uploadPage.recontentTypeDroddown();
+        uploadPage.selectETextbookValue();
+        uploadPage.enterURLLink(youtubeLink);
+        uploadPage.uploadBtnInEditor();
+        String actualMsg = uploadPage.assertUploadContentMsgs();
+        UtilityFunctions.stringValueComparision(actualMsg, SunbirdConstants.contentUploadToastrMsg, "Failed to upload the content");
+        uploadPage.waitForContentUploadToastrMsgDisAppear();
+        uploadPage.clickSave();
+        uploadPage.clickClose();
+
+    }
+
 }

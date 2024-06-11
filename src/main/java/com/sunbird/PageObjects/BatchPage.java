@@ -129,6 +129,11 @@ public class BatchPage {
 	@FindBy(how=How.XPATH,using="//*[contains(text(),'You can view your updated course progress within 24 hours')]")
 	private WebElement assertSyncNowProgressToastrMsg;
 
+	@FindBy(how=How.XPATH,using="//button[text()='Do not share']")
+	private WebElement clickDoNotShareBtn;
+
+
+
 	public void createBatchClick() {
 		UtilityFunctions.waitToBeClickableAndClick(createBatchBtn);
 		Listeners.addLogs("createBatchBtn");
@@ -309,6 +314,14 @@ public class BatchPage {
 		Listeners.addLogs("assertSyncNowProgressToastrMsg validated");
 		UtilityFunctions.waitForElementToDisappear(assertSyncNowProgressToastrMsg);
 		return actualText;
+	}
+	public void clickDoNotShareBtn() {
+		UtilityFunctions.waitForElementAndClickable(clickDoNotShareBtn);
+		Listeners.addLogs("clicked on click DoNotShar eBtn");
+	}
+	public void assertNoConsentBtn() {
+		UtilityFunctions.validatIsElementNotPresent(clickDoNotShareBtn);
+		Listeners.addLogs("clicked on click DoNotShar eBtn");
 	}
 }
 

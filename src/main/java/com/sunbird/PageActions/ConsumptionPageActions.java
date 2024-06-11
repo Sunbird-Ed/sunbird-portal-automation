@@ -4,8 +4,6 @@ import com.sunbird.GenericLibrary.BaseTestConfig;
 import com.sunbird.GenericLibrary.SunbirdConstants;
 import com.sunbird.GenericLibrary.UtilityFunctions;
 import com.sunbird.PageObjects.ConsumptionPage;
-import com.sunbird.PageObjects.WorkspaceDashboardPage;
-import org.openqa.selenium.UnableToSetCookieException;
 import org.openqa.selenium.support.PageFactory;
 
 
@@ -52,6 +50,7 @@ public class ConsumptionPageActions extends BaseTestConfig {
         UtilityFunctions.findElementAndClick(generatedXpath);
 
     }
+
     public static void giveRatingAndAssertToastrMsg(int a) throws InterruptedException {
         ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
         consumptionPage.giveRatingStars(a);
@@ -60,54 +59,65 @@ public class ConsumptionPageActions extends BaseTestConfig {
         String actual = consumptionPage.assertThankYouToastrMsg1();
         UtilityFunctions.stringValueComparision(actual, SunbirdConstants.thankYouRatingToastrMsg, "Failed on Rating the content");
     }
+
     public static void clickFullScreen() throws InterruptedException {
         ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
         consumptionPage.fullScreen();
 
     }
+
     public static void assertCourseSuccesfullYCompletedPopupMsg() throws InterruptedException {
         ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
         consumptionPage.assertCourseCompleteMsg();
-            }
+    }
+
     public static void clickCloseIconInCourseCompletePopup() throws InterruptedException {
         ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
         consumptionPage.closeIconInCongratsPopup();
     }
+
     public static void clickSyncProgressNow() throws InterruptedException {
         ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
         consumptionPage.kababMenuOption();
         consumptionPage.syncProgressNow();
     }
+
     public static void clickNextButtonInQuestionSetCon() throws InterruptedException {
         ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
         consumptionPage.clickOnNextIconInQuestionSet();
     }
+
     public static void clickSubmitButtonPlayer() throws InterruptedException {
         ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
         consumptionPage.submitBtnInPlayer();
     }
+
     public static void assertLastAttemptToastrMsg() throws InterruptedException {
         ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
-       String actualMsg= consumptionPage.validateLastAttemptToastrMsg();
+        String actualMsg = consumptionPage.validateLastAttemptToastrMsg();
         UtilityFunctions.stringValueComparision(actualMsg, SunbirdConstants.lastAttemptToastrMsg, "Last attempt msg didn't load");
 
     }
+
     public static void assertMaximumNoOfAttemptExcededToastrMsg() throws InterruptedException {
         ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
-        String actualMsg= consumptionPage.validateMaximumNoofAttemptsExceeded();
+        String actualMsg = consumptionPage.validateMaximumNoofAttemptsExceeded();
         UtilityFunctions.stringValueComparision(actualMsg, SunbirdConstants.maximumNoOfAttemptsExceeded, "maximumNoOfAttemptsExceeded msg didn't load");
 
     }
+
     public static void clickContentInTOC() throws InterruptedException {
         ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
         consumptionPage.contentInTOC();
     }
+
     public static void assertLastAttemptPopup() throws InterruptedException {
         ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
-        String actualMsg= consumptionPage.lastRemainingAttemptPopup();
+        String actualMsg = consumptionPage.lastRemainingAttemptPopup();
         UtilityFunctions.stringValueComparision(actualMsg, SunbirdConstants.lastAttemptToastrMsg, "lastAttemptToastrMsg msg didn't load");
 
     }
+
     public static void clickOnOkButtonInLastAttemptPopup() throws InterruptedException {
         ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
         consumptionPage.okBtnInLastAttemptPopup();
@@ -119,14 +129,16 @@ public class ConsumptionPageActions extends BaseTestConfig {
             consumptionPage.clickRotatePDF();
         }
     }
+
     public static void clicknextPDF() throws InterruptedException {
         ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
         int totalPage = consumptionPage.getPDFTotalCount();
-        for (int i = 0; i < totalPage-1; i++) {
+        for (int i = 0; i < totalPage - 1; i++) {
             consumptionPage.clickOnNextIcon();
         }
 
     }
+
     public static void clickpreviousPDF() throws InterruptedException {
         ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
         int totalPage = consumptionPage.getPDFTotalCount();
@@ -141,33 +153,40 @@ public class ConsumptionPageActions extends BaseTestConfig {
             consumptionPage.clickZoomInPDF();
         }
     }
+
     public static void clickZoomOutPDF(int ZoomOutCount) throws InterruptedException {
         ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
         for (int i = 0; i <= ZoomOutCount; i++) {
             consumptionPage.clickZoomOutPDF();
         }
     }
-        public static void clickNextButton() throws InterruptedException {
-            ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
-            consumptionPage.clickNextButton();
-        }
+
+    public static void clickNextButton() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        consumptionPage.clickNextButton();
+    }
+
     public static void assertcompletionmessage() throws InterruptedException {
         ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
         consumptionPage.assertCompleteMsg();
     }
+
     public static void clickonHamburger() throws InterruptedException {
         ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
-           consumptionPage.clickonHamburger();
+        consumptionPage.clickonHamburger();
     }
+
     public static void assertminiScreen() throws InterruptedException {
         ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
         consumptionPage.assertminiScreen();
     }
+
     public static void clickMute() throws InterruptedException {
         ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
         consumptionPage.clickMute();
         consumptionPage.assertClickMute();
     }
+
     public static void clickUnMute() throws InterruptedException {
         ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
         consumptionPage.clickUnMute();
@@ -178,23 +197,133 @@ public class ConsumptionPageActions extends BaseTestConfig {
         ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
         consumptionPage.clickPageLocationAndPercentage();
     }
+
     public static void assertClickonDownload() throws InterruptedException {
         ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
         consumptionPage.assertClickonDownload();
 
 
     }
+
     public static void clickCloseBtn() throws InterruptedException {
         ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
         consumptionPage.clickCloseBtn();
     }
+
     public static void clickMinimizeScreen() throws InterruptedException {
         ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
         consumptionPage.minimizeScreen();
     }
 
+    public static void shareIcon() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        consumptionPage.shareIcon();
+    }
 
+    public static void copyShareIcon() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        consumptionPage.copyShareIcon();
+    }
+
+    public static void closeShareIcon() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        consumptionPage.closeShareIcon();
+    }
+
+    public static void assertjoinCourse() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        consumptionPage.assertjoinCourse();
+    }
+
+    public static void assertconsentPopupTitle() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        consumptionPage.assertconsentPopupTitle();
+    }
+
+
+    public static void assertconsentPopupTermsAndConditionMessage() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        consumptionPage.assertconsentPopupMessage();
+    }
+
+    public static void assertDoNotShare() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        consumptionPage.assertDoNotShare();
+    }
+
+    public static void assertConsentShareIsDisabled() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        consumptionPage.assertConsentShareEnable();
+    }
+
+    public static void assertProfilePopupCheckBox() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        consumptionPage.assertProfilePopupCheckBox();
+    }
+
+    public static void assertProfilePopuptext() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        consumptionPage.assertProfilePopuptext();
+    }
+
+    public static void profilePopupClickCheckBox() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        consumptionPage.profilePopupCheckBox();
+    }
+
+    public static void clickProfilePopupContinueBtn() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        consumptionPage.profilePopupcontinue();
+    }
+
+    public static void backButtonCourse() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        consumptionPage.backButtonCourse();
+    }
+
+    public static void continueLearningCourse() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        consumptionPage.continueLearningCourse();
+    }
+
+    public static void assertNoProfilePopuptext() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        consumptionPage.assertNoProfilePopuptext();
+    }
+
+    public static void assertEnrolmentEndDateExpiredMessage() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        String color = consumptionPage.assertEnrolmentEndDateExpired();
+        UtilityFunctions.stringValueComparision(color, SunbirdConstants.ColorOfCourseEnrolmentEndDateExpiredMessage, "Failed to check the color");
+    }
+
+    public static void assertNoEnrolmentEndDateLable() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        consumptionPage.assertNoEnrolmentEndDate();
+    }
+
+    public static void assertNoCertificateMessage() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        consumptionPage.assertcourseCompletionNoCertificateMessage();
+    }
+
+    public static void assertNoCertificate() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        consumptionPage.assertNoCertificate();
+    }
+
+    public static void assertCertificateMessageForCourseCompletionInPopUp() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        String color = consumptionPage.assertcourseCompletionCertificateInPopUp();
+        UtilityFunctions.stringValueComparision(color, SunbirdConstants.ColorOfCourseConsumptionMessage, "Failed to check the color");
+    }
+
+    public static void clickCertificateDetails() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        consumptionPage.clickCertificateDetails();
+    }
+    public static void assertCertificateRule() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        consumptionPage.assertCertificateRule();
+    }
 }
-
-
-

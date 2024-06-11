@@ -56,6 +56,32 @@ public class ProfilePage {
 	@FindBy(how = How.XPATH, using = "//button[@aria-label='Back']")
 	private WebElement backBtnInProfilePage;
 
+	@FindBy(how = How.XPATH, using = "//button[contains(text(),'Submit details')]")
+	private WebElement assertSubmitDetails;
+
+	@FindBy(how = How.XPATH, using = "//div[@id='tenant']")
+	private WebElement clickOnTenantDropDown;
+
+	@FindBy(how = How.XPATH, using = "//div[@id='tenant']//following::span[1]")
+	private WebElement selectTenantFromDropDown;
+
+	@FindBy(how = How.XPATH, using = "//input[@type='checkbox']//following::span[1]")
+	private WebElement selectCheckBoxFromTeacherForm;
+
+	@FindBy(how = How.XPATH, using = "//button[contains(text(),'Submit')]")
+	private WebElement clickOnSubmitButtonInTeacherForm;
+
+	@FindBy(how = How.XPATH, using = "//strong[contains(text(),'Profile share settings submitted successfully')]")
+	private WebElement validateToasterMsgOfTeacherForm;
+
+	@FindBy(how = How.XPATH, using = "//button[contains(text(),'OK')]")
+	private WebElement clickOnOkButtonInAlertMsgOfTeacherForm;
+
+	@FindBy(how = How.XPATH, using = "//div[contains(text(),'My details')]")
+	private WebElement validateMyDetailsLabel;
+
+
+
 	public void verifyGuestName() {
 		UtilityFunctions.waitForElementIsVisible(assertGuestName);
 		UtilityFunctions.validatIsElementPresent(assertGuestName, "assertGuestName not displayed");
@@ -137,6 +163,65 @@ public class ProfilePage {
 
 		}
 
+	}
+
+	public String assertSubmitDetails() {
+		UtilityFunctions.waitForVisibilityOfWebElement(assertSubmitDetails);
+		String getActualText = UtilityFunctions.getTextFromElement(assertSubmitDetails);
+		return getActualText;
+	}
+
+	public String checkColorOfSubmitDetails() throws InterruptedException  {
+		String actualColor = UtilityFunctions.getColorValue(assertSubmitDetails);
+		return actualColor;
+	}
+
+	public void clickOnSubmitDetails() throws InterruptedException  {
+		UtilityFunctions.waitForElementAndClickable(assertSubmitDetails);
+		Listeners.addLogs("Clicked on Submit Details button");
+	}
+
+	public void clickOnTenantDropDown() {
+		UtilityFunctions.waitForElementAndClickable(clickOnTenantDropDown);
+		Listeners.addLogs("Clicked on Tenant drop down");
+
+	}
+
+	public void selectTenantFromDropDown() {
+		UtilityFunctions.waitForElementAndClickable(selectTenantFromDropDown);
+		Listeners.addLogs("Selected Tenant from drop down");
+
+	}
+
+	public void selectCheckBoxFromTeacherForm() {
+		UtilityFunctions.waitForElementAndClickable(selectCheckBoxFromTeacherForm);
+		Listeners.addLogs("Clicked on Checkbox of Teacher Form");
+
+	}
+
+	public void clickOnSubmitButtonInTeacherForm() {
+		UtilityFunctions.waitForElementAndClickable(clickOnSubmitButtonInTeacherForm);
+		Listeners.addLogs("Clicked on Submit button of Teacher Form");
+
+	}
+
+	public String validateToasterMsgOfTeacherForm() {
+		UtilityFunctions.waitForVisibilityOfWebElement(validateToasterMsgOfTeacherForm);
+		String getActualText = UtilityFunctions.getTextFromElement(validateToasterMsgOfTeacherForm);
+		UtilityFunctions.waitForElementToDisappear(validateToasterMsgOfTeacherForm);
+		return getActualText;
+	}
+
+	public void clickOnOkButtonInAlertMsgOfTeacherForm() {
+		UtilityFunctions.waitForElementAndClickable(clickOnOkButtonInAlertMsgOfTeacherForm);
+		Listeners.addLogs("Clicked on Ok button in Alert Msg of Teacher Form");
+
+	}
+
+	public String validateMyDetailsLabel() {
+		UtilityFunctions.waitForVisibilityOfWebElement(validateMyDetailsLabel);
+		String getActualText = UtilityFunctions.getTextFromElement(validateMyDetailsLabel);
+		return getActualText;
 	}
 
 }

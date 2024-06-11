@@ -133,6 +133,12 @@ public class BookPage {
     @FindBy(how=How.XPATH,using="//span[contains(text(),' Download folders as csv file')]")
     private WebElement downloadfolderAsCSVFile;
 
+    @FindBy(how=How.XPATH,using="//span[contains(text(),'Update folder metadata using csv file')]")
+    private WebElement assertUpdateFolderOption;
+
+    @FindBy(how=How.XPATH,using="//span[contains(text(),'Create folders using csv file')]")
+    private WebElement assertCreateFolderOption;
+
     @FindBy(how=How.XPATH,using="//span[@id='removeNodeIcon']//preceding::span[1]")
     private WebElement childUnitClick;
 
@@ -160,6 +166,9 @@ public class BookPage {
     @FindBy(how=How.XPATH,using="//button[@aria-label='back']")
     private WebElement backButtonInEditor;
 
+    @FindBy(how=How.XPATH,using="//button[contains(text(),'Add Sibling')]")
+    private WebElement AddSibling;
+
     @FindBy(how=How.XPATH,using="//div[@data-title='Add collaborator']")
     private WebElement addCollobratorIcon;
 
@@ -186,6 +195,13 @@ public class BookPage {
 
     @FindBy(how=How.XPATH,using="//span[contains(text(),'Class 2')]")
     private WebElement assertMultipleClass2;
+
+    @FindBy(how=How.XPATH,using="//div[starts-with(@class,'sbcard')]")
+    private List<WebElement> BookTagnameinEditor;
+
+    @FindBy(how=How.XPATH,using="//div[contains(text(),'Showing (100) most relevant content')]")
+    private WebElement showing100ContentMsg;
+
 
     public void enterBookName(String randomBookName) throws InterruptedException {
                       UtilityFunctions.waitToBeClickableAndSendKeys(bookname, randomBookName);
@@ -523,5 +539,90 @@ Listeners.addLogs("clicked on QRCodeDropdown");
         UtilityFunctions.validatIsElementPresent(assertMultipleClass1,"assertMultipleClass1 not displayed");
         UtilityFunctions.validatIsElementPresent(assertMultipleClass2,"assertMultipleClass2 not displayed");
 Listeners.addLogs("Validated multiple tagged medium and class");
+    }
+
+    public void assertThreeDotsMenu() {
+        UtilityFunctions.waitForVisibilityOfWebElement(verticalEllipsisMenu);
+        UtilityFunctions.validatIsElementPresent(verticalEllipsisMenu,"3 Dots Menu is not displayed");
+
+    }
+    public void clickThreeDotsMenu() {
+        UtilityFunctions.waitToBeClickableAndClick(verticalEllipsisMenu);
+
+    }
+    public void assetCreateFoldersOption() {
+        UtilityFunctions.waitForVisibilityOfWebElement(assertCreateFolderOption);
+        UtilityFunctions.validatIsElementPresent(assertCreateFolderOption, "Create Folder Option is not displayed");
+    }
+
+    public void assertDownloadFoldersAsCSVOption() {
+        UtilityFunctions.waitForVisibilityOfWebElement(downloadfolderAsCSVFile);
+        UtilityFunctions.validatIsElementPresent(downloadfolderAsCSVFile, "Downaload Folder as CSV Option is not displayed");
+
+    }
+
+    public void assertUpdateFolderOption() {
+        UtilityFunctions.waitForVisibilityOfWebElement(assertUpdateFolderOption);
+        UtilityFunctions.validatIsElementPresent(assertUpdateFolderOption, "Update Folder as CSV Option is not displayed");
+
+    }
+
+    public void assertAddCollaboratorButton() {
+        UtilityFunctions.waitForVisibilityOfWebElement(addCollobratorIcon);
+        UtilityFunctions.validatIsElementPresent(addCollobratorIcon, "Collaboration Option is not displayed");
+
+    }
+    public void assertGenerateQRCodeOption() {
+        UtilityFunctions.waitForVisibilityOfWebElement(clickGenerateQRCodeBtn);
+        UtilityFunctions.validatIsElementPresent(clickGenerateQRCodeBtn, "Generate QR code Option is not displayed");
+
+    }
+
+    public void assertDownloadQRCodeOption() {
+        UtilityFunctions.waitForVisibilityOfWebElement(DownloadQRCode);
+        UtilityFunctions.validatIsElementPresent(DownloadQRCode, "Download QR code Option is not displayed");
+
+    }
+
+    public void assertSaveAsDrafts() {
+        UtilityFunctions.waitForVisibilityOfWebElement(SaveAsDraft);
+        //	boolean status=SaveAsDraft.isEnabled();
+
+        UtilityFunctions.validatIsElementPresent(SaveAsDraft, "Save As Drafts Option is not displayed");
+
+    }
+
+    public void assertBackButton() {
+        UtilityFunctions.waitForVisibilityOfWebElement(backButtonInEditor);
+        UtilityFunctions.validatIsElementPresent(backButtonInEditor, "Back button is not displayed");
+
+    }
+
+    public void assertAddSiblingOption() {
+        UtilityFunctions.waitForVisibilityOfWebElement(AddSibling);
+        UtilityFunctions.validatIsElementPresent(AddSibling, "Add Sibling is not displayed");
+
+    }
+
+    public void assertAddChild() {
+        UtilityFunctions.waitForVisibilityOfWebElement(AddChild);
+        UtilityFunctions.validatIsElementPresent(AddChild, "Add Child is not displayed");
+
+    }
+
+    public void assertAddFromLibrary() {
+        UtilityFunctions.waitForVisibilityOfWebElement(addFromLibraryButton);
+        UtilityFunctions.validatIsElementPresent(addFromLibraryButton, "Add From library is not displayed");
+
+    }
+
+    public void assertShowing100ContentsMessage() {
+        UtilityFunctions.waitForVisibilityOfWebElement(showing100ContentMsg);
+        UtilityFunctions.validatIsElementPresent(showing100ContentMsg, "Showing (100) most relevant content is not displayed");
+
+    }
+    public int getBookElementSize() {
+        int totalCount=UtilityFunctions.getSizeOfWebElement(BookTagnameinEditor);
+        return totalCount;
     }
 }

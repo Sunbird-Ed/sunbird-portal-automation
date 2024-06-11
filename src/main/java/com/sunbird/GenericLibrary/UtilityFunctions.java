@@ -15,6 +15,7 @@ import com.github.javafaker.Faker;
 import com.sunbird.PageObjects.OnBoarding;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.*;
 import org.testng.Assert;
@@ -176,21 +177,7 @@ public class UtilityFunctions extends BaseTestConfig {
     public static void validatIsElementPresent(WebElement element, String ErrorMsg) {
         Assert.assertTrue(element.isDisplayed(), ErrorMsg);
     }
-    public static void validatElementNotPresent(WebElement element, String ErrorMsg) {
-try {
-    boolean status = !element.isDisplayed();
-    System.out.println(status);
-    if (status == true) {
-        Assert.assertTrue(status, "Element is displayed");
-    } else {
-        Assert.assertFalse(status, "Element not displayed");
-    }
-}
-catch (Exception e)
-        {
 
-        }
-    }
     public static void validatIsElementNotPresent(WebElement element) {
         boolean status = isElementPresent(element);
         if (status == false) {
@@ -201,6 +188,17 @@ catch (Exception e)
             Assert.assertFalse(status, "Element is displayed");
         }
     }
+    public static void assertWebElementIsDisabled(WebElement element) {
+        boolean status=element.isEnabled();
+        if (status == false) {
+            Assert.assertFalse(status, "Element is disabled");
+        } else {
+            Assert.assertFalse(status, "Element is enabled");
+        }
+    }
+
+
+
 
     public static void scrollDownUsingPixelValue() {
         JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -399,11 +397,21 @@ return value;
 
     }
 
+    public static int getSizeOfWebElement(List<WebElement> element) {
 
+        int  elementsize=element.size();
+        return elementsize;
+
+    }
     public static void refreshPage() {
      driver.navigate().refresh();
     }
-
+public static String getColorValue(WebElement element)
+{
+    String getActualColor =element.getCssValue("color");
+    String actualColor = Color.fromString(getActualColor).asHex();
+    return actualColor;
+}
     public static void elementToBeSelected(WebElement element) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         wait.until(ExpectedConditions.elementToBeSelected(element));

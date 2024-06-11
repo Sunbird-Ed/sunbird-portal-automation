@@ -306,4 +306,99 @@ bookPage.waitGenerateQRCodeToastrToDisappear();
 
     }
 
+
+    public static void assertThreeDotsMenu() throws InterruptedException {
+        BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
+        bookPage.assertThreeDotsMenu();
+    }
+
+    public static void clickThreeDotsMenu() throws InterruptedException {
+        BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
+        bookPage.clickThreeDotsMenu();
+    }
+
+    public static void assetCreateFoldersOption() {
+        BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
+        bookPage.assetCreateFoldersOption();
+
+    }
+
+    public static void assertDownloadFoldersAsCSVOption() {
+        BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
+        bookPage.assertDownloadFoldersAsCSVOption();
+
+    }
+
+    public static void assertUpdateFolderOption() {
+        BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
+        bookPage.assertUpdateFolderOption();
+
+    }
+
+    public static void assertAddCollaboratorButton() {
+        BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
+        bookPage.assertAddCollaboratorButton();
+
+    }
+
+    public static void assertQRCodeOption() {
+        BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
+        bookPage.assertAddCollaboratorButton();
+    }
+
+    public static void clickQRDropDown() {
+        BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
+        bookPage.clickQrCodeDropdown();
+    }
+
+    public static void assertGenerateQROption () {
+        BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
+        bookPage.assertGenerateQRCodeOption();
+    }
+
+    public static void assertDownloadQROption () {
+        BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
+        bookPage.assertDownloadQRCodeOption();
+    }
+
+    public static void assertSaveAsDraftOption() {
+        BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
+        bookPage.assertSaveAsDrafts();
+
+    }
+
+    public static void assertBackButton() {
+        BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
+        bookPage.assertBackButton();
+
+    }
+
+    public static void assertAddSiblingOption() {
+        BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
+        bookPage.assertAddSiblingOption();
+
+    }
+
+    public static void assertAddChildOption() {
+        BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
+        bookPage.assertAddChild();
+
+    }
+
+    public static void assertAddFromLibraryOption() {
+        BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
+        bookPage.assertAddFromLibrary();
+
+    }
+    public static void verify100ContentsInAddFromLibrary(String expected_count) throws InterruptedException {
+        BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
+        bookPage.clickAddFromLibraryBtn();
+        bookPage.assertShowing100ContentsMessage();
+        int count=bookPage.getBookElementSize();
+        String actual=String.valueOf(count);
+        UtilityFunctions.stringValueComparision(actual, expected_count ,"100 content not found");
+        bookPage.clickBackBtnFromLibrarysection();
+    }
+
+
 }

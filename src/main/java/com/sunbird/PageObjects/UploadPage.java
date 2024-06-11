@@ -363,4 +363,7 @@ public class UploadPage {
         Listeners.addLogs("Clicked Limited Sharing");
 
     }
+    public void assertUploadContent() {
+        UtilityFunctions.validatIsElementPresent(uploadcontent, "Upload Content option is not displayed");
+    }
 }

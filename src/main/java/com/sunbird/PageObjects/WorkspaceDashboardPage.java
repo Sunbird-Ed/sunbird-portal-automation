@@ -61,6 +61,18 @@ public class WorkspaceDashboardPage {
     @FindBy(how = How.XPATH, using = "//a[contains(text(),'All Uploads')]")
     private WebElement alluploads;
 
+    @FindBy(how = How.XPATH, using = "//span[contains(text(),'Lesson Plan')]")
+    private WebElement lessonPlanOption;
+
+    @FindBy(how = How.XPATH, using = "//span[contains(text(),'Upload Content')]")
+    private WebElement uploadContentOption;
+
+    @FindBy(how = How.XPATH, using = "//span[contains(text(),'Upload Large Videos')]")
+    private WebElement uploadLargeContentOption;
+
+    @FindBy(how = How.XPATH, using = "//span[contains(text(),'Course Assessment')]")
+    private WebElement courseAssessmentOption;
+
     public void assertDrafts() throws InterruptedException {
 
         UtilityFunctions.waitToBeClickableAndClick(drafts);
@@ -188,5 +200,59 @@ public class WorkspaceDashboardPage {
 
         UtilityFunctions.waitToBeClickableAndClick(alluploads);
         UtilityFunctions.validatIsElementPresent(alluploads, "All Uploads Section not displayed");
+    }
+
+    public void assertBookOPtion() throws InterruptedException {
+        UtilityFunctions.waitForVisibilityOfWebElement(book);
+        UtilityFunctions.validatIsElementPresent(book, "Book option is not displayed");
+
+    }
+
+    public void assertCourseOption() throws InterruptedException {
+
+        UtilityFunctions.validatIsElementPresent(course, "Course option is not displayed");
+
+    }
+
+    public void assertResourceOption() throws InterruptedException {
+
+        UtilityFunctions.validatIsElementPresent(resource, "Resource option is not displayed");
+
+    }
+
+    public void assertCollectionOption() throws InterruptedException {
+
+        UtilityFunctions.validatIsElementPresent(collection, "Collection is not displayed");
+
+    }
+
+    public void assertLessonPlanOption() throws InterruptedException {
+
+        UtilityFunctions.validatIsElementPresent(lessonPlanOption, "Lesson Plan is not displayed");
+
+    }
+
+    public void assertUploadContentOption() throws InterruptedException {
+
+        UtilityFunctions.validatIsElementPresent(uploadContentOption, "Upload Content option is not displayed");
+
+    }
+
+    public void assertUploadLargeContentOption() throws InterruptedException {
+
+        UtilityFunctions.validatIsElementPresent(uploadLargeContentOption, "Upload Latge video option is not displayed");
+
+    }
+
+    public void assertCourseAssessmentOption() throws InterruptedException {
+
+        UtilityFunctions.validatIsElementPresent(courseAssessmentOption, "Course Assessment option is not displayed");
+
+    }
+
+    public void assertQuestionSetOption() throws InterruptedException {
+
+        UtilityFunctions.validatIsElementPresent(questionSet, "Question set option is not displayed");
+
     }
 }

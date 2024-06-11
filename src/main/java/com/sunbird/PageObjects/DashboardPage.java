@@ -68,6 +68,9 @@ public class DashboardPage {
     @FindBy(how = How.XPATH, using = "//h4[contains(text(),'Showing results')]//following::span[2]")
     private WebElement displayedTextInloginSearch;
 
+    @FindBy(how = How.XPATH, using = "//*[contains(text(),'Help')]")
+    private WebElement helpLink;
+
     public void userProfileIcon() throws InterruptedException {
 
         UtilityFunctions.waitToBeClickableAndClick(userProfileIcon);
@@ -174,7 +177,7 @@ UtilityFunctions.waitForVisibilityOfWebElement(firstContentCard);
 
     }
     public void observationTabShouldNotDisplay() {
-        UtilityFunctions.validatElementNotPresent(observationTab,"Observationtab displayed");
+        UtilityFunctions.validatIsElementNotPresent(observationTab);
         Listeners.addLogs("Observationtab not displayed");
 
     }
@@ -194,5 +197,9 @@ UtilityFunctions.waitForVisibilityOfWebElement(firstContentCard);
         String getActualText = UtilityFunctions.getTextFromElement(displayedTextInloginSearch);
         return getActualText;
 
+    }
+    public void ClickOnHelp() {
+        UtilityFunctions.waitForElementAndClickable(helpLink);
+        Listeners.addLogs("Clicked on Help Link");
     }
 }

@@ -114,6 +114,62 @@ public class ConsumptionPage {
     @FindBy(how = How.XPATH, using = "//span[contains(@class,'share')]//following::*[contains(text(),'Download')]")
     private WebElement assertDownloadButton;
 
+    @FindBy(how = How.XPATH, using = "//button[text()=' Share ']")
+    private WebElement shareIcon;
+    @FindBy(how = How.XPATH, using = "//button[text()=' Copy link ']")
+    private WebElement copyShareIcon;
+    @FindBy(how = How.XPATH, using = "//button[@type='button']//preceding::div[text()=' Share ']")
+    private WebElement closeShareIcon;
+
+    @FindBy(how = How.XPATH, using = "//button[text()='Join Course']")
+    private WebElement assertjoinCourse;
+
+    @FindBy(how = How.XPATH, using = "//div[@class='title']")
+    private WebElement assertconsentPopupTitle;
+    @FindBy(how = How.XPATH, using = "//p[contains(text(),'I consent to share')]")
+    private WebElement assertconsentPopupMessage;
+
+    @FindBy(how = How.XPATH, using = "//label[text()='User Name']")
+    private WebElement assertconsentPopupUserName;
+
+    @FindBy(how = How.XPATH, using = "//button[text()='Do not share']")
+    private WebElement assertDoNotShare;
+    @FindBy(how = How.XPATH, using = "//button[text()='Share']")
+    private WebElement assertConsentShare;
+
+    @FindBy(how = How.XPATH, using = "//input[@type='checkbox']")
+    private WebElement profilePopup;
+    @FindBy(how = How.XPATH, using = "//p[contains(text(),' Do not show this message again ')]")
+    private WebElement assertProfilePopuptext;
+    @FindBy(how = How.XPATH, using = "//input[@type='checkbox']")
+    private WebElement assertProfilePopup;
+    @FindBy(how = How.XPATH, using = "//button[text()=' Continue ']")
+    private WebElement profilePopupcontinue;
+
+    @FindBy(how = How.XPATH, using = "//button[text()='Continue learning']")
+    private WebElement continueLearningCourse;
+    @FindBy(how = How.XPATH, using = "//button[@aria-label='Back']")
+    private WebElement backButtonCourse;
+
+    @FindBy(how = How.XPATH, using = "//span[contains(text(),'Enrolments for this batch closed on')]")
+    private WebElement assertEnrolmentEndDateExpired;
+
+    @FindBy(how = How.XPATH, using = "//span[contains(text(),'Last date for enrolment:')]")
+    private WebElement assertEnrolmentEndDate;
+
+    @FindBy(how = How.XPATH, using = "//span[text()='Note: This course does not have a certificate']")
+    private WebElement assertcourseCompletionNoCertificateMessage;
+
+    @FindBy(how = How.XPATH, using = "(//span[contains(text(),'Currently, this course does not have a certificate')])[2]")
+    private WebElement assertNoCertificate;
+
+    @FindBy(how = How.XPATH, using = "//span[text()='Certificate criteria']")
+    private WebElement clickCertificateDetails;
+    @FindBy(how = How.XPATH, using = "//li[text()=' The completion certificate will be issued upon 100% completion']")
+    private WebElement assertCertificateRule;
+
+    @FindBy(how = How.XPATH, using = "//p[contains(text(),'You will be notified')]")
+    private WebElement assertcourseCompletionCertificateInPopUp;
 
     public int getPDFTotalCount() {
 
@@ -311,5 +367,117 @@ public class ConsumptionPage {
         UtilityFunctions.waitForElementAndClickable(assertDownloadButton);
         Listeners.addLogs("Clicked on Download Button");
     }
+    public void shareIcon() throws InterruptedException {
+        UtilityFunctions.waitToBeClickableAndClick(shareIcon);
+        Listeners.addLogs("Clicked on Share Icon");
+    }
+    public void copyShareIcon() throws InterruptedException {
+        UtilityFunctions.waitToBeClickableAndClick(copyShareIcon);
+        Listeners.addLogs("Clicked on Copy Icon");
+    }
+    public void closeShareIcon() throws InterruptedException {
+        UtilityFunctions.waitToBeClickableAndClick(closeShareIcon);
+        Listeners.addLogs("Clicked on close Icon");
+    }
+    public void assertjoinCourse() throws InterruptedException {
+        UtilityFunctions.waitForVisibilityOfWebElement(assertjoinCourse);
+        UtilityFunctions.validatIsElementPresent(assertjoinCourse,"Join Course Pop Up not displayed");
+        Listeners.addLogs("Verified on Join Course");
+    }
+
+    public void assertconsentPopupTitle() throws InterruptedException {
+        UtilityFunctions.waitForVisibilityOfWebElement(assertconsentPopupTitle);
+        UtilityFunctions.validatIsElementPresent(assertconsentPopupTitle,"Consent Pop up Title not displayed");
+        Listeners.addLogs("Verified on Consent Pop up Title");
+    }
+    public void assertconsentPopupMessage() throws InterruptedException {
+        UtilityFunctions.waitForVisibilityOfWebElement(assertconsentPopupMessage);
+        UtilityFunctions.validatIsElementPresent(assertconsentPopupMessage,"Consent Pop up Message not displayed");
+        Listeners.addLogs("Verified on Consent Pop up Message");
+    }
+    public void assertDoNotShare() throws InterruptedException {
+        UtilityFunctions.waitForVisibilityOfWebElement(assertDoNotShare);
+        UtilityFunctions.validatIsElementPresent(assertDoNotShare,"Donot Share Popup Consent Pop up is displayed");
+        Listeners.addLogs("Verified on Donot Share Consent Pop up");
+    }
+    public void assertConsentShareEnable() throws InterruptedException {
+        UtilityFunctions.assertWebElementIsDisabled(assertConsentShare);
+        Listeners.addLogs("Verified on Consent Share");
+    }
+
+    public void assertProfilePopuptext() throws InterruptedException {
+        UtilityFunctions.waitForVisibilityOfWebElement(assertProfilePopuptext);
+        UtilityFunctions.validatIsElementPresent(assertProfilePopuptext,"Profile Pop up text not displayed");
+        Listeners.addLogs("Verified on profile Pop up text");
+    }
+    public void profilePopupCheckBox() throws InterruptedException {
+        UtilityFunctions.clickUsingJavaScriptExecutor(profilePopup);
+        Listeners.addLogs("Clicked on profile Pop up");
+    }
+    public void assertProfilePopupCheckBox() throws InterruptedException {
+        UtilityFunctions.waitForVisibilityOfWebElement(assertProfilePopup);
+        UtilityFunctions.validatIsElementPresent(assertProfilePopup,"Profile Pop up not displayed");
+        Listeners.addLogs("Verified on profile Pop up checkbox");
+    }
+    public void profilePopupcontinue() throws InterruptedException {
+        UtilityFunctions.waitToBeClickableAndClick(profilePopupcontinue);
+        Listeners.addLogs("Clicked on continue");
+    }
+
+    public void backButtonCourse() throws InterruptedException {
+        UtilityFunctions.waitToBeClickableAndClick(backButtonCourse);
+        Listeners.addLogs("Clicked on Back Button");
+    }
+    public void continueLearningCourse() throws InterruptedException {
+        UtilityFunctions.waitToBeClickableAndClick(continueLearningCourse);
+        Listeners.addLogs("Clicked on continueLearningCourse");
+    }
+    public void assertNoProfilePopuptext() throws InterruptedException {
+        UtilityFunctions.validatIsElementNotPresent(assertProfilePopuptext);
+        Listeners.addLogs("Verified on profile Pop up text not displayed");
+    }
+    public String assertEnrolmentEndDateExpired() throws InterruptedException {
+        UtilityFunctions.waitForVisibilityOfWebElement(assertEnrolmentEndDateExpired);
+        UtilityFunctions.validatIsElementPresent(assertEnrolmentEndDateExpired, "EnrolmentEndDateExpired not displayed");
+        String actualColor = UtilityFunctions.getColorValue(assertEnrolmentEndDateExpired);
+        Listeners.addLogs("Verified on Enrolment End Date Expired");
+        return actualColor;
+    }
+    public void assertNoEnrolmentEndDate() throws InterruptedException {
+        UtilityFunctions.validatIsElementNotPresent(assertEnrolmentEndDate);
+        Listeners.addLogs("Verified on Enrolment End Date not displayed");
+    }
+
+    public void assertcourseCompletionNoCertificateMessage() throws InterruptedException {
+        UtilityFunctions.waitForVisibilityOfWebElement(assertcourseCompletionNoCertificateMessage);
+        UtilityFunctions.validatIsElementPresent(assertcourseCompletionNoCertificateMessage, "courseCompletionNoCertificate not displayed");
+        Listeners.addLogs("Verify on courseCompletionNoCertificate");
+    }
+    public void assertNoCertificate() throws InterruptedException {
+        UtilityFunctions.waitForVisibilityOfWebElement(assertNoCertificate);
+        UtilityFunctions.validatIsElementPresent(assertNoCertificate,"Certificate attachment Pop Up not messaged");
+        Listeners.addLogs("Verified Certificate attachment message");
+    }
+
+    public void clickCertificateDetails() throws InterruptedException {
+        UtilityFunctions.waitToBeClickableAndClick(clickCertificateDetails);
+        Listeners.addLogs("Clicked on Certificate");
+    }
+    public void assertCertificateRule() throws InterruptedException {
+        UtilityFunctions.waitForVisibilityOfWebElement(assertCertificateRule);
+        UtilityFunctions.validatIsElementPresent(assertCertificateRule,"CertificateRule is displayed");
+        Listeners.addLogs("Verified on Certificate Rule");
+    }
+
+    public String assertcourseCompletionCertificateInPopUp() throws InterruptedException {
+        UtilityFunctions.waitForVisibilityOfWebElement(assertcourseCompletionCertificateInPopUp);
+        UtilityFunctions.validatIsElementPresent(assertcourseCompletionCertificateInPopUp, "courseCompletionNoCertificate not displayed");
+        String actualColor = UtilityFunctions.getColorValue(assertcourseCompletionCertificateInPopUp);
+        Listeners.addLogs("Verify on courseCompletionCertificate");
+        return actualColor;
+    }
+
+
+
 
 }

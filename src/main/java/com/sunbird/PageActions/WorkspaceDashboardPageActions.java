@@ -4,6 +4,7 @@ import com.sunbird.GenericLibrary.BaseTestConfig;
 import com.sunbird.GenericLibrary.SunbirdConstants;
 import com.sunbird.GenericLibrary.UtilityFunctions;
 import com.sunbird.PageObjects.ReviewPage;
+import com.sunbird.PageObjects.UploadPage;
 import com.sunbird.PageObjects.WorkspaceDashboardPage;
 import org.openqa.selenium.support.PageFactory;
 
@@ -133,7 +134,7 @@ public class WorkspaceDashboardPageActions extends BaseTestConfig {
         WorkspaceDashboardPage workspacedashboardPage=PageFactory.initElements(driver, WorkspaceDashboardPage.class);
         workspacedashboardPage.clickAllUploads();
     }
-    public static void assertContentAvailable(String contentname) throws Exception {
+    public static void assertContentAndClick(String contentname) throws Exception {
         String limitedSharingContent = SunbirdConstants.XPATH_LS_CONTAINS + contentname + SunbirdConstants.XPATH_CONAINSCLOSEBRACKET;
         UtilityFunctions.threadSleep(2000);
         UtilityFunctions.findElementAndClick(limitedSharingContent);
@@ -142,6 +143,50 @@ public class WorkspaceDashboardPageActions extends BaseTestConfig {
     public static void upForReviewSelection() {
         ReviewPage reviewPage = PageFactory.initElements(driver, ReviewPage.class);
         reviewPage.upForReviewBucket();
+    }
+
+    public static void assertBook() throws InterruptedException {
+        WorkspaceDashboardPage workspacedashboardPage=PageFactory.initElements(driver, WorkspaceDashboardPage.class);
+        workspacedashboardPage.assertBookOPtion();
+    }
+
+    public static void assertCourse() throws InterruptedException {
+        WorkspaceDashboardPage workspacedashboardPage=PageFactory.initElements(driver, WorkspaceDashboardPage.class);
+        workspacedashboardPage.assertCourseOption();
+    }
+
+    public static void assertResource() throws InterruptedException {
+        WorkspaceDashboardPage workspacedashboardPage=PageFactory.initElements(driver, WorkspaceDashboardPage.class);
+        workspacedashboardPage.assertResourceOption();
+    }
+
+    public static void assertCollection() throws InterruptedException {
+        WorkspaceDashboardPage workspacedashboardPage=PageFactory.initElements(driver, WorkspaceDashboardPage.class);
+        workspacedashboardPage.assertCollectionOption();
+    }
+
+    public static void assertLessonPlan() throws InterruptedException {
+        WorkspaceDashboardPage workspacedashboardPage=PageFactory.initElements(driver, WorkspaceDashboardPage.class);
+        workspacedashboardPage.assertLessonPlanOption();
+    }
+
+    public static void assertUploadLargeContent() throws InterruptedException {
+        WorkspaceDashboardPage workspacedashboardPage=PageFactory.initElements(driver, WorkspaceDashboardPage.class);
+        workspacedashboardPage.assertUploadLargeContentOption();
+    }
+
+    public static void assertCourseAssessment() throws InterruptedException {
+        WorkspaceDashboardPage workspacedashboardPage=PageFactory.initElements(driver, WorkspaceDashboardPage.class);
+        workspacedashboardPage.assertCourseAssessmentOption();
+    }
+
+    public static void assertQuestionSet() throws InterruptedException {
+        WorkspaceDashboardPage workspacedashboardPage=PageFactory.initElements(driver, WorkspaceDashboardPage.class);
+        workspacedashboardPage.assertQuestionSetOption();
+    }
+    public static void assertUploadContent() throws InterruptedException {
+        UploadPage uploadPage =PageFactory.initElements(driver, UploadPage.class);
+        uploadPage.assertUploadContent();
     }
 }
 	

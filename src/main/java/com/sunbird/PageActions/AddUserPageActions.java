@@ -1,6 +1,7 @@
 package com.sunbird.PageActions;
 
 import com.sunbird.GenericLibrary.BaseTestConfig;
+import com.sunbird.GenericLibrary.Listeners;
 import com.sunbird.GenericLibrary.SunbirdConstants;
 import com.sunbird.GenericLibrary.UtilityFunctions;
 import com.sunbird.PageObjects.AddUserPage;
@@ -54,4 +55,45 @@ addUserPage.assertAddedUserToastr();
 		AddUserPage addUserPage = PageFactory.initElements(driver, AddUserPage.class);
 		addUserPage.continueBtn();
 	}
+
+	public static void VerifyAddUserButton() {
+		AddUserPage addUserPage = PageFactory.initElements(driver, AddUserPage.class);
+
+		String actualMsg = addUserPage.VerifyAddUserButtonDisplay();
+		UtilityFunctions.stringValueComparision(actualMsg, SunbirdConstants.VerifyAddUserButtonDisplay, "Add Another User is not displayed");
+		Listeners.addLogs("Add Another User is displayed ");
+
+
+	}
+
+	public static void assertAddUserPage() throws InterruptedException {
+		AddUserPage addUserPage = PageFactory.initElements(driver, AddUserPage.class);
+		String actualMsg=addUserPage.assertAddUserLabel();
+		UtilityFunctions.stringValueComparision(actualMsg, SunbirdConstants.assertAddUserLabel, "Add User label is not displayed");
+		Listeners.addLogs("Add User label is displayed");
+
+
+		String actualMsg1=addUserPage.assertNameTextField();
+		UtilityFunctions.stringValueComparision(actualMsg1, SunbirdConstants.assertNameTextField, "Name Text field is not displayed");
+		Listeners.addLogs("Name Text field is displayed");
+
+		String actualMsg2=addUserPage.assertDisplayedTextBelowNameField();
+		UtilityFunctions.stringValueComparision(actualMsg2, SunbirdConstants.assertDisplayedTextBelowNameField, "Correct text is not displayed");
+		Listeners.addLogs("Correct text is displayed");
+	}
+
+
+	public static void assertCancelButton() throws InterruptedException {
+		AddUserPage addUserPage = PageFactory.initElements(driver, AddUserPage.class);
+		addUserPage.assertCancelButtonInAddUserPage();
+
+
+	}
+
+	public static void assertAddUserButton() throws InterruptedException {
+		AddUserPage addUserPage = PageFactory.initElements(driver, AddUserPage.class);
+		addUserPage.assertAddUserButtonInAddUserPage();
+
+	}
+
 }

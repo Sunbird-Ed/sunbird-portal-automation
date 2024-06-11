@@ -33,7 +33,15 @@ public class Workspace extends BaseTestConfig {
 		DashboardPageActions.clickUserProfileIcon();
 		DashboardPageActions.assertWorkspace();
 		DashboardPageActions.clickOnWorkSpace();
-		WorkspaceDashboardPageActions.assertCreate();
+		WorkspaceDashboardPageActions.assertBook();
+		WorkspaceDashboardPageActions.assertCourse();
+		WorkspaceDashboardPageActions.assertResource();
+		WorkspaceDashboardPageActions.assertCollection();
+		WorkspaceDashboardPageActions.assertLessonPlan();
+		WorkspaceDashboardPageActions.assertUploadContent();
+		WorkspaceDashboardPageActions.assertUploadLargeContent();
+		WorkspaceDashboardPageActions.assertCourseAssessment();
+		WorkspaceDashboardPageActions.assertQuestionSet();
 }
 	
 	@Test(description = "Assert the options when in Workspace")
@@ -60,6 +68,152 @@ public class Workspace extends BaseTestConfig {
 		WorkspaceDashboardPageActions.assertCollaborations();
 	
 }
+	
+	  @Test(description = "upload PDF")
+	    public void UploadPDFcontent() throws Exception {
+	        OnBoardingActions.RolePoup();
+	        OnBoardingActions.BMCPopup();
+	        OnBoardingActions.LocationPopup();
+	        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+	        DashboardPageActions.clickUserProfileIcon();
+	        DashboardPageActions.assertWorkspace();
+	        DashboardPageActions.clickOnWorkSpace();
+	        UploadPageActions.uploadContent("PDF");
+	        UploadPageActions.clickSendForReview();
+	        String resourceName = UploadPageActions.sendUploadContentForReview();
+	        UtilityFunctions.switchToDefaultContentFrame();
+	        DashboardPageActions.logOut();
+	        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
+	        DashboardPageActions.clickUserProfileIcon();
+	        DashboardPageActions.clickOnWorkSpace();
+	        ReviewPageActions.reviewAndPublishContent(resourceName, "Upload");
+	        DashboardPageActions.logOut();
+	    }
+	    @Test(description = "upload Mp4")
+	    public void UploadMP4content() throws Exception {
+	        OnBoardingActions.RolePoup();
+	        OnBoardingActions.BMCPopup();
+	        OnBoardingActions.LocationPopup();
+	        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+	        DashboardPageActions.clickUserProfileIcon();
+	        DashboardPageActions.assertWorkspace();
+	        DashboardPageActions.clickOnWorkSpace();
+	        UploadPageActions.uploadContent("MP4");
+	        UploadPageActions.clickSendForReview();
+	        String resourceName = UploadPageActions.sendUploadContentForReview();
+	        UtilityFunctions.switchToDefaultContentFrame();
+	        DashboardPageActions.logOut();
+	        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
+	        DashboardPageActions.clickUserProfileIcon();
+	        DashboardPageActions.clickOnWorkSpace();
+	        ReviewPageActions.reviewAndPublishContent(resourceName, "Upload");
+	        DashboardPageActions.logOut();
+	    }
+	    @Test(description = "upload HTML")
+	    public void UploadHTMLcontent() throws Exception {
+	        OnBoardingActions.RolePoup();
+	        OnBoardingActions.BMCPopup();
+	        OnBoardingActions.LocationPopup();
+	        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+	        DashboardPageActions.clickUserProfileIcon();
+	        DashboardPageActions.assertWorkspace();
+	        DashboardPageActions.clickOnWorkSpace();
+	        UploadPageActions.uploadContent("HTML");
+	        UploadPageActions.clickSendForReview();
+	        String resourceName = UploadPageActions.sendUploadContentForReview();
+	        UtilityFunctions.switchToDefaultContentFrame();
+	        DashboardPageActions.logOut();
+	        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
+	        DashboardPageActions.clickUserProfileIcon();
+	        DashboardPageActions.clickOnWorkSpace();
+	        ReviewPageActions.reviewAndPublishContent(resourceName, "Upload");
+	        DashboardPageActions.logOut();
+	    }
+	    @Test(description = "upload WEBM")
+	    public void UploadWEBMcontent() throws Exception {
+	        OnBoardingActions.RolePoup();
+	        OnBoardingActions.BMCPopup();
+	        OnBoardingActions.LocationPopup();
+	        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+	        DashboardPageActions.clickUserProfileIcon();
+	        DashboardPageActions.assertWorkspace();
+	        DashboardPageActions.clickOnWorkSpace();
+	        UploadPageActions.uploadContent("WEBM");
+	        UploadPageActions.clickSendForReview();
+	        String resourceName = UploadPageActions.sendUploadContentForReview();
+	        UtilityFunctions.switchToDefaultContentFrame();
+	        DashboardPageActions.logOut();
+	        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
+	        DashboardPageActions.clickUserProfileIcon();
+	        DashboardPageActions.clickOnWorkSpace();
+	        ReviewPageActions.reviewAndPublishContent(resourceName, "Upload");
+	        DashboardPageActions.logOut();
+	    }
+
+	    @Test(description = "upload H5P")
+	    public void UploadH5pcontent() throws Exception {
+	        OnBoardingActions.RolePoup();
+	        OnBoardingActions.BMCPopup();
+	        OnBoardingActions.LocationPopup();
+	        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+	        DashboardPageActions.clickUserProfileIcon();
+	        DashboardPageActions.assertWorkspace();
+	        DashboardPageActions.clickOnWorkSpace();
+	        UploadPageActions.uploadContent("H5P");
+	        UploadPageActions.clickSendForReview();
+	        String resourceName = UploadPageActions.sendUploadContentForReview();
+	        UtilityFunctions.switchToDefaultContentFrame();
+	        DashboardPageActions.logOut();
+	        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
+	        DashboardPageActions.clickUserProfileIcon();
+	        DashboardPageActions.clickOnWorkSpace();
+	        ReviewPageActions.reviewAndPublishContent(resourceName, "Upload");
+	        DashboardPageActions.logOut();
+	    }
+	
+	 @Test(description = "upload EPUB")
+	    public void UploadEPUBcontent() throws Exception {
+	        OnBoardingActions.RolePoup();
+	        OnBoardingActions.BMCPopup();
+	        OnBoardingActions.LocationPopup();
+	        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+	        DashboardPageActions.clickUserProfileIcon();
+	        DashboardPageActions.assertWorkspace();
+	        DashboardPageActions.clickOnWorkSpace();
+	        UploadPageActions.uploadContent("EPUB");
+	        UploadPageActions.clickSendForReview();
+	        String resourceName = UploadPageActions.sendUploadContentForReview();
+	        UtilityFunctions.switchToDefaultContentFrame();
+	        DashboardPageActions.logOut();
+	        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
+	        DashboardPageActions.clickUserProfileIcon();
+	        DashboardPageActions.clickOnWorkSpace();
+	        ReviewPageActions.reviewAndPublishContent(resourceName, "Upload");
+	        DashboardPageActions.logOut();
+	    }
+
+	    @Test(description = "upload Youtube")
+	    public void UploadYouTubecontent() throws Exception {
+	        OnBoardingActions.RolePoup();
+	        OnBoardingActions.BMCPopup();
+	        OnBoardingActions.LocationPopup();
+	        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+	        DashboardPageActions.clickUserProfileIcon();
+	        DashboardPageActions.assertWorkspace();
+	        DashboardPageActions.clickOnWorkSpace();
+	        String link=sunbird_config.getSunbidConfigPropertyValue("YOUTUBE");
+	        UploadPageActions.uploadYoutube(link);
+	        UploadPageActions.clickSendForReview();
+	        String resourceName = UploadPageActions.sendUploadContentForReview();
+	        UtilityFunctions.switchToDefaultContentFrame();
+	        DashboardPageActions.logOut();
+	        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
+	        DashboardPageActions.clickUserProfileIcon();
+	        DashboardPageActions.clickOnWorkSpace();
+	        ReviewPageActions.reviewAndPublishContent(resourceName, "Upload");
+	        DashboardPageActions.logOut();
+	    }
+
 	
 	@Test(description = "Edit and replace a published mp4 content with same type of content")
 	public void editAndReplacethemp4Content() throws Exception {
@@ -249,9 +403,45 @@ public class Workspace extends BaseTestConfig {
 		 WorkspaceDashboardPageActions.clickPublishedBucket();
 		 AllMyContentPageActions.enterContentInSearchBox(resourceName);
 		 PublishedPageActions.clickFirstCard();
+		 UtilityFunctions.switchFrameOnIndex(0);
 		 UploadPageActions.clickReplaceAndUpload();
 		 UploadPageActions.reUploadContent("WEBM");
 	}
+	
+	 @Test(description = "Edit and replace a published Youtube content with same content")
+	    public void EditAndReplaceUploadYouTubecontent() throws Exception {
+	        OnBoardingActions.RolePoup();
+	        OnBoardingActions.BMCPopup();
+	        OnBoardingActions.LocationPopup();
+	        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+	        DashboardPageActions.clickUserProfileIcon();
+	        DashboardPageActions.assertWorkspace();
+	        DashboardPageActions.clickOnWorkSpace();
+	        String link=sunbird_config.getSunbidConfigPropertyValue("YOUTUBE");
+	        UploadPageActions.uploadYoutube(link);
+	        UploadPageActions.clickSendForReview();
+	        String resourceName = UploadPageActions.sendUploadContentForReview();
+	        UtilityFunctions.switchToDefaultContentFrame();
+	        DashboardPageActions.logOut();
+	        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
+	        DashboardPageActions.clickUserProfileIcon();
+	        DashboardPageActions.clickOnWorkSpace();
+	        ReviewPageActions.reviewAndPublishContent(resourceName, "Upload");
+	        DashboardPageActions.logOut();
+	        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+					sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+			 DashboardPageActions.clickUserProfileIcon();
+			 DashboardPageActions.assertWorkspace();
+			 DashboardPageActions.clickOnWorkSpace();
+			 WorkspaceDashboardPageActions.clickPublishedBucket();
+			 AllMyContentPageActions.enterContentInSearchBox(resourceName);
+			 PublishedPageActions.clickFirstCard();
+			 String replacedlink=sunbird_config.getSunbidConfigPropertyValue("YOUTUBE2");
+			 UtilityFunctions.switchFrameOnIndex(0);
+			 UploadPageActions.clickReplaceAndUpload();
+		     UploadPageActions.reUploadYoutubeContent(replacedlink);
+		    
+	    }
 	
 	@Test(description = "Copy and Publish a mp4 content with same content")
 	public void copyAndPublishMp4Content() throws Exception {
@@ -279,15 +469,14 @@ public class Workspace extends BaseTestConfig {
 	     UploadPageActions.clickCopyButton();
 	     UtilityFunctions.switchFrameOnIndex(0);
 	     UploadPageActions.clickSendForReview();
-	     UploadPageActions.sendUploadContentForReview();
+	     String copiedname = UploadPageActions.sendUploadContentForReview();
 	     UtilityFunctions.switchToDefaultContentFrame();
 	     DashboardPageActions.logOut();
 	     LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
 	     DashboardPageActions.clickUserProfileIcon();
 	     DashboardPageActions.clickOnWorkSpace();
-	     ReviewPageActions.reviewAndPublishContent(resourceName, "Upload");
-	     DashboardPageActions.logOut();
-	     
+	     ReviewPageActions.reviewAndPublishContent(copiedname, "Upload");
+	 
 	}
 	
 	@Test(description = "Copy and Publish a Webm content with same content")
@@ -316,15 +505,14 @@ public class Workspace extends BaseTestConfig {
 	     UploadPageActions.clickCopyButton();
 	     UtilityFunctions.switchFrameOnIndex(0);
 	     UploadPageActions.clickSendForReview();
-	     UploadPageActions.sendUploadContentForReview();
+	     String copiedname = UploadPageActions.sendUploadContentForReview();
 	     UtilityFunctions.switchToDefaultContentFrame();
 	     DashboardPageActions.logOut();
 	     LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
 	     DashboardPageActions.clickUserProfileIcon();
 	     DashboardPageActions.clickOnWorkSpace();
-	     ReviewPageActions.reviewAndPublishContent(resourceName, "Upload");
-	     DashboardPageActions.logOut();
-	     
+	     ReviewPageActions.reviewAndPublishContent(copiedname, "Upload");
+	   
 	}
 	
 	@Test(description = "Copy and Publish a Pdf content with same content")
@@ -352,14 +540,14 @@ public class Workspace extends BaseTestConfig {
 	     UploadPageActions.clickCopyButton();
 	     UtilityFunctions.switchFrameOnIndex(0);
 	     UploadPageActions.clickSendForReview();
-	     UploadPageActions.sendUploadContentForReview();
+	     String copiedname = UploadPageActions.sendUploadContentForReview();
 	     UtilityFunctions.switchToDefaultContentFrame();
 	     DashboardPageActions.logOut();
 	     LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
 	     DashboardPageActions.clickUserProfileIcon();
 	     DashboardPageActions.clickOnWorkSpace();
-	     ReviewPageActions.reviewAndPublishContent(resourceName, "Upload");
-	   
+	     ReviewPageActions.reviewAndPublishContent(copiedname, "Upload");
+	 
 	}
 	
 	@Test(description = "Copy and Publish a Epub content with same content")
@@ -387,15 +575,14 @@ public class Workspace extends BaseTestConfig {
 	     UploadPageActions.clickCopyButton();
 	     UtilityFunctions.switchFrameOnIndex(0);
 	     UploadPageActions.clickSendForReview();
-	     UploadPageActions.sendUploadContentForReview();
+	     String copiedname = UploadPageActions.sendUploadContentForReview();
 	     UtilityFunctions.switchToDefaultContentFrame();
 	     DashboardPageActions.logOut();
 	     LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
 	     DashboardPageActions.clickUserProfileIcon();
 	     DashboardPageActions.clickOnWorkSpace();
-	     ReviewPageActions.reviewAndPublishContent(resourceName, "Upload");
-	     DashboardPageActions.logOut();
-	     
+	     ReviewPageActions.reviewAndPublishContent(copiedname, "Upload");
+	
 	}
 	
 	@Test(description = "Copy and Publish a HTML content with same content")
@@ -424,15 +611,14 @@ public class Workspace extends BaseTestConfig {
 	     UploadPageActions.clickCopyButton();
 	     UtilityFunctions.switchFrameOnIndex(0);
 	     UploadPageActions.clickSendForReview();
-	     UploadPageActions.sendUploadContentForReview();
+	     String copiedname = UploadPageActions.sendUploadContentForReview();
 	     UtilityFunctions.switchToDefaultContentFrame();
 	     DashboardPageActions.logOut();
 	     LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
 	     DashboardPageActions.clickUserProfileIcon();
 	     DashboardPageActions.clickOnWorkSpace();
-	     ReviewPageActions.reviewAndPublishContent(resourceName, "Upload");
-	     DashboardPageActions.logOut();
-	     
+	     ReviewPageActions.reviewAndPublishContent(copiedname, "Upload");
+	 
 	}
 	
 	@Test(description = "Copy and Publish a H5P content with same content")
@@ -461,14 +647,52 @@ public class Workspace extends BaseTestConfig {
 	     UploadPageActions.clickCopyButton();
 	     UtilityFunctions.switchFrameOnIndex(0);
 	     UploadPageActions.clickSendForReview();
-	     UploadPageActions.sendUploadContentForReview();
+	     String copiedname = UploadPageActions.sendUploadContentForReview();
 	     UtilityFunctions.switchToDefaultContentFrame();
 	     DashboardPageActions.logOut();
 	     LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
 	     DashboardPageActions.clickUserProfileIcon();
 	     DashboardPageActions.clickOnWorkSpace();
-	     ReviewPageActions.reviewAndPublishContent(resourceName, "Upload");
+	     ReviewPageActions.reviewAndPublishContent(copiedname, "Upload");
 	     
+	}
+	
+
+	@Test(description = "Copy and Publish a Youtube content with same content")
+	public void copyAndPublishYoutubeContent() throws Exception {
+		 OnBoardingActions.RolePoup();
+	        OnBoardingActions.BMCPopup();
+	        OnBoardingActions.LocationPopup();
+	        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+	        DashboardPageActions.clickUserProfileIcon();
+	        DashboardPageActions.assertWorkspace();
+	        DashboardPageActions.clickOnWorkSpace();
+	        String link=sunbird_config.getSunbidConfigPropertyValue("YOUTUBE");
+	        UploadPageActions.uploadYoutube(link);
+	        UploadPageActions.clickSendForReview();
+	        String resourceName = UploadPageActions.sendUploadContentForReview();
+	        UtilityFunctions.switchToDefaultContentFrame();
+	        DashboardPageActions.logOut();
+	        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
+	        DashboardPageActions.clickUserProfileIcon();
+	        DashboardPageActions.clickOnWorkSpace();
+	        ReviewPageActions.reviewAndPublishContent(resourceName, "Upload");
+	        DashboardPageActions.logOut();
+	        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+					sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+	        DashboardPageActions.clickHomeTab();
+		     DashboardPageActions.searchContentAndClickOnContentCard(resourceName);
+		     UploadPageActions.clickCopyButton();
+		     UtilityFunctions.switchFrameOnIndex(0);
+		     UploadPageActions.clickSendForReview();
+		     String copiedname = UploadPageActions.sendUploadContentForReview();
+		     UtilityFunctions.switchToDefaultContentFrame();
+		     DashboardPageActions.logOut();
+		     LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
+		     DashboardPageActions.clickUserProfileIcon();
+		     DashboardPageActions.clickOnWorkSpace();
+		     ReviewPageActions.reviewAndPublishContent(copiedname, "Upload");
+		         
 	}
 	
 	@Test(description = "Delete content from Published and All my content bucket")
@@ -556,7 +780,7 @@ public class Workspace extends BaseTestConfig {
 	     WorkspaceDashboardPageActions.clickPublishedBucket();
 	     UtilityFunctions.refreshPage();
 	     WorkspaceDashboardPageActions.assertAndClickSharedViaLink();
-	     WorkspaceDashboardPageActions.assertContentAvailable(contentName);
+	     WorkspaceDashboardPageActions.assertContentAndClick(contentName);
 	}
 	
 	@Test(description = "Rejected content should be available in drafts")
@@ -586,6 +810,101 @@ public class Workspace extends BaseTestConfig {
 	     AllMyContentPageActions.enterContentInSearchBox(resourceName);
 	     DraftsPageActions.clickFirstCard();
 	     
+	}
+	
+	@Test(description = "Created content should be available in All uploads and all my content")
+	public void VerifyUploadedConetentInAllMyContentAndAllUploads() throws Exception {
+		OnBoardingActions.RolePoup();
+	     OnBoardingActions.BMCPopup();
+	     OnBoardingActions.LocationPopup();
+	     LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+	     DashboardPageActions.clickUserProfileIcon();
+	     DashboardPageActions.assertWorkspace();
+	     DashboardPageActions.clickOnWorkSpace();
+		 UploadPageActions.uploadContent("MP4");
+		 UploadPageActions.clickEditDetails();
+		 String UploadContent = UploadPageActions.sendUploadContentForReview();
+		 UploadPageActions.clickCloseIcon();
+		 UploadPageActions.closeEditor();
+		 Thread.sleep(2000);
+		 UtilityFunctions.switchToDefaultContentFrame();
+		 UtilityFunctions.refreshPage();
+		 WorkspaceDashboardPageActions.clickAllUploads();
+		 WorkspaceDashboardPageActions.assertContentAndClick(UploadContent);
+		 UtilityFunctions.switchFrameOnIndex(0);
+		 UploadPageActions.closeEditor();
+		 UtilityFunctions.switchToDefaultContentFrame();
+		 WorkspaceDashboardPageActions.clickAllMyContent();
+		 AllMyContentPageActions.enterContentInSearchBox(UploadContent);
+		 AllMyContentPageActions.clickFirstCard();
+	}
+	
+	@Test(description = "Created content should be available in All uploads and all my content")
+	public void verifyBookEditor() throws Exception {
+		OnBoardingActions.RolePoup();
+		OnBoardingActions.BMCPopup();
+		OnBoardingActions.LocationPopup();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+				sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.assertWorkspace();
+		DashboardPageActions.clickOnWorkSpace();
+		WorkspaceDashboardPageActions.clickBook();
+		BookPageActions.createBookPopup("getdoid");
+		BookPageActions.assertThreeDotsMenu();
+		BookPageActions.clickThreeDotsMenu();
+		BookPageActions.assetCreateFoldersOption();
+		BookPageActions.assertDownloadFoldersAsCSVOption();
+		BookPageActions.assertUpdateFolderOption();
+		BookPageActions.clickThreeDotsMenu();
+		BookPageActions.assertAddCollaboratorButton();
+		BookPageActions.assertQRCodeOption();
+		BookPageActions.clickQRDropDown();
+		BookPageActions.assertGenerateQROption();
+		BookPageActions.assertDownloadQROption();	
+		BookPageActions.assertSaveAsDraftOption();
+		BookPageActions.assertBackButton();
+		BookPageActions.assertAddSiblingOption();
+		BookPageActions.assertAddChildOption();
+		BookPageActions.assertAddFromLibraryOption();
+		
+	}
+	@Test(description = "Verify that the latest 100 relevant live contents are available in the add from library page by default")
+	public void verifyLatestPublishedContentInAddFromLibrary() throws Exception {
+		OnBoardingActions.RolePoup();
+		OnBoardingActions.BMCPopup();
+		OnBoardingActions.LocationPopup();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.assertWorkspace();
+		DashboardPageActions.clickOnWorkSpace();
+		UploadPageActions.uploadContent("PDF");
+		UploadPageActions.clickSendForReview();
+		String resourceName = UploadPageActions.sendUploadContentForReview();
+		UtilityFunctions.switchToDefaultContentFrame();
+		DashboardPageActions.logOut();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.clickOnWorkSpace();
+		ReviewPageActions.reviewAndPublishContent(resourceName, "Upload");
+		DashboardPageActions.logOut();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+				sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.assertWorkspace();
+		DashboardPageActions.clickOnWorkSpace();
+		WorkspaceDashboardPageActions.clickBook();
+		BookPageActions.createBookPopup("getdoid");
+		BookPageActions.section1("getdescription");
+		BookPageActions.BMCDropdownSelectionSection2();
+		BookPageActions.Section3();
+		BookPageActions.assertContentIsSavedToastrMsg();
+		BookPageActions.waitContentIsSavedToastToDisapper();
+		BookPageActions.addResourceInLibrarySection(resourceName);
+		BookPageActions.clickAddChild();
+		BookPageActions.verify100ContentsInAddFromLibrary("100");
+		BookPageActions.submitAndSendForReview();
+
 	}
 
 	@Test(description = "Verify user is able to edit the published course")
@@ -679,5 +998,6 @@ public class Workspace extends BaseTestConfig {
 		DashboardPageActions.logOut();
 
 	}
-
 }
+
+	

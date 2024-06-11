@@ -3,23 +3,16 @@ package com.sunbird.GenericLibrary;
 public class SunbirdConstants {
     public static String validateWorkspace = "Workspace";
     public static String contentUploadToastrMsg = "content uploaded successfully!";
-
     public static String XPATH_CONTAINS = "//*[contains(text(),'";
     public static String XPATH_CONAINSCLOSEBRACKET = "')]";
-
     public static String xpathGroup1="//div[@class='sb--card__info']//preceding::div[@title='";
     public static String xpathGrooup2="'][1]";
     public static String contetnPublishedToastrMsg = "Content is published";
     public static String contentSentForReview = "Content is sent for review";
-
     public static String thankYouRatingToastrMsg="Thank you for rating this content!";
-
 public static String title="title";
-
 public static String name="name";
-
 public static String placeholder="placeholer";
-
     public static String generateQrCodeToastrMsg = "QR code generated.";
     public static String downloadQrCodeToastrMg = "QR codes downloaded";
     public static String copyToastrMsg = "Content successfully copied";
@@ -65,9 +58,20 @@ public static String collobratorAddedToastrmsg="Collaborators updated successful
     public static String questionsetContentRejectedToastrMsg = "Content is sent back for corrections";
     public static String verticalLayoutattribute="mcq-vertical";
     public static String horizontalLayoutattribute="mcq-horizontal";
-
-
-
+    public static String assertYesClickedFeedback="Thank you for your response!";
+    public static String checkLoginButton="Login";
+    public static String emailPlaceHolder="Enter your email / mobile number";
+    public static String passwordPlaceHolder="Enter your password";
+    public static String VerifyAddUserButtonDisplay="Add another user";
+    public static String assertAddUserLabel="Add user";
+    public static String assertNameTextField="Enter your name";
+    public static String assertDisplayedTextBelowNameField="You can edit this user's details from the Profile page";
+    public static String assertSubmitDetails="Submit details";
+    public static String colorOfSubmitDetails="#000000";
+    public static String validateMyDetailsLabel="My details";
+    public static String validateToasterMsgOfTeacherForm="Profile share settings submitted successfully";
+    public static String ColorOfCourseEnrolmentEndDateExpiredMessage="#E55A28";
+    public static String ColorOfCourseConsumptionMessage="#005A9E";
 
 
 }

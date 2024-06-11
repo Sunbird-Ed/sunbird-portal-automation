@@ -108,5 +108,9 @@ dashboardPage.homeTab();
         DashboardPage dashboardPage = PageFactory.initElements(driver, DashboardPage.class);
         dashboardPage.verifySunbirdLogo();
     }
+    public static void VerifyHelpSection() throws InterruptedException{
+        DashboardPage dashboardPage = PageFactory.initElements(driver, DashboardPage.class);
+        dashboardPage.ClickOnHelp();
+    }
 }
 	

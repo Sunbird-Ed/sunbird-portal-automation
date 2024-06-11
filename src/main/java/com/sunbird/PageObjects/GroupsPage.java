@@ -214,7 +214,7 @@ public class GroupsPage {
 	}
 	public void validateForumIconShouldNotDisplay() {
 
-		UtilityFunctions.validatElementNotPresent(forumIcon,"forum Icon displayed");
+		UtilityFunctions.validatIsElementNotPresent(forumIcon);
 		Listeners.addLogs("Forum icon not displayed");
 	}
 	public void assertAllOptionInsideForumIconPage() {

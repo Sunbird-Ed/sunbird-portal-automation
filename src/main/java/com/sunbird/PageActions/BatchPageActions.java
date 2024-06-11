@@ -174,4 +174,15 @@ batchPage.waitProfileShareToastrMsgDisappear();
 		String actualtxt=batchPage.assertSyncNowProgress();
 		UtilityFunctions.stringValueComparision(actualtxt,SunbirdConstants.syncNowProgressToastrMsg,"syncNowProgressToastrMsg didn't display ");
 	}
+
+	public static void clickDoNotShareBtn()
+	{
+		BatchPage batchPage = PageFactory.initElements(driver, BatchPage.class);
+		batchPage.clickDoNotShareBtn();
+	}
+	public static void assertNoConsentPopup()
+	{
+		BatchPage batchPage = PageFactory.initElements(driver, BatchPage.class);
+		batchPage.assertNoConsentBtn();
+	}
 }

@@ -69,5 +69,35 @@ public class LoginPageActions extends BaseTestConfig {
         Listeners.addLogs("White color button is displayed ");
 
     }
+
+    public static void validateLoginPageHeading() throws InterruptedException {
+        LoginPage loginpage = PageFactory.initElements(driver, LoginPage.class);
+
+        String actualMsg = loginpage.validateLoginHeading();
+        UtilityFunctions.stringValueComparision(actualMsg, SunbirdConstants.checkLoginButton, "Login label is not displayed");
+        Listeners.addLogs("Login label is displayed ");
+
     }
+    public static void assertEmailAndPasswordTextField() throws InterruptedException {
+        LoginPage loginpage = PageFactory.initElements(driver, LoginPage.class);
+
+        String actualMsg = loginpage.assertEmailTextField();
+        UtilityFunctions.stringValueComparision(actualMsg, SunbirdConstants.emailPlaceHolder, "Email Text field is not displayed");
+        Listeners.addLogs("Email Text field is displayed ");
+
+        String actualMsg1 = loginpage.verifyPasswordField();
+        UtilityFunctions.stringValueComparision(actualMsg1, SunbirdConstants.passwordPlaceHolder, "Password Text field is not displayed");
+        Listeners.addLogs("Password Text field is displayed ");
+
+    }
+    public static void assertLoginButton() throws InterruptedException {
+        LoginPage loginpage = PageFactory.initElements(driver, LoginPage.class);
+        loginpage.assertLoginButton();
+
+    }
+    public static void verifySunbirdLogo() throws InterruptedException {
+        LoginPage loginpage = PageFactory.initElements(driver, LoginPage.class);
+        loginpage.imageSunbirdLogo();
+    }
+}
 	

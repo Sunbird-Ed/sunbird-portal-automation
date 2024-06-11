@@ -44,6 +44,18 @@ public class LoginPage {
     @FindBy(how=How.XPATH, using="//button[@id='stateButton']")
     private WebElement checkLoginWithStateSystem;
 
+    @FindBy(how=How.XPATH, using="(//p[contains(text(),'Login')])[1]")
+    private WebElement validateLoginHeading;
+
+    @FindBy(how=How.XPATH, using="//input[@id='username']")
+    private WebElement emailTextField;
+
+    @FindBy(how=How.XPATH, using="//input[@id='password']")
+    private WebElement passwordTextField;
+
+    @FindBy(how=How.XPATH, using="//div[@class='ui header centered mb-8']//following::img[@alt='Sunbird logo']")
+    private WebElement imageSunbirdLogo;
+
     public void userProfileIcon() {
 
         UtilityFunctions.waitToBeClickableAndClick(userProfileIcon);
@@ -128,10 +140,40 @@ public class LoginPage {
 
     public String checkColorOfLoginWithStateSystem() {
         UtilityFunctions.waitForVisibilityOfWebElement(checkLoginWithStateSystem);
-        WebElement t=checkLoginWithStateSystem;
-        String getActualColor = t.getCssValue("color");
-        String actualColor = Color.fromString(getActualColor).asHex();
-        return actualColor;
+       return   UtilityFunctions.getColorValue(checkLoginWithStateSystem);
+    }
 
+    public String validateLoginHeading() {
+        UtilityFunctions.waitForVisibilityOfWebElement(validateLoginHeading);
+        String getActualText = UtilityFunctions.getTextFromElement(validateLoginHeading);
+        System.out.print(getActualText);
+        return getActualText;
+
+    }
+
+    public String assertEmailTextField() throws InterruptedException {
+        UtilityFunctions.waitForVisibilityOfWebElement(emailTextField);
+
+        String actualText=UtilityFunctions.getAttributeValue(emailTextField, "placeholder");
+        return actualText;
+
+    }
+
+    public String verifyPasswordField() throws InterruptedException {
+        UtilityFunctions.waitForVisibilityOfWebElement(passwordTextField);
+
+        String actualText=UtilityFunctions.getAttributeValue(passwordTextField, "placeholder");
+        return actualText;
+    }
+
+    public void assertLoginButton() throws InterruptedException {
+        UtilityFunctions.waitForVisibilityOfWebElement(login);
+        String getActualText = UtilityFunctions.getTextFromElement(login);
+        Listeners.addLogs("Login button is displayed ");
+
+    }
+    public void imageSunbirdLogo() {
+        UtilityFunctions.waitForVisibilityOfWebElement(imageSunbirdLogo);
+        Listeners.addLogs("Sunbird Logo is displayed ");
     }
 }
