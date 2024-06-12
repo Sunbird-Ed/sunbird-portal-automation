@@ -1109,6 +1109,19 @@ public class Workspace extends BaseTestConfig {
 		BookPageActions.waitContentIsSavedToastToDisapper();
 
 	}
+	@Test(description = "Verify that the user with Admin role should be able to see All Textbook option in Workspace")
+	public void UserWithAdminRoleAbleToSeeAllTextBookOptionInWorkspace() throws Exception {
+		OnBoardingActions.RolePoup();
+		OnBoardingActions.BMCPopup();
+		OnBoardingActions.LocationPopup();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("TN_ORGADMIN"),
+				sunbird_config.getSunbidConfigPropertyValue("TN_ORGADMIN_PWD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.clickOnWorkSpace();
+		WorkspaceDashboardPageActions.clickAllTextBookOption();
+		AllMyContentPageActions.clickFirstCard();
+	}
+
 }
 
 	
