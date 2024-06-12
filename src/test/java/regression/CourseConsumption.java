@@ -14,8 +14,8 @@ public class CourseConsumption {
         OnBoardingActions.RolePoup();
         OnBoardingActions.BMCPopup();
         OnBoardingActions.LocationPopup();
-        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("Add_User_Usr"),
-                sunbird_config.getSunbidConfigPropertyValue("Add_User_Pwd"));
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CourseConsumption_Usr"),
+                sunbird_config.getSunbidConfigPropertyValue("CourseConsumption_Pwd"));
         DashboardPageActions.clickUserProfileIcon();
         AddUserPageActions.clickAddPlusIcon();
         String creadtedUserName=AddUserPageActions.enterName();
@@ -42,8 +42,8 @@ public class CourseConsumption {
         OnBoardingActions.RolePoup();
         OnBoardingActions.BMCPopup();
         OnBoardingActions.LocationPopup();
-        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("Add_User_Usr"),
-                sunbird_config.getSunbidConfigPropertyValue("Add_User_Pwd"));
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CourseConsumption_Usr"),
+                sunbird_config.getSunbidConfigPropertyValue("CourseConsumption_Pwd"));
         DashboardPageActions.clickUserProfileIcon();
         AddUserPageActions.clickAddPlusIcon();
         String creadtedUserName=AddUserPageActions.enterName();
@@ -70,8 +70,8 @@ public class CourseConsumption {
         OnBoardingActions.RolePoup();
         OnBoardingActions.BMCPopup();
         OnBoardingActions.LocationPopup();
-        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("Add_User_Usr"),
-                sunbird_config.getSunbidConfigPropertyValue("Add_User_Pwd"));
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CourseConsumption_Usr"),
+                sunbird_config.getSunbidConfigPropertyValue("CourseConsumption_Pwd"));
         DashboardPageActions.clickUserProfileIcon();
         AddUserPageActions.clickAddPlusIcon();
         String creadtedUserName=AddUserPageActions.enterName();
@@ -132,8 +132,8 @@ public class CourseConsumption {
         OnBoardingActions.RolePoup();
         OnBoardingActions.BMCPopup();
         OnBoardingActions.LocationPopup();
-        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("Add_User_Usr"),
-                sunbird_config.getSunbidConfigPropertyValue("Add_User_Pwd"));
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CourseConsumption_Usr"),
+                sunbird_config.getSunbidConfigPropertyValue("CourseConsumption_Pwd"));
         DashboardPageActions.clickUserProfileIcon();
         AddUserPageActions.clickAddPlusIcon();
         String creadtedUserName=AddUserPageActions.enterName();
@@ -165,8 +165,8 @@ public class CourseConsumption {
         OnBoardingActions.RolePoup();
         OnBoardingActions.BMCPopup();
         OnBoardingActions.LocationPopup();
-        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("Add_User_Usr"),
-                sunbird_config.getSunbidConfigPropertyValue("Add_User_Pwd"));
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CourseConsumption_Usr"),
+                sunbird_config.getSunbidConfigPropertyValue("CourseConsumption_Pwd"));
         DashboardPageActions.clickUserProfileIcon();
         AddUserPageActions.clickAddPlusIcon();
         String creadtedUserName=AddUserPageActions.enterName();

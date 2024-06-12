@@ -12,26 +12,6 @@ public class SunbirdConfigProvider extends BaseTestConfig {
     /*Creates object and loads the Config properties file */
     public SunbirdConfigProvider() throws Exception {
 
-//        String path = System.getProperty("user.dir") + "//Config//SunbirdConfig.Properties";
-//        FileInputStream fis = new FileInputStream(path);
-//        pro = new Properties();
-//        pro.load(fis);
-//
-//        String Env = pro.getProperty("EnvironmentSetup");
-//        String path2="";
-//                       if (Env.equalsIgnoreCase("STAGING")) {
-//            path2 = System.getProperty("user.dir") + "//Config//SunbirdStaging.Properties";
-//
-//        } else if (Env.equalsIgnoreCase("PREPROD")) {
-//
-//             path2 = System.getProperty("user.dir") + "//Config//SunbirdPreProd.Properties";
-//
-//        } else if (Env.equalsIgnoreCase("Prod")) {
-//          path2 = System.getProperty("user.dir") + "//Config//SunbirdProd.Properties";
-//
-//        }
-
-//UtilityFunctions.getProperyFilePath();
         FileInputStream fis2 = new FileInputStream(UtilityFunctions.getProperyFilePath());
         sunbirdConfigPro = new Properties();
         sunbirdConfigPro.load(fis2);

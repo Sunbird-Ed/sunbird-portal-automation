@@ -16,22 +16,16 @@ public static String placeholder="placeholer";
     public static String generateQrCodeToastrMsg = "QR code generated.";
     public static String downloadQrCodeToastrMg = "QR codes downloaded";
     public static String copyToastrMsg = "Content successfully copied";
-
     public static String contentAddedToFolderToastrMsg = "Content is added to the folder";
     public static String contentSavedTostrMsg = "Content is saved";
-
     public static String resourceContentPublishedToastrMsg = "Content published successfully...";
     public static String resourceContentRejectedToastrMsg = "Content rejected successfully...";
-
     public static String batchCreationToastrMSG = "Batch created successfully...";
-
     public static String noOpenBatchAvailableToastrMSG = "This course does not have any open batches";
     public static String profileShareToastrMsg = "Profile share settings submitted successfully";
-
     public static String groupCreationToastrMsg="Group created successfully";
     public static String enableDisussionToastrMsg="Enabled discussion forum successfully";
     public static String disableDisussionToastrMsg="Disabled discussion forum successfully";
-
    public static String questionCreatedToastrMsg="Question is created sucessfully";
     public static String activityAddedToastrMsg="Activity added successfully";
     public static String syncNowProgressToastrMsg="You can view your updated course progress within 24 hours";

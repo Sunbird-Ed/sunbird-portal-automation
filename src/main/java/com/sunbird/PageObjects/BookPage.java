@@ -45,13 +45,13 @@ public class BookPage {
 	
 	@FindBy(how=How.XPATH,using="//li[text()='Select Medium']")
 	private WebElement clickMedium;
-    @FindBy(how=How.XPATH,using="//label[contains(text(),'Medium(s) of the audience')]//following::ul")
+    @FindBy(how=How.XPATH,using="//label[contains(text(),'Medium(s)')]//following::ul")
     private WebElement clickMedium2;
 	
 	@FindBy(how=How.XPATH,using="//li[text()='Select Medium']//following::li[2]")
 	private WebElement mediumSelected;
 
-    @FindBy(how=How.XPATH,using="//label[contains(text(),'Medium(s) of the audience')]//following::label[1]")
+    @FindBy(how=How.XPATH,using="//label[contains(text(),'Medium(s)')]//following::label[1]")
     private WebElement mediumSelectAll;
 	
 	@FindBy(how=How.XPATH,using="//li[text()='Select Class']")

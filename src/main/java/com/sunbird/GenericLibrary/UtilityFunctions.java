@@ -70,21 +70,25 @@ public class UtilityFunctions extends BaseTestConfig {
         fluenWait(element, waitTime);
         element.click();
     }
+
+    /* This is fluentWait approach method which accepts WebElement as parameter and wait untill the element is visible using fluent wait*/
     public static void waitForElementIsVisible(WebElement element) {
         int waitTime = 30;
         fluenWait(element, waitTime);
-
-
     }
+
     public static void waitForElementInShortSpanAndClickable(WebElement element) {
         int waitTime = 2;
         fluenWait(element, waitTime);
         element.click();
     }
+
+    /* Accepts webElement as paramerter and wait untill that element get disappear */
     public static void waitForElementToDisappear(WebElement element) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         wait.until(ExpectedConditions.invisibilityOf(element));
     }
+
     /* This method will click on the UI screen using given dimension value */
     public static void MoveByOffSet(int a, int b) {
 
@@ -97,6 +101,7 @@ public class UtilityFunctions extends BaseTestConfig {
         driver.findElement(By.xpath(xpathValue)).click();
 
     }
+    /* Method will return the boolean status of webElement ,return true if webelement is present and return false if webElement is not present */
     public static boolean isElementPresent(WebElement locator) {
         try {
             waitForVisibilityOfWebElement(locator);
@@ -108,6 +113,7 @@ public class UtilityFunctions extends BaseTestConfig {
             return false;
         }
     }
+
     /* Method will get the current url and do the substring and returning the with extracted do_Id */
     public static String generate_Do_id() {
         String currentUrl = driver.getCurrentUrl();
@@ -136,6 +142,7 @@ public class UtilityFunctions extends BaseTestConfig {
         return fetchedText;
     }
 
+    /* Accepts frameValue as parameter and waitUntil frame is loaded */
     public static void waitForFrameToLoad(int frameValue) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(frameValue));
@@ -153,12 +160,13 @@ public class UtilityFunctions extends BaseTestConfig {
 	using sendKeys approach using the provided String upload file path */
 
     public static void uploadSendKeys(WebElement element, String Value) {
+
         element.sendKeys(Value);
     }
 
+    /* get systemdirectorypath and get the upload content path along with fileName and returns complete file path*/
     public static String getExactFilePath(String fileName) {
         String filepath = System.getProperty("user.dir") + sunbird_config.getSunbidConfigPropertyValue("fileName");
-
         return filepath;
     }
 
@@ -174,10 +182,12 @@ public class UtilityFunctions extends BaseTestConfig {
         js.executeScript("arguments[0].scrollIntoView(true);", element);
     }
 
+    /* Assert the given WebElement is true, if yes testcase gets pass or else it will fail the testcase */
     public static void validatIsElementPresent(WebElement element, String ErrorMsg) {
         Assert.assertTrue(element.isDisplayed(), ErrorMsg);
     }
 
+    /* Assert the given WebElement is False, if yes testcase gets pass or else it will fail the testcase */
     public static void validatIsElementNotPresent(WebElement element) {
         boolean status = isElementPresent(element);
         if (status == false) {
@@ -188,6 +198,8 @@ public class UtilityFunctions extends BaseTestConfig {
             Assert.assertFalse(status, "Element is displayed");
         }
     }
+
+    /* check whether provided webelement is disabled , if not testcase will fai */
     public static void assertWebElementIsDisabled(WebElement element) {
         boolean status=element.isEnabled();
         if (status == false) {
@@ -197,40 +209,45 @@ public class UtilityFunctions extends BaseTestConfig {
         }
     }
 
-
-
-
+/* Scroll down the page using JavaScript Executor*/
     public static void scrollDownUsingPixelValue() {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,400)", "");
     }
 
+    /* Method will wait untill all the webelements is visible */
     public static void waitForVisibilityOfAllWebElement(List<WebElement> element) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         wait.until(ExpectedConditions.visibilityOfAllElements(element));
     }
 
+    /*Accepts WebElement as parameter and perform click operation*/
     public static void clickUsingJavaScriptExecutor(WebElement element) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].click();", element);
     }
+
+    /* Assign String Parameter value to WebElement and it will form as WebElement and perform isElement Assertion on it */
     public static void assertWebElementAsString(String xpathValue) throws InterruptedException {
         UtilityFunctions.threadSleep(8000);
         WebElement element = driver.findElement(By.xpath(xpathValue));
         UtilityFunctions.validatIsElementPresent(element,"Element not disalyed");
         Listeners.addLogs("Element verified" +xpathValue);
     }
+
+    /* Scroll up the page using JavaScript */
     public static void scrollUpUsingPixelValue() {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,-350)", "");
     }
 
+/* Perform Enter Key operation on given WebElement */
     public static void pressEnterKeyOnWebElement(WebElement element) {
-
        // element.sendKeys(Keys.ENTER);
        element.sendKeys(Keys.RETURN);
     }
 
+    /* Get the testdata property file path as string based on the environmentsetup in config property */
     public static String getProperyFilePath() throws IOException {
         String path = System.getProperty("user.dir") + "//Config//SunbirdConfig.Properties";
         FileInputStream fis = new FileInputStream(path);
