@@ -291,12 +291,12 @@ public class ConsumptionPageActions extends BaseTestConfig {
         consumptionPage.assertNoProfilePopuptext();
     }
 
-    public static void assertEnrolmentEndDateExpiredMessage() throws InterruptedException {
+
+    public static void assertEnrolmentEndDateExpiredMessageAndColor() throws InterruptedException {
         ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
-        String color = consumptionPage.assertEnrolmentEndDateExpired();
+        String color = consumptionPage.verifyEnrolmentEndDateExpiredAndColor();
         UtilityFunctions.stringValueComparision(color, SunbirdConstants.ColorOfCourseEnrolmentEndDateExpiredMessage, "Failed to check the color");
     }
-
     public static void assertNoEnrolmentEndDateLable() throws InterruptedException {
         ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
         consumptionPage.assertNoEnrolmentEndDate();
@@ -325,5 +325,59 @@ public class ConsumptionPageActions extends BaseTestConfig {
     public static void assertCertificateRule() throws InterruptedException {
         ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
         consumptionPage.assertCertificateRule();
+    }
+
+    public static void clickNextModule() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        consumptionPage.clickNextModule();
+    }
+    public static void clickPrevModule() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        consumptionPage.clickPrevModule();
+    }
+    public static void assertNoPrevModule() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        consumptionPage.assertNoPrevModule();
+    }
+    public static void assertNoNextModule() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        consumptionPage.assertNoNextModule();
+    }
+    public static void assertNextModule() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        consumptionPage.assertNextModule();
+    }
+    public static void assertModuleCompletionMsg() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        consumptionPage.assertModuleCompletionMsg();
+    }
+    public static void assertPrevModule() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        consumptionPage.assertPrevModule();
+    }
+    public static void closeCertificateMessage() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        consumptionPage.closeCertificateMessage();
+    }
+    public static void clickProfileSharingData() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        consumptionPage.clickProfileSharingData();
+    }
+    public static void updateProfileSharingData() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        consumptionPage.updateProfileSharingData();
+    }
+    public static void updateShareProfile() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        consumptionPage.updateShareProfile();
+    }
+    public static void saveProfile() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        consumptionPage.saveProfile();
+    }
+
+    public static void verifyConsentToasterProfileMsg() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        consumptionPage.verifyConsentToasterProfileMsg();
     }
 }

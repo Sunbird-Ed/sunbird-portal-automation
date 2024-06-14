@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 public class SanitySuite3 extends BaseTestConfig {
 
     @Test(description = "The Course mentor who has content creator and course mentor role  should be able to create the open batch for the courses ")
-    public void createOpenBatchesForCourse() throws Exception {
+    public void CreateOpenBatchesForCourse() throws Exception {
 
         OnBoardingActions.RolePoup();
         OnBoardingActions.BMCPopup();
@@ -49,7 +49,7 @@ public class SanitySuite3 extends BaseTestConfig {
     }
 
     @Test(description = "The create Batch option should not be displayed to the user when there is an open batch already created.")
-    public void createBatchOptionShouldNotDisplayIfBatchIsAlreadyCreated() throws Exception {
+    public void CreateBatchOptionShouldNotDisplayIfBatchIsAlreadyCreated() throws Exception {
 
         OnBoardingActions.RolePoup();
         OnBoardingActions.BMCPopup();
@@ -65,7 +65,7 @@ public class SanitySuite3 extends BaseTestConfig {
 
 
     @Test(description = "Verify that the timer is displayed post Join Course ")
-    public void validateTimerIsDisplayedForBatch() throws Exception {
+    public void ValidateTimerIsDisplayedForBatch() throws Exception {
 
         OnBoardingActions.RolePoup();
         OnBoardingActions.BMCPopup();
@@ -117,7 +117,7 @@ public class SanitySuite3 extends BaseTestConfig {
     }
 
     @Test(description = "User should be asked to provide the user consent while enrolling to a course nd below fields are displayed on the consent pop-up.")
-    public void validateFieldsInConsentPopupWhileEnroll() throws Exception {
+    public void ValidateFieldsInConsentPopupWhileEnroll() throws Exception {
 
         OnBoardingActions.RolePoup();
         OnBoardingActions.BMCPopup();
@@ -168,7 +168,7 @@ public class SanitySuite3 extends BaseTestConfig {
     }
 
     @Test(description = "User should be able to unenroll from the open courses,Join course button should be displayed")
-    public void unEnrollFromCourse() throws Exception {
+    public void UnEnrollFromCourse() throws Exception {
         OnBoardingActions.RolePoup();
         OnBoardingActions.BMCPopup();
         OnBoardingActions.LocationPopup();
@@ -221,7 +221,7 @@ public class SanitySuite3 extends BaseTestConfig {
 
     }
      @Test(description = "On clicking the Course card, the user should be displayed with a toast message saying there are no open batches available ")
-    public void validateNoOpenBatchAvailableToastrMsg() throws Exception {
+    public void ValidateNoOpenBatchAvailableToastrMsg() throws Exception {
 
         OnBoardingActions.RolePoup();
         OnBoardingActions.BMCPopup();
@@ -234,7 +234,7 @@ public class SanitySuite3 extends BaseTestConfig {
 
     }
     @Test(description = "creator is able to create course using textbook and is able to send the course for review.")
-    public void copyBookAsCourseAndSendForReview() throws Exception {
+    public void CopyBookAsCourseAndSendForReview() throws Exception {
         OnBoardingActions.RolePoup();
         OnBoardingActions.BMCPopup();
         OnBoardingActions.LocationPopup();
@@ -258,7 +258,7 @@ public class SanitySuite3 extends BaseTestConfig {
     }
 
     @Test(description = "Verify that user is able copy the question")
-    public void userAbleToCopyQuestion() throws Exception {
+    public void UserAbleToCopyQuestion() throws Exception {
 
         OnBoardingActions.RolePoup();
         OnBoardingActions.BMCPopup();
@@ -308,7 +308,7 @@ public class SanitySuite3 extends BaseTestConfig {
     }
 
     @Test(description = "User should able to delete the question")
-    public void userAbleToDeleteQuestionInQuestionPage() throws Exception {
+    public void UserAbleToDeleteQuestionInQuestionPage() throws Exception {
 
         OnBoardingActions.RolePoup();
         OnBoardingActions.BMCPopup();
@@ -331,7 +331,7 @@ public class SanitySuite3 extends BaseTestConfig {
     }
 
     @Test(description = "Verify user able to searchBookViaNameAndDOIDAndQRCodeValue")
-    public void searchBookViaNameAndDOIDAndQRCodeValue() throws Exception {
+    public void SearchBookViaNameAndDOIDAndQRCodeValue() throws Exception {
 
         OnBoardingActions.RolePoup();
         OnBoardingActions.BMCPopup();
@@ -350,7 +350,7 @@ public class SanitySuite3 extends BaseTestConfig {
     }
 
     @Test(description = "Create Book with all ResourceType")
-    public void createBookwithAllResourceType() throws Exception {
+    public void CreateBookwithAllResourceType() throws Exception {
 
         OnBoardingActions.RolePoup();
         OnBoardingActions.BMCPopup();

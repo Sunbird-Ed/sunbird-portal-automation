@@ -171,7 +171,26 @@ public class ConsumptionPage {
     @FindBy(how = How.XPATH, using = "//p[contains(text(),'You will be notified')]")
     private WebElement assertcourseCompletionCertificateInPopUp;
 
-    public int getPDFTotalCount() {
+    @FindBy(how = How.XPATH, using = "//button[text()=' Next module']")
+    private WebElement clickNextModule;
+    @FindBy(how = How.XPATH, using = "//button[@aria-label='previous-module']")
+    private WebElement clickPrevModule;
+    @FindBy(how = How.XPATH, using = "//label[text()='You have completed this module']")
+    private WebElement assertModuleCompletionMsg;
+    @FindBy(how = How.XPATH, using = "//mat-panel-title[text()=' Profile data sharing ']")
+    private WebElement clickProfileSharingData;
+    @FindBy(how = How.XPATH, using = "//button[@aria-label='close dialog']")
+    private WebElement closeCertificateMessage;
+    @FindBy(how = How.XPATH, using = "//button[text()=' Update ']")
+    private WebElement updateProfileSharingData;
+    @FindBy(how = How.XPATH, using = "//input[@id='shareConsent']")
+    private WebElement updateShareProfile;
+    @FindBy(how = How.XPATH, using = "//button[text()='Save']")
+    private WebElement saveProfile;
+    @FindBy(how = How.XPATH, using = "//strong[contains(text(),'Profile share settings submitted successfully')]")
+    private WebElement verifyConsentToasterProfileMsg;
+
+        public int getPDFTotalCount() {
 
         UtilityFunctions.waitForVisibilityOfWebElement(pdfPageTotalcount);
         String pageCount = UtilityFunctions.getTextFromElement(pdfPageTotalcount);
@@ -478,6 +497,73 @@ public class ConsumptionPage {
     }
 
 
+    public void clickNextModule() throws InterruptedException {
+        UtilityFunctions.waitToBeClickableAndClick(clickNextModule);
+        Listeners.addLogs("Clicked on NextModule");
+    }
+    public void clickPrevModule() throws InterruptedException {
+        UtilityFunctions.waitToBeClickableAndClick(clickPrevModule);
+        Listeners.addLogs("Clicked on Prec Module button");
+    }
 
+    public void assertPrevModule() throws InterruptedException {
+        UtilityFunctions.waitForVisibilityOfWebElement(clickPrevModule);
+        UtilityFunctions.validatIsElementPresent(clickPrevModule, "prevModule not displayed");
+        Listeners.addLogs("Verified on Prev Module button");
+    }
+    public void assertNoPrevModule() throws InterruptedException {
+        UtilityFunctions.validatIsElementNotPresent(clickPrevModule);
+        Listeners.addLogs("Verified on No Prev Module button");
+    }
+    public void assertNoNextModule() throws InterruptedException {
+        UtilityFunctions.validatIsElementNotPresent(clickNextModule);
+        Listeners.addLogs("Verified on Next Module button");
+    }
+    public void assertNextModule() throws InterruptedException {
+        UtilityFunctions.waitForVisibilityOfWebElement(clickNextModule);
+        UtilityFunctions.validatIsElementPresent(clickNextModule, "NextModule not displayed");
+        Listeners.addLogs("Verified on Next Module button");
+    }
+    public void assertModuleCompletionMsg() throws InterruptedException {
+        UtilityFunctions.waitForVisibilityOfWebElement(assertModuleCompletionMsg);
+        UtilityFunctions.validatIsElementPresent(assertModuleCompletionMsg, "Module completion not displayed");
+        Listeners.addLogs("Verified on Module completion button");
+    }
+    public String verifyEnrolmentEndDateExpiredAndColor() throws InterruptedException {
+        UtilityFunctions.waitForVisibilityOfWebElement(assertEnrolmentEndDateExpired);
+        UtilityFunctions.validatIsElementPresent(assertEnrolmentEndDateExpired, "EnrolmentEndDateExpired not displayed");
+        String expiredEnrollmentDate=SunbirdConstants.enrollementEndDateExpired;
+        String returnExpiredEnrollmentDateXpath=SunbirdConstants.XPATH_CONTAINS+expiredEnrollmentDate+SunbirdConstants.XPATH_CONAINSCLOSEBRACKET;
+        UtilityFunctions.assertWebElementAsString(returnExpiredEnrollmentDateXpath);
+        String actualColor = UtilityFunctions.getColorValue(assertEnrolmentEndDateExpired);
+        Listeners.addLogs("Verified on Enrolment End Date Expired");
+        return actualColor;
+    }
+    public void closeCertificateMessage() throws InterruptedException {
+        UtilityFunctions.waitToBeClickableAndClick(closeCertificateMessage);
+        Listeners.addLogs("Verify on close Certificate Message");
+    }
+    public void clickProfileSharingData() throws InterruptedException {
+        UtilityFunctions.waitToBeClickableAndClick(clickProfileSharingData);
+        Listeners.addLogs("Clicked on Profile Sharing Data");
+    }
+    public void updateProfileSharingData() throws InterruptedException {
+        UtilityFunctions.waitToBeClickableAndClick(updateProfileSharingData);
+        Listeners.addLogs("Clicked on Update");
+    }
+
+    public void updateShareProfile() throws InterruptedException {
+        UtilityFunctions.waitToBeClickableAndClick(updateShareProfile);
+        Listeners.addLogs("Clicked on Share Consent");
+    }
+    public void saveProfile() throws InterruptedException {
+        UtilityFunctions.waitToBeClickableAndClick(saveProfile);
+        Listeners.addLogs("Clicked on Save Consent");
+    }
+    public void verifyConsentToasterProfileMsg() throws InterruptedException {
+        UtilityFunctions.waitForVisibilityOfWebElement(verifyConsentToasterProfileMsg);
+        UtilityFunctions.validatIsElementPresent(verifyConsentToasterProfileMsg, "Consent profile toaster message not displayed");
+        Listeners.addLogs("Verified on Consent Profile Msg");
+    }
 
 }

@@ -22,7 +22,7 @@ public class SanitySuites2 extends BaseTestConfig {
 		HomeTabPageActions.validateRecentlyPublishedSection();
 	}
 	@Test(description = "createCollectionAndVerify")
-	public void createCollectionAndVerify() throws Exception {
+	public void CreateCollectionAndVerify() throws Exception {
 
 		OnBoardingActions.RolePoup();
 		OnBoardingActions.BMCPopup();
@@ -49,7 +49,7 @@ public class SanitySuites2 extends BaseTestConfig {
 
 	}
 	@Test(description = "Create Book with DifferentResourceType")
-	public void createBookwithDifferentResourceType() throws Exception {
+	public void CreateBookwithDifferentResourceType() throws Exception {
 
 		OnBoardingActions.RolePoup();
 		OnBoardingActions.BMCPopup();
@@ -104,7 +104,7 @@ public class SanitySuites2 extends BaseTestConfig {
 	}
 
 	@Test(description = "Select questions from pick question page and SendForReview")
-	public void selectQuestionFromQuestionSetPage() throws Exception {
+	public void SelectQuestionFromQuestionSetPage() throws Exception {
 
 		OnBoardingActions.RolePoup();
 		OnBoardingActions.BMCPopup();
@@ -127,7 +127,7 @@ public class SanitySuites2 extends BaseTestConfig {
 
 
 	@Test(description = "Content creator should have created atleast one content and sent for review")
-	public void createContentAndSendForReview() throws Exception {
+	public void CreateContentAndSendForReview() throws Exception {
 
 		OnBoardingActions.RolePoup();
 		OnBoardingActions.BMCPopup();
@@ -156,7 +156,7 @@ public class SanitySuites2 extends BaseTestConfig {
 
 	}
 	@Test(description = "Verify that if the book creator is able to copy a book")
-	public void creatorAbleToCopyBook() throws Exception {
+	public void CreatorAbleToCopyBook() throws Exception {
 
 		OnBoardingActions.RolePoup();
 		OnBoardingActions.BMCPopup();
@@ -173,7 +173,7 @@ public class SanitySuites2 extends BaseTestConfig {
 	}
 
 	@Test(description = "Verify that if the course creator is able to copy a course.\n")
-	public void userAbleToCopyTheCourse() throws Exception {
+	public void UserAbleToCopyTheCourse() throws Exception {
 
 		OnBoardingActions.RolePoup();
 		OnBoardingActions.BMCPopup();

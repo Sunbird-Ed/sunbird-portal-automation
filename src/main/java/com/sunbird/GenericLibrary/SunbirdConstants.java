@@ -66,6 +66,15 @@ public static String collobratorAddedToastrmsg="Collaborators updated successful
     public static String validateToasterMsgOfTeacherForm="Profile share settings submitted successfully";
     public static String ColorOfCourseEnrolmentEndDateExpiredMessage="#E55A28";
     public static String ColorOfCourseConsumptionMessage="#005A9E";
+    public static String assertUpdateToasterMsg="updated successfully";
+    public static String assertConsentTextForPolicy="I consent to provide my Profile Details and the additional details listed above with the administrators of my State / Institution. All administrators on DIKSHA are bound by the Privacy Policy and Administrator Guidelines in their use of my data. Privacy Policy";
+
+
+
+
+
+    /* Refered to CourseWithEnrolmentEndDateExpired Variable in Property file*/
+    public static String enrollementEndDateExpired="2024-01-26";
 
 
 }

@@ -71,6 +71,34 @@ public class DashboardPage {
     @FindBy(how = How.XPATH, using = "//*[contains(text(),'Help')]")
     private WebElement helpLink;
 
+
+    @FindBy(how = How.XPATH, using = "//span[contains(text(),'Switch to classic theme')]")
+    private WebElement clickOnSwitchToClassicTheme;
+
+    @FindBy(how = How.XPATH, using = "//div[@class='sb-avatar__img']")
+    private WebElement clickUserProfileIconInClassicTheme;
+
+    @FindBy(how = How.XPATH, using = "//app-main-menu")
+    private WebElement assertClassicThemeProfilePageHeader;
+
+    @FindBy(how = How.XPATH, using = "//div[@class='four wide column contantDetails']//following::a[contains(text(),'Terms and Privacy')]")
+    private WebElement assertClassicThemeProfilePageFooter;
+
+    @FindBy(how = How.XPATH, using = "//span[contains(text(),'Switch to joyful theme')]")
+    private WebElement clickOnSwitchToJoyfulTheme;
+
+    @FindBy(how = How.XPATH, using = "//header")
+    private WebElement assertJoyfulThemeProfilePageHeader;
+
+    @FindBy(how = How.XPATH, using = "//div[contains(@class,'six wide')]//following::a[contains(text(),'Terms and Privacy')]")
+    private WebElement assertJoyfulThemeProfilePageFooter;
+
+    @FindBy(how = How.XPATH, using = "//span[contains(text(),'English')]")
+    private WebElement clickOnLanguageSelection;
+
+    @FindBy(how = How.XPATH, using = "//span[contains(text(),'ಕನ್ನಡ')]")
+    private WebElement selectKannadaLanguage;
+
     public void userProfileIcon() throws InterruptedException {
 
         UtilityFunctions.waitToBeClickableAndClick(userProfileIcon);
@@ -202,4 +230,62 @@ UtilityFunctions.waitForVisibilityOfWebElement(firstContentCard);
         UtilityFunctions.waitForElementAndClickable(helpLink);
         Listeners.addLogs("Clicked on Help Link");
     }
+
+
+
+
+    public void switchToClassicTheme() {
+        UtilityFunctions.waitForElementIsVisible(clickOnSwitchToClassicTheme);
+        UtilityFunctions.waitForElementAndClickable(clickOnSwitchToClassicTheme);
+        Listeners.addLogs("Clicked on Classic theme");
+    }
+
+    public void clickUserProfileIconInClassicTheme() {
+        UtilityFunctions.waitForElementIsVisible(clickUserProfileIconInClassicTheme);
+        UtilityFunctions.waitForElementAndClickable(clickUserProfileIconInClassicTheme);
+        Listeners.addLogs("Clicked on Profile Icon in Classic theme");
+
+    }
+    public void classicThemeProfilePageHeader() {
+        UtilityFunctions.waitForElementIsVisible(assertClassicThemeProfilePageHeader);
+        UtilityFunctions.validatIsElementPresent(assertClassicThemeProfilePageHeader, "Tabs Menu are not displayed in Profile Page in Classic theme");
+        Listeners.addLogs("Tabs Menu are displayed in Profile Page in Classic theme");
+    }
+
+    public void classicThemeProfilePageFooter() {
+        UtilityFunctions.waitForElementIsVisible(assertClassicThemeProfilePageFooter);
+        UtilityFunctions.validatIsElementPresent(assertClassicThemeProfilePageFooter, "Terms and Privacy is not displayed in right side of Profile Page in Classic theme");
+        Listeners.addLogs("Terms and Privacy is displayed in right side of Profile Page in Classic theme");
+
+    }
+    public void clickOnSwitchToJoyfulTheme() {
+        UtilityFunctions.waitForElementIsVisible(clickOnSwitchToJoyfulTheme);
+        UtilityFunctions.waitForElementAndClickable(clickOnSwitchToJoyfulTheme);
+        Listeners.addLogs("Clicked on Joyful theme");
+    }
+    public void joyfulThemeProfilePageHeader() {
+        UtilityFunctions.waitForElementIsVisible(assertJoyfulThemeProfilePageHeader);
+        UtilityFunctions.validatIsElementPresent(assertClassicThemeProfilePageFooter, "Header is not displayed in Joyful theme");
+        Listeners.addLogs("Header is displayed in Joyful theme");
+    }
+
+    public void joyfulThemeProfilePageFooter() {
+        UtilityFunctions.waitForElementIsVisible(assertJoyfulThemeProfilePageFooter);
+        UtilityFunctions.validatIsElementPresent(assertClassicThemeProfilePageFooter, "Terms and Privacy is not displayed in right side of Profile Page in Joyful theme");
+        Listeners.addLogs("Terms and Privacy is displayed in right side of Profile Page in Joyful theme");
+
+    }
+
+    public void languageSelection() {
+        UtilityFunctions.waitForElementIsVisible(clickOnLanguageSelection);
+        UtilityFunctions.waitForElementAndClickable(clickOnLanguageSelection);
+        Listeners.addLogs("Clicked on Language Selection section");
+    }
+
+    public void kannadaLanguage() {
+        UtilityFunctions.waitForVisibilityOfWebElement(selectKannadaLanguage);
+        UtilityFunctions.waitForElementAndClickable(selectKannadaLanguage);
+        Listeners.addLogs("Clicked on Language Selection section");
+    }
+
 }

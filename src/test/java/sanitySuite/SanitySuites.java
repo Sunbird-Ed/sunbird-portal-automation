@@ -1,13 +1,14 @@
 package sanitySuite;
 
 import com.sunbird.GenericLibrary.BaseTestConfig;
+import com.sunbird.GenericLibrary.UtilityFunctions;
 import com.sunbird.PageActions.*;
 import org.testng.annotations.Test;
 
 public class SanitySuites extends BaseTestConfig {
 
 	@Test()
-	public void createResourceAndPublish() throws Exception {
+	public void CreateResourceAndPublish() throws Exception {
 
 		OnBoardingActions.RolePoup();
 		OnBoardingActions.BMCPopup();
@@ -18,6 +19,7 @@ public class SanitySuites extends BaseTestConfig {
 		DashboardPageActions.clickOnWorkSpace();
 		WorkspaceDashboardPageActions.clickResource();
 		String createdContent = ResourcePageActions.createResourcePopup("getContentName");
+		UtilityFunctions.threadSleep(6000);
 		ResourcePageActions.addTriangleShape();
 		ResourcePageActions.addText();
 		ResourcePageActions.addNewSlide();
@@ -30,8 +32,8 @@ public class SanitySuites extends BaseTestConfig {
 		DashboardPageActions.clickOnWorkSpace();
 		ReviewPageActions.reviewAndPublishContent(createdContent, "Resource");
 	}
-	@Test(description = "createCourseSendForReview")
-	public void createcourseAndVerify() throws Exception {
+	@Test(description = "Content creator should be able to send course for review ")
+	public void CreateCourseAndVerify() throws Exception {
 
 		OnBoardingActions.RolePoup();
 		OnBoardingActions.BMCPopup();
@@ -58,7 +60,7 @@ public class SanitySuites extends BaseTestConfig {
 
 	}
 	@Test(description = "Create Book with unit")
-	public void createBookWithMoreUnit() throws Exception {
+	public void CreateBookWithMoreUnit() throws Exception {
 
 		OnBoardingActions.RolePoup();
 		OnBoardingActions.BMCPopup();
@@ -142,7 +144,7 @@ public class SanitySuites extends BaseTestConfig {
 	}
 
 	@Test(description = "Book creator should be able to downlaod the ToC in the CSV file format")
-	public void verifyTOCDownloadedInCSVFormat() throws Exception {
+	public void VerifyTOCDownloadedInCSVFormat() throws Exception {
 
 		OnBoardingActions.RolePoup();
 		OnBoardingActions.BMCPopup();
@@ -163,7 +165,7 @@ public class SanitySuites extends BaseTestConfig {
 		BookPageActions.downloadFolderAsCSVFile();
 	}
 	@Test(description = "Generate QrCode")
-	public void downloadBulkQRCode() throws Exception {
+	public void DownloadBulkQRCode() throws Exception {
 		OnBoardingActions.RolePoup();
 		OnBoardingActions.BMCPopup();
 		OnBoardingActions.LocationPopup();
@@ -189,7 +191,7 @@ public class SanitySuites extends BaseTestConfig {
 	}
 
 	@Test(description = "User shoule be able to search the particular course by Keyword")
-	public void searchCourseByKeyword() throws Exception {
+	public void SearchCourseByKeyword() throws Exception {
 		OnBoardingActions.RolePoup();
 		OnBoardingActions.BMCPopup();
 		OnBoardingActions.LocationPopup();

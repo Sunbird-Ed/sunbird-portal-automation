@@ -1,5 +1,6 @@
 package regression;
 
+import com.sunbird.GenericLibrary.UtilityFunctions;
 import com.sunbird.PageActions.*;
 import org.testng.annotations.Test;
 
@@ -72,7 +73,7 @@ LoginPageActions.verifySunbirdLogo();
         AddUserPageActions.addUserBtnInCreation();
         AddUserPageActions.assertAddedUserToastrMsg();
         AddUserPageActions.clickOnCreatedUser(creadtedUserName);
-        AddUserPageActions.clickChangeUser();
+            AddUserPageActions.clickChangeUser();
         AddUserPageActions.checkBoxClick();
         AddUserPageActions.clickContinue();
         OnBoardingActions.RolePoup();
@@ -83,13 +84,110 @@ LoginPageActions.verifySunbirdLogo();
         ProfilePageActions.clickOnSubmitDetails();
         ProfilePageActions.clickOnTenantDropDown();
         ProfilePageActions.selectTenantFromDropDown();
+        ProfilePageActions.assertExternalIdField();
+        ProfilePageActions.assertMobileField();
+        ProfilePageActions.assertEmailIdField();
         ProfilePageActions.selectCheckBoxFromTeacherForm();
+        ProfilePageActions.assertConsentTextForPolicy();
         ProfilePageActions.clickOnSubmitButtonInTeacherForm();
         ProfilePageActions.assertToasterMsgOfTeacherForm();
         ProfilePageActions.clickOnOkButtonInAlertMsgOfTeacherForm();
         ProfilePageActions.validateMyDetailsLabel();
+        ProfilePageActions.clickOnTeacherFormUpdateButton();
+        UtilityFunctions.scrollUpUsingPixelValue();
+        ProfilePageActions.clickOnTenantDropDown();
+        ProfilePageActions.selectOnNewTenantFromDropDown();
+        ProfilePageActions.clickOnTeacherFormUpdateButton();
+        ProfilePageActions.assertUpdateToasterMsg();
     }
 
+
+    @Test(description = "Logged In User able to validate Switch to New/ Old Theme in Profile page")
+    public void ValidateSwitchThemeInProfileOfLoggedInUser() throws Exception {
+        OnBoardingActions.RolePoup();
+        OnBoardingActions.BMCPopup();
+        OnBoardingActions.LocationPopup();
+
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("Profile_New_User"),
+                sunbird_config.getSunbidConfigPropertyValue("Profile_New_PWD"));
+
+        DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.clickOnProfileForLoginUser();
+        DashboardPageActions.clickUserProfileIcon();
+
+        DashboardPageActions.clickOnSwitchToClassicTheme();
+        DashboardPageActions.assertClassicThemeProfilePageHeader();
+        DashboardPageActions.assertClassicThemeProfilePageFooter();
+
+        DashboardPageActions.clickUserProfileIconInClassicTheme();
+        DashboardPageActions.clickOnSwitchToJoyfulTheme();
+        DashboardPageActions.assertJoyfulThemeProfilePageHeader();
+        DashboardPageActions.assertJoyfulThemeProfilePageFooter();
+    }
+
+
+
+    @Test(description = "Validate Course & Certificates FAQs in Help Page")
+    public void ValidateCourseAndCertificateFAQInHelpPage() throws Exception {
+        OnBoardingActions.RolePoup();
+        OnBoardingActions.BMCPopup();
+        OnBoardingActions.LocationPopup();
+        DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.VerifyHelpSection();
+        HelpPageActions.ClickOnCourseAndCertificateCategory();
+        HelpPageActions.assertFAQInCourseCategory();
+        DashboardPageActions.clickOnLanguageSelection();
+        DashboardPageActions.selectKannadaLanguage();
+        HelpPageActions.ClickOnCourseAndCertificateCategory();
+        HelpPageActions.assertCourseProgressFAQInKannadaLanguage();
+
+    }
+
+
+    @Test(description = "Verify complete flow of Report Other Issue in Help Page")
+    public void VerifyReportOtherIssueFlowInHelpPage() throws Exception {
+        OnBoardingActions.RolePoup();
+        OnBoardingActions.BMCPopup();
+        OnBoardingActions.LocationPopup();
+        DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.VerifyHelpSection();
+        HelpPageActions.VerifyReportOtherIssue();
+        HelpPageActions.ClickReportOtherIssue();
+        HelpPageActions.clickOnSelectCategory();
+        HelpPageActions.selectCategoryFromDropdown();
+        HelpPageActions.clickOnSelectSubCategory();
+        HelpPageActions.selectSubCategoryFromDropdown();
+        HelpPageActions.enterTextInTellUsMoreTextField();
+        HelpPageActions.clickOnSubmitFeedbackBtn();
+        HelpPageActions.validateFeedbackToaster();
+
+    }
+
+    @Test(description = "Validate Organization Of Help Page")
+    public void ValidateOrganizationOfHelpPage() throws Exception {
+        OnBoardingActions.RolePoup();
+        OnBoardingActions.BMCPopup();
+        OnBoardingActions.LocationPopup();
+        DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.VerifyHelpSection();
+        HelpPageActions.validateHelpPage();
+
+    }
+
+
+    @Test(description = "Validate Debug Mode in Help Page")
+
+    public void ValidateDebugModeInHelpPage() throws Exception {
+        OnBoardingActions.RolePoup();
+        OnBoardingActions.BMCPopup();
+        OnBoardingActions.LocationPopup();
+        DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.VerifyHelpSection();
+        HelpPageActions.assertDebugMode();
+        HelpPageActions.clickOnDebugMode();
+        HelpPageActions.clickOnEnableDebugMode();
+
+    }
 
 
 }

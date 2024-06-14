@@ -55,14 +55,19 @@ public class OnBoardingActions extends BaseTestConfig {
     /* This method will handle the Location popup in onboarding flow */
     public static void LocationPopup() throws InterruptedException {
         OnBoarding onboard = PageFactory.initElements(driver, OnBoarding.class);
-       Thread.sleep(8000);
-//        onboard.clickStateDropdown();
-//        onboard.selectStateValue();
-//        Thread.sleep(2000);
-//        onboard.clickDistrictDropDown();
-//        onboard.selectDistrictValue();
+      // Thread.sleep(8000);
+        onboard.clickStateDropdown();
+        onboard.selectStateValue();
+        Thread.sleep(2000);
+        onboard.clickDistrictDropDown();
+        onboard.selectDistrictValue();
         onboard.LocationPopupSubmit();
 
+    }
+
+    public static void waitContentIsSavedToastToDisapper() {
+        OnBoarding onboard = PageFactory.initElements(driver, OnBoarding.class);
+        onboard.waitContentIsSavedToastrToDisappear();
     }
     public static void StudentRolePoup() throws InterruptedException {
         OnBoarding onboard = PageFactory.initElements(driver, OnBoarding.class);

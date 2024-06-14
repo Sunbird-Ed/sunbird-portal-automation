@@ -115,5 +115,47 @@ public class ProfilePageActions extends BaseTestConfig {
 		UtilityFunctions.stringValueComparision(actualMsg1, SunbirdConstants.validateMyDetailsLabel, "My details is not displayed");
 		Listeners.addLogs("My details is displayed ");
 	}
+	public static void assertExternalIdField() throws InterruptedException {
+		ProfilePage profilePage = PageFactory.initElements(driver, ProfilePage.class);
+		profilePage.assertExternalIdField();
+
+	}
+
+	public static void assertMobileField() throws InterruptedException {
+		ProfilePage profilePage = PageFactory.initElements(driver, ProfilePage.class);
+		profilePage.assertMobileField();
+
+	}
+
+	public static void assertEmailIdField() throws InterruptedException {
+		ProfilePage profilePage = PageFactory.initElements(driver, ProfilePage.class);
+		profilePage.assertEmailIdField();
+
+	}
+
+	public static void clickOnTeacherFormUpdateButton() throws InterruptedException {
+		ProfilePage profilePage = PageFactory.initElements(driver, ProfilePage.class);
+		profilePage.clickOnTeacherFormUpdateButton();
+
+	}
+
+	public static void assertUpdateToasterMsg() throws InterruptedException {
+		ProfilePage profilePage = PageFactory.initElements(driver, ProfilePage.class);
+		String actualMsg = profilePage.assertUpdateToasterMsg();
+		UtilityFunctions.stringValueComparision(actualMsg, SunbirdConstants.assertUpdateToasterMsg, "Update Successfully Toaster Msg of Teacher Form is not handled");
+		Listeners.addLogs("Update Successfully Toaster Msg of Teacher Form is handled");
+	}
+	public static void assertConsentTextForPolicy() {
+		ProfilePage profilePage = PageFactory.initElements(driver, ProfilePage.class);
+		String actualMsg1 = profilePage.assertConsentTextForPolicy();
+		UtilityFunctions.stringValueComparision(actualMsg1, SunbirdConstants.assertConsentTextForPolicy, "Consent for policy is not displayed");
+		Listeners.addLogs("Consent for policy is displayed ");
+
+	}
+	public static void selectOnNewTenantFromDropDown() throws InterruptedException {
+		ProfilePage profilePage = PageFactory.initElements(driver, ProfilePage.class);
+		profilePage.selectOnNewTenantFromDropDown();
+
+	}
 
 }

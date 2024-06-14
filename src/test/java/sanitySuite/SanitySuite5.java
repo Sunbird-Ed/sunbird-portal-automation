@@ -30,7 +30,7 @@ public class SanitySuite5 extends BaseTestConfig  {
 
     }
     @Test(description = "Turn toggle on/off for the shuffle and show immediate feedback in question set page")
-    public void showimmediatefeedback() throws Exception {
+    public void Showimmediatefeedback() throws Exception {
 
         OnBoardingActions.RolePoup();
         OnBoardingActions.BMCPopup();
@@ -53,7 +53,7 @@ public class SanitySuite5 extends BaseTestConfig  {
     }
 
     @Test(description = "User should be displayed with the Last updated date and time (24 hours IST format) above the “Total enrolments”")
-    public void verifyLastUpdatedDateAndTimeInBatchViewDashboard() throws Exception {
+    public void VerifyLastUpdatedDateAndTimeInBatchViewDashboard() throws Exception {
 
         OnBoardingActions.RolePoup();
         OnBoardingActions.BMCPopup();
@@ -156,7 +156,7 @@ public class SanitySuite5 extends BaseTestConfig  {
     }
 
     @Test(description = "The user should be displayed with Disable Discussions option in the group details page and clicking on the same the group admin should be displayed with a pop-up.")
-    public void disableDiscussionForumAndItsMessageInPopup() throws Exception {
+    public void DisableDiscussionForumAndItsMessageInPopup() throws Exception {
         OnBoardingActions.RolePoup();
         OnBoardingActions.BMCPopup();
         OnBoardingActions.LocationPopup();
@@ -188,7 +188,7 @@ public class SanitySuite5 extends BaseTestConfig  {
 
 /*Week3*/
     @Test(description = ".User should be able to click on the view all and close button for the My courses section")
-    public void validateDetailsInCourseCardInMyCourseSection() throws Exception {
+    public void ValidateDetailsInCourseCardInMyCourseSection() throws Exception {
         OnBoardingActions.RolePoup();
         OnBoardingActions.BMCPopup();
         OnBoardingActions.LocationPopup();
@@ -202,7 +202,7 @@ public class SanitySuite5 extends BaseTestConfig  {
 
     }
     @Test(description = "User should be able to see the correct ordering for class, medium, subjec")
-    public void verifyCorrectOrderingForClassMediumSubect() throws Exception {
+    public void VerifyCorrectOrderingForClassMediumSubect() throws Exception {
 
         OnBoardingActions.RolePoup();
         OnBoardingActions.BMCPopup();
@@ -214,7 +214,7 @@ public class SanitySuite5 extends BaseTestConfig  {
 
     }
     @Test(description = "The user should be displayed with the kebab menu in the course progress section once course is consumed with 100%")
-    public void syncProgressNowForCourse() throws Exception {
+    public void SyncProgressNowForCourse() throws Exception {
         OnBoardingActions.RolePoup();
         OnBoardingActions.BMCPopup();
         OnBoardingActions.LocationPopup();
@@ -284,7 +284,7 @@ public class SanitySuite5 extends BaseTestConfig  {
         BatchPageActions.assertSyncNowProgressToastrMSg();
     }
     @Test(description = "Join the discussion forum option should be shown in course content details page")
-    public void verifyDiscussionForumSectionInCourseContentDetailsPage() throws Exception {
+    public void VerifyDiscussionForumSectionInCourseContentDetailsPage() throws Exception {
 
         OnBoardingActions.RolePoup();
         OnBoardingActions.BMCPopup();
@@ -336,7 +336,7 @@ public class SanitySuite5 extends BaseTestConfig  {
     }
 
     @Test(description = "content should load as per the published user type filter")
-    public void contentShouldLoadAsPerPublishedUserTypeInDigitalTextbookTab() throws Exception {
+    public void ContentShouldLoadAsPerPublishedUserTypeInDigitalTextbookTab() throws Exception {
 
         OnBoardingActions.RolePoup();
         OnBoardingActions.BMCPopup();
@@ -361,7 +361,7 @@ public class SanitySuite5 extends BaseTestConfig  {
 
 
     @Test(description = "User should be able to add the collaborator on draft book")
-    public void addCollobratorToDraftBook() throws Exception {
+    public void AddCollobratorToDraftBook() throws Exception {
         OnBoardingActions.RolePoup();
         OnBoardingActions.BMCPopup();
         OnBoardingActions.LocationPopup();
@@ -390,7 +390,7 @@ public class SanitySuite5 extends BaseTestConfig  {
 
     }
     @Test(description = "The user should be able to download the csv file in published section")
-    public void downloadCourseQRCodeInPublishedSection() throws Exception {
+    public void DownloadCourseQRCodeInPublishedSection() throws Exception {
         OnBoardingActions.RolePoup();
         OnBoardingActions.BMCPopup();
         OnBoardingActions.LocationPopup();
@@ -408,7 +408,7 @@ public class SanitySuite5 extends BaseTestConfig  {
     }
 
     @Test(description = "User able to validate guestname,role,location and BMC details in profile")
-    public void validateGuestNameAndRoleAndBMCAndLocationDetailsInProfile() throws Exception {
+    public void ValidateGuestNameAndRoleAndBMCAndLocationDetailsInProfile() throws Exception {
         OnBoardingActions.RolePoup();
         OnBoardingActions.BMCPopup();
         OnBoardingActions.LocationPopup();
@@ -451,7 +451,7 @@ public class SanitySuite5 extends BaseTestConfig  {
         DashboardPageActions.clickOnObservationTab();
     }
     @Test(description = "Verify that multiple tagged M/C book can be get displayed post searching in digital textbook tab")
-    public void verifyMultipleMediumAndClassTaggedInBook() throws Exception {
+    public void VerifyMultipleMediumAndClassTaggedInBook() throws Exception {
         OnBoardingActions.RolePoup();
         OnBoardingActions.BMCPopup();
         OnBoardingActions.LocationPopup();
@@ -503,7 +503,7 @@ public class SanitySuite5 extends BaseTestConfig  {
     }
 
     @Test(description = "User should be able to select block/cluster/school value for User during onboarding")
-    public void userAbleToSelectStateBlockClusterAndSchoolInLocationPopupForNewUser() throws Exception {
+    public void UserAbleToSelectStateBlockClusterAndSchoolInLocationPopupForNewUser() throws Exception {
         OnBoardingActions.RolePoup();
         OnBoardingActions.BMCPopup();
         OnBoardingActions.LocationPopup();
@@ -517,7 +517,7 @@ public class SanitySuite5 extends BaseTestConfig  {
 
     }
     @Test(description = "User should be able to merge the custodian account")
-    public void mergeCustodianAccount() throws Exception {
+    public void MergeCustodianAccount() throws Exception {
         OnBoardingActions.RolePoup();
         OnBoardingActions.BMCPopup();
         OnBoardingActions.LocationPopup();
@@ -530,7 +530,7 @@ public class SanitySuite5 extends BaseTestConfig  {
     }
 
     @Test(description = "Sunbird Logo should be displayed before login and after login")
-    public void verifySunbirdLogo() throws Exception {
+    public void VerifySunbirdLogo() throws Exception {
         OnBoardingActions.RolePoup();
         OnBoardingActions.BMCPopup();
         OnBoardingActions.LocationPopup();
@@ -543,7 +543,7 @@ public class SanitySuite5 extends BaseTestConfig  {
 
 
     @Test(description = " The user should be displayed with Toast message It is the Last Attempt left when user clicks on the assessment on the Last attempt.")
-    public void verifyNumberOfMaximumAttemptsWhenCourseAssesmentAddedToCourse () throws Exception {
+    public void VerifyNumberOfMaximumAttemptsWhenCourseAssesmentAddedToCourse () throws Exception {
 
         OnBoardingActions.RolePoup();
         OnBoardingActions.BMCPopup();
@@ -614,7 +614,7 @@ public class SanitySuite5 extends BaseTestConfig  {
     }
 
     @Test(description = "user should be able to search for TV lesson type content")
-    public void searchTVLessonTypeContent() throws Exception {
+    public void SearchTVLessonTypeContent() throws Exception {
 
         OnBoardingActions.RolePoup();
         OnBoardingActions.BMCPopup();
@@ -903,6 +903,37 @@ public class SanitySuite5 extends BaseTestConfig  {
         DashboardPageActions.clickOnWorkSpace();
         ReviewPageActions.reviewAndPublishContent(resourceName, "Upload");
         DashboardPageActions.logOut();
+    }
+    @Test(description="Verify Submit Details button and My details Section in Profile")
+    public void FillSubmitDetailsFormInProfile() throws Exception {
+
+        OnBoardingActions.RolePoup();
+        OnBoardingActions.BMCPopup();
+        OnBoardingActions.LocationPopup();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("New_User1"),
+                sunbird_config.getSunbidConfigPropertyValue("New_PWD1"));
+        DashboardPageActions.clickUserProfileIcon();
+        AddUserPageActions.clickAddPlusIcon();
+        String creadtedUserName=AddUserPageActions.enterName();
+        AddUserPageActions.addUserBtnInCreation();
+        AddUserPageActions.assertAddedUserToastrMsg();
+        AddUserPageActions.clickOnCreatedUser(creadtedUserName);
+        AddUserPageActions.clickChangeUser();
+        AddUserPageActions.checkBoxClick();
+        AddUserPageActions.clickContinue();
+        OnBoardingActions.RolePoup();
+        OnBoardingActions.LocationPopupForSwitchUser();
+        DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.clickOnProfileForLoginUser();
+        ProfilePageActions.verifySubmitDetails();
+        ProfilePageActions.clickOnSubmitDetails();
+        ProfilePageActions.clickOnTenantDropDown();
+        ProfilePageActions.selectTenantFromDropDown();
+        ProfilePageActions.selectCheckBoxFromTeacherForm();
+        ProfilePageActions.clickOnSubmitButtonInTeacherForm();
+        ProfilePageActions.assertToasterMsgOfTeacherForm();
+        ProfilePageActions.clickOnOkButtonInAlertMsgOfTeacherForm();
+        ProfilePageActions.validateMyDetailsLabel();
     }
 
 }

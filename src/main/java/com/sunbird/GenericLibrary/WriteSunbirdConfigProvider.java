@@ -12,7 +12,8 @@ public class WriteSunbirdConfigProvider extends BaseTestConfig {
     /*Creates object and loads the Config properties file */
     public WriteSunbirdConfigProvider() throws Exception {
 
-        String path = System.getProperty("user.dir") + "//Config//CreatedSunbirdData.Properties";
+      //  String path = System.getProperty("user.dir") + UtilityFunctions.getWriteProperyFilePath();
+        String path = UtilityFunctions.getWriteProperyFilePath();
 
         FileInputStream fis = new FileInputStream(path);
         writesunbirdConfigPro = new Properties();
@@ -25,6 +26,8 @@ public class WriteSunbirdConfigProvider extends BaseTestConfig {
     }
     public void writeDataIntoPropertyFile(String keyName, String keyValue) throws IOException {
         writesunbirdConfigPro.setProperty(keyName,keyValue);
-        writesunbirdConfigPro.store(new FileWriter(System.getProperty("user.dir") + "//Config//CreatedSunbirdStagingData.Properties"),"Created content data");
+      //  writesunbirdConfigPro.store(new FileWriter(System.getProperty("user.dir") + UtilityFunctions.getWriteProperyFilePath()),"Created content data");
+        writesunbirdConfigPro.store(new FileWriter(UtilityFunctions.getWriteProperyFilePath()),"Created content data");
+
     }
 }

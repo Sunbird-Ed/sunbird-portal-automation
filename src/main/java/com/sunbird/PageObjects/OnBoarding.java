@@ -83,6 +83,9 @@ public class OnBoarding extends BaseTestConfig {
     @FindBy(how = How.XPATH, using = "(//button[@type='submit'])[2]")
     private WebElement LocationPopupSubmitButton;
 
+    @FindBy(how = How.XPATH, using = "//strong[contains(text(),'User preference updated successfully')]")
+    private WebElement locationPopupToastrMsg;
+
     @FindBy(how = How.XPATH, using = "//*[@id='mat-select-value-21']")
     private WebElement farmingTypeDropDown;
     @FindBy(how = How.XPATH, using = "//*[@id='mat-select-value-21']//following::span[@class='mat-option-text']")
@@ -363,7 +366,10 @@ UtilityFunctions.waitForElementUsingForLoopAndAssert(ckBoard.get(i),5);
         Listeners.addLogs("Teacher role is displayed ");
     }
 
+    public void waitContentIsSavedToastrToDisappear() {
+        UtilityFunctions.waitForElementToDisappear(locationPopupToastrMsg);
 
+    }
 
 
 

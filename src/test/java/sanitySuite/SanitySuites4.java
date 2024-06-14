@@ -7,8 +7,8 @@ import org.testng.annotations.Test;
 
 public class SanitySuites4 extends BaseTestConfig {
 
-	@Test(description = "create Group")
-	public void createGroup() throws Exception {
+	@Test(description = "User should be able to create the group succssfully")
+	public void CreateGroup() throws Exception {
 		OnBoardingActions.RolePoup();
 		OnBoardingActions.BMCPopup();
 		OnBoardingActions.LocationPopup();
@@ -26,7 +26,7 @@ public class SanitySuites4 extends BaseTestConfig {
 	}
 
 	@Test(description = "validate all the option inside the forum icon page")
-	public void validateAllOptionsInsideForumIcon() throws Exception {
+	public void ValidateAllOptionsInsideForumIcon() throws Exception {
 		OnBoardingActions.RolePoup();
 		OnBoardingActions.BMCPopup();
 		OnBoardingActions.LocationPopup();
@@ -50,7 +50,7 @@ public class SanitySuites4 extends BaseTestConfig {
 	}
 
 	@Test(description = "The creator of the post/topic should be able to edit/delete the below fields on the post.")
-	public void userAbleToCreateTopicAndEditAndDelete() throws Exception {
+	public void UserAbleToCreateTopicAndEditAndDelete() throws Exception {
 
 		OnBoardingActions.RolePoup();
 		OnBoardingActions.BMCPopup();
@@ -84,7 +84,7 @@ public class SanitySuites4 extends BaseTestConfig {
 	}
 
 	@Test(description = "The close option should be displayed on the below pages when the user opens the discussion forum ")
-	public void closeButtonInDisussionForum() throws Exception {
+	public void CloseButtonInDisussionForum() throws Exception {
 
 		OnBoardingActions.RolePoup();
 		OnBoardingActions.BMCPopup();
@@ -116,7 +116,7 @@ public class SanitySuites4 extends BaseTestConfig {
 	}
 
 	@Test(description = "Verify user able to searchQrCodeInGetPage")
-	public void searchQrCodeInGetPage() throws Exception {
+	public void SearchQrCodeInGetPage() throws Exception {
 		OnBoardingActions.RolePoup();
 		OnBoardingActions.BMCPopup();
 		OnBoardingActions.LocationPopup();
@@ -129,7 +129,7 @@ public class SanitySuites4 extends BaseTestConfig {
 	}
 
 	@Test(description = "Verify guest user is able to get Login Popup while join the course \n")
-	public void loginPopupShouldDisplayForGuestUserDuringCourseEnroll() throws Exception {
+	public void LoginPopupShouldDisplayForGuestUserDuringCourseEnroll() throws Exception {
 
 		OnBoardingActions.RolePoup();
 		OnBoardingActions.BMCPopup();
@@ -177,7 +177,7 @@ public class SanitySuites4 extends BaseTestConfig {
 	}
 
 	@Test(description = "verify different framework values in courseType")
-	public void verifyFrameworksInCourseType() throws Exception {
+	public void VerifyFrameworksInCourseType() throws Exception {
 
 		OnBoardingActions.RolePoup();
 		OnBoardingActions.BMCPopup();
@@ -195,7 +195,7 @@ public class SanitySuites4 extends BaseTestConfig {
 
 
 	@Test(description = "User should be able to search and consume the published content.\n")
-	public void verifyThatUserIsAbleToSearchAndConsumeThePublishedContent() throws Exception {
+	public void VerifyThatUserIsAbleToSearchAndConsumeThePublishedContent() throws Exception {
 
 		OnBoardingActions.RolePoup();
 		OnBoardingActions.BMCPopup();
@@ -245,7 +245,7 @@ public class SanitySuites4 extends BaseTestConfig {
 	}
 
 	@Test(description = "Users view observations as tiles")
-	public void validateObservationListsInObservationTab() throws Exception {
+	public void ValidateObservationListsInObservationTab() throws Exception {
 
 		OnBoardingActions.RolePoup();
 		OnBoardingActions.BMCPopup();
@@ -259,7 +259,7 @@ public class SanitySuites4 extends BaseTestConfig {
 	}
 
 	@Test(description = "Post uploading and saving, content resides in all my bucket .")
-	public void verifyUploadContentInAllMyContent() throws Exception {
+	public void VerifyUploadContentInAllMyContent() throws Exception {
 
 		OnBoardingActions.RolePoup();
 		OnBoardingActions.BMCPopup();
@@ -281,7 +281,7 @@ public class SanitySuites4 extends BaseTestConfig {
 		UploadPageActions.assertEditDetails();
 	}
 	@Test(description = "User can play all content type in full screen mode")
-	public void consumContentInFullScreen() throws Exception {
+	public void ConsumContentInFullScreen() throws Exception {
 
 		OnBoardingActions.RolePoup();
 		OnBoardingActions.BMCPopup();
@@ -334,7 +334,7 @@ public class SanitySuites4 extends BaseTestConfig {
 
 	/* Sprint 2*/
 	@Test(description = "The Digital textbooks, Courses, and TV Classes tabs should have the same filters")
-	public void verifyFilterIsSameInDigitalAndCourseAndTVClassTabs() throws Exception {
+	public void VerifyFilterIsSameInDigitalAndCourseAndTVClassTabs() throws Exception {
 
 		OnBoardingActions.RolePoup();
 		OnBoardingActions.BMCPopup();
@@ -351,7 +351,7 @@ public class SanitySuites4 extends BaseTestConfig {
 	}
 
 	@Test(description = "User should be able to see all the questions created by him/herself by turning on My question toggle button along with edit")
-	public void toogleMyQuestionFilterAndValidateQuestions() throws Exception {
+	public void ToogleMyQuestionFilterAndValidateQuestions() throws Exception {
 
 		OnBoardingActions.RolePoup();
 		OnBoardingActions.BMCPopup();
@@ -380,7 +380,7 @@ public class SanitySuites4 extends BaseTestConfig {
 	}
 
 	@Test(description = "User should be able to bundle the question along with immediate feedback and shuffle question")
-	public void bundleTheQuestionWithImmediateFeedBackAndShuffle() throws Exception {
+	public void BundleTheQuestionWithImmediateFeedBackAndShuffle() throws Exception {
 
 		OnBoardingActions.RolePoup();
 		OnBoardingActions.BMCPopup();
@@ -409,7 +409,7 @@ public class SanitySuites4 extends BaseTestConfig {
 	}
 
 	@Test(description = "User should be able to create a Question Set by filling all the mandatory details in the root node")
-	public void userAbleToCreateMCQQuestionSetByFillingRootNode() throws Exception {
+	public void UserAbleToCreateMCQQuestionSetByFillingRootNode() throws Exception {
 
 		OnBoardingActions.RolePoup();
 		OnBoardingActions.BMCPopup();
@@ -482,7 +482,7 @@ public class SanitySuites4 extends BaseTestConfig {
 	}
 
 	@Test()
-	public void createMCAandFTBandMCQInResource() throws Exception {
+	public void CreateMCAandFTBandMCQInResource() throws Exception {
 
 		OnBoardingActions.RolePoup();
 		OnBoardingActions.BMCPopup();
@@ -559,7 +559,7 @@ public class SanitySuites4 extends BaseTestConfig {
 
 
 	@Test(description = "Post enabling user should be able to see the forum icon in dashboard page")
-	public void forumIconInViewCourseDashboardInBatch() throws Exception {
+	public void ForumIconInViewCourseDashboardInBatch() throws Exception {
 
 		OnBoardingActions.RolePoup();
 		OnBoardingActions.BMCPopup();
@@ -608,7 +608,7 @@ public class SanitySuites4 extends BaseTestConfig {
 		GroupsPageActions.assertCloseIcon();
 	}
 	@Test(description = "Verify that the book creator is able to generate the bulk QR codes for the draft book")
-	public void downloadBulkQRcodeForDraftBook() throws Exception {
+	public void DownloadBulkQRcodeForDraftBook() throws Exception {
 
 		OnBoardingActions.RolePoup();
 		OnBoardingActions.BMCPopup();

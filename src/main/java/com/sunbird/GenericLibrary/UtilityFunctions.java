@@ -158,7 +158,6 @@ public class UtilityFunctions extends BaseTestConfig {
 
 	/* This method will accept WebElement as paramter and uploadFile Path as String and it will upload
 	using sendKeys approach using the provided String upload file path */
-
     public static void uploadSendKeys(WebElement element, String Value) {
 
         element.sendKeys(Value);
@@ -273,6 +272,33 @@ public class UtilityFunctions extends BaseTestConfig {
         }
         return path2;
     }
+    /* Get the testdata property file path as string based on the environmentsetup in config property */
+    public static String getWriteProperyFilePath() throws IOException {
+        String path = System.getProperty("user.dir") + "//Config//SunbirdConfig.Properties";
+        FileInputStream fis = new FileInputStream(path);
+        Properties pro = new Properties();
+        pro.load(fis);
+
+        String Env = pro.getProperty("EnvironmentSetup");
+        String path2 = "";
+        if (Env.equalsIgnoreCase("STAGING")) {
+            return path2 = System.getProperty("user.dir") + "//Config//WriteSunbirdStagingData.Properties";
+
+        } else if (Env.equalsIgnoreCase("PREPROD")) {
+
+            return path2 = System.getProperty("user.dir") + "//Config//SunbirdPreProd.Properties";
+
+        } else if (Env.equalsIgnoreCase("Prod")) {
+            return path2 = System.getProperty("user.dir") + "//Config//SunbirdProd.Properties";
+
+        }
+        else if (Env.equalsIgnoreCase("OCI")) {
+            return path2 = System.getProperty("user.dir") + "//Config//WriteSunbirdOCIdata.Properties";
+
+        }
+        return path2;
+    }
+
 
 
     public static String generateXpathUsingContainsWithKeyNameValue(String keynameValue) {

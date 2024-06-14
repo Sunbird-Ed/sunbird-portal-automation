@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
+import java.util.List;
+
 public class ProfilePage {
 
 	@FindBy(how = How.XPATH, using = "//div[contains(text(),'Guest')]")
@@ -80,7 +82,26 @@ public class ProfilePage {
 	@FindBy(how = How.XPATH, using = "//div[contains(text(),'My details')]")
 	private WebElement validateMyDetailsLabel;
 
+	@FindBy(how = How.XPATH, using = "//input[@id='declared-ext-id']")
+	private WebElement assertExternalIdField;
 
+	@FindBy(how = How.XPATH, using = "//input[@id='declared-phone']")
+	private WebElement assertMobileField;
+
+	@FindBy(how = How.XPATH, using = "//input[@id='declared-email']")
+	private WebElement assertEmailIdField;
+
+	@FindBy(how = How.XPATH, using = "//button[contains(text(),'Update')]")
+	private WebElement clickOnTeacherFormUpdateButton;
+
+	@FindBy(how = How.XPATH, using = "//strong[contains(text(),'updated successfully')]")
+	private WebElement assertUpdateToasterMsg;
+
+	@FindBy(how = How.XPATH, using = "//span[contains(text(),'consent to provide my Profile Details')]")
+	private WebElement assertConsentTextForPolicy;
+
+	@FindBy(how = How.XPATH, using = "//div[@id='tenant']//following::span[1]")
+	private List<WebElement> selectOnNewTenantFromDropDown;
 
 	public void verifyGuestName() {
 		UtilityFunctions.waitForElementIsVisible(assertGuestName);
@@ -223,5 +244,47 @@ public class ProfilePage {
 		String getActualText = UtilityFunctions.getTextFromElement(validateMyDetailsLabel);
 		return getActualText;
 	}
+	public void assertExternalIdField() {
+		UtilityFunctions.waitForElementIsVisible(assertExternalIdField);
+		UtilityFunctions.validatIsElementPresent(assertExternalIdField, "assertGuestName not displayed");
+		Listeners.addLogs("assertGuestName is displayed ");
 
+	}
+
+	public void assertMobileField() {
+		UtilityFunctions.waitForElementIsVisible(assertMobileField);
+		UtilityFunctions.validatIsElementPresent(assertMobileField, "assertMobileField not displayed");
+		Listeners.addLogs("assertMobileField is displayed ");
+
+	}
+
+	public void assertEmailIdField() {
+		UtilityFunctions.waitForElementIsVisible(assertEmailIdField);
+		UtilityFunctions.validatIsElementPresent(assertEmailIdField, "assertEmailIdField not displayed");
+		Listeners.addLogs("assertEmailIdField is displayed ");
+
+	}
+
+	public void clickOnTeacherFormUpdateButton() {
+		UtilityFunctions.waitForElementAndClickable(clickOnTeacherFormUpdateButton);
+		Listeners.addLogs("clickOnTeacherFormUpdateButton is clicked ");
+	}
+
+	public String assertUpdateToasterMsg() {
+		UtilityFunctions.waitForVisibilityOfWebElement(assertUpdateToasterMsg);
+		String getActualText = UtilityFunctions.getTextFromElement(assertUpdateToasterMsg);
+		UtilityFunctions.waitForElementToDisappear(assertUpdateToasterMsg);
+		return getActualText;
+	}
+	public String assertConsentTextForPolicy() {
+		UtilityFunctions.waitForVisibilityOfWebElement(assertConsentTextForPolicy);
+		String getActualText = UtilityFunctions.getTextFromElement(assertConsentTextForPolicy);
+		return getActualText;
+
+	}
+	public void selectOnNewTenantFromDropDown() {
+		UtilityFunctions.waitForElementAndClickable(selectOnNewTenantFromDropDown.get(3));
+		Listeners.addLogs("Selected New Tenant drop down");
+
+	}
 }

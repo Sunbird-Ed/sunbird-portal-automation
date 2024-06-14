@@ -108,9 +108,66 @@ dashboardPage.homeTab();
         DashboardPage dashboardPage = PageFactory.initElements(driver, DashboardPage.class);
         dashboardPage.verifySunbirdLogo();
     }
+
+    //Verify and Click on Help from Dashboard
     public static void VerifyHelpSection() throws InterruptedException{
         DashboardPage dashboardPage = PageFactory.initElements(driver, DashboardPage.class);
         dashboardPage.ClickOnHelp();
     }
+
+    //Switch to classic theme and verify the UI
+    public static void clickOnSwitchToClassicTheme() {
+        DashboardPage dashboardPage = PageFactory.initElements(driver, DashboardPage.class);
+        dashboardPage.switchToClassicTheme();
+
+    }
+
+    public static void clickUserProfileIconInClassicTheme() {
+        DashboardPage dashboardPage = PageFactory.initElements(driver, DashboardPage.class);
+        dashboardPage.clickUserProfileIconInClassicTheme();
+
+    }
+    public static void assertClassicThemeProfilePageHeader() {
+        DashboardPage dashboardPage = PageFactory.initElements(driver, DashboardPage.class);
+        dashboardPage.classicThemeProfilePageHeader();
+
+    }
+    public static void assertClassicThemeProfilePageFooter() {
+        DashboardPage dashboardPage = PageFactory.initElements(driver, DashboardPage.class);
+        dashboardPage.classicThemeProfilePageFooter();
+
+    }
+    //Switch to joyful theme and verify the UI
+    public static void clickOnSwitchToJoyfulTheme() {
+        DashboardPage dashboardPage = PageFactory.initElements(driver, DashboardPage.class);
+        dashboardPage.clickOnSwitchToJoyfulTheme();
+    }
+    public static void assertJoyfulThemeProfilePageHeader() {
+        DashboardPage dashboardPage = PageFactory.initElements(driver, DashboardPage.class);
+        dashboardPage.joyfulThemeProfilePageHeader();
+    }
+
+    public static void assertJoyfulThemeProfilePageFooter() {
+        DashboardPage dashboardPage = PageFactory.initElements(driver, DashboardPage.class);
+        dashboardPage.joyfulThemeProfilePageFooter();
+    }
+    //Clicking on Language selection field
+    public static void clickOnLanguageSelection() {
+        DashboardPage dashboardPage = PageFactory.initElements(driver, DashboardPage.class);
+        dashboardPage.languageSelection();
+
+    }
+    //Selecting kannada language from drop down
+    public static void selectKannadaLanguage() {
+        DashboardPage dashboardPage = PageFactory.initElements(driver, DashboardPage.class);
+        dashboardPage.kannadaLanguage();
+
+    }
+
+
+
+
+
+
 }
 	
