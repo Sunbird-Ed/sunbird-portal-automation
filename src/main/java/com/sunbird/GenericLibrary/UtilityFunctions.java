@@ -130,7 +130,6 @@ public class UtilityFunctions extends BaseTestConfig {
     /* will give the RandomName by accepting the preFixName as parameter Ex: CourseJohn*/
     public static String generateRandomName(String preFixName) {
         Faker faker = new Faker();
-
         String name = faker.name().firstName();
         String randamtestdata = preFixName + name;
         return randamtestdata;

@@ -39,6 +39,7 @@ public class SanitySuites2 extends BaseTestConfig {
 		BookPageActions.assertContentIsSavedToastrMsg();
 		BookPageActions.waitContentIsSavedToastToDisapper();
 		BookPageActions.addResourceFromLibrary();
+		BookPageActions.addResourceFromLibrary();
 		BookPageActions.submitAndSendForReview();
 		DashboardPageActions.logOut();
 		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"),

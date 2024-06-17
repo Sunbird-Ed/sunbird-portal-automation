@@ -1122,6 +1122,58 @@ public class Workspace extends BaseTestConfig {
 		AllMyContentPageActions.clickFirstCard();
 	}
 
+
+	@Test(description = "Publish pop up should show with the list of items in the checklist is displayed for reviewer post clicking on publish button of the collection.")
+	public void VerifyListOfCheckListItemsInCollectionPublishPopup() throws Exception {
+
+		OnBoardingActions.RolePoup();
+		OnBoardingActions.BMCPopup();
+		OnBoardingActions.LocationPopup();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+				sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.assertWorkspace();
+		DashboardPageActions.clickOnWorkSpace();
+		WorkspaceDashboardPageActions.clickCollection();
+		String createdContent = CollectionPageActions.createCollectionPopupSection1("Content Playlist","getdoid");
+		BookPageActions.BMCDropdownSelectionSection2();
+		BookPageActions.Section3();
+		BookPageActions.assertContentIsSavedToastrMsg();
+		BookPageActions.waitContentIsSavedToastToDisapper();
+		BookPageActions.addResourceFromLibrary();
+		BookPageActions.submitAndSendForReview();
+		DashboardPageActions.logOut();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"),
+				sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.clickOnWorkSpace();
+		ReviewPageActions.assertAllTheCheckList(createdContent);
+
+	}
+	@Test(description = "Verify creator is able to add the content from library for draft collection and save and send for review.")
+	public void AddContentFromLibraryForDraftCollection() throws Exception {
+		OnBoardingActions.RolePoup();
+		OnBoardingActions.BMCPopup();
+		OnBoardingActions.LocationPopup();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+				sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.assertWorkspace();
+		DashboardPageActions.clickOnWorkSpace();
+		WorkspaceDashboardPageActions.clickCollection();
+		String createdContent = CollectionPageActions.createCollectionPopupSection1("Content Playlist","getdoid");
+		BookPageActions.BMCDropdownSelectionSection2();
+		BookPageActions.Section3();
+		BookPageActions.assertContentIsSavedToastrMsg();
+		BookPageActions.waitContentIsSavedToastToDisapper();
+		BookPageActions.clickBackButtonInEditor();
+		AllMyContentPageActions.enterContentInSearchBox(createdContent);
+		DraftsPageActions.clickFirstCard();
+		BookPageActions.addResourceFromLibrary();
+		BookPageActions.submitAndSendForReview();
+
+	}
+
 }
 
 	

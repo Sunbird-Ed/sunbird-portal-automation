@@ -1,9 +1,7 @@
 package regression;
-
 import com.sunbird.GenericLibrary.UtilityFunctions;
 import com.sunbird.PageActions.*;
 import org.testng.annotations.Test;
-
 import static com.sunbird.GenericLibrary.BaseTestConfig.sunbird_config;
 
 public class CourseConsumption {

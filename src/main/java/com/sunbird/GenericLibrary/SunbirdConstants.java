@@ -68,10 +68,27 @@ public static String collobratorAddedToastrmsg="Collaborators updated successful
     public static String ColorOfCourseConsumptionMessage="#005A9E";
     public static String assertUpdateToasterMsg="updated successfully";
     public static String assertConsentTextForPolicy="I consent to provide my Profile Details and the additional details listed above with the administrators of my State / Institution. All administrators on DIKSHA are bound by the Privacy Policy and Administrator Guidelines in their use of my data. Privacy Policy";
+    public static String FAQInCourseCategory="My profile does not reflect my course progress correctly";
+    public static String courseProgressFAQInKannadaLanguage="ನನ್ನ ಪ್ರೊಫೈಲ್ ನನ್ನ ಕೋರ್ಸಿನ ಪ್ರಗತಿಯನ್ನು ಸರಿಯಾಗಿ ತೋರಿಸುತ್ತಿಲ್ಲ";
+    public static String FeedbackToaster="Thanks for your feedback. We may not be able to respond to every suggestion sent to us, but your feedback is valuable. It helps make SUNBIRD better for everyone.";
+    public static final String debugModeToaster = "Debug mode enabled successfully";
+    public static final String debugModeTextAfterEnabled = "Debug mode will automatically shut off in 15 minutes";
 
 
-
-
+/*CheckList In ReviewPopup */
+public static String CheckBoxListText1="No Hate speech, Abuse, Violence, Profanity";
+public static String CheckBoxListText2="No Sexual content, Nudity or Vulgarity";
+ public static String CheckBoxListText3="No Discrimination or Defamation";
+public static String CheckBoxListText4="Is suitable for children";
+public static String CheckBoxListText5="Appropriate Title, Description";
+ public static String CheckBoxListText6="Correct Board, Grade, Subject, Medium";
+public static String CheckBoxListText7="Appropriate tags such as Resource Type, Concepts";
+ public static String CheckBoxListText8="Relevant Keywords";
+ public static String CheckBoxListText9="Content plays correctly";
+public static String CheckBoxListText10="Can see the content clearly on Desktop and App";
+    public static String CheckBoxListText11="Audio (if any) is clear and easy to understand";
+    public static String CheckBoxListText12="No Spelling mistakes in the text";
+    public static String CheckBoxListText13="Language is simple to understand";
 
     /* Refered to CourseWithEnrolmentEndDateExpired Variable in Property file*/
     public static String enrollementEndDateExpired="2024-01-26";

@@ -102,7 +102,6 @@ public class CreateQuestionSetPageActions extends BaseTestConfig {
 	public static void questParagraph() {
 		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
 		String randomParagraph = UtilityFunctions.generateRandomName("automationCreateQuestionSetQuesParagaraph");
-
 		createQuestSetPage.questionParagraph(randomParagraph);
 	}
 

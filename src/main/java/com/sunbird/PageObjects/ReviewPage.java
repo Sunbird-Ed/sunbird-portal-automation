@@ -2,8 +2,10 @@ package com.sunbird.PageObjects;
 
 import com.sunbird.GenericLibrary.BaseTestConfig;
 import com.sunbird.GenericLibrary.Listeners;
+import com.sunbird.GenericLibrary.SunbirdConstants;
 import com.sunbird.GenericLibrary.UtilityFunctions;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.WebElement;
@@ -38,6 +40,9 @@ public class ReviewPage extends BaseTestConfig {
 
 		@FindBy(how = How.XPATH, using = "//div[contains(text(),' Publish Collection ')]//following::input[@type='checkbox']")
 		private List<WebElement> checkBox;
+
+	@FindBy(how = How.XPATH, using = "//div[contains(text(),' Publish Collection ')]//following::input[@type='checkbox']//following::label")
+	private List<WebElement> checkBoxText;
 		
 		@FindBy(how = How.XPATH, using = "//*[contains(text(),'Publish')]//following::input[@type='checkbox']")
 		private List<WebElement> checkBoxForUploadContent;
@@ -254,6 +259,29 @@ UtilityFunctions.scrollInToviewUsingJavaScript(commentBox);
 		String getActualText = UtilityFunctions.getTextFromElement(assertQuestionsetRejectedTostrMsg);
 		UtilityFunctions.waitForElementToDisappear(assertQuestionsetRejectedTostrMsg);
 		return getActualText;
+	}
+
+	public void getAllCheckBokText() throws InterruptedException {
+		List<String> list=new ArrayList<String>();
+	list.add(SunbirdConstants.CheckBoxListText1);
+		list.add(SunbirdConstants.CheckBoxListText2);
+		list.add(SunbirdConstants.CheckBoxListText3);
+		list.add(SunbirdConstants.CheckBoxListText4);
+		list.add(SunbirdConstants.CheckBoxListText5);
+		list.add(SunbirdConstants.CheckBoxListText6);
+		list.add(SunbirdConstants.CheckBoxListText7);
+		list.add(SunbirdConstants.CheckBoxListText8);
+		list.add(SunbirdConstants.CheckBoxListText9);
+		list.add(SunbirdConstants.CheckBoxListText10);
+		list.add(SunbirdConstants.CheckBoxListText11);
+		list.add(SunbirdConstants.CheckBoxListText12);
+		list.add(SunbirdConstants.CheckBoxListText13);
+		for (int i = 0; i < checkBoxText.size(); i++) {
+			String value=checkBoxText.get(i).getText();
+			list.contains(value);
+			UtilityFunctions.stringValueComparision(list.get(i).toString(),value,"Failed to validate checkList");
+			Listeners.addLogs("Verified" +value);
+		}
 	}
 	}
    
