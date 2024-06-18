@@ -85,6 +85,13 @@ public class ReviewPage extends BaseTestConfig {
 	@FindBy(how = How.XPATH, using = "//strong[contains(text(),'Content is sent back for corrections')]")
 	private WebElement assertQuestionsetRejectedTostrMsg;
 
+	@FindBy(how = How.XPATH, using = "(//span[@class='fancytree-title'])[2]")
+	private WebElement childUnitLeftSide;
+
+	@FindBy(how = How.XPATH, using = "(//span[@class='fancytree-title'])[2]//following::span[1]")
+	private WebElement assertAddedContentInChildUnit;
+
+
 	public void upForReviewBucket() {
 
 			UtilityFunctions.waitToBeClickableAndClick(upforreview);
@@ -261,6 +268,7 @@ UtilityFunctions.scrollInToviewUsingJavaScript(commentBox);
 		return getActualText;
 	}
 
+
 	public void getAllCheckBokText() throws InterruptedException {
 		List<String> list=new ArrayList<String>();
 	list.add(SunbirdConstants.CheckBoxListText1);
@@ -283,5 +291,19 @@ UtilityFunctions.scrollInToviewUsingJavaScript(commentBox);
 			Listeners.addLogs("Verified" +value);
 		}
 	}
+
+	public void childUnitLeftSide() {
+
+		UtilityFunctions.waitToBeClickableAndClick(childUnitLeftSide);
+		Listeners.addLogs("Clicked Up for childUnitLeftSide");
+
 	}
+	public void verifyAddedContentInChild() {
+		UtilityFunctions.waitForElementIsVisible(assertAddedContentInChildUnit);
+		UtilityFunctions.validatIsElementPresent(assertAddedContentInChildUnit,"added content not available");
+		Listeners.addLogs("Clicked Up for Review");
+
+	}
+
+}
    

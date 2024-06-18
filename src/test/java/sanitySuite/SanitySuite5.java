@@ -389,7 +389,7 @@ public class SanitySuite5 extends BaseTestConfig  {
         BookPageActions.assertAddedCollobratorInManageTabs();
 
     }
-    @Test(description = "The user should be able to download the csv file in published section")
+    @Test(description = "The user should be able to  the csv file in published section")
     public void DownloadCourseQRCodeInPublishedSection() throws Exception {
         OnBoardingActions.RolePoup();
         OnBoardingActions.BMCPopup();

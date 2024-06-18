@@ -1,15 +1,11 @@
 package com.sunbird.PageActions;
 
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 import com.sunbird.GenericLibrary.BaseTestConfig;
 import com.sunbird.GenericLibrary.SunbirdConstants;
 import com.sunbird.GenericLibrary.UtilityFunctions;
 import com.sunbird.PageObjects.ReviewPage;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class ReviewPageActions extends BaseTestConfig {
 
@@ -160,7 +156,7 @@ Thread.sleep(5000);
 	}
 
 
-	public static void assertAllTheCheckList(String contentName) throws Exception {
+	public static void assertAllTheCheckListInPublishPopup(String contentName) throws Exception {
 		ReviewPage reviewPage = PageFactory.initElements(driver, ReviewPage.class);
 		reviewPage.upForReviewBucket();
 		reviewPage.clickSearchBar(contentName);
@@ -173,5 +169,24 @@ Thread.sleep(5000);
 		Thread.sleep(2000);
 reviewPage.getAllCheckBokText();
 
+	}
+	public static void clickUpForReview() throws Exception {
+		ReviewPage reviewPage = PageFactory.initElements(driver, ReviewPage.class);
+		reviewPage.upForReviewBucket();
+	}
+	public static void enterSearchAndClickOnSearchIcon(String do_id) throws Exception {
+		ReviewPage reviewPage = PageFactory.initElements(driver, ReviewPage.class);
+		reviewPage.clickSearchBar(do_id);
+		reviewPage.clickOnSearch();
+		Thread.sleep(5000);
+	}
+	public static void clickOnFirstContentAfterSearch() throws Exception {
+		ReviewPage reviewPage = PageFactory.initElements(driver, ReviewPage.class);
+		reviewPage.selectContentForReview();
+	}
+	public static void reviewAddedContentUnderChildFromReviewerSide() throws Exception {
+		ReviewPage reviewPage = PageFactory.initElements(driver, ReviewPage.class);
+reviewPage.childUnitLeftSide();
+reviewPage.verifyAddedContentInChild();
 	}
 }

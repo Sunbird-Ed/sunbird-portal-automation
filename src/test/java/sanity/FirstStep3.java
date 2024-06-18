@@ -1,14 +1,10 @@
 package sanity;
 
-import com.sunbird.GenericLibrary.UtilityFunctions;
 import com.sunbird.PageActions.*;
-import com.sunbird.PageObjects.HomeTabPage;
 import org.testng.annotations.Test;
 
 import com.sunbird.GenericLibrary.BaseTestConfig;
 import com.sunbird.PageActions.OnBoardingActions;
-
-import java.io.File;
 
 public class FirstStep3 extends BaseTestConfig {
 
@@ -162,8 +158,8 @@ public class FirstStep3 extends BaseTestConfig {
 	}
 */
 
-	@Test(description = "Publish pop up should show with the list of items in the checklist is displayed for reviewer post clicking on publish button of the collection.")
-	public void VerifyListOfCheckListItemsInCollectionPublishPopup() throws Exception {
+	/*@Test(description = "Reviewer should be able to review the added contents under the Child.")
+	public void ReviewAddedContentUnderChildFromReviewerSide() throws Exception {
 
 		OnBoardingActions.RolePoup();
 		OnBoardingActions.BMCPopup();
@@ -186,11 +182,17 @@ public class FirstStep3 extends BaseTestConfig {
 				sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
 		DashboardPageActions.clickUserProfileIcon();
 		DashboardPageActions.clickOnWorkSpace();
-		ReviewPageActions.assertAllTheCheckList(createdContent);
+		ReviewPageActions.clickUpForReview();
+		ReviewPageActions.enterSearchAndClickOnSearchIcon(createdContent);
+		ReviewPageActions.clickOnFirstContentAfterSearch();
+		ReviewPageActions.reviewAddedContentUnderChildFromReviewerSide();
 
-	}
-	@Test(description = "Verify creator is able to add the content from library for draft collection and save and send for review.")
-	public void AddContentFromLibraryForDraftCollection() throws Exception {
+
+	}*/
+
+	/*@Test(description = "Publish pop up should show with the list of items in the checklist is displayed for reviewer post clicking on publish button of the textbook")
+	public void VerifyListOfCheckListItemsInTextBookPublishPopup() throws Exception {
+
 		OnBoardingActions.RolePoup();
 		OnBoardingActions.BMCPopup();
 		OnBoardingActions.LocationPopup();
@@ -199,18 +201,44 @@ public class FirstStep3 extends BaseTestConfig {
 		DashboardPageActions.clickUserProfileIcon();
 		DashboardPageActions.assertWorkspace();
 		DashboardPageActions.clickOnWorkSpace();
-		WorkspaceDashboardPageActions.clickCollection();
-		String createdContent = CollectionPageActions.createCollectionPopupSection1("Content Playlist","getdoid");
+		WorkspaceDashboardPageActions.clickBook();
+		String createdContent = BookPageActions.createBookPopup("getdoid");
+		String des = BookPageActions.section1("getdescription");
 		BookPageActions.BMCDropdownSelectionSection2();
 		BookPageActions.Section3();
 		BookPageActions.assertContentIsSavedToastrMsg();
 		BookPageActions.waitContentIsSavedToastToDisapper();
-		BookPageActions.clickBackButtonInEditor();
-		AllMyContentPageActions.enterContentInSearchBox(createdContent);
-		DraftsPageActions.clickFirstCard();
-		BookPageActions.addResourceFromLibrary();
+		BookPageActions.addResourceInLibrarySection("Mp4");
 		BookPageActions.submitAndSendForReview();
-
+		DashboardPageActions.logOut();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"),
+				sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.clickOnWorkSpace();
+		ReviewPageActions.assertAllTheCheckListInPublishPopup(createdContent);
 	}
+*/
 
+	@Test(description = "User should be able to add the course to the textbook")
+	public void UserAbleToAddCourseToTheTextBookInAddFromLibraryPage() throws Exception {
+
+		OnBoardingActions.RolePoup();
+		OnBoardingActions.BMCPopup();
+		OnBoardingActions.LocationPopup();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+				sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.assertWorkspace();
+		DashboardPageActions.clickOnWorkSpace();
+		WorkspaceDashboardPageActions.clickBook();
+		String createdContent = BookPageActions.createBookPopup("getdoid");
+		String des = BookPageActions.section1("getdescription");
+		BookPageActions.BMCDropdownSelectionSection2();
+		BookPageActions.Section3();
+		BookPageActions.assertContentIsSavedToastrMsg();
+		BookPageActions.waitContentIsSavedToastToDisapper();
+		BookPageActions.clickAddChild();
+		BookPageActions.addDifferentResourceTypeInLibrarySection(sunbird_config.getSunbidConfigPropertyValue("CourseDOIDwithoutCertificate"));
+		BookPageActions.clickSaveAsDrafts();
+	}
 }
