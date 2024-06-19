@@ -35,6 +35,11 @@ public class PublishedPage {
 		UtilityFunctions.waitToBeClickableAndClick(clickFirstContent);
 		Listeners.addLogs("clicked on clickFirstContent");
 	}
+	public void verifyFirstContentInPublishedSection() {
+		UtilityFunctions.waitForElementIsVisible(clickFirstContent);
+		UtilityFunctions.validatIsElementPresent(clickFirstContent,"Content not displayed");
+		Listeners.addLogs("verified FirstContent");
+	}
 	public void deleteContent() {
 		UtilityFunctions.waitToBeClickableAndClick(deleteButton);
 		Listeners.addLogs("Clicked on deleted button");

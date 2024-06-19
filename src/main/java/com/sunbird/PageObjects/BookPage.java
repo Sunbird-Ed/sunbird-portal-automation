@@ -203,6 +203,8 @@ public class BookPage {
     private WebElement showing100ContentMsg;
 
 
+
+
     public void enterBookName(String randomBookName) throws InterruptedException {
                       UtilityFunctions.waitToBeClickableAndSendKeys(bookname, randomBookName);
 					           }
@@ -603,7 +605,11 @@ Listeners.addLogs("Validated multiple tagged medium and class");
         UtilityFunctions.validatIsElementPresent(AddSibling, "Add Sibling is not displayed");
 
     }
+    public void clickAddSibling() throws InterruptedException {
+        UtilityFunctions.waitToBeClickableAndClick(AddSibling);
+        Listeners.addLogs("Clicked on Add Sibling");
 
+    }
     public void assertAddChild() {
         UtilityFunctions.waitForVisibilityOfWebElement(AddChild);
         UtilityFunctions.validatIsElementPresent(AddChild, "Add Child is not displayed");

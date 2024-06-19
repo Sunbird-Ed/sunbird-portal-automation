@@ -113,8 +113,11 @@ Thread.sleep(5000);
 
 		switch(contentType){
 			case "Book":
-				reviewPage.selectCheckBoxes();
-				reviewPage.clickYesButton();
+				reviewPage.clickOnReject();
+				reviewPage.enterCommentForRejection("Not good");
+				reviewPage.clickOnSubmitReviewInPopup();
+				String actualMsg8 =  reviewPage.assertQuestionsetContentRejectedMsgs();
+				UtilityFunctions.stringValueComparision(actualMsg8,SunbirdConstants.questionsetContentRejectedToastrMsg, "Failed to Reject the content");
 				break;
 			case "Course":
 				reviewPage.clickYesButton();
@@ -188,5 +191,9 @@ reviewPage.getAllCheckBokText();
 		ReviewPage reviewPage = PageFactory.initElements(driver, ReviewPage.class);
 reviewPage.childUnitLeftSide();
 reviewPage.verifyAddedContentInChild();
+	}
+	public static void assertNoContentForReviewMsg() throws Exception {
+		ReviewPage reviewPage = PageFactory.initElements(driver, ReviewPage.class);
+		reviewPage.verifyNoContentForReview();
 	}
 }

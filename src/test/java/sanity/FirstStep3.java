@@ -1,10 +1,13 @@
 package sanity;
 
+import com.sunbird.GenericLibrary.UtilityFunctions;
 import com.sunbird.PageActions.*;
 import org.testng.annotations.Test;
 
 import com.sunbird.GenericLibrary.BaseTestConfig;
 import com.sunbird.PageActions.OnBoardingActions;
+
+import java.awt.print.Book;
 
 public class FirstStep3 extends BaseTestConfig {
 
@@ -219,7 +222,7 @@ public class FirstStep3 extends BaseTestConfig {
 	}
 */
 
-	@Test(description = "User should be able to add the course to the textbook")
+	/*@Test(description = "User should be able to add the course to the textbook")
 	public void UserAbleToAddCourseToTheTextBookInAddFromLibraryPage() throws Exception {
 
 		OnBoardingActions.RolePoup();
@@ -240,5 +243,90 @@ public class FirstStep3 extends BaseTestConfig {
 		BookPageActions.clickAddChild();
 		BookPageActions.addDifferentResourceTypeInLibrarySection(sunbird_config.getSunbidConfigPropertyValue("CourseDOIDwithoutCertificate"));
 		BookPageActions.clickSaveAsDrafts();
-	}
+	}*/
+
+
+
+/*	@Test(description = "Once the Book is rejected the by the reviewer, the respective book should get dissappeared from his up for review bucket")
+	public void OnceBookIsRejectedShouldGetDisappearFromUpForReviewBucket() throws Exception {
+		OnBoardingActions.RolePoup();
+		OnBoardingActions.BMCPopup();
+		OnBoardingActions.LocationPopup();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+				sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.assertWorkspace();
+		DashboardPageActions.clickOnWorkSpace();
+		WorkspaceDashboardPageActions.clickBook();
+		String createdContent = BookPageActions.createBookPopup("getdoid");
+		String des = BookPageActions.section1("getdescription");
+		BookPageActions.BMCDropdownSelectionSection2();
+		BookPageActions.Section3();
+		BookPageActions.assertContentIsSavedToastrMsg();
+		BookPageActions.waitContentIsSavedToastToDisapper();
+		BookPageActions.addResourceInLibrarySection("Mp4");
+		BookPageActions.submitAndSendForReview();
+		DashboardPageActions.logOut();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"),
+				sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.clickOnWorkSpace();
+		ReviewPageActions.reviewAndRejectContent(createdContent, "Book");
+		ReviewPageActions.clickUpForReview();
+		ReviewPageActions.enterSearchAndClickOnSearchIcon(createdContent);
+ReviewPageActions.assertNoContentForReviewMsg();
+		DashboardPageActions.logOut();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+				sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.clickOnWorkSpace();
+		WorkspaceDashboardPageActions.assertDrafts();
+		AllMyContentPageActions.enterContentInSearchBox(createdContent);
+		DraftsPageActions.clickFirstCard();
+
+	}*/
+
+//	@Test(description = "Once the Book is published the by the reviewer, the respective book should get dissappeared from his Up for revie")
+//	public void OnceBookIsPublishedShouldGetDisappearFromUpForReviewBucket() throws Exception {
+//		OnBoardingActions.RolePoup();
+//		OnBoardingActions.BMCPopup();
+//		OnBoardingActions.LocationPopup();
+//		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+//				sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+//		DashboardPageActions.clickUserProfileIcon();
+//		DashboardPageActions.assertWorkspace();
+//		DashboardPageActions.clickOnWorkSpace();
+//		WorkspaceDashboardPageActions.clickBook();
+//		String createdContent = BookPageActions.createBookPopup("getdoid");
+//		String des = BookPageActions.section1("getdescription");
+//		BookPageActions.BMCDropdownSelectionSection2();
+//		BookPageActions.Section3();
+//		BookPageActions.assertContentIsSavedToastrMsg();
+//		BookPageActions.waitContentIsSavedToastToDisapper();
+//		BookPageActions.addResourceInLibrarySection("Mp4");
+//		BookPageActions.submitAndSendForReview();
+//		DashboardPageActions.logOut();
+//		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"),
+//				sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
+//		DashboardPageActions.clickUserProfileIcon();
+//		DashboardPageActions.clickOnWorkSpace();
+//		ReviewPageActions.reviewAndPublishContent(createdContent, "Book");
+//		ReviewPageActions.clickUpForReview();
+//		ReviewPageActions.enterSearchAndClickOnSearchIcon(createdContent);
+//		ReviewPageActions.assertNoContentForReviewMsg();
+//		DashboardPageActions.logOut();
+//		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+//				sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+//		DashboardPageActions.clickUserProfileIcon();
+//		DashboardPageActions.assertWorkspace();
+//		DashboardPageActions.clickOnWorkSpace();
+//		WorkspaceDashboardPageActions.clickPublishedBucket();
+//		AllMyContentPageActions.enterContentInSearchBox(createdContent);
+//		PublishedPageActions.assertFirstContentInPublishedSection();
+//			WorkspaceDashboardPageActions.clickAllMyContent();
+//		AllMyContentPageActions.enterContentInSearchBox(createdContent);
+//		AllMyContentPageActions.clickFirstCard();
+//
+//	}
+
 }

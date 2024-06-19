@@ -399,6 +399,10 @@ bookPage.waitGenerateQRCodeToastrToDisappear();
         UtilityFunctions.stringValueComparision(actual, expected_count ,"100 content not found");
         bookPage.clickBackBtnFromLibrarysection();
     }
+    public static void addSibling() throws InterruptedException {
+        BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
+        bookPage.clickAddSibling();
+    }
 
 
 }

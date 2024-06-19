@@ -91,6 +91,10 @@ public class ReviewPage extends BaseTestConfig {
 	@FindBy(how = How.XPATH, using = "(//span[@class='fancytree-title'])[2]//following::span[1]")
 	private WebElement assertAddedContentInChildUnit;
 
+	@FindBy(how = How.XPATH, using = "//div[contains(text(),'There is no content to review')]")
+	private WebElement assertNoContentForReviewMsg;
+
+
 
 	public void upForReviewBucket() {
 
@@ -304,6 +308,11 @@ UtilityFunctions.scrollInToviewUsingJavaScript(commentBox);
 		Listeners.addLogs("Clicked Up for Review");
 
 	}
+	public void verifyNoContentForReview() {
+		UtilityFunctions.waitForElementIsVisible(assertNoContentForReviewMsg);
+		UtilityFunctions.validatIsElementPresent(assertNoContentForReviewMsg,"No Content for review msg not found");
+		Listeners.addLogs("assertNoContentForReviewMsg");
 
+	}
 }
    

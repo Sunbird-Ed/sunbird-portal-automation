@@ -24,6 +24,12 @@ public class PublishedPageActions extends BaseTestConfig {
 		publishedPage.firstContent();
 
 	}
+	public static void assertFirstContentInPublishedSection()
+	{
+		PublishedPage publishedPage = PageFactory.initElements(driver, PublishedPage.class);
+		publishedPage.verifyFirstContentInPublishedSection();
+
+	}
 	public static void clickDeleteButton() {
 		PublishedPage publishedPage = PageFactory.initElements(driver, PublishedPage.class);
 		publishedPage.deleteContent();
