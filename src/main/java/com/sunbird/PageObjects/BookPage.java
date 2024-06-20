@@ -88,6 +88,9 @@ public class BookPage {
 	
 	@FindBy(how=How.XPATH,using="//button[contains(text(),'Select content')]")
 	private WebElement selectButton;
+    @FindBy(how=How.XPATH,using="//div[contains(@class,'radio-btn-checkbox')]")
+    private List<WebElement> radioButton;
+
 	@FindBy(how=How.XPATH,using="//button[@id='addResource']")
 	private WebElement addContent;
 	
@@ -202,8 +205,44 @@ public class BookPage {
     @FindBy(how=How.XPATH,using="//div[contains(text(),'Showing (100) most relevant content')]")
     private WebElement showing100ContentMsg;
 
+    @FindBy(how=How.XPATH,using="//span[contains(text(),'TextBook Unit 1')]")
+    private WebElement bookElement;
+    @FindBy(how=How.XPATH,using="(//span[@id='contextMenu'])[2]")
+    private WebElement menuClick;
+    @FindBy(how = How.XPATH, using ="//span[contains(text(),'TextBook Unit 1')]//following::span/div[@id='delete']")
+    private WebElement nodeDelete;
+    @FindBy(how=How.XPATH,using="//button[contains(text(),'Yes')]")
+    private WebElement clickYes;
 
+    @FindBy(how=How.XPATH,using="(//span[@class='fancytree-title'])[3]")
+    private WebElement clickAddedContent;
 
+    @FindBy(how=How.XPATH,using="//input[@aria-label='Input the keyword and PRESS enter']")
+    private WebElement relKeyWord;
+
+    @FindBy(how=How.XPATH,using="//input[@placeholder='Name of the content']")
+    private WebElement relContentName;
+
+    @FindBy(how=How.XPATH,using="//input[@type='checkbox']//following::label[contains(text(),'Track in collection')]")
+    private WebElement enableTrackInCOllection;
+
+    @FindBy(how=How.XPATH,using="//input[contains(@placeholder,'Search')]")
+    private WebElement searchCollaborator;
+
+    @FindBy(how=How.XPATH,using="//i[@aria-label='close']")
+    private WebElement closeCollaborator;
+
+    @FindBy(how=How.XPATH,using="//strong[contains(text(),'No Results Found')]")
+    private WebElement noResultFoundMsg;
+
+    @FindBy(how=How.XPATH,using="//li[contains(@class,'searchResult')]")
+    private WebElement selectCollaborator;
+
+    @FindBy(how=How.XPATH,using="//*[contains(text(),'Add Collaborators')]")
+    private WebElement addCollaboratorTab;
+
+    @FindBy(how=How.XPATH,using="//div[contains(text(),'No collaborators found for this content')]")
+    private WebElement noCollaboratorsAdded;
 
     public void enterBookName(String randomBookName) throws InterruptedException {
                       UtilityFunctions.waitToBeClickableAndSendKeys(bookname, randomBookName);
@@ -309,7 +348,10 @@ Thread.sleep(3000);
         	 UtilityFunctions.waitToBeClickableAndClick(selectButton);
              Listeners.addLogs("selectButton");
         }
-         
+    public void clickRadioButton(int i) {
+        UtilityFunctions.waitToBeClickableAndClick(radioButton.get(i));
+
+    }
          public void addContentInLibrary() {
         	 UtilityFunctions.waitToBeClickableAndClick(addContent);
              Listeners.addLogs("addContent");
@@ -631,4 +673,95 @@ Listeners.addLogs("Validated multiple tagged medium and class");
         int totalCount=UtilityFunctions.getSizeOfWebElement(BookTagnameinEditor);
         return totalCount;
     }
+    public void editNodeName(String nodeName) {
+        UtilityFunctions.waitToBeClickableAndSendKeys(bookname, nodeName);
+        Listeners.addLogs("Node name edited");
+
+    }
+    public void clickMenu() throws InterruptedException {
+         UtilityFunctions.waitToBeClickableAndClick(bookElement);
+        UtilityFunctions.mouseHoverOnElement(menuClick);
+        Listeners.addLogs("Clicked on Menu");
+
+    }
+    public void deleteNode() throws InterruptedException {
+        UtilityFunctions.waitToBeClickableAndClick(nodeDelete);
+
+    }
+    public void clickYesInThePopUp() throws InterruptedException {
+        UtilityFunctions.waitToBeClickableAndClick(clickYes);
+
+    }
+    public void assertDeletedNode() {
+        UtilityFunctions.validatIsElementNotPresent(bookElement);
+        Listeners.addLogs("NOde is deleted successfully");
+
+    }
+    public void clickAddedContent() {
+        UtilityFunctions.waitToBeClickableAndClick(clickAddedContent);
+
+    }
+
+    public void assertAndUpdateNameOfTheContent(String randomContentName) {
+        UtilityFunctions.scrollInToviewUsingJavaScript(relContentName);
+        UtilityFunctions.waitToBeClickableAndSendKeys(relContentName, randomContentName);
+
+    }
+    public void assertAndUpdateKeywords(String randomKeywordName) {
+        UtilityFunctions.waitToBeClickableAndSendKeys(relKeyWord, randomKeywordName);
+        UtilityFunctions.pressEnterKeyOnWebElement(relKeyWord);
+
+    }
+    public void assertAndEnableTrackInCOllection() {
+        UtilityFunctions.scrollInToviewUsingJavaScript(enableTrackInCOllection);
+        UtilityFunctions.waitToBeClickableAndClick(enableTrackInCOllection);
+    }
+    public void searchCollaborator(String collaboratorName) {
+        UtilityFunctions.waitToBeClickableAndSendKeys(searchCollaborator, collaboratorName);
+        Listeners.addLogs("Searched Collaborator");
+
+    }
+    public void clickCloseCollaborator() {
+        UtilityFunctions.waitToBeClickableAndClick(closeCollaborator);
+
+
+    }
+    public void noResultFound() {
+        UtilityFunctions.validatIsElementPresent(noResultFoundMsg, "Collaborator found");
+        Listeners.addLogs("Invalid Collaborator");
+
+    }
+    public void selectCollaborator() {
+        UtilityFunctions.waitForElementIsVisible(selectCollaborator);
+        UtilityFunctions.waitForElementAndClickable(selectCollaborator);
+        Listeners.addLogs("Selected Collaborator");
+    }
+
+    public void collaboratorNotePresent() {
+        UtilityFunctions.validatIsElementNotPresent(assertRemoveAndClickRemove);
+        Listeners.addLogs("Collaborators are not Present");
+
+    }
+    public void addCollaboratorTab() {
+        UtilityFunctions.waitForElementAndClickable(addCollaboratorTab);
+        Listeners.addLogs("Clicked on Add COllaborator Tab");
+
+    }
+
+    public void assertCollaborator() {
+        UtilityFunctions.validatIsElementPresent(selectCollaborator,"Collaborator Not deleted successfully");
+        Listeners.addLogs("Collaborator available in All Collaborators Tab");
+
+    }
+    public void removeCollaborator() {
+        UtilityFunctions.waitToBeClickableAndClick(assertRemoveAndClickRemove);
+        Listeners.addLogs("Collaborator Removed");
+
+    }
+    public void noCollaboratorsAddedText() {
+        UtilityFunctions.validatIsElementPresent(noCollaboratorsAdded, "Collaborator Not deleted successfully");
+        Listeners.addLogs("No collaborators found for this content");
+
+    }
+
 }

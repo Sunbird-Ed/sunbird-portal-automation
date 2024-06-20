@@ -329,4 +329,74 @@ ReviewPageActions.assertNoContentForReviewMsg();
 //
 //	}
 
+   /* @Test(description = "Creator should be able to add siblings and child in the toc and click on save as draft button")
+    public void CreatorAbleToAddSibilingAndChildToColelctionAndSaveAsDraft() throws Exception {
+*//*String username="contentreviewerTN@yopmail.com";
+String password="Test@123";
+
+			String usernameEncrypt = EncoderAndDecoder.getEncodedText(username);
+		String passwordEncrypt=  EncoderAndDecoder.getEncodedText(password);
+		String usrName = EncoderAndDecoder.getdecodedText(usernameEncrypt);
+		String pwd = EncoderAndDecoder.getdecodedText(passwordEncrypt);
+
+		System.out.println(("EncryptedUsrName " +usernameEncrypt));
+		System.out.println(("EncryptedPwd " +passwordEncrypt));
+
+		System.out.println(("decryptedUsrName " +usrName));
+		System.out.println(("decryptedPwd " +pwd));*//*
+
+        String username="Y29udGVudHJldmlld2VyVE5AeW9wbWFpbC5jb20";
+        String password="VGVzdEAxMjM=";
+
+
+        String usrName = EncoderAndDecoder.getdecodedText(username);
+        String pwd = EncoderAndDecoder.getdecodedText(password);
+
+        System.out.println(("decryptedUsrName " +usrName));
+        System.out.println(("decryptedPwd " +pwd));
+
+        OnBoardingActions.RolePoup();
+        OnBoardingActions.BMCPopup();
+        OnBoardingActions.LocationPopup();
+        LoginPageActions.Login(usrName,pwd);
+        DashboardPageActions.clickUserProfileIcon();
+
+    }
+*/
+
+  /*  @Test(description = "The content creator should be able to save the resource and send the resource for review,is able to see the resource in Submitted for review section")
+    public void verifyResourceInSubmittedForReviewBucketAfterSendingResourceForReview() throws Exception {
+        OnBoardingActions.RolePoup();
+        OnBoardingActions.BMCPopup();
+        OnBoardingActions.LocationPopup();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+                sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+        DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.clickOnWorkSpace();
+        WorkspaceDashboardPageActions.clickResource();
+        String createdContent = ResourcePageActions.createResourcePopup("getContentName");
+        ResourcePageActions.addTriangleShape();
+        ResourcePageActions.addText();
+        ResourcePageActions.addNewSlide();
+        ResourcePageActions.saveAndCloseIcon();
+        ResourcePageActions.resourceSendForReview();
+        UtilityFunctions.threadSleep(5000);
+        WorkspaceDashboardPageActions.clickDrafts();
+        WorkspaceDashboardPageActions.clickAllMyContent();
+        WorkspaceDashboardPageActions.clickDrafts();
+        WorkspaceDashboardPageActions.submittedForReview();
+     String resourceXpath= UtilityFunctions.generateXpathUsingContainsWithKeyNameValue(createdContent);
+UtilityFunctions.assertWebElementAsString(resourceXpath);
+        DashboardPageActions.logOut();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"),
+                sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
+        DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.clickOnWorkSpace();
+        ReviewPageActions.reviewAndPublishContent(createdContent, "Resource");
+
+    }*/
+
+
+
+
 }

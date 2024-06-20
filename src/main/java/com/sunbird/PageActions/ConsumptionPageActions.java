@@ -380,4 +380,20 @@ public class ConsumptionPageActions extends BaseTestConfig {
         ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
         consumptionPage.verifyConsentToasterProfileMsg();
     }
+    public static void assertStartDate() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        String StartDateValueXpath = consumptionPage.verifyStartDateLabelAndReturnStartDateValueXpath();
+        UtilityFunctions.assertWebElementAsString(StartDateValueXpath);
+    }
+    public static void assertEndDate() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        String EndDateValueXpath = consumptionPage.verifyEndDateLabelAndReturnEndDateValueXpath();
+        UtilityFunctions.assertWebElementAsString(EndDateValueXpath);
+    }
+    public static void assertEnrolmentEndDatenew() throws InterruptedException {
+        ConsumptionPage consumptionPage = PageFactory.initElements(driver, ConsumptionPage.class);
+        String EnrolmentDateValueXpath = consumptionPage.verifyEnrolmentDateLabelAndReturnEnrolmentDateValueXpath();
+        UtilityFunctions.assertWebElementAsString(EnrolmentDateValueXpath);
+    }
+
 }

@@ -125,6 +125,19 @@ public class HelpPageActions extends BaseTestConfig {
 
 	}
 
+	public static void validateDebugModeToaster() {
+		HelpPage helpPage = PageFactory.initElements(driver, HelpPage.class);
+		String actualMsg1 = helpPage.debugModeToaster();
+		UtilityFunctions.stringValueComparision(actualMsg1, SunbirdConstants.debugModeToaster, "Debug mode Toaster is not displayed");
+		Listeners.addLogs("Debug mode Toaster is displayed ");
 
+	}
+	public static void assertDebugModeTextAfterEnabled() {
+		HelpPage helpPage = PageFactory.initElements(driver, HelpPage.class);
+		String actualMsg1 = helpPage.debugModeTextAfterEnabled();
+		UtilityFunctions.stringValueComparision(actualMsg1, SunbirdConstants.debugModeTextAfterEnabled, "Debug mode Toaster is not displayed");
+		Listeners.addLogs("Debug mode Toaster is displayed ");
+
+	}
 
 }

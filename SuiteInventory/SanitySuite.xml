@@ -35,6 +35,11 @@
 		<!--<class name="sanitySuite.SanitySuites"/>-->
 	<class name="sanity.FirstStep3" />
 	<!--	<class name="sanity.WritePropetiesCheck"/>-->
+
+<!--
+		<class name="regression.Workspace" />
+-->
+
 	</classes>
 </test> <!-- Test -->
 		</suite> <!-- Suite -->

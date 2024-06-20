@@ -6,7 +6,7 @@ import static com.sunbird.GenericLibrary.BaseTestConfig.sunbird_config;
 
 public class CourseConsumption {
 
-    @Test(description = " Verify in portal User is displayed with Share icon in the Course toc page before clicking on \"Join Course\" button and enrolling to that course \r\n"
+    @Test(description = "Verify in portal User is displayed with Share icon in the Course toc page before clicking on \"Join Course\" button and enrolling to that course \r\n"
             + "Verify in portal that User should be able to share the courses without enrolling to it and only able to consume after enrolling to the course")
     public void VerifyShareIconInCourse() throws Exception {
 
@@ -301,4 +301,32 @@ public class CourseConsumption {
         ConsumptionPageActions.saveProfile();
         ConsumptionPageActions.verifyConsentToasterProfileMsg();
     }
+
+    @Test(description = "Verify that the below details is displayed in the course car")
+    public void  verifyCourseContentCard() throws Exception {
+        OnBoardingActions.RolePoup();
+        OnBoardingActions.BMCPopup();
+        OnBoardingActions.LocationPopup();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("PUBLIC_USER"),
+                sunbird_config.getSunbidConfigPropertyValue("PUBLIC_PASSWORD"));
+        CourseTabPageActions.assertAllDetailsOnCourseCard();
+        DashboardPageActions.clickCourseTab();
+        CourseTabPageActions.clickViewAll();
+        CourseTabPageActions.assertAllDetailsOnCourseCard();
+        CourseTabPageActions.clickCloseBtn();
+        CourseTabPageActions.clickViewAll();
+    }
+    @Test(description = " Verify the Logged in user can view the details of the enrollment end date, batch start date and end date in the \"batch details\" section Before Joining the Course")
+    public void  verifyStartEnrolmentEndDatesInCourse() throws Exception {
+        OnBoardingActions.RolePoup();
+        OnBoardingActions.BMCPopup();
+        OnBoardingActions.LocationPopup();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("PUBLIC_USER"),
+                sunbird_config.getSunbidConfigPropertyValue("PUBLIC_PASSWORD"));
+        DashboardPageActions.searchContentAndClickOnContentCard(sunbird_config.getSunbidConfigPropertyValue("CourseWithAllContentsWIthOpenBatchDetailsWithStartEnrolmentEndDates"));
+        ConsumptionPageActions.assertStartDate();
+        ConsumptionPageActions.assertEndDate();
+        ConsumptionPageActions.assertEnrolmentEndDatenew();
+    }
+
 }

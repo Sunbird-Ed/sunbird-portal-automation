@@ -16,7 +16,7 @@ public class ResourcePageActions extends BaseTestConfig {
 	public static String createResourcePopup(String getContentType) throws Exception {
 		ResourcePage resourcePage = PageFactory.initElements(driver, ResourcePage.class);
 
-		String resourceName = UtilityFunctions.generateRandomName("automationResource");
+		String resourceName = UtilityFunctions.generateRandomName("auto");
 		resourcePage.enterResourceName(resourceName);
 		resourcePage.clkContentTypeDropdown();
 		Thread.sleep(2000);

@@ -6,8 +6,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
-import java.util.List;
-
 public class WorkspaceDashboardPage {
 
     @FindBy(how = How.XPATH, using = "//a[contains(text(),'Drafts')]")
@@ -40,8 +38,8 @@ public class WorkspaceDashboardPage {
     @FindBy(how = How.XPATH, using = "//a[contains(text(),'Create')]")
     private WebElement create;
 
-    @FindBy(how = How.XPATH, using = "//a[contains(text(),'Submitted')]")
-    private WebElement submit;
+    @FindBy(how = How.XPATH, using = "//a[contains(text(),'Submitted for review ')]")
+    private WebElement submitForReview;
 
     @FindBy(how = How.XPATH, using = "//a[contains(text(),'Course Batches')]")
     private WebElement coursebatches;
@@ -152,8 +150,8 @@ public class WorkspaceDashboardPage {
 
     public void assertsubmittedForReview() {
 
-        UtilityFunctions.waitToBeClickableAndClick(submit);
-        UtilityFunctions.validatIsElementPresent(submit, "Submit for Review button is not displayed");
+        UtilityFunctions.waitToBeClickableAndClick(submitForReview);
+        UtilityFunctions.validatIsElementPresent(submitForReview, "Submit for Review button is not displayed");
     }
 
     public void assertCourseBatchesbutton() throws InterruptedException {

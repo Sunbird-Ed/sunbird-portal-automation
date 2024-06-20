@@ -56,11 +56,11 @@ public class OnBoardingActions extends BaseTestConfig {
     public static void LocationPopup() throws InterruptedException {
         OnBoarding onboard = PageFactory.initElements(driver, OnBoarding.class);
        Thread.sleep(8000);
-//        onboard.clickStateDropdown();
-//        onboard.selectStateValue();
-//        Thread.sleep(2000);
-//        onboard.clickDistrictDropDown();
-//        onboard.selectDistrictValue();
+        onboard.clickStateDropdown();
+        onboard.selectStateValue();
+        Thread.sleep(2000);
+        onboard.clickDistrictDropDown();
+        onboard.selectDistrictValue();
         onboard.LocationPopupSubmit();
 
     }

@@ -907,6 +907,199 @@ public class Workspace extends BaseTestConfig {
 
 	}
 
+
+
+
+
+	@Test(description = "Verify creator is able to add the same content to the different levels of folder under Digital Textbook")
+	public void VerifySameContentAddedInDifferentFolderLevel() throws Exception {
+		OnBoardingActions.RolePoup();
+		OnBoardingActions.BMCPopup();
+		OnBoardingActions.LocationPopup();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.assertWorkspace();
+		DashboardPageActions.clickOnWorkSpace();
+		UploadPageActions.uploadContent("PDF");
+		UploadPageActions.clickSendForReview();
+		String resourceName = UploadPageActions.sendUploadContentForReview();
+		UtilityFunctions.switchToDefaultContentFrame();
+		DashboardPageActions.logOut();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.clickOnWorkSpace();
+		ReviewPageActions.reviewAndPublishContent(resourceName, "Upload");
+		DashboardPageActions.logOut();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+				sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.assertWorkspace();
+		DashboardPageActions.clickOnWorkSpace();
+		WorkspaceDashboardPageActions.clickBook();
+		BookPageActions.createBookPopup("getdoid");
+		BookPageActions.section1("getdescription");
+		BookPageActions.BMCDropdownSelectionSection2();
+		BookPageActions.Section3();
+		BookPageActions.assertContentIsSavedToastrMsg();
+		BookPageActions.waitContentIsSavedToastToDisapper();
+		BookPageActions.clickAddChild();
+		BookPageActions.clickAddChild();
+		BookPageActions.clickAddChild();
+		BookPageActions.clickAddChild();
+		BookPageActions.clickAddFromLibraryBtn();
+		BookPageActions.addSameContentToAllFolderLevels(resourceName);
+	}
+
+	@Test(description = "Verify that book creator can add and edit child nodes, sibling nodes, delete child/sibling node to the root node through 3 dots menu")
+	public void verifyEditAddDeleteChildNodes() throws Exception {
+		OnBoardingActions.RolePoup();
+		OnBoardingActions.BMCPopup();
+		OnBoardingActions.LocationPopup();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.assertWorkspace();
+		DashboardPageActions.clickOnWorkSpace();
+		WorkspaceDashboardPageActions.clickBook();
+		BookPageActions.createBookPopup("getdoid");
+		BookPageActions.section1("getdescription");
+		BookPageActions.BMCDropdownSelectionSection2();
+		BookPageActions.Section3();
+		BookPageActions.addResourceInLibrarySection("mp4");
+		BookPageActions.clickAddChild();
+		BookPageActions.editNode("TextBook Unit 1");
+		BookPageActions.addSibling();
+		BookPageActions.editNode("TextBook Unit 2");
+		BookPageActions.clickSaveAsDrafts();
+		BookPageActions.deleteChild();
+
+	}
+
+	@Test(description = "Verify creator is able to add ECML and collection to the child nodes")
+	public void UserAbleToAddResourceAndCollectionToTextbook() throws Exception {
+		OnBoardingActions.RolePoup();
+		OnBoardingActions.BMCPopup();
+		OnBoardingActions.LocationPopup();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.assertWorkspace();
+		DashboardPageActions.clickOnWorkSpace();
+		WorkspaceDashboardPageActions.clickBook();
+		BookPageActions.createBookPopup("getdoid");
+		BookPageActions.section1("getdescription");
+		BookPageActions.BMCDropdownSelectionSection2();
+		BookPageActions.Section3();
+		BookPageActions.addResourceInLibrarySection(sunbird_config.getSunbidConfigPropertyValue("Resource"));
+		BookPageActions.addResourceInLibrarySection(sunbird_config.getSunbidConfigPropertyValue("Collection"));
+	}
+
+	@Test(description = "Verify Book Creator is able to update all the relational metadata fields")
+	public void verifyRelationalMetadataFields() throws Exception {
+		OnBoardingActions.RolePoup();
+		OnBoardingActions.BMCPopup();
+		OnBoardingActions.LocationPopup();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"), sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.assertWorkspace();
+		DashboardPageActions.clickOnWorkSpace();
+		WorkspaceDashboardPageActions.clickBook();
+		BookPageActions.createBookPopup("getdoid");
+		BookPageActions.section1("getdescription");
+		BookPageActions.BMCDropdownSelectionSection2();
+		BookPageActions.Section3();
+		BookPageActions.addResourceInLibrarySection("Mp4");
+		BookPageActions.editNode("TextBook Unit 1");
+		BookPageActions.clickSaveAsDrafts();
+		BookPageActions.clickOnAddChildLeftSectionUnit();
+		BookPageActions.clickAddedContent();
+		BookPageActions.assertAndUpdateRelationalMetadata();
+
+	}
+
+
+	@Test(description = "Verify that book creator can add Single, multiple collaborator to any book by searching with name or phone number or email id")
+	public void searchAndAddSingleMultipleCollobratorToBook() throws Exception {
+		OnBoardingActions.RolePoup();
+		OnBoardingActions.BMCPopup();
+		OnBoardingActions.LocationPopup();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+				sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.assertWorkspace();
+		DashboardPageActions.clickOnWorkSpace();
+		WorkspaceDashboardPageActions.clickBook();
+		BookPageActions.createBookPopup("getdoid");
+		BookPageActions.section1("getdescription");
+		BookPageActions.BMCDropdownSelectionSection2();
+		BookPageActions.Section3();
+		BookPageActions.assertContentIsSavedToastrMsg();
+		BookPageActions.waitContentIsSavedToastToDisapper();
+		BookPageActions.clickCollobratorIcon();
+		BookPageActions.searchCollaborator(sunbird_config.getSunbidConfigPropertyValue("COLLABORATOR_USERNAME1"));
+		BookPageActions.selectCollaborator();
+		BookPageActions.clickDoneBtnInCollobrator();
+		BookPageActions.assertAddedCollobratorToastrMsg();
+		BookPageActions.clickCollobratorIcon();
+		BookPageActions.searchCollaborator(sunbird_config.getSunbidConfigPropertyValue("COLLABORATOR_EMAILID2"));
+		BookPageActions.selectCollaborator();
+		BookPageActions.clickDoneBtnInCollobrator();
+		BookPageActions.assertAddedCollobratorToastrMsg();
+		BookPageActions.clickCollobratorIcon();
+		BookPageActions.selectTheCollobratorFromlist();
+		BookPageActions.clickDoneBtnInCollobrator();
+		BookPageActions.clickCollobratorIcon();
+		BookPageActions.clickManageCollobratorTab();
+		String collobratorXpath1= BookPageActions.assertSearchedCollobratorInManageTabs(sunbird_config.getSunbidConfigPropertyValue("COLLABORATOR_USERNAME1"));
+		UtilityFunctions.assertWebElementAsString(collobratorXpath1);
+		String collobratorXpath2= BookPageActions.assertSearchedCollobratorInManageTabs(sunbird_config.getSunbidConfigPropertyValue("COLLABORATOR_USERNAME2"));
+		UtilityFunctions.assertWebElementAsString(collobratorXpath2);
+		BookPageActions.clickCloseCollaborator();
+		BookPageActions.clickCollobratorIcon();
+		BookPageActions.searchCollaborator(sunbird_config.getSunbidConfigPropertyValue("PUBLIC_USER"));
+		BookPageActions.assertNoResultFound();
+	}
+
+
+
+	@Test(description = "Verify that book creator can remove collaborator from a textbook")
+	public void removeAddedCollaborator() throws Exception {
+		OnBoardingActions.RolePoup();
+		OnBoardingActions.BMCPopup();
+		OnBoardingActions.LocationPopup();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+				sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.assertWorkspace();
+		DashboardPageActions.clickOnWorkSpace();
+		WorkspaceDashboardPageActions.clickBook();
+		BookPageActions.createBookPopup("getdoid");
+		BookPageActions.section1("getdescription");
+		BookPageActions.BMCDropdownSelectionSection2();
+		BookPageActions.Section3();
+		BookPageActions.assertContentIsSavedToastrMsg();
+		BookPageActions.waitContentIsSavedToastToDisapper();
+		BookPageActions.clickCollobratorIcon();
+		BookPageActions.searchCollaborator(sunbird_config.getSunbidConfigPropertyValue("COLLABORATOR_USERNAME1"));
+		BookPageActions.selectCollaborator();
+		BookPageActions.clickDoneBtnInCollobrator();
+		BookPageActions.assertAddedCollobratorToastrMsg();
+		BookPageActions.clickCollobratorIcon();
+		BookPageActions.clickManageCollobratorTab();
+		BookPageActions.assertAddedCollobratorInManageTabs();
+		BookPageActions.removeCollaborator();
+		BookPageActions.clickDoneBtnInCollobrator();
+		BookPageActions.assertAddedCollobratorToastrMsg();
+		BookPageActions.clickCollobratorIcon();
+		BookPageActions.clickManageCollobratorTab();
+		BookPageActions.assertCollaboratorNotPresent();
+		BookPageActions.assertNoCollaboratorMsg();
+		BookPageActions.clickAddCollaborators();
+		BookPageActions.searchCollaborator(sunbird_config.getSunbidConfigPropertyValue("COLLABORATOR_USERNAME1"));
+		BookPageActions.selectCollaborator();
+
+	}
+
+
+
 	@Test(description = "Verify user is able to edit the published course")
 	public void userAbleToEditPublishedCourseAndRePublishCourse() throws Exception {
 
@@ -1121,6 +1314,11 @@ public class Workspace extends BaseTestConfig {
 		WorkspaceDashboardPageActions.clickAllTextBookOption();
 		AllMyContentPageActions.clickFirstCard();
 	}
+
+
+
+
+
 
 
 	@Test(description = "Publish pop up should show with the list of items in the checklist is displayed for reviewer post clicking on publish button of the collection.")
@@ -1358,6 +1556,38 @@ public class Workspace extends BaseTestConfig {
 		BookPageActions.addSibling();
 		BookPageActions.addDifferentResourceTypeInLibrarySection("Mp4");
 		BookPageActions.clickSaveAsDrafts();
+
+	}
+
+	@Test(description = "The content creator should be able to save the resource and send the resource for review,is able to see the resource in Submitted for review section")
+	public void verifyResourceInSubmittedForReviewBucketAfterSendingResourceForReview() throws Exception {
+		OnBoardingActions.RolePoup();
+		OnBoardingActions.BMCPopup();
+		OnBoardingActions.LocationPopup();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+				sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.clickOnWorkSpace();
+		WorkspaceDashboardPageActions.clickResource();
+		String createdContent = ResourcePageActions.createResourcePopup("getContentName");
+		ResourcePageActions.addTriangleShape();
+		ResourcePageActions.addText();
+		ResourcePageActions.addNewSlide();
+		ResourcePageActions.saveAndCloseIcon();
+		ResourcePageActions.resourceSendForReview();
+		UtilityFunctions.threadSleep(5000);
+		WorkspaceDashboardPageActions.clickDrafts();
+		WorkspaceDashboardPageActions.clickAllMyContent();
+		WorkspaceDashboardPageActions.clickDrafts();
+		WorkspaceDashboardPageActions.submittedForReview();
+		String resourceXpath= UtilityFunctions.generateXpathUsingContainsWithKeyNameValue(createdContent);
+		UtilityFunctions.assertWebElementAsString(resourceXpath);
+		DashboardPageActions.logOut();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"),
+				sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.clickOnWorkSpace();
+		ReviewPageActions.reviewAndPublishContent(createdContent, "Resource");
 
 	}
 }

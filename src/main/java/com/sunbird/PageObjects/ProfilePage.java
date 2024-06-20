@@ -1,6 +1,7 @@
 package com.sunbird.PageObjects;
 
 import com.sunbird.GenericLibrary.Listeners;
+import com.sunbird.GenericLibrary.SunbirdConstants;
 import com.sunbird.GenericLibrary.UtilityFunctions;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -103,6 +104,17 @@ public class ProfilePage {
 	@FindBy(how = How.XPATH, using = "//div[@id='tenant']//following::span[1]")
 	private List<WebElement> selectOnNewTenantFromDropDown;
 
+	@FindBy(how = How.XPATH, using = "//span[contains(text(),'School head OR Officials')]")
+	private WebElement schoolHeadOrOfficials;
+
+	@FindBy(how = How.XPATH, using = "//div[@id='state']")
+	private WebElement updateStateFromDropdown;
+	@FindBy(how = How.XPATH, using = "//div[contains(text(),'Ongoing')]")
+	private WebElement ongoingStatus;
+	@FindBy(how = How.XPATH, using = "//div[contains(text(),'Completed')]")
+	private WebElement completedStatus;
+
+
 	public void verifyGuestName() {
 		UtilityFunctions.waitForElementIsVisible(assertGuestName);
 		UtilityFunctions.validatIsElementPresent(assertGuestName, "assertGuestName not displayed");
@@ -170,11 +182,13 @@ public class ProfilePage {
 		Listeners.addLogs("clicked on back button");
 
 	}
+
 	public void subRoleDropdown() {
 		UtilityFunctions.waitForElementAndClickable(clickSubRoleDropdown);
 		Listeners.addLogs("clickSubRoleDropdown");
 
 	}
+
 	public void selectSubRoleType(String subRoleType) {
 		switch (subRoleType) {
 			case "HM":
@@ -192,12 +206,12 @@ public class ProfilePage {
 		return getActualText;
 	}
 
-	public String checkColorOfSubmitDetails() throws InterruptedException  {
+	public String checkColorOfSubmitDetails() throws InterruptedException {
 		String actualColor = UtilityFunctions.getColorValue(assertSubmitDetails);
 		return actualColor;
 	}
 
-	public void clickOnSubmitDetails() throws InterruptedException  {
+	public void clickOnSubmitDetails() throws InterruptedException {
 		UtilityFunctions.waitForElementAndClickable(assertSubmitDetails);
 		Listeners.addLogs("Clicked on Submit Details button");
 	}
@@ -244,6 +258,7 @@ public class ProfilePage {
 		String getActualText = UtilityFunctions.getTextFromElement(validateMyDetailsLabel);
 		return getActualText;
 	}
+
 	public void assertExternalIdField() {
 		UtilityFunctions.waitForElementIsVisible(assertExternalIdField);
 		UtilityFunctions.validatIsElementPresent(assertExternalIdField, "assertGuestName not displayed");
@@ -276,15 +291,57 @@ public class ProfilePage {
 		UtilityFunctions.waitForElementToDisappear(assertUpdateToasterMsg);
 		return getActualText;
 	}
+
 	public String assertConsentTextForPolicy() {
 		UtilityFunctions.waitForVisibilityOfWebElement(assertConsentTextForPolicy);
 		String getActualText = UtilityFunctions.getTextFromElement(assertConsentTextForPolicy);
 		return getActualText;
 
 	}
+
 	public void selectOnNewTenantFromDropDown() {
 		UtilityFunctions.waitForElementAndClickable(selectOnNewTenantFromDropDown.get(3));
 		Listeners.addLogs("Selected New Tenant drop down");
 
+	}
+
+	public void schoolHeadOrOfficials() {
+
+		UtilityFunctions.waitForElementAndClickable(schoolHeadOrOfficials);
+		Listeners.addLogs("School head or Official role is selected");
+
+	}
+
+	public void clickStateDropdown() {
+
+		UtilityFunctions.waitForElementAndClickable(assertState);
+		Listeners.addLogs("School head or Official role is selected");
+	}
+	public void stateFromDropdown() {
+
+		UtilityFunctions.waitForElementAndClickable(updateStateFromDropdown);
+		Listeners.addLogs("Clicked on State dropdown");
+	}
+	public void selectAPFromDropdown(String boardName) throws InterruptedException {
+		String boardXpath = "(" + SunbirdConstants.XPATH_CONTAINS + boardName + SunbirdConstants.XPATH_CONAINSCLOSEBRACKET + ")[3]";
+		UtilityFunctions.findElementAndClick(boardXpath);
+		Listeners.addLogs("Selected Board " + boardName);
+
+	}
+	public String verifyOngoingStatusAndRetunColor() {
+		UtilityFunctions.waitForElementIsVisible(ongoingStatus);
+		UtilityFunctions.validatIsElementPresent(ongoingStatus, "Ongoing status in My Learning Section is not displayed");
+		Listeners.addLogs("Ongoing status in My Learning Section is displayed");
+		String getActualText = UtilityFunctions.getColorValue(ongoingStatus);
+		return getActualText;
+
+	}
+
+	public String verifyCompletedStatusAndRetunColor() {
+		UtilityFunctions.waitForElementIsVisible(completedStatus);
+		UtilityFunctions.validatIsElementPresent(completedStatus, "Completed status in My Learning Section is not displayed");
+		Listeners.addLogs("Completed status in My Learning Section is displayed");
+		String getActualText = UtilityFunctions.getColorValue(completedStatus);
+		return getActualText;
 	}
 }

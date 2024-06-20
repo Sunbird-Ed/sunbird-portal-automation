@@ -190,7 +190,15 @@ public class ConsumptionPage {
     @FindBy(how = How.XPATH, using = "//strong[contains(text(),'Profile share settings submitted successfully')]")
     private WebElement verifyConsentToasterProfileMsg;
 
-        public int getPDFTotalCount() {
+    @FindBy(how = How.XPATH, using = "//div[text()=' Batch start date']")
+    private WebElement assertStartDateLabel;
+    @FindBy(how = How.XPATH, using = "//div[text()=' Batch end date']")
+    private WebElement assertEndDateLabel;
+    @FindBy(how = How.XPATH, using = "//div[text()=' Enrolment end date']")
+    private WebElement assertEnrolmentEndDatenewLabel;
+
+
+    public int getPDFTotalCount() {
 
         UtilityFunctions.waitForVisibilityOfWebElement(pdfPageTotalcount);
         String pageCount = UtilityFunctions.getTextFromElement(pdfPageTotalcount);
@@ -564,6 +572,27 @@ public class ConsumptionPage {
         UtilityFunctions.waitForVisibilityOfWebElement(verifyConsentToasterProfileMsg);
         UtilityFunctions.validatIsElementPresent(verifyConsentToasterProfileMsg, "Consent profile toaster message not displayed");
         Listeners.addLogs("Verified on Consent Profile Msg");
+    }
+    public String verifyStartDateLabelAndReturnStartDateValueXpath() throws InterruptedException {
+        UtilityFunctions.waitForVisibilityOfWebElement(assertStartDateLabel);
+        UtilityFunctions.validatIsElementPresent(assertStartDateLabel, "StartDate not displayed");
+        String returnverifyStartDateXpath=SunbirdConstants.XPATH_CONTAINS+SunbirdConstants.verifyStartDate+SunbirdConstants.XPATH_CONAINSCLOSEBRACKET;
+        Listeners.addLogs("Verified on Start Date");
+        return returnverifyStartDateXpath;
+    }
+    public String verifyEndDateLabelAndReturnEndDateValueXpath() throws InterruptedException {
+        UtilityFunctions.waitForVisibilityOfWebElement(assertEndDateLabel);
+        UtilityFunctions.validatIsElementPresent(assertEndDateLabel, "EndDate not displayed");
+        String returnverifyEndDateXpath=SunbirdConstants.XPATH_CONTAINS+SunbirdConstants.verifyEndDate+SunbirdConstants.XPATH_CONAINSCLOSEBRACKET;
+        Listeners.addLogs("Verified on End Date");
+        return returnverifyEndDateXpath;
+    }
+    public String verifyEnrolmentDateLabelAndReturnEnrolmentDateValueXpath() throws InterruptedException {
+        UtilityFunctions.waitForVisibilityOfWebElement(assertEnrolmentEndDatenewLabel);
+        UtilityFunctions.validatIsElementPresent(assertEnrolmentEndDatenewLabel, "EndDate not displayed");
+        String returnverifyEnrolmentDateXpath=SunbirdConstants.XPATH_CONTAINS+SunbirdConstants.verifyEnrolmentDate+SunbirdConstants.XPATH_CONAINSCLOSEBRACKET;
+        Listeners.addLogs("Verified on Enrolment Date");
+        return returnverifyEnrolmentDateXpath;
     }
 
 }

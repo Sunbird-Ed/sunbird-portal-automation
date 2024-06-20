@@ -69,6 +69,12 @@ public class HelpPage {
 	@FindBy(how = How.XPATH, using = "//span[@class='slider round']")
 	private WebElement clickOnEnableDebugMode;
 
+	@FindBy(how = How.XPATH, using = "//strong[contains(text(),'Debug mode enabled successfully')]")
+	private WebElement assertDebugModeToaster;
+
+	@FindBy(how = How.XPATH, using = "//div[contains(text(),'Debug mode will automatically shut off in 15 minutes')]")
+	private WebElement assertDebugModeTextAfterEnabled;
+
 
 	public void assertFAQ() {
 		UtilityFunctions.waitForElementIsVisible(faqSection);
@@ -188,21 +194,36 @@ public class HelpPage {
 
 	public void assertDebugMode() {
 		UtilityFunctions.waitForElementIsVisible(assertDebugMode);
+		UtilityFunctions.validatIsElementPresent(assertDebugMode, "Debug Mode is not displayed");
 		Listeners.addLogs("Debug Mode is displayed");
 
 	}
 
 	public void clickOnDebugMode() {
+		UtilityFunctions.waitForElementIsVisible(clickOnDebugMode);
 		UtilityFunctions.waitToBeClickableAndClick(clickOnDebugMode);
 		Listeners.addLogs("Clicked on Debug Mode");
 
 	}
 
 	public void enableDebugMode() {
-		UtilityFunctions.waitToBeClickableAndClick(clickOnEnableDebugMode);
+		UtilityFunctions.waitForElementAndClickable(clickOnEnableDebugMode);
 		Listeners.addLogs("Debug Mode is enabled");
 
 	}
+
+	public String debugModeToaster() {
+		UtilityFunctions.waitForVisibilityOfWebElement(assertDebugModeToaster);
+		String getActualText = UtilityFunctions.getTextFromElement(assertDebugModeToaster);
+		return getActualText;
+	}
+
+	public String debugModeTextAfterEnabled() {
+		UtilityFunctions.waitForVisibilityOfWebElement(assertDebugModeTextAfterEnabled);
+		String getActualText = UtilityFunctions.getTextFromElement(assertDebugModeTextAfterEnabled);
+		return getActualText;
+	}
+
 
 
 

@@ -4,7 +4,6 @@ import com.sunbird.GenericLibrary.BaseTestConfig;
 import com.sunbird.GenericLibrary.Listeners;
 import com.sunbird.GenericLibrary.SunbirdConstants;
 import com.sunbird.GenericLibrary.UtilityFunctions;
-import com.sunbird.PageObjects.GetPage;
 import com.sunbird.PageObjects.ProfilePage;
 import org.openqa.selenium.support.PageFactory;
 
@@ -157,5 +156,29 @@ public class ProfilePageActions extends BaseTestConfig {
 		profilePage.selectOnNewTenantFromDropDown();
 
 	}
+	public static void selectSchoolHeadOrOfficials() {
+		ProfilePage profilePage = PageFactory.initElements(driver, ProfilePage.class);
+		profilePage.schoolHeadOrOfficials();
+	}
+	public static void clickStateFromDropdown() {
+		ProfilePage profilePage = PageFactory.initElements(driver, ProfilePage.class);
+		profilePage.stateFromDropdown();
 
+	}
+	public static void selectAPFromDropdown() throws InterruptedException {
+		ProfilePage profilePage = PageFactory.initElements(driver, ProfilePage.class);
+		profilePage.selectAPFromDropdown(SunbirdConstants.APBoardValue);
+	}
+	public static void assertOngoingStatusAndValidateColor() {
+		ProfilePage profilePage = PageFactory.initElements(driver, ProfilePage.class);
+		String actualMsg1 = profilePage.verifyOngoingStatusAndRetunColor();
+		UtilityFunctions.stringValueComparision(actualMsg1, SunbirdConstants.ongoingStatusTextColor, "Ongoing status is not displayed in Blue Color");
+		Listeners.addLogs("Ongoing status is displayed in Blue Color");
+	}
+	public static void assertCompletedStatusAndValidateColor() {
+		ProfilePage profilePage = PageFactory.initElements(driver, ProfilePage.class);
+		String actualMsg1 = profilePage.verifyCompletedStatusAndRetunColor();
+		UtilityFunctions.stringValueComparision(actualMsg1, SunbirdConstants.completedStatusTextColor, "Completed status is not displayed in Green Color");
+		Listeners.addLogs("Completed status is displayed in Green Color");
+	}
 }

@@ -265,13 +265,13 @@ UtilityFunctions.waitForVisibilityOfWebElement(firstContentCard);
     }
     public void joyfulThemeProfilePageHeader() {
         UtilityFunctions.waitForElementIsVisible(assertJoyfulThemeProfilePageHeader);
-        UtilityFunctions.validatIsElementPresent(assertClassicThemeProfilePageFooter, "Header is not displayed in Joyful theme");
+        UtilityFunctions.validatIsElementPresent(assertJoyfulThemeProfilePageHeader, "Header is not displayed in Joyful theme");
         Listeners.addLogs("Header is displayed in Joyful theme");
     }
 
     public void joyfulThemeProfilePageFooter() {
         UtilityFunctions.waitForElementIsVisible(assertJoyfulThemeProfilePageFooter);
-        UtilityFunctions.validatIsElementPresent(assertClassicThemeProfilePageFooter, "Terms and Privacy is not displayed in right side of Profile Page in Joyful theme");
+        UtilityFunctions.validatIsElementPresent(assertJoyfulThemeProfilePageFooter, "Terms and Privacy is not displayed in right side of Profile Page in Joyful theme");
         Listeners.addLogs("Terms and Privacy is displayed in right side of Profile Page in Joyful theme");
 
     }

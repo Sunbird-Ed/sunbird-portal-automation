@@ -8,7 +8,7 @@ import static com.sunbird.GenericLibrary.BaseTestConfig.sunbird_config;
 
 public class Profile {
 
-    @Test(description="Verify Help, FAQ and Feedback in Help Section ")
+    @Test(description = "Verify Help, FAQ and Feedback in Help Section ")
     public void ValidateHelpSection() throws InterruptedException {
 
         OnBoardingActions.RolePoup();
@@ -19,7 +19,7 @@ public class Profile {
         HelpPageActions.assertFAQSection();
     }
 
-    @Test(description="Verify Login landing page,Sunbird logo Text Fields and Login button in Login Page")
+    @Test(description = "Verify Login landing page,Sunbird logo Text Fields and Login button in Login Page")
     public void ValidateLoginLandingPage() throws Exception {
 
         OnBoardingActions.RolePoup();
@@ -27,14 +27,14 @@ public class Profile {
         OnBoardingActions.LocationPopup();
         DashboardPageActions.clickUserProfileIcon();
         LoginPageActions.clickLoginInPopup();
-LoginPageActions.verifySunbirdLogo();
+        LoginPageActions.verifySunbirdLogo();
         LoginPageActions.validateLoginPageHeading();
         LoginPageActions.assertEmailAndPasswordTextField();
         LoginPageActions.assertLoginButton();
 
     }
 
-    @Test(description="Validate Add User page")
+    @Test(description = "Validate Add User page")
     public void ValidateAddUserAndSwitchUser() throws Exception {
 
         OnBoardingActions.RolePoup();
@@ -48,18 +48,18 @@ LoginPageActions.verifySunbirdLogo();
         AddUserPageActions.assertAddUserPage();
         AddUserPageActions.assertCancelButton();
         AddUserPageActions.assertAddUserButton();
-        String creadtedUserName=AddUserPageActions.enterName();
+        String creadtedUserName = AddUserPageActions.enterName();
         AddUserPageActions.addUserBtnInCreation();
         AddUserPageActions.assertAddedUserToastrMsg();
         AddUserPageActions.clickOnCreatedUser(creadtedUserName);
         AddUserPageActions.clickChangeUser();
-            AddUserPageActions.checkBoxClick();
+        AddUserPageActions.checkBoxClick();
         AddUserPageActions.clickContinue();
         OnBoardingActions.RolePoup();
         OnBoardingActions.LocationPopupForSwitchUser();
     }
 
-    @Test(description="Verify Submit Details button and My details Section in Profile")
+    @Test(description = "Verify Submit Details button and My details Section in Profile")
     public void ValidateSubmitDetailsButton() throws Exception {
 
         OnBoardingActions.RolePoup();
@@ -69,11 +69,11 @@ LoginPageActions.verifySunbirdLogo();
                 sunbird_config.getSunbidConfigPropertyValue("New_PWD1"));
         DashboardPageActions.clickUserProfileIcon();
         AddUserPageActions.clickAddPlusIcon();
-        String creadtedUserName=AddUserPageActions.enterName();
+        String creadtedUserName = AddUserPageActions.enterName();
         AddUserPageActions.addUserBtnInCreation();
         AddUserPageActions.assertAddedUserToastrMsg();
         AddUserPageActions.clickOnCreatedUser(creadtedUserName);
-            AddUserPageActions.clickChangeUser();
+        AddUserPageActions.clickChangeUser();
         AddUserPageActions.checkBoxClick();
         AddUserPageActions.clickContinue();
         OnBoardingActions.RolePoup();
@@ -107,24 +107,19 @@ LoginPageActions.verifySunbirdLogo();
         OnBoardingActions.RolePoup();
         OnBoardingActions.BMCPopup();
         OnBoardingActions.LocationPopup();
-
         LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("Profile_New_User"),
                 sunbird_config.getSunbidConfigPropertyValue("Profile_New_PWD"));
-
         DashboardPageActions.clickUserProfileIcon();
         DashboardPageActions.clickOnProfileForLoginUser();
         DashboardPageActions.clickUserProfileIcon();
-
         DashboardPageActions.clickOnSwitchToClassicTheme();
         DashboardPageActions.assertClassicThemeProfilePageHeader();
         DashboardPageActions.assertClassicThemeProfilePageFooter();
-
         DashboardPageActions.clickUserProfileIconInClassicTheme();
         DashboardPageActions.clickOnSwitchToJoyfulTheme();
         DashboardPageActions.assertJoyfulThemeProfilePageHeader();
         DashboardPageActions.assertJoyfulThemeProfilePageFooter();
     }
-
 
 
     @Test(description = "Validate Course & Certificates FAQs in Help Page")
@@ -174,20 +169,54 @@ LoginPageActions.verifySunbirdLogo();
 
     }
 
-
     @Test(description = "Validate Debug Mode in Help Page")
-
     public void ValidateDebugModeInHelpPage() throws Exception {
         OnBoardingActions.RolePoup();
         OnBoardingActions.BMCPopup();
         OnBoardingActions.LocationPopup();
+        OnBoardingActions.waitContentIsSavedToastToDisapper();
         DashboardPageActions.clickUserProfileIcon();
         DashboardPageActions.VerifyHelpSection();
         HelpPageActions.assertDebugMode();
         HelpPageActions.clickOnDebugMode();
         HelpPageActions.clickOnEnableDebugMode();
+        HelpPageActions.validateDebugModeToaster();
+        HelpPageActions.assertDebugModeTextAfterEnabled();
 
     }
 
 
+    @Test(description = "Validate School head & Official Role and Subrole and Update in Profile page of Loggedin User")
+    public void validateSchoolHeadOrOfficialsRoleAndSelectSubRoleInProfileOfLoggedInUser() throws Exception {
+        OnBoardingActions.RolePoup();
+        OnBoardingActions.BMCPopup();
+        OnBoardingActions.LocationPopup();
+        OnBoardingActions.waitContentIsSavedToastToDisapper();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("Profile_New_User"),
+                sunbird_config.getSunbidConfigPropertyValue("Profile_New_PWD"));
+        DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.clickOnProfileForLoginUser();
+        ProfilePageActions.clickEditButtonLocationDetails();
+        ProfilePageActions.clickRoleDropdown();
+        ProfilePageActions.selectSchoolHeadOrOfficials();
+        ProfilePageActions.clickStateFromDropdown();
+        ProfilePageActions.selectAPFromDropdown();
+        ProfilePageActions.clickSubRoleDropdown();
+        ProfilePageActions.selectSubRoleType("HM");
+
+    }
+
+    @Test(description = "Validate Ongoing and Completed Status of Course in My Learning section of Profile Page")
+    public void validateOngoingAndCompletedStatusInMyLearningSection() throws Exception {
+        OnBoardingActions.RolePoup();
+        OnBoardingActions.BMCPopup();
+        OnBoardingActions.LocationPopup();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("Profile_New_User"),
+                sunbird_config.getSunbidConfigPropertyValue("Profile_New_PWD"));
+        DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.clickOnProfileForLoginUser();
+        ProfilePageActions.assertOngoingStatusAndValidateColor();
+        ProfilePageActions.assertCompletedStatusAndValidateColor();
+
+    }
 }
