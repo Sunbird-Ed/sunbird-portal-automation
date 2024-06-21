@@ -11,7 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 public class CoursePageActions extends BaseTestConfig {
 
 
-/* hanlde course editor section1 and return the content name or doid based on parameter */
+// hanlde course editor section1 and return the content name or doid based on parameter
 	public static String createCourseSection1(String getContentType) throws Exception {
 		CoursePage coursePage = PageFactory.initElements(driver, CoursePage.class);
 		BookPage bookPage = PageFactory.initElements(driver, BookPage.class);
@@ -47,7 +47,7 @@ public class CoursePageActions extends BaseTestConfig {
 	}
 
 
-	/* Selects BMC dropdown in Course editor */
+	// Selects BMC dropdown in Course editor
 	public static void BMCDropdownSelectionSection2() throws InterruptedException {
 		Thread.sleep(5000);
 		BookPage bookPage = PageFactory.initElements(driver, BookPage.class);

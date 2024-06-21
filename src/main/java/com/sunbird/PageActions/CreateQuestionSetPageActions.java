@@ -403,4 +403,33 @@ public class CreateQuestionSetPageActions extends BaseTestConfig {
 		UtilityFunctions.stringValueComparision(actualAttributeValue, SunbirdConstants.horizontalLayoutattribute, "horizontal Layout failed to display");
 		Listeners.addLogs("Horizontal layout is displayed");
 	}
+
+	public static void enableFeedbackOption() {
+		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
+		createQuestSetPage.enableFeebackOption();
+	}
+	public static void enableSolutionOption() {
+		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
+		createQuestSetPage.enableSolutionOption();
+
+	}
+	public static void solutionParagraph() {
+		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
+		String randomParagraph = UtilityFunctions.generateRandomName("automationCreateQuestionSetQuesParagaraph");
+		createQuestSetPage.solutionParagraph(randomParagraph);
+
+	}
+	public static void selectWrongAnswer() {
+		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
+		createQuestSetPage.selectWrongAnswer();
+
+	}
+	public static void assertFeedbackPopUp() {
+		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
+		createQuestSetPage.assertFeedbackPopup();
+	}
+	public static void assertSolutionButton() {
+		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
+		createQuestSetPage.assertSolutionButton();
+	}
 }

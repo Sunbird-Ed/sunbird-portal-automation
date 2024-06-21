@@ -17,8 +17,8 @@ public class LoginPageActions extends BaseTestConfig {
         DashboardPageActions.clickUserProfileIcon();
         LoginPage loginpage = PageFactory.initElements(driver, LoginPage.class);
         loginpage.LoginButtonInProfileIconDropdown();
-        loginpage.LoginUserName(usrName);
-        loginpage.LoginPassword(passWord);
+             loginpage.LoginUserName(UtilityFunctions.decodeString(usrName));
+        loginpage.LoginPassword(UtilityFunctions.decodeString(passWord));
         loginpage.TapLoginButton();
 
 

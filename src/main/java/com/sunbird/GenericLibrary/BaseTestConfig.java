@@ -24,7 +24,7 @@ public class BaseTestConfig {
     public static ExtendReportGenerator reporter;
 
 
-    /* Loads sunbirdConfi properties object */
+    //Loads sunbirdConfi properties object
     @BeforeClass
     public void loadFrameworkConfigs() throws Exception {
 

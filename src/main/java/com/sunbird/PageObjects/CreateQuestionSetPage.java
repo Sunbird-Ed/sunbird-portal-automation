@@ -193,11 +193,22 @@ public class CreateQuestionSetPage {
 	@FindBy(how=How.XPATH,using="//input[@id='show-feedback']")
 	private WebElement showquestionfeedbackField;
 
+
 	@FindBy(how=How.XPATH,using="//label[contains(text(),'Show Solution ')]")
 	private WebElement showsolutiontext;
 	@FindBy(how=How.XPATH,using="//input[@id='show-solution']")
 	private WebElement showsolutionField;
 
+	@FindBy(how=How.XPATH,using="(//span[@class='radiomark'])[1]")
+	private WebElement wrongAnswerOption;
+
+	@FindBy(how = How.XPATH, using = "//span[contains(text(),'Solution')]//following::div[@role='textbox']")
+	private WebElement enterSolutionParagraph;
+	@FindBy(how=How.XPATH,using="//span[@aria-label='Try again']")
+	private WebElement tryAgainmsg;
+
+	@FindBy(how=How.XPATH,using="//span[@aria-label='View Solution']")
+	private WebElement showSolutionButton;
 	@FindBy(how=How.XPATH,using="//button[contains(text(),'Reset')]")
 	private WebElement clickOnResetButton;
 
@@ -684,5 +695,37 @@ public class CreateQuestionSetPage {
 	public String getHorizontalClassValue() {
 		String attributeValue=UtilityFunctions.getAttributeValue(assertHorizontalLayout, "class");
 		return attributeValue;
+	}
+	public void enableFeebackOption() {
+		UtilityFunctions.clickUsingJavaScriptExecutor(showquestionfeedbackField);
+		Listeners.addLogs("Enable Feedback option");
+
+	}
+	public void enableSolutionOption() {
+		UtilityFunctions.clickUsingJavaScriptExecutor(showsolutionField);
+		Listeners.addLogs("Enable solution option");
+
+	}
+	public void selectWrongAnswer() {
+		UtilityFunctions.clickUsingJavaScriptExecutor(wrongAnswerOption);
+		Listeners.addLogs("Click on wrong answer option");
+
+	}
+
+	public void solutionParagraph(String paragraph) {
+		UtilityFunctions.waitToBeClickableAndSendKeys(enterSolutionParagraph, paragraph);
+		Listeners.addLogs("enterSolutionnParagraph");
+	}
+	public void assertFeedbackPopup() {
+		UtilityFunctions.waitForElementIsVisible(tryAgainmsg);
+		UtilityFunctions.validatIsElementPresent(tryAgainmsg, "Try again message is not displayed");
+		Listeners.addLogs("Try again message is displayed");
+
+	}
+	public void assertSolutionButton() {
+		UtilityFunctions.waitForElementIsVisible(showSolutionButton);
+		UtilityFunctions.validatIsElementPresent(showSolutionButton, "Solution button is not displayed");
+		Listeners.addLogs("Solution button is displayed");
+
 	}
 }

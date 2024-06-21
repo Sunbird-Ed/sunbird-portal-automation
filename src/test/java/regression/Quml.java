@@ -403,4 +403,51 @@ public class Quml extends BaseTestConfig {
         CreateQuestionSetPageActions.assertHorizontalLayout();
     }
 
+
+    @Test(description = "Try again and view solution button should displayed on the questionset preview if show feed back is enabled in the section node for the created MCQ question on providing the incorrect answer.")
+    public void UserShouldGetTryAgainAndSolutionInPopupWhileProvidingWrongAnswer() throws Exception {
+        OnBoardingActions.RolePoup();
+        OnBoardingActions.BMCPopup();
+        OnBoardingActions.LocationPopup();
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+                sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+        DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.assertWorkspace();
+        DashboardPageActions.clickOnWorkSpace();
+        WorkspaceDashboardPageActions.clickOnQuestionSet();
+        String createdContent = CreateQuestionSetPageActions.fillQuestionSetSection1("getdoid");
+        CreateQuestionSetPageActions.BMCDropdownSelectionSection2();
+        CreateQuestionSetPageActions.selectAudienceType();
+        CreateQuestionSetPageActions.setMaxTime("5", "10");
+        BookPageActions.clickSaveAsDrafts();
+        BookPageActions.assertContentIsSavedToastrMsg();
+        BookPageActions.waitContentIsSavedToastToDisapper();
+        BookPageActions.clickAddChild();
+        CreateQuestionSetPageActions.fillSectionDetails();
+        CreateQuestionSetPageActions.enableFeedbackOption();
+        CreateQuestionSetPageActions.enableSolutionOption();
+        BookPageActions.clickSaveAsDrafts();
+        BookPageActions.waitContentIsSavedToastToDisapper();
+        CreateQuestionSetPageActions.clickCreateNew();
+        CreateQuestionSetPageActions.clickMcqTemplate();
+        CreateQuestionSetPageActions.clickNextBtn();
+        CreateQuestionSetPageActions.questParagraph();
+        CreateQuestionSetPageActions.optionParagraph();
+        CreateQuestionSetPageActions.optionParagraph2();
+        UtilityFunctions.scrollDownUsingPixelValue();
+        CreateQuestionSetPageActions.clickOnChooseTypeDropDownInSolutionField();
+        CreateQuestionSetPageActions.selectTextAndImageType();
+        CreateQuestionSetPageActions.solutionParagraph();
+        CreateQuestionSetPageActions.clickCorrectAnswers();
+        String title = CreateQuestionSetPageActions.questionTitle();
+        CreateQuestionSetPageActions.clickSave();
+        CreateQuestionSetPageActions.assertQuestionCreatedToastrMsg();
+        CreateQuestionSetPageActions.clickPreviewButton();
+        CreateQuestionSetPageActions.clickOnNextButton(2);
+        CreateQuestionSetPageActions.selectWrongAnswer();
+        CreateQuestionSetPageActions.clickOnNextButton(1);
+        CreateQuestionSetPageActions.assertFeedbackPopUp();
+        CreateQuestionSetPageActions.assertSolutionButton();
+    }
+
 }
