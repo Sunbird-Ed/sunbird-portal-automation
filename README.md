@@ -175,26 +175,8 @@ the Eclipse zip file
 * 
 * ![image](https://github.com/Sunbird-Ed/sunbird-portal-automation/assets/43565430/54a2ae29-f98b-4862-a128-f638d07ccd0a)
 
-                    Download Selenium Java Client Driver:
-  
- ◦ Open URL: https://docs.seleniumhq.org/download/
- 
- ◦ It will redirect you to the "downloads page" of Selenium's official website.
- 
- ◦ Scroll down through the web page and locate Selenium Client & WebDriver Language Bindings.
- 
- ◦ Download the latest version of Selenium WebDriver for Java as shown in the image given below
+                   
 
- ![image](https://github.com/Sunbird-Ed/sunbird-portal-automation/assets/43565430/a85fc7c7-5b69-49fc-a21a-cdddd330b295)
- 
- This download comes as a ZIP file named “selenium-4.19.1.zip”. For simplicity of Selenium installation on Windows 10, extract the contents of this ZIP file on your C drive so that you would have the directory
-“C:\selenium-3.14.0\”. This directory contains all the JAR files that we would later import on Eclipse for Selenium setup.
-
-![image](https://github.com/Sunbird-Ed/sunbird-portal-automation/assets/43565430/2c5e5916-7f3e-4462-8e8f-921d2cb6b50e)
-
-Extract the ZIP file to the desired folder. This is what an extracted folder looks like 
-
-![image](https://github.com/Sunbird-Ed/sunbird-portal-automation/assets/43565430/ef46af7d-8c7b-49f8-9790-7c1cf838723a)
 
                 Install Drivers For Browsers:
                 
@@ -225,78 +207,6 @@ extracted, the executable should be located on C:\eclipse\eclipse.exe.
 
 * ![image](https://github.com/Sunbird-Ed/sunbird-portal-automation/assets/43565430/b6e0c394-9c6f-40d0-85fb-3397eb05b8e6)
 
-
-*    Create a new project through File > New > Java Project
-*    Name the project as “newproject”.
-  ![image](https://github.com/Sunbird-Ed/sunbird-portal-automation/assets/43565430/03bd3c9b-ea06-4a2b-884a-69f086d6018d)
-
-A new pop-up window will open. Enter details as follows:
-
-    1. Project Name
-    2. Location to save a project
-    3. Select an execution JRE
-    4. Select the layout project option
-    5. Click on the Finish button
-
-![image](https://github.com/Sunbird-Ed/sunbird-portal-automation/assets/43565430/b73a90f8-4237-4f70-988c-f753276dcab9)
-
-
-  In the next step,
-        1. Right-click on the newly created project and
-        2. Select New > Package, and name that package as “new package”\
-
-![image](https://github.com/Sunbird-Ed/sunbird-portal-automation/assets/43565430/38dc13d1-096a-4d53-b964-e4844576e71b)
-
- A pop-up window will open to name the package:
-       1. Enter the name of the package
-       2. Click on the Finish button
-       
-![image](https://github.com/Sunbird-Ed/sunbird-portal-automation/assets/43565430/835e4641-533a-457b-b05f-92a239ad8a64)
-
-* Create a new Java class under new package by right-clicking on it and then selecting- New > Class, and then name it as “MyClass”. Your Eclipse IDE should look like the image below
-
-* ![image](https://github.com/Sunbird-Ed/sunbird-portal-automation/assets/43565430/95bfd7c5-da4a-4530-8b87-9e592a62e42b)
-
-* When you click on Class, a pop-up window will open, enter details as
-    1. Name of the class
-    2. Click on the Finish button
-       
- ![image](https://github.com/Sunbird-Ed/sunbird-portal-automation/assets/43565430/bde5ad61-d9b9-4f19-aaf0-7cdd14f22e82)
-
- ![image](https://github.com/Sunbird-Ed/sunbird-portal-automation/assets/43565430/5681657e-146e-4fe3-ae3a-dd6bef84ff33)
-
-                 Now selenium WebDriver’s into Java Build Path:
-    1. Right-click on “newproject” and select Properties.
-    2. On the Properties dialog, click on “Java Build Path”.
-    3. Click on the Libraries tab, and then
-    4. Click on “Add External JARs
-
-![image](https://github.com/Sunbird-Ed/sunbird-portal-automation/assets/43565430/b08f8fe1-cfed-4fcd-9556-30005e0b45ee)
-
-*When you click on “Add External JARs..” It will open a pop-up window. Select the JAR files you want to add.
-
-![image](https://github.com/Sunbird-Ed/sunbird-portal-automation/assets/43565430/fae8b839-d521-4e34-9acb-a0c78a287891)
-
-
- ▪ After selecting jar files, click on OK button.
- ▪ Select all files inside the lib folder.
-
-
- ![image](https://github.com/Sunbird-Ed/sunbird-portal-automation/assets/43565430/584880f8-9547-46f1-80fc-aa4de51ef9e2)
-
- * Select files outside lib folder
-
- * ![image](https://github.com/Sunbird-Ed/sunbird-portal-automation/assets/43565430/4021b14f-a5bf-4555-8d4a-2f1df1851b07)
-
- * Once done, click “Apply and Close” button
-
- * ![image](https://github.com/Sunbird-Ed/sunbird-portal-automation/assets/43565430/9184d86d-3092-40f3-9c96-9c14a946a386)
-
-
-            ▪ Add all the JAR files inside and outside the “libs” folder. Your
-The properties dialog should now look similar to the image below.
-
-![image](https://github.com/Sunbird-Ed/sunbird-portal-automation/assets/43565430/e5a04a4b-cda9-4c65-9b3d-50d4773e974b)
 
 
                       ** How to install TestNG in Eclipse
