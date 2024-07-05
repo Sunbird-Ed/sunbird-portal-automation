@@ -1590,6 +1590,121 @@ public class Workspace extends BaseTestConfig {
 		ReviewPageActions.reviewAndPublishContent(createdContent, "Resource");
 
 	}
+
+	@Test(description = "Reviewer should be able to review the collection and Publish")
+	public void CreateCollectionAndVerify() throws Exception {
+
+		OnBoardingActions.RolePoup();
+		OnBoardingActions.BMCPopup();
+		OnBoardingActions.LocationPopup();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+				sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.assertWorkspace();
+		DashboardPageActions.clickOnWorkSpace();
+		WorkspaceDashboardPageActions.clickCollection();
+		String createdContent = CollectionPageActions.createCollectionPopupSection1("Content Playlist","getdoid");
+		BookPageActions.BMCDropdownSelectionSection2();
+		BookPageActions.Section3();
+		BookPageActions.assertContentIsSavedToastrMsg();
+		BookPageActions.waitContentIsSavedToastToDisapper();
+		BookPageActions.addResourceFromLibrary();
+		BookPageActions.addResourceFromLibrary();
+		BookPageActions.submitAndSendForReview();
+		DashboardPageActions.logOut();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"),
+				sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.clickOnWorkSpace();
+		ReviewPageActions.reviewAndPublishContent(createdContent, "Collection");
+
+	}
+
+	@Test(description = "Verify that book creator can remove collaborator from a textbook")
+	public void collaboratorShouldEditDraftBook() throws Exception {
+		OnBoardingActions.RolePoup();
+		OnBoardingActions.BMCPopup();
+		OnBoardingActions.LocationPopup();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+				sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.assertWorkspace();
+		DashboardPageActions.clickOnWorkSpace();
+		WorkspaceDashboardPageActions.clickBook();
+		String searchdoid = BookPageActions.createBookPopup("getdoid");
+		BookPageActions.section1("getdescription");
+		BookPageActions.BMCDropdownSelectionSection2();
+		BookPageActions.Section3();
+		BookPageActions.clickCollobratorIcon();
+		BookPageActions.searchCollaborator(sunbird_config.getSunbidConfigPropertyValue("COLLABORATOR_USERNAME1"));
+		BookPageActions.selectCollaborator();
+		BookPageActions.clickDoneBtnInCollobrator();
+		BookPageActions.assertAddedCollobratorToastrMsg();
+		BookPageActions.addResourceInLibrarySection(sunbird_config.getSunbidConfigPropertyValue("PDF_Consume"));
+		BookPageActions.clickSaveAsDrafts();
+		BookPageActions.clickBackButtonInEditor();
+		DashboardPageActions.logOut();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("COLLABORATOR_EMAILID1"), sunbird_config.getSunbidConfigPropertyValue("COLLABORATOR_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.clickOnWorkSpace();
+		WorkspaceDashboardPageActions.assertAndClickCollaborations();
+		AllMyContentPageActions.enterContentInSearchBox(searchdoid);
+		AllMyContentPageActions.clickFirstCard();
+		WorkspaceDashboardPageActions.clickEditOptionInCollaborators();
+		BookPageActions.clickAddChild();
+		BookPageActions.addResourceInLibrarySection(sunbird_config.getSunbidConfigPropertyValue("PDF_SINGLEPAGE"));
+		BookPageActions.clickSaveAsDrafts();
+
+	}
+
+	@Test(description = "Verify that content creator can edit a Live collection and republish it")
+	public void userAbleToEditPublishedCollectionAndRePublishCollection() throws Exception {
+		OnBoardingActions.RolePoup();
+		OnBoardingActions.BMCPopup();
+		OnBoardingActions.LocationPopup();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+				sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.assertWorkspace();
+		DashboardPageActions.clickOnWorkSpace();
+		WorkspaceDashboardPageActions.clickCollection();
+		String createdContent = CollectionPageActions.createCollectionPopupSection1("Content Playlist", "getdoid");
+		BookPageActions.BMCDropdownSelectionSection2();
+		BookPageActions.Section3();
+		BookPageActions.assertContentIsSavedToastrMsg();
+		BookPageActions.waitContentIsSavedToastToDisapper();
+		BookPageActions.addResourceFromLibrary();
+		BookPageActions.submitAndSendForReview();
+		DashboardPageActions.logOut();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"),
+				sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.clickOnWorkSpace();
+		ReviewPageActions.reviewAndPublishContent(createdContent, "Content Playlist");
+		DashboardPageActions.logOut();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
+				sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.assertWorkspace();
+		DashboardPageActions.clickOnWorkSpace();
+		WorkspaceDashboardPageActions.clickPublishedBucket();
+		AllMyContentPageActions.enterContentInSearchBox(createdContent);
+		PublishedPageActions.clickFirstCard();
+		UtilityFunctions.scrollDownUsingPixelValue();
+		UtilityFunctions.scrollDownUsingPixelValue();
+		BookPageActions.selectMultipleBMCDropdownSelectionSection2();
+		BookPageActions.Section3();
+		BookPageActions.assertContentIsSavedToastrMsg();
+		BookPageActions.waitContentIsSavedToastToDisapper();
+		BookPageActions.submitAndSendForReview();
+		DashboardPageActions.logOut();
+		LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("REVIEWER_USRNAME"),
+				sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
+		DashboardPageActions.clickUserProfileIcon();
+		DashboardPageActions.clickOnWorkSpace();
+		ReviewPageActions.reviewAndPublishContent(createdContent, "Content Playlist");
+		DashboardPageActions.logOut();
+	}
 }
 
 	

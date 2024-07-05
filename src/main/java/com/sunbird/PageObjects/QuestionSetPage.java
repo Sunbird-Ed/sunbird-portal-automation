@@ -190,6 +190,17 @@ public class QuestionSetPage {
     @FindBy(how=How.XPATH,using="//div[@aria-label='Next']")
     private WebElement nextBtnInPreview;
 
+    @FindBy(how=How.XPATH,using="//button[contains(text(),'Copy')]")
+    private WebElement clickOnCopyButton;
+
+    @FindBy(how=How.XPATH,using="//strong[contains(text(),'Question set successfully copied')]")
+    private WebElement assertQuestionsetCopyToastrMsg;
+
+    @FindBy(how=How.XPATH,using="//option[contains(text(),'Input count of questions to be displayed ')]//following::option[2]")
+    private WebElement selectMaxquestion;
+
+    @FindBy(how=How.XPATH,using="//li[contains(text(),'i')]")
+    private WebElement progressBarIcon;
 
     @FindBy(how=How.XPATH,using="//*[contains(text(),'Match The Following')]//following::div[contains(text(),'Select')][2]")
     private WebElement mCQ;
@@ -548,5 +559,28 @@ Thread.sleep(5000);
         UtilityFunctions.waitToBeClickableAndClick(nextBtnInPreview);
         Listeners.addLogs("Clicked on nextBtnInPreview");
     }
+    public void clickOnCopyButton() {
+        UtilityFunctions.waitToBeClickableAndClick(clickOnCopyButton);
+        Listeners.addLogs("Click on copy button");
+
+    }
+    public String assertQuestionsetCopyToastrMsg() {
+        UtilityFunctions.waitForVisibilityOfWebElement(assertQuestionsetCopyToastrMsg);
+        String getActualText = UtilityFunctions.getTextFromElement(assertQuestionsetCopyToastrMsg);
+        return getActualText;
+    }
+    public String selectMaxQuestion() {
+        String maxvalue = UtilityFunctions.getTextFromElement(selectMaxquestion);
+        Listeners.addLogs("Select max question");
+        return maxvalue;
+    }
+
+    public void assertProgressBariIcon() {
+        UtilityFunctions.waitForElementIsVisible(progressBarIcon);
+        UtilityFunctions.validatIsElementPresent(progressBarIcon,"I icon not displayed");
+        Listeners.addLogs("I Icon is displayed in root node of the intruction page");
+
+    }
+
 }
 

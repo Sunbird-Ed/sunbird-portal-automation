@@ -56,6 +56,9 @@ public class WorkspaceDashboardPage {
     @FindBy(how = How.XPATH, using = "//a[contains(text(),'Collaborations')]")
     private WebElement collaborations;
 
+    @FindBy(how = How.XPATH, using = "//i[contains(@class,'edit icon')]")
+    private WebElement clickEditAsCollaborator;
+
     @FindBy(how = How.XPATH, using = "//a[contains(text(),'All Uploads')]")
     private WebElement alluploads;
 
@@ -251,6 +254,17 @@ public class WorkspaceDashboardPage {
     public void assertQuestionSetOption() throws InterruptedException {
 
         UtilityFunctions.validatIsElementPresent(questionSet, "Question set option is not displayed");
+
+    }
+    public void assertAndClickCollaborations() throws InterruptedException {
+
+        UtilityFunctions.waitToBeClickableAndClick(collaborations);
+        UtilityFunctions.validatIsElementPresent(collaborations, "Collaborations button is not displayed");
+
+    }
+
+    public void clickEditOptionAsCollaborator() {
+        UtilityFunctions.waitForElementAndClickable(clickEditAsCollaborator);
 
     }
 }

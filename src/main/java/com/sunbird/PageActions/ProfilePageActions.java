@@ -4,6 +4,7 @@ import com.sunbird.GenericLibrary.BaseTestConfig;
 import com.sunbird.GenericLibrary.Listeners;
 import com.sunbird.GenericLibrary.SunbirdConstants;
 import com.sunbird.GenericLibrary.UtilityFunctions;
+import com.sunbird.PageObjects.OnBoarding;
 import com.sunbird.PageObjects.ProfilePage;
 import org.openqa.selenium.support.PageFactory;
 
@@ -181,4 +182,39 @@ public class ProfilePageActions extends BaseTestConfig {
 		UtilityFunctions.stringValueComparision(actualMsg1, SunbirdConstants.completedStatusTextColor, "Completed status is not displayed in Green Color");
 		Listeners.addLogs("Completed status is displayed in Green Color");
 	}
+	public static void assertProfileUpdateToasterMsg() {
+		ProfilePage profilePage = PageFactory.initElements(driver, ProfilePage.class);
+		String actualMsg1 = profilePage.assertProfileUpdateToasterMsg();
+		UtilityFunctions.stringValueComparision(actualMsg1, SunbirdConstants.assertProfileUpdateToasterMsg, "Update toaster msg is not displayed");
+		Listeners.addLogs("Update toaster msg is displayed ");
+
+	}
+	public static void assertBMCWithEditBtnForLoggedInUser() throws Exception {
+		ProfilePage profilePage = PageFactory.initElements(driver, ProfilePage.class);
+		profilePage.verifyBMCDetailsWithEditBtnForLoggedInUser();
+	}
+	public static void updateBMGInGuestUser() throws InterruptedException {
+		ProfilePage profilePage = PageFactory.initElements(driver, ProfilePage.class);
+		OnBoarding onboard = PageFactory.initElements(driver, OnBoarding.class);
+		profilePage.clickOnBMGEditBtn();
+		String frameworkValue=profilePage.getValueOfBoard();
+		if(frameworkValue.equals(SunbirdConstants.cbseBoardValue))
+		{
+			onboard.BoardDropdown();
+			onboard.updateBoardValueSelect(SunbirdConstants.guestUserBoardValue);
+		}
+		else
+		{
+			onboard.BoardDropdown();
+			onboard.BoardValueSelect("CBSE");
+		}
+		onboard.MediumDropDown();
+		onboard.MediumValueSelect();
+		UtilityFunctions.MoveByOffSet(50, 100);
+		onboard.ClassDropDown();
+		onboard.ClassValueSelect();
+		UtilityFunctions.MoveByOffSet(50, 100);
+		onboard.BMCSubmit();
+	}
+
 }

@@ -44,10 +44,12 @@ public class SunbirdConstants {
     public static final String debugModeToaster = "Debug mode enabled successfully";
     public static String assertUpdateToasterMsg = "updated successfully";
     public static String ColorOfCourseConsumptionMessage = "#005A9E";
+    public static String QuestionsetcopyToastrMsg = "Question set successfully copied";
+    public static final String assertProfileUpdateToasterMsg = "Profile updated successfully...";
 
 
 
-   // Constants used to validate color scenario
+    // Constants used to validate color scenario
    public static String colorOfSignInWithGoogle = "#ffffff";
     public static String colorOfLoginWithStateSystem = "#024f9d";
     public static String colorOfSubmitDetails = "#000000";
@@ -82,6 +84,11 @@ public class SunbirdConstants {
     public static String assertSubmitDetails = "Submit details";
     public static String validateMyDetailsLabel = "My details";
     public static String assertConsentTextForPolicy = "I consent to provide my Profile Details and the additional details listed above with the administrators of my State / Institution. All administrators on DIKSHA are bound by the Privacy Policy and Administrator Guidelines in their use of my data. Privacy Policy";
+    public static String QuestionMCQTxt = "Capital of India?";
+    public static String MCQTitle = "MCQTest";
+    public static String QuestionSubjTxt = "Please write essay on computer";
+    public static String SubjectiveTitle = "SubjTest";
+    public static String cbseBoardValue="CBSE";
 
 
     // Constants used in CourseConsumption for Date validation

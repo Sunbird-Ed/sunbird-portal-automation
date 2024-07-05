@@ -397,24 +397,27 @@ String password="Test@123";
 //    }
 
 
-    @Test(description = "Verify that the timer is displayed post Join Course ")
-    public void ValidateTimerIsDisplayedForBatch() throws Exception {
+    @Test(description = "createCollectionAndVerify")
+    public void CreateCollectionAndVerify() throws Exception {
+
+        String name="raju";
+        String Name="arun";
 
         OnBoardingActions.RolePoup();
         OnBoardingActions.BMCPopup();
         OnBoardingActions.LocationPopup();
-
         LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
                 sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
         DashboardPageActions.clickUserProfileIcon();
         DashboardPageActions.assertWorkspace();
         DashboardPageActions.clickOnWorkSpace();
-        WorkspaceDashboardPageActions.clickCourse();
-        String createdContent = CoursePageActions.createCourseSection1("getdoid");
+        WorkspaceDashboardPageActions.clickCollection();
+        String createdContent = CollectionPageActions.createCollectionPopupSection1("Content Playlist","getdoid");
         BookPageActions.BMCDropdownSelectionSection2();
         BookPageActions.Section3();
         BookPageActions.assertContentIsSavedToastrMsg();
         BookPageActions.waitContentIsSavedToastToDisapper();
+        BookPageActions.addResourceFromLibrary();
         BookPageActions.addResourceFromLibrary();
         BookPageActions.submitAndSendForReview();
         DashboardPageActions.logOut();
@@ -422,30 +425,7 @@ String password="Test@123";
                 sunbird_config.getSunbidConfigPropertyValue("REVIEWER_PASSWORD"));
         DashboardPageActions.clickUserProfileIcon();
         DashboardPageActions.clickOnWorkSpace();
-        ReviewPageActions.reviewAndPublishContent(createdContent, "Course");
-        DashboardPageActions.logOut();
-        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("CREATOR_USRNAME"),
-                sunbird_config.getSunbidConfigPropertyValue("CREATOR_PASSWORD"));
-        DashboardPageActions.clickCourseTab();
-        DashboardPageActions.searchContentAndClickOnContentCard(createdContent);
-        BatchPageActions.clickBatchCreationBtn();
-        BatchPageActions.enterBatchNameandDescription();
-        BatchPageActions.clickIssueCertificateNo();
-        BatchPageActions.startDate(UtilityFunctions.getTodayDate("MM/dd/yyyy"));
-        BatchPageActions.endDate(2);
-        BatchPageActions.enrollmentEndDate(1);
-        BatchPageActions.clickTermsCheckBoxAndSubmit();
-        BatchPageActions.assertBatchTostrMsg();
-        DashboardPageActions.logOut();
+        ReviewPageActions.reviewAndPublishContent(createdContent, "Collection");
 
-        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("PUBLIC_USER"),
-                sunbird_config.getSunbidConfigPropertyValue("PUBLIC_PASSWORD"));
-        DashboardPageActions.clickCourseTab();
-        DashboardPageActions.searchContentAndClickOnContentCard(createdContent);
-        BatchPageActions.clickJoinCourse();
-        BatchPageActions.validateAttributesInConsentPopup();
-        BatchPageActions.clickTermsCheckInConsentPopup();
-        BatchPageActions.clickShareBtn();
-        BatchPageActions.assertBatchEndTimeStamp();
     }
 }

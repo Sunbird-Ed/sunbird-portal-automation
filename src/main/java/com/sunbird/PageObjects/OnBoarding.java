@@ -371,6 +371,13 @@ UtilityFunctions.waitForElementUsingForLoopAndAssert(ckBoard.get(i),5);
 
     }
 
+    public void updateBoardValueSelect(String frameworkName) throws InterruptedException {
 
+        String boardXpath = SunbirdConstants.XPATH_CONTAINS + frameworkName + SunbirdConstants.XPATH_CONAINSCLOSEBRACKET;
+
+        UtilityFunctions.findElementAndClick(boardXpath);
+        Listeners.addLogs("Selected Board " + frameworkName);
+
+    }
 
 }

@@ -219,4 +219,38 @@ public class Profile {
         ProfilePageActions.assertCompletedStatusAndValidateColor();
 
     }
+    @Test(description = "User able to validate location and BMC details in profile and validate updated BMC details")
+    public void validateBMCAndLocationDetailsAndUpdateInProfileOfLoggedInUser() throws Exception {
+        OnBoardingActions.RolePoup();
+        OnBoardingActions.BMCPopup();
+        OnBoardingActions.LocationPopup();
+
+        LoginPageActions.Login(sunbird_config.getSunbidConfigPropertyValue("Profile_New_User"),
+                sunbird_config.getSunbidConfigPropertyValue("Profile_New_PWD"));
+        DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.clickOnProfileOptionForLoginUser();
+        ProfilePageActions.assertDistrictAndStateWithEditBtn();
+        UtilityFunctions.scrollDownUsingPixelValue();
+        ProfilePageActions.assertBMCWithEditBtnForLoggedInUser();
+        ProfilePageActions.updateBMGInGuestUser();
+        ProfilePageActions.assertProfileUpdateToasterMsg();
+    }
+
+
+
+    @Test(description = "Guest User able to validate location and BMC details in profile and validate updated BMC details")
+    public void validateBMCAndLocationDetailsInProfileOfGuestUser() throws Exception {
+        OnBoardingActions.RolePoup();
+        OnBoardingActions.BMCPopup();
+        OnBoardingActions.LocationPopup();
+        OnBoardingActions.waitContentIsSavedToastToDisapper();
+        DashboardPageActions.clickUserProfileIcon();
+        DashboardPageActions.clickOnProfileOption();
+        ProfilePageActions.assertDistrictAndStateWithEditBtn();
+        ProfilePageActions.assertBMCWithEditBtn();
+        ProfilePageActions.updateBMGInGuestUser();
+        OnBoardingActions.waitContentIsSavedToastToDisapper();
+
+    }
+
 }

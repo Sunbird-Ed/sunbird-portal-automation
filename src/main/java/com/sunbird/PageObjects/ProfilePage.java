@@ -38,6 +38,9 @@ public class ProfilePage {
 	@FindBy(how = How.XPATH, using = "//span[contains(text(),'Medium')]//following::span[1]//following::button[1]")
 	private WebElement assertEditBtnForBMC;
 
+	@FindBy(how = How.XPATH, using = "(//div[contains(@id,'mat-select')])[2]")
+	private WebElement getValueOfBoard;
+
 	@FindBy(how = How.XPATH, using = "//span[contains(text(),'Role')]//following::span[2]")
 	private WebElement clickRoleDropdown;
 
@@ -114,6 +117,8 @@ public class ProfilePage {
 	@FindBy(how = How.XPATH, using = "//div[contains(text(),'Completed')]")
 	private WebElement completedStatus;
 
+	@FindBy(how = How.XPATH, using = "//strong[contains(text(),'Profile updated successfully...')]")
+	private WebElement assertProfileUpdateToasterMsg;
 
 	public void verifyGuestName() {
 		UtilityFunctions.waitForElementIsVisible(assertGuestName);
@@ -342,6 +347,34 @@ public class ProfilePage {
 		UtilityFunctions.validatIsElementPresent(completedStatus, "Completed status in My Learning Section is not displayed");
 		Listeners.addLogs("Completed status in My Learning Section is displayed");
 		String getActualText = UtilityFunctions.getColorValue(completedStatus);
+		return getActualText;
+	}
+	public String assertProfileUpdateToasterMsg() {
+		UtilityFunctions.waitForElementIsVisible(assertProfileUpdateToasterMsg);
+		String getActualText = UtilityFunctions.getTextFromElement(assertProfileUpdateToasterMsg);
+		return getActualText;
+
+	}
+	public void verifyBMCDetailsWithEditBtnForLoggedInUser() {
+		UtilityFunctions.waitForElementIsVisible(assertBoard);
+		UtilityFunctions.validatIsElementPresent(assertBoard, "assertBoard not displayed");
+		Listeners.addLogs("assertBoard is displayed ");
+		UtilityFunctions.validatIsElementPresent(assertMedium, "assertMedium not displayed");
+		Listeners.addLogs("assertMedium is displayed ");
+		UtilityFunctions.validatIsElementPresent(assertClass, "assertClass not displayed");
+		Listeners.addLogs("assertClass is displayed ");
+		UtilityFunctions.validatIsElementPresent(assertEditBtnForBMC, "assertEditBtnForBMC not displayed");
+		Listeners.addLogs("assertEditBtnForBMC is displayed ");
+	}
+
+	public void clickOnBMGEditBtn() {
+		UtilityFunctions.waitForElementAndClickable(assertEditBtnForBMC);
+		Listeners.addLogs("Clicked on Edit button of BMG in Profile page");
+
+	}
+	public String getValueOfBoard() {
+		UtilityFunctions.waitForElementIsVisible(getValueOfBoard);
+		String getActualText = UtilityFunctions.getTextFromElement(getValueOfBoard);
 		return getActualText;
 	}
 }

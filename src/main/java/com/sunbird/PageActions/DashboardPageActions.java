@@ -164,7 +164,10 @@ dashboardPage.homeTab();
 
     }
 
-
+    public static void clickOnProfileOptionForLoginUser() throws InterruptedException {
+        DashboardPage dashboardPage = PageFactory.initElements(driver, DashboardPage.class);
+        dashboardPage.profileOptionForLoginUser();
+    }
 
 
 

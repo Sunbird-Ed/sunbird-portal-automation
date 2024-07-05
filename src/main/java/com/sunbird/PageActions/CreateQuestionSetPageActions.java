@@ -327,79 +327,93 @@ public class CreateQuestionSetPageActions extends BaseTestConfig {
 		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
 		createQuestSetPage.clickOnResetButton();
 	}
+
 	public static String selectFirstQuestionFromAddFromlibarary() throws InterruptedException {
 		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
 		createQuestSetPage.selectQuestionFromList();
-		String questionname=createQuestSetPage.getQuestionName();
+		String questionname = createQuestSetPage.getQuestionName();
 		return questionname;
 	}
+
 	public static void addQuestionButton() {
 		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
 		createQuestSetPage.addQuestionInLibrary();
 	}
+
 	public static void assertAddedQuestionNameWebElementAsString(String expectedQuesName) throws InterruptedException {
 		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
 		createQuestSetPage.clickOnSection();
-		String expectedXpath=createQuestSetPage.fetchQuestionNameXpath(expectedQuesName);
+		String expectedXpath = createQuestSetPage.fetchQuestionNameXpath(expectedQuesName);
 		UtilityFunctions.assertWebElementAsString(expectedXpath);
 	}
+
 	public static void getAndAssertQuestionName(String expectedQuesName) {
 		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
-		String actualQuestionNam=createQuestSetPage.assertCreatedQuestionsetname();
-		UtilityFunctions.stringValueComparision(actualQuestionNam,expectedQuesName, "Failed to validate questionset name");
+		String actualQuestionNam = createQuestSetPage.assertCreatedQuestionsetname();
+		UtilityFunctions.stringValueComparision(actualQuestionNam, expectedQuesName, "Failed to validate questionset name");
 
 	}
+
 	public static void selectGridLayout() {
 		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
 		createQuestSetPage.selectGridLayout();
 
 	}
+
 	public static void clickOnAddOption(int n) {
 		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
 		for (int i = 0; i < n; i++) {
 			createQuestSetPage.clickOnAddOption();
 		}
 	}
+
 	public static void optionParagraph3() {
 		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
 		String randomParagraph = UtilityFunctions.generateRandomName("automationCreateQuestionSetOption2Paragaraph3");
 		createQuestSetPage.optionsParagraph3(randomParagraph);
 
 	}
+
 	public static void optionParagraph4() {
 		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
 		String randomParagraph = UtilityFunctions.generateRandomName("automationCreateQuestionSetOption2Paragaraph4");
 		createQuestSetPage.optionsParagraph4(randomParagraph);
 
 	}
+
 	public static void assertGridLayout() {
 		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
 		createQuestSetPage.assertGridlayout();
 	}
+
 	public static void clickOnEditButton() {
 		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
 		createQuestSetPage.clickOnEditButton();
 
 	}
+
 	public static void selectVerticalLayout() {
 		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
 		createQuestSetPage.selectVerticalLayout();
 
 	}
+
 	public static void assertVerticalLayout() throws InterruptedException {
 		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
-		String actualAttributeValue=createQuestSetPage.getVerticalClassValue();
+		String actualAttributeValue = createQuestSetPage.getVerticalClassValue();
 		UtilityFunctions.stringValueComparision(actualAttributeValue, SunbirdConstants.verticalLayoutattribute, "VerticalLayout failed to display");
 		Listeners.addLogs("vertical layout is displayed");
 	}
+
 	public static void selectHorizontalLayout() {
 		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
 		createQuestSetPage.selectHorizontalLayout();
 
 	}
+
 	public static void assertHorizontalLayout() throws InterruptedException {
 		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
-		String actualAttributeValue=createQuestSetPage.getHorizontalClassValue();
+		String actualAttributeValue = createQuestSetPage.getHorizontalClassValue();
 		UtilityFunctions.stringValueComparision(actualAttributeValue, SunbirdConstants.horizontalLayoutattribute, "horizontal Layout failed to display");
 		Listeners.addLogs("Horizontal layout is displayed");
 	}
@@ -408,28 +422,174 @@ public class CreateQuestionSetPageActions extends BaseTestConfig {
 		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
 		createQuestSetPage.enableFeebackOption();
 	}
+
 	public static void enableSolutionOption() {
 		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
 		createQuestSetPage.enableSolutionOption();
 
 	}
+
 	public static void solutionParagraph() {
 		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
 		String randomParagraph = UtilityFunctions.generateRandomName("automationCreateQuestionSetQuesParagaraph");
 		createQuestSetPage.solutionParagraph(randomParagraph);
 
 	}
+
 	public static void selectWrongAnswer() {
 		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
 		createQuestSetPage.selectWrongAnswer();
 
 	}
+
 	public static void assertFeedbackPopUp() {
 		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
 		createQuestSetPage.assertFeedbackPopup();
 	}
+
 	public static void assertSolutionButton() {
 		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
 		createQuestSetPage.assertSolutionButton();
+	}
+
+	public static void selectBoldFontOption1() {
+		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
+		createQuestSetPage.selectBoldFont2();
+		String randomParagraph = UtilityFunctions.generateRandomName("automationCreateQuestionSetOption1Paragaraph1");
+		createQuestSetPage.optionsParagraph1(randomParagraph);
+
+	}
+
+	public static String selectBoldFontQuestion() {
+		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
+		createQuestSetPage.selectBoldFontQuestion();
+		String randomParagraph = UtilityFunctions.generateRandomName("automationCreateQuestionSetQuesParagaraph");
+		createQuestSetPage.questionParagraph(randomParagraph);
+		return randomParagraph;
+
+	}
+
+	public static void selectBoldFontOption2() {
+		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
+		createQuestSetPage.selectBoldFont3();
+		String randomParagraph = UtilityFunctions.generateRandomName("automationCreateQuestionSetOption2Paragaraph2");
+		createQuestSetPage.optionsParagraph2(randomParagraph);
+
+	}
+
+	public static void assertMCQBoldText(String expected) {
+		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
+		String actualMsg = createQuestSetPage.getBoldTextMCQFromPreviewPage();
+		UtilityFunctions.stringValueComparision(actualMsg, expected, "Bold text is not matching");
+
+	}
+
+	public static void selectSection() {
+		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
+		createQuestSetPage.selectSection();
+
+	}
+	public static void selectBoldFontAnswer() {
+		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
+		createQuestSetPage.selectBoldAnswer();
+		String randomParagraph = UtilityFunctions.generateRandomName("automationCreateQuestionSetOption1Paragaraph1");
+		createQuestSetPage.optionsParagraph1(randomParagraph);
+
+	}
+	public static void assertMCQSubjectiveText(String expected) {
+		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
+		String actualMsg=createQuestSetPage.getBoldTextSubjectiveFromPreviewPage();
+		UtilityFunctions.stringValueComparision(actualMsg,expected, "Bold text is not matching");
+
+	}
+	public static void clickCorrectAnswers2() {
+		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
+		createQuestSetPage.chooseCorrectAnswer2();
+
+	}
+	public static void selectMultipleOption1() {
+		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
+		createQuestSetPage.selectCorrectOption1();
+
+	}
+	public static void selectMultipleOption2() {
+		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
+		createQuestSetPage.selectCorrectOption2();
+	}
+	public static void assertOptionIsDisabled() {
+		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
+		createQuestSetPage.selectCorrectOption3();
+
+	}
+	public static String questMCQParagraph() {
+		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
+		String randomString = UtilityFunctions.getRandomString(4);
+		String QuestionTxt =SunbirdConstants.QuestionMCQTxt.concat(randomString);
+		createQuestSetPage.questionParagraph(QuestionTxt);
+		return QuestionTxt;
+	}
+	public static void questionMCQTitle() {
+		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
+		String randomString = UtilityFunctions.getRandomString(4);
+		String QuestionTxt =SunbirdConstants.MCQTitle.concat(randomString);
+		createQuestSetPage.enterQuestionDetailsTitleName(QuestionTxt);
+	}
+	public static String questSubjParagraph() {
+		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
+		String randomString = UtilityFunctions.getRandomString(4);
+		String QuestionTxt =SunbirdConstants.QuestionSubjTxt.concat(randomString);
+		createQuestSetPage.questionParagraph(QuestionTxt);
+		return QuestionTxt;
+	}
+	public static void questionSubjectiveTitle() {
+		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
+		String randomString = UtilityFunctions.getRandomString(4);
+		String QuestionTxt =SunbirdConstants.SubjectiveTitle.concat(randomString);
+		createQuestSetPage.enterQuestionDetailsTitleName(QuestionTxt);
+
+	}
+	public static void assertFirstQuestionName(String expected) throws InterruptedException {
+		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
+		String actual= createQuestSetPage.getQuestionname();
+		UtilityFunctions.stringValueComparision(actual, expected, "Question name is not matching");
+		Listeners.addLogs("Question Name is matching");
+	}
+	public static void assertShuffleQuestion(String FetchQuestionName) throws InterruptedException {
+		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
+		UtilityFunctions.assertWebElementAsString(FetchQuestionName);
+		Listeners.addLogs("Questions are shuffled successfully");
+
+	}
+	public static void selectOption() {
+		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
+		createQuestSetPage.selectOption();
+	}
+	public static void assertAnswerIcon() {
+		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
+		createQuestSetPage.assertAnswerIcon();
+	}
+	public static void clickOnSection() {
+		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
+		createQuestSetPage.clickOnSection();
+	}
+	public static void assertMaxQuestionInPreview(String expected) {
+		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
+		String actual= createQuestSetPage.maxQuestionInPreview();
+		UtilityFunctions.stringValueComparision(actual, expected, "Max question is not matching");
+		Listeners.addLogs("Max question is matching");
+
+	}
+	public static void clickOnPreviewCloseIcon() {
+		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
+		createQuestSetPage.closeIcon();
+
+	}
+	public static void assertMCQPlayInLandscapeModeByDefault() {
+		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
+		createQuestSetPage.assertQuestionPlayInLandscapeModeByDefault();
+	}
+	public static void assertSubjectivePlayInLandscapeModeByDefault() {
+		CreateQuestionSetPage createQuestSetPage = PageFactory.initElements(driver, CreateQuestionSetPage.class);
+		createQuestSetPage.assertQuestionPlayInLandscapeModeByDefault();
 	}
 }

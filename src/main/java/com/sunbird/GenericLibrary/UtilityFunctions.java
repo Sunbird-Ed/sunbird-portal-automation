@@ -14,6 +14,7 @@ import java.util.Properties;
 
 import com.github.javafaker.Faker;
 import com.sunbird.PageObjects.OnBoarding;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.Color;
@@ -311,7 +312,12 @@ public class UtilityFunctions extends BaseTestConfig {
         String finalXpath = "//*[@" + attributeName + "='" + keynameValue + "']";
         return finalXpath;
     }
-
+    public static String getRandomString(int num) {
+        return RandomStringUtils.randomAlphabetic(num).toLowerCase();
+    }
+    public static void clearPlaceHolderTxt(WebElement element) {
+        element.clear();
+    }
     // Switch the frame using iframe name
     public static void switchFrameUsingName() throws InterruptedException {
 

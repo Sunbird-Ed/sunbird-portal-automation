@@ -1,8 +1,11 @@
 package com.sunbird.PageActions;
 
 import com.sunbird.GenericLibrary.BaseTestConfig;
+import com.sunbird.GenericLibrary.Listeners;
+import com.sunbird.GenericLibrary.SunbirdConstants;
 import com.sunbird.GenericLibrary.UtilityFunctions;
 import com.sunbird.PageObjects.BookPage;
+import com.sunbird.PageObjects.CreateQuestionSetPage;
 import com.sunbird.PageObjects.QuestionSetPage;
 import com.sunbird.PageObjects.ResourcePage;
 import org.apache.poi.ss.formula.functions.T;
@@ -254,22 +257,27 @@ questionSetPage.enterThirdPairAnswer("Black");
 		QuestionSetPage questionSetPage = PageFactory.initElements(driver, QuestionSetPage.class);
 		questionSetPage.nextButtonPreview();
 	}
-//	public static void sd() throws Exception
-//	{
-//		QuestionSetPageActions.selectMTF();
-//		QuestionSetPageActions.switchToRichFrameEditor();
-//		String mcq=QuestionSetPageActions.enterQuestionInsideTextBox();
-//		UtilityFunctions.switchToDefaultContentFrame();
-//		QuestionSetPageActions.switchToParentFrame();
-//		QuestionSetPageActions.enterAllQuestionAndAnswerForMTF();
-//		UtilityFunctions.switchToDefaultContentFrame();
-//		QuestionSetPageActions.switchToParentFrame();
-//		QuestionSetPageActions.clickRefreshIcon();
-//		UtilityFunctions.switchToDefaultContentFrame();
-//		QuestionSetPageActions.switchToParentFrame();
-//		QuestionSetPageActions.clickNextBtnInQuestionPage();
-//		QuestionSetPageActions.selectBMCInQuestionCreationPage();
-//		QuestionSetPageActions.selectEasyLevelInQuestionCreationPage();
-//		QuestionSetPageActions.saveAndCreateButton();
-//	}
+	public static void clickCopyButton() {
+		QuestionSetPage questionSetPage = PageFactory.initElements(driver, QuestionSetPage.class);
+		questionSetPage.clickOnCopyButton();
+
+	}
+	public static void assertQuestionsetCopyToastrMsg() {
+		QuestionSetPage questionSetPage = PageFactory.initElements(driver, QuestionSetPage.class);
+		String actualMsg = questionSetPage.assertQuestionsetCopyToastrMsg();
+		UtilityFunctions.stringValueComparision(actualMsg, SunbirdConstants.QuestionsetcopyToastrMsg, "Failed to copy the Questionset");
+
+	}
+	public static String selectMaxQuestion() {
+		QuestionSetPage questionSetPage = PageFactory.initElements(driver, QuestionSetPage.class);
+		String fetchMaxQuestionSelected=questionSetPage.selectMaxQuestion();
+		System.out.println(fetchMaxQuestionSelected);
+		int maxQuestionCount=UtilityFunctions.extractNumberFromString(fetchMaxQuestionSelected);
+		return fetchMaxQuestionSelected;
+	}
+	public static void assertProgressBariIcon() {
+		QuestionSetPage questionSetPage = PageFactory.initElements(driver, QuestionSetPage.class);
+		questionSetPage.assertProgressBariIcon();
+	}
+
 }

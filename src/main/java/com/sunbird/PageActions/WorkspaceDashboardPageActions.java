@@ -188,5 +188,18 @@ public class WorkspaceDashboardPageActions extends BaseTestConfig {
         UploadPage uploadPage =PageFactory.initElements(driver, UploadPage.class);
         uploadPage.assertUploadContent();
     }
+
+    public static void assertAndClickCollaborations() throws InterruptedException {
+        WorkspaceDashboardPage workspacedashboardPage=PageFactory.initElements(driver, WorkspaceDashboardPage.class);
+        workspacedashboardPage.assertAndClickCollaborations();
+
+    }
+    public static void clickEditOptionInCollaborators() {
+        WorkspaceDashboardPage workspacedashboardPage=PageFactory.initElements(driver, WorkspaceDashboardPage.class);
+        workspacedashboardPage.clickEditOptionAsCollaborator();
+
+
+    }
+
 }
 	
