@@ -86,5 +86,93 @@ System variables section
 
  ![image](https://github.com/Sunbird-Ed/sunbird-portal-automation/assets/43565430/a8fa5553-e4ad-4308-a299-6ff7e66cfda9)
 
+    • Please enter the correct folderlocation thatyou have in your machine
+    
+    • Click on the OK button. You will seethat JAVA_HOME
+
+      • variablehasnow been added in System Variables.
+      
+* If you already have JAVA_HOME previously set, then you can click on Edit button to modify its value.***
 
 
+            * Setup Path Variable
+
+Path variable refers to the location of the bin folder inside the JDK folder.
+
+*Openyourlatest JDKfolderandcheckthat it has bin folder in it
+
+*Nowopenthisbinfolderandcopythe entire folder location. For us, this folder location is – C:\Program Files\Java\jdk-17\bin
+
+* Since the JDKfolder location is already represented by the JAVA_HOME variable, we can replace the location of JDK folder with JAVA_HOME like this – %JAVA_HOME%\bin
+
+* In the Environment variables window, check that there is a variable called Pathunder System variables. Please note that Path is an existing variable, and we would edit it to add the bin folder location
+
+* Select the Path variable and click on the Edit button. The edit environment variable window would be opened
+
+* Click on the New button. A new line is highlighted in the window. Add JDK bin path %JAVA_HOME%\bin as shown in the below image
+
+![image](https://github.com/Sunbird-Ed/sunbird-portal-automation/assets/43565430/da875e7b-8a88-4161-9ff3-b95cf1af9f98)
+
+
+* Click on the OK button. bin folder location is now added in the Path variable
+
+* Close the Environment variable window by clicking on the Ok button. With this, we have now successfully setup Path variableas well
+
+       * Verify that JAVA_HOME and Path variables are set correctly:
+
+  * After you have added JAVA_HOME and Path variables, it’s time to check if the variables are set correctly. Follow the steps given below to check this
+    
+  * Open command prompt
+
+   * Run the command javac -version.
+     
+   * This should show the javac version number.
+ 
+   * Verify that this version number is same as the latest JDKversion (from JDKfoldername). You can also run the command where javac. This command should show the JDK bin folder location. This should be the same folder location that you had set in the Path variable
+
+![image](https://github.com/Sunbird-Ed/sunbird-portal-automation/assets/43565430/33086f2d-d079-4998-adba-327b9179c7ac)
+
+            Eclipse IDE – Download and Install: Download
+             Perform the steps given below to download the latest version of Eclipse
+
+                * IDE
+  
+    • Openthislink – https://www.eclipse.org/downloads/packages/
+    
+    • This link is the latest Eclipse IDEversionsfordifferentprogramming languages. We are interested in Eclipse IDE for Enterprise Java and Web Developers
+
+    ![image](https://github.com/Sunbird-Ed/sunbird-portal-automation/assets/43565430/19fff42b-cf12-4f7b-a00d-aecd45d3c4e9)
+
+* Click on the x86_64 link on Windows to download Eclipse
+  
+* Once you click on the link, you will be navigated to the download page as shown below. Click on the Download button to start the Download process.
+
+* ![image](https://github.com/Sunbird-Ed/sunbird-portal-automation/assets/43565430/a3c3deb5-a317-4727-9318-7c6a72186bd3)
+
+Eclipse IDE would start downloading.
+
+With this, we complete the process of downloading Eclipse IDEfor Java.
+
+             Let’s now look at how to set it up
+              Install/Setup Eclipse IDE       
+              
+Unlike a lot of software tools, Eclipse doesn’t need to be installed. Once you unzip it, you can start using it directly. Let us see how this is done 
+
+    • Go to the folder where you had downloaded Eclipseandlocate
+the Eclipse zip file
+
+![image](https://github.com/Sunbird-Ed/sunbird-portal-automation/assets/43565430/f66c3ec1-f3a9-48b5-bd02-7d2c56259a76)
+
+* Right-click on the Zip file and unzip it
+  
+* After unzippingthe zip file, you will get the eclipse folder. Open this eclipse folder, it will have content similar to what is shown in the below image
+
+* Double-click on the eclipse.exe file to open the IDE. Once it starts, it will ask you to select a workspace directory.
+
+* In Eclipse, the workspace is the directory where all your projects would be saved.
+
+* Leave the default folder path as it is and click on the Launch button. Eclipse would open the IDE and you would see the Welcome tab as shown below
+* 
+* ![image](https://github.com/Sunbird-Ed/sunbird-portal-automation/assets/43565430/54a2ae29-f98b-4862-a128-f638d07ccd0a)
+
+              
