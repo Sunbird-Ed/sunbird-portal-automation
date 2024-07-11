@@ -293,6 +293,32 @@ Click on 'Browse' option
 
 * The application should get launched successfully.
 
-                  THE END
 
-   !!! !  THANK YOU   !!!!!!
+
+
+         ******  Key Observations ***********
+  
+ * To change the Execution Environment follow below steps
+  
+         * Go to SunbirdConfig.properties 
+         * Enable Environment variable to OCI,Prod etc.
+
+   * To change the Framework value follow below steps
+
+         * Go to SunbirdStaging.properties
+         * Change framework value to any board Ex: FRAMEWORK=State (Tamil Nadu), FRAMEWORK=CBSE
+        
+  * To change the suite execution follow below steps
+          * Open TestNg.XMl in suite inventory
+          * Give packagename.className
+        Ex: <class name="sanitySuite.Sanity"/>
+        Ex: <class name="regression.CourseConsumption"/>
+
+  * To Triger the TestNG.xml follow below steps
+         * Open any TestNG.xml file
+         *  Right click and click on Run as "TestNG.xml"
+
+  * Check the Extent report after the execution in below path
+         * In Framework root directory,Open Report folder
+         * .Html file will be created 
+    
