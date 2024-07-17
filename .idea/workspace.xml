@@ -1,4 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PropertiesComponent">{}</component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a69164a5-98ae-4935-8c42-2ad7015eec96" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/SunbirdOCI.Properties" beforeDir="false" afterPath="$PROJECT_DIR$/Config/SunbirdOCI.Properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/SunbirdStaging.Properties" beforeDir="false" afterPath="$PROJECT_DIR$/Config/SunbirdStaging.Properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuiteInventory/CreationFlow.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuiteInventory/SanitySuite.xml" beforeDir="false" afterPath="$PROJECT_DIR$/SuiteInventory/SanitySuite.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SuiteInventory/Suite.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/sanitySuite/SanitySuite3.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/sanitySuite/SanitySuite5.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/sanitySuite/SanitySuites.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/sanitySuite/SanitySuites2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/sanitySuite/SanitySuites4.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2jHwCRnaL03rJg9X9yaa1NZfWdE" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;TestNG./home/qualitrix/Documents/Master6.0July15/SuiteInventory/SanitySuite.xml.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/qualitrix/Documents/Master6.0July15&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="Master6.0July15" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="Master6.0July15" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="/home/qualitrix/Documents/Master6.0July15/SuiteInventory/SanitySuite.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="SunbirdPortal" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/SuiteInventory/SanitySuite.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="TestNG./home/qualitrix/Documents/Master6.0July15/SuiteInventory/SanitySuite.xml" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a69164a5-98ae-4935-8c42-2ad7015eec96" name="Changes" comment="" />
+      <created>1721057183009</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1721057183009</updated>
+    </task>
+    <servers />
+  </component>
 </project>

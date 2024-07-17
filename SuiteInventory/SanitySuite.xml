@@ -10,12 +10,14 @@
 	<classes>
 
 
-		<class name="sanitySuite.SanitySuites"/>
-		<class name="sanitySuite.SanitySuites2"/>
-		<class name="sanitySuite.SanitySuite3"/>
-		<class name="sanitySuite.SanitySuites4"/>
-		<class name="sanitySuite.SanitySuite5"/>
+		<class name="sanitySuite.SanitySuite"/>
 
+		<class name="regression.CourseConsumption"/>
+		<class name="regression.ContentConsumption"/>
+		<class name="regression.Workspace"/>
+		<class name="regression.Login"/>
+		<class name="regression.Profile"/>
+		<class name="regression.Quml"/>
 
 	</classes>
 </test> <!-- Test -->
